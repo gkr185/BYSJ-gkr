@@ -77,7 +77,7 @@ springdoc:
     tags-sorter: alpha
     operations-sorter: method
   show-actuator: true
-  packages-to-scan: com.edu.bcu.controller
+  packages-to-scan: com.bcu.edu.controller
   default-produces-media-type: application/json
   default-consumes-media-type: application/json
     
