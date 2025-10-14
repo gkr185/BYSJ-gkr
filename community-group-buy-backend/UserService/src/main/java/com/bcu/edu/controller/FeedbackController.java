@@ -1,5 +1,6 @@
 package com.bcu.edu.controller;
 
+import com.bcu.edu.common.annotation.OperationLog;
 import com.bcu.edu.common.result.PageResult;
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.request.FeedbackReplyRequest;
@@ -58,6 +59,7 @@ public class FeedbackController {
     }
 
     @Operation(summary = "管理员回复反馈", description = "管理员处理并回复用户反馈")
+    @OperationLog(value = "回复用户反馈", module = "反馈管理")
     @PostMapping("/reply")
     public Result<FeedbackResponse> replyFeedback(
             @Valid @RequestBody FeedbackReplyRequest request) {
@@ -82,6 +84,7 @@ public class FeedbackController {
     }
 
     @Operation(summary = "删除反馈", description = "删除指定的反馈记录")
+    @OperationLog(value = "删除用户反馈", module = "反馈管理")
     @DeleteMapping("/delete/{feedbackId}")
     public Result<Void> deleteFeedback(
             @Parameter(description = "反馈ID") @PathVariable Long feedbackId) {

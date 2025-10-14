@@ -1,0 +1,425 @@
+[2025-10-14 23:32:59.065] [DEBUG] [UserService] [main] [com.bcu.edu.UserServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-10-14 23:33:01.601] [DEBUG] [UserService] [main] [com.bcu.edu.config.JwtAuthenticationFilter:240] - Filter 'jwtFilter' configured for use
+[2025-10-14 23:35:48.604] [DEBUG] [UserService] [main] [com.bcu.edu.UserServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-10-14 23:35:50.856] [DEBUG] [UserService] [main] [com.bcu.edu.config.JwtAuthenticationFilter:240] - Filter 'jwtFilter' configured for use
+[2025-10-14 23:39:16.995] [DEBUG] [UserService] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:39:17.109] [DEBUG] [UserService] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:39:22.921] [DEBUG] [UserService] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:39:22.933] [DEBUG] [UserService] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        uf1_0.feedback_id,
+        uf1_0.content,
+        uf1_0.create_time,
+        uf1_0.images,
+        uf1_0.reply,
+        uf1_0.reply_time,
+        uf1_0.status,
+        uf1_0.type,
+        uf1_0.update_time,
+        uf1_0.user_id 
+    from
+        user_feedback uf1_0 
+    order by
+        uf1_0.create_time desc 
+    limit
+        ?, ?
+[2025-10-14 23:39:26.084] [DEBUG] [UserService] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:39:26.089] [DEBUG] [UserService] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:40:20.698] [DEBUG] [UserService] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:40:20.753] [DEBUG] [UserService] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id 
+    from
+        sys_user su1_0 
+    where
+        su1_0.username=? 
+    limit
+        ?
+[2025-10-14 23:40:20.756] [DEBUG] [UserService] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id 
+    from
+        sys_user su1_0 
+    where
+        su1_0.phone=? 
+    limit
+        ?
+[2025-10-14 23:40:21.020] [DEBUG] [UserService] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_user
+        (avatar, create_time, password, phone, real_name, role, status, update_time, username, wx_openid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-10-14 23:40:21.035] [DEBUG] [UserService] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        user_account
+        (balance, freeze_amount, update_time, user_id) 
+    values
+        (?, ?, ?, ?)
+[2025-10-14 23:40:21.057] [DEBUG] [UserService] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-10-14 23:40:21.102] [DEBUG] [UserService] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:40:21.105] [DEBUG] [UserService] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:47:49.807] [DEBUG] [UserService] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:47:49.810] [DEBUG] [UserService] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        uf1_0.feedback_id,
+        uf1_0.content,
+        uf1_0.create_time,
+        uf1_0.images,
+        uf1_0.reply,
+        uf1_0.reply_time,
+        uf1_0.status,
+        uf1_0.type,
+        uf1_0.update_time,
+        uf1_0.user_id 
+    from
+        user_feedback uf1_0 
+    order by
+        uf1_0.create_time desc 
+    limit
+        ?, ?
+[2025-10-14 23:48:22.132] [DEBUG] [UserService] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:22.136] [DEBUG] [UserService] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:48:27.207] [DEBUG] [UserService] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:27.217] [DEBUG] [UserService] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-10-14 23:48:27.228] [DEBUG] [UserService] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    update
+        sys_user 
+    set
+        avatar=?,
+        password=?,
+        phone=?,
+        real_name=?,
+        role=?,
+        status=?,
+        update_time=?,
+        username=?,
+        wx_openid=? 
+    where
+        user_id=?
+[2025-10-14 23:48:27.243] [DEBUG] [UserService] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-10-14 23:48:27.260] [DEBUG] [UserService] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:27.264] [DEBUG] [UserService] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:48:39.749] [DEBUG] [UserService] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:39.753] [DEBUG] [UserService] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:48:49.536] [DEBUG] [UserService] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:49.540] [DEBUG] [UserService] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:48:59.063] [DEBUG] [UserService] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:59.065] [DEBUG] [UserService] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-10-14 23:48:59.067] [DEBUG] [UserService] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    update
+        sys_user 
+    set
+        avatar=?,
+        password=?,
+        phone=?,
+        real_name=?,
+        role=?,
+        status=?,
+        update_time=?,
+        username=?,
+        wx_openid=? 
+    where
+        user_id=?
+[2025-10-14 23:48:59.074] [DEBUG] [UserService] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-10-14 23:48:59.089] [DEBUG] [UserService] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:48:59.092] [DEBUG] [UserService] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-10-14 23:49:18.281] [DEBUG] [UserService] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:49:18.281] [DEBUG] [UserService] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:49:18.284] [DEBUG] [UserService] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        distinct sol1_0.module 
+    from
+        sys_operation_log sol1_0 
+    order by
+        sol1_0.module
+[2025-10-14 23:49:18.285] [DEBUG] [UserService] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        sol1_0.log_id,
+        sol1_0.create_time,
+        sol1_0.duration,
+        sol1_0.error_msg,
+        sol1_0.ip,
+        sol1_0.method,
+        sol1_0.module,
+        sol1_0.operation,
+        sol1_0.params,
+        sol1_0.result,
+        sol1_0.user_id,
+        sol1_0.username 
+    from
+        sys_operation_log sol1_0 
+    where
+        sol1_0.create_time>=? 
+    order by
+        sol1_0.create_time desc 
+    limit
+        ?, ?
+[2025-10-14 23:49:33.588] [DEBUG] [UserService] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:49:33.590] [DEBUG] [UserService] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sol1_0.log_id,
+        sol1_0.create_time,
+        sol1_0.duration,
+        sol1_0.error_msg,
+        sol1_0.ip,
+        sol1_0.method,
+        sol1_0.module,
+        sol1_0.operation,
+        sol1_0.params,
+        sol1_0.result,
+        sol1_0.user_id,
+        sol1_0.username 
+    from
+        sys_operation_log sol1_0 
+    where
+        sol1_0.create_time>=? 
+    order by
+        sol1_0.create_time desc
+[2025-10-14 23:50:29.543] [DEBUG] [UserService] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:50:29.543] [DEBUG] [UserService] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:50:29.550] [DEBUG] [UserService] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        distinct sol1_0.module 
+    from
+        sys_operation_log sol1_0 
+    order by
+        sol1_0.module
+[2025-10-14 23:50:29.550] [DEBUG] [UserService] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        sol1_0.log_id,
+        sol1_0.create_time,
+        sol1_0.duration,
+        sol1_0.error_msg,
+        sol1_0.ip,
+        sol1_0.method,
+        sol1_0.module,
+        sol1_0.operation,
+        sol1_0.params,
+        sol1_0.result,
+        sol1_0.user_id,
+        sol1_0.username 
+    from
+        sys_operation_log sol1_0 
+    where
+        sol1_0.create_time>=? 
+    order by
+        sol1_0.create_time desc 
+    limit
+        ?, ?
+[2025-10-14 23:50:46.446] [DEBUG] [UserService] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:50:46.446] [DEBUG] [UserService] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:50:46.449] [DEBUG] [UserService] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        distinct sol1_0.module 
+    from
+        sys_operation_log sol1_0 
+    order by
+        sol1_0.module
+[2025-10-14 23:50:46.451] [DEBUG] [UserService] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sol1_0.log_id,
+        sol1_0.create_time,
+        sol1_0.duration,
+        sol1_0.error_msg,
+        sol1_0.ip,
+        sol1_0.method,
+        sol1_0.module,
+        sol1_0.operation,
+        sol1_0.params,
+        sol1_0.result,
+        sol1_0.user_id,
+        sol1_0.username 
+    from
+        sys_operation_log sol1_0 
+    where
+        sol1_0.create_time>=? 
+    order by
+        sol1_0.create_time desc 
+    limit
+        ?, ?
+[2025-10-14 23:51:31.463] [DEBUG] [UserService] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:55] - JWT验证成功: username=1
+[2025-10-14 23:51:31.466] [DEBUG] [UserService] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sol1_0.log_id,
+        sol1_0.create_time,
+        sol1_0.duration,
+        sol1_0.error_msg,
+        sol1_0.ip,
+        sol1_0.method,
+        sol1_0.module,
+        sol1_0.operation,
+        sol1_0.params,
+        sol1_0.result,
+        sol1_0.user_id,
+        sol1_0.username 
+    from
+        sys_operation_log sol1_0 
+    where
+        sol1_0.create_time>=? 
+    order by
+        sol1_0.create_time desc

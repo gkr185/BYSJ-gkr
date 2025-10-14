@@ -1,5 +1,6 @@
 package com.bcu.edu.controller;
 
+import com.bcu.edu.common.annotation.OperationLog;
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.request.UserLoginRequest;
 import com.bcu.edu.dto.request.UserRegisterRequest;
@@ -29,12 +30,14 @@ public class UserController {
     private final UserService userService;
 
     @Operation(summary = "用户注册", description = "新用户注册，支持普通用户和团长注册")
+    @OperationLog(value = "用户注册", module = "用户管理", recordParams = false)
     @PostMapping("/register")
     public Result<UserInfoResponse> register(@Valid @RequestBody UserRegisterRequest request) {
         return Result.success(userService.register(request));
     }
 
     @Operation(summary = "用户登录", description = "用户名密码登录，返回JWT Token")
+    @OperationLog(value = "用户登录", module = "认证管理", recordParams = false)
     @PostMapping("/login")
     public Result<LoginResponse> login(@Valid @RequestBody UserLoginRequest request) {
         return Result.success(userService.login(request));
@@ -48,6 +51,7 @@ public class UserController {
     }
 
     @Operation(summary = "更新用户信息", description = "更新用户基本信息（密码、手机号、头像等）")
+    @OperationLog(value = "编辑用户", module = "用户管理")
     @PutMapping("/update/{userId}")
     public Result<UserInfoResponse> updateUserInfo(
             @Parameter(description = "用户ID") @PathVariable Long userId,
@@ -56,6 +60,7 @@ public class UserController {
     }
 
     @Operation(summary = "删除用户（禁用）", description = "逻辑删除用户，将用户状态设为禁用")
+    @OperationLog(value = "删除用户", module = "用户管理")
     @DeleteMapping("/delete/{userId}")
     public Result<Void> deleteUser(
             @Parameter(description = "用户ID") @PathVariable Long userId) {
@@ -78,6 +83,7 @@ public class UserController {
     }
 
     @Operation(summary = "更改用户角色", description = "管理员功能：更改用户角色")
+    @OperationLog(value = "修改用户角色", module = "用户管理")
     @PutMapping("/role/{userId}")
     public Result<UserInfoResponse> changeUserRole(
             @Parameter(description = "用户ID") @PathVariable Long userId,
@@ -86,6 +92,7 @@ public class UserController {
     }
 
     @Operation(summary = "更改用户状态", description = "管理员功能：启用或禁用用户")
+    @OperationLog(value = "修改用户状态", module = "用户管理")
     @PutMapping("/status/{userId}")
     public Result<UserInfoResponse> changeUserStatus(
             @Parameter(description = "用户ID") @PathVariable Long userId,
@@ -100,6 +107,7 @@ public class UserController {
     }
 
     @Operation(summary = "管理员创建用户", description = "管理员功能：手动创建新用户账号")
+    @OperationLog(value = "创建用户", module = "用户管理", recordParams = false)
     @PostMapping("/admin/create")
     public Result<UserInfoResponse> adminCreateUser(@Valid @RequestBody UserRegisterRequest request) {
         return Result.success(userService.register(request));

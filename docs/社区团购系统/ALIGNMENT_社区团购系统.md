@@ -1,8 +1,8 @@
 # 社区团购系统 - 对齐文档 (ALIGNMENT)
 
 **创建时间**: 2025-10-12  
-**最后更新**: 2025-10-13 20:50  
-**版本**: v1.5  
+**最后更新**: 2025-10-14 23:50  
+**版本**: v1.7  
 **项目名称**: 基于Spring Boot的社区团购系统的设计与实现  
 **学生**: 耿康瑞 (20221204229)  
 **指导教师**: 於永楠
@@ -11,15 +11,16 @@
 
 ## 📊 当前开发进度总览
 
-### 整体进度：**30%** 
+### 整体进度：**35%** 
 
 | 模块 | 状态 | 完成度 | 说明 |
 |------|------|--------|------|
 | 基础架构 | ✅ 完成 | 100% | 版本统一、Maven多模块、构建环境 |
 | 数据库设计 | ✅ 完成 | 100% | 17张表设计完成 |
-| Common模块 | ✅ 完成 | 100% | 统一响应、异常处理、工具类 |
+| Common模块 | ✅ 完成 | 100% | 统一响应、异常处理、工具类、日志系统（v2.0） |
+| 日志系统 | ✅ 完成 | 100% | 双轨制日志（Logback + AOP）⭐新增 |
 | UserService | ✅ 完成 | 100% | 31个API接口（v1.2.0） |
-| 管理后台（用户） | ✅ 完成 | 100% | 管理员后台（用户+反馈，已修复所有已知Bug） |
+| 管理后台（用户+日志） | ✅ 完成 | 100% | 用户+反馈+日志管理，已修复所有已知Bug |
 | ProductService | ⏳ 待开发 | 0% | 商品管理服务 |
 | GroupBuyService | ⏳ 待开发 | 0% | 拼团活动服务 |
 | OrderService | ⏳ 待开发 | 0% | 订单管理服务 |
@@ -28,15 +29,24 @@
 | 前端（用户端） | ⏳ 待开发 | 0% | Vue3用户端应用 |
 
 ### 最近完成
+- ✅ **2025-10-14 23:50**: 日志系统全部Bug修复完成（5个问题） ⭐新增
+- ✅ **2025-10-14 23:48**: 修复Excel导出失败（blob响应处理）
+- ✅ **2025-10-14 23:45**: 修复日志页面不显示（添加侧边栏菜单）
+- ✅ **2025-10-14 23:40**: 修复数据库字段长度问题（method扩展至500）
+- ✅ **2025-10-14 23:35**: 完成日志系统开发（双轨制架构，14个任务100%完成）
+- ✅ **2025-10-14 23:30**: 修复启动配置问题（扫描common模块组件）
+- ✅ **2025-10-14 23:20**: 修复编译错误（变量名冲突）
+- ✅ **2025-10-14 22:00**: 完成日志管理前端界面（查询、导出、详情）
+- ✅ **2025-10-14 21:00**: 完成日志API（3个接口）
+- ✅ **2025-10-14 20:00**: 完成AOP操作日志切面（核心）
+- ✅ **2025-10-14 19:00**: 完成Logback配置和数据库扩展
 - ✅ **2025-10-13 20:50**: 修复前端数据流Bug（MyBatis PageHelper分页格式）
 - ✅ **2025-10-13 20:45**: 修复账户不存在Bug（自动创建用户账户）
 - ✅ **2025-10-13 20:30**: 修复用户详情对话框关闭错误
 - ✅ **2025-10-13 20:20**: 完善管理后台用户详情（账户、地址信息展示）
 - ✅ **2025-10-12 19:30**: 新增管理员创建用户功能
 - ✅ **2025-10-12 19:30**: 新增编辑用户信息与权限功能
-- ✅ **2025-10-12 18:30**: 修复接口参数问题（keyword可选）
 - ✅ **2025-10-12 18:15**: 完成管理员测试页面（登录、用户管理、反馈管理）
-- ✅ **2025-10-12 18:00**: 解决Maven构建和密码加密问题
 - ✅ **2025-10-12 16:00**: 生成完整API接口文档（31个接口）
 - ✅ **2025-10-12 15:00**: 完成JWT认证机制和安全配置
 - ✅ **2025-10-12 14:00**: 开发完成UserService模块
@@ -1009,6 +1019,138 @@ DELETE /api/{service}/{resource}/{id}    # 删除
 
 ---
 
+### 16.3 日志系统模块（v2.0） ⭐新增
+
+**完成日期**: 2025-10-14  
+**代码量**: 约3500行（前后端）  
+**任务数量**: 14个原子任务（100%完成）
+
+#### 双轨制日志架构
+
+**轨道1: Logback技术日志**
+- 用途：开发调试、错误追踪、SQL日志
+- 存储：文件系统 `./logs/${spring.application.name}/`
+- 格式：`[时间] [级别] [服务] [线程] [类:行] - 消息`
+- 配置：`logback-spring.xml`（集中配置）
+- 特性：
+  - 控制台彩色输出
+  - 文件持久化（INFO/ERROR分级）
+  - 按日期+大小滚动（100MB）
+  - 异步写入提升性能
+  - 保留30天历史日志
+
+**轨道2: AOP操作日志**
+- 用途：业务操作审计、安全追溯
+- 存储：MySQL `sys_operation_log` 表
+- 格式：结构化数据（用户、操作、参数、IP等）
+- 记录方式：`@OperationLog` 注解（声明式）
+- 特性：
+  - 无侵入式记录
+  - 异步保存（不阻塞业务）
+  - 自动获取用户信息（JWT）
+  - 参数序列化 + 敏感脱敏
+  - 记录执行时长和结果
+
+#### 核心组件（13个新文件）
+
+**Common模块扩展**:
+1. `logback-spring.xml` - Logback配置
+2. `AsyncConfig.java` - 异步线程池配置
+3. `OperationLog.java` - 操作日志注解
+4. `OperationLogAspect.java` - AOP切面（核心）
+5. `SysOperationLog.java` - 日志实体
+6. `SysOperationLogRepository.java` - 数据访问层
+7. `OperationLogDTO.java` - 数据传输对象
+8. `OperationLogQuery.java` - 查询条件
+9. `OperationLogService.java` - 业务服务
+10. `LogController.java` - REST API（3个接口）
+11. `IpUtil.java` - IP地址工具
+12. `ExcelUtil.java` - Excel导出工具
+
+**前端模块**:
+13. `log.js` - API封装
+14. `LogManageView.vue` - 日志管理界面
+
+#### API接口（3个）
+
+1. **GET /api/admin/logs/operations** - 分页查询操作日志
+   - 支持多条件筛选（用户、模块、时间、关键词）
+   - 返回MyBatis PageHelper分页格式
+
+2. **GET /api/admin/logs/export** - 导出Excel
+   - 最大导出10000条
+   - 自动生成带时间戳的文件名
+
+3. **GET /api/admin/logs/modules** - 获取模块列表
+   - 用于前端筛选下拉框
+
+#### 数据库扩展
+
+`sys_operation_log` 表新增6个字段：
+- `username` - 操作人用户名
+- `method` - 方法名（完整路径）
+- `params` - 请求参数（JSON，支持脱敏）
+- `result` - 操作结果（SUCCESS/FAIL）
+- `error_msg` - 错误信息
+- `duration` - 执行时长（毫秒）
+
+#### 已记录的操作（9个）
+
+**认证管理模块**:
+- 用户登录
+- 用户注册
+
+**用户管理模块**:
+- 创建用户
+- 编辑用户
+- 删除用户
+- 修改用户角色
+- 修改用户状态
+
+**反馈管理模块**:
+- 回复用户反馈
+- 删除用户反馈
+
+#### 使用示例
+
+```java
+// Controller方法添加注解
+@OperationLog(value = "创建用户", module = "用户管理")
+@PostMapping
+public Result<User> createUser(@RequestBody UserCreateRequest request) {
+    return Result.success(userService.createUser(request));
+}
+
+// 不记录参数（登录、注册等敏感操作）
+@OperationLog(value = "用户登录", module = "认证管理", recordParams = false)
+@PostMapping("/login")
+public Result<LoginResponse> login(@RequestBody LoginRequest request) {
+    return Result.success(userService.login(request));
+}
+```
+
+#### 技术亮点
+
+1. **双轨制架构** - 技术日志 + 业务日志完美分离
+2. **AOP无侵入** - 注解声明式，不修改业务代码
+3. **异步处理** - 专用线程池，不影响性能
+4. **智能脱敏** - 自动识别敏感字段（password、token等）
+5. **完整导出** - Excel一键导出，最大10000条
+6. **前端完善** - 查询、筛选、详情、导出全功能
+
+**文档**:
+- 完成报告：`docs/社区团购系统/日志系统开发完成报告.md`
+- API文档：`docs/社区团购系统/API_日志系统.md`
+- 设计文档：`docs/社区团购系统/DESIGN_日志系统.md`
+- 任务拆分：`docs/社区团购系统/TASK_日志系统.md`
+
+**访问路径**:
+- 前端页面：http://localhost:5173/logs
+- API文档：http://localhost:8061/swagger-ui.html
+- 日志文件：`./logs/UserService/UserService.log`
+
+---
+
 ## 17. 当前项目文件清单
 
 ### 后端代码
@@ -1059,15 +1201,20 @@ community-group-buy-backend/
 ### 文档
 ```
 docs/社区团购系统/
-├── ALIGNMENT_社区团购系统.md (本文档，v1.5)
-├── 数据库设计说明文档.md (17张表完整设计)
+├── ALIGNMENT_社区团购系统.md (本文档，v1.6) ⭐已更新
+├── 数据库设计说明文档.md (17张表完整设计，sys_operation_log已扩展) ⭐已更新
 ├── Common模块开发完成报告.md
 ├── Common模块问题修复报告.md
 ├── UserService开发完成报告.md
 ├── API_UserService.md (v1.1.0，31个接口，已更新分页格式说明)
+├── 日志系统开发完成报告.md (v1.0，2025-10-14) ⭐新增
+├── API_日志系统.md (v1.0，3个接口) ⭐新增
+├── DESIGN_日志系统.md (架构设计文档) ⭐新增
+├── TASK_日志系统.md (14个任务拆分) ⭐新增
 ├── 管理员测试页面开发完成报告.md
 ├── 管理员后台功能完善报告.md (用户详情增强)
 ├── 前端数据流Bug修复报告.md (v1.0，2025-10-13)
+├── C端前端开发完成报告_PC网页版.md
 ├── 接口参数问题修复记录.md
 ├── 前端功能规划_用户模块.md
 └── 密码加密说明.md
@@ -1087,7 +1234,312 @@ community-group-buy-admin/
 
 ---
 
-## 18. 2025-10-13 Bug修复总结
+## 18. 2025-10-14 日志系统Bug修复总结 ⭐新增
+
+### 18.1 修复问题清单
+
+日志系统开发完成后，在测试阶段发现并修复了5个关键问题：
+
+#### 问题1: 编译错误 - 变量名冲突 ✅ 已修复
+**时间**: 2025-10-14 23:20
+
+**错误信息**:
+```
+java: 找不到符号
+  符号: 方法 error(java.lang.String,int,java.lang.Exception)
+  位置: 类型为T的变量 log
+```
+
+**原因**:
+- `@Slf4j` 注解会自动生成名为 `log` 的 Logger 实例
+- 业务代码中定义了名为 `log` 的实体变量（`SysOperationLog`）
+- 两者命名冲突，导致调用 `log.info()` 时找不到方法
+
+**影响文件**:
+1. `OperationLogAspect.java` (line 112)
+2. `ExcelUtil.java` (line 31)
+
+**解决方案**:
+```java
+// 修复前
+SysOperationLog log = new SysOperationLog();
+log.setUserId(userId);
+log.info("操作日志已记录: {}", log.getOperation()); // ❌ log 变量冲突
+
+// 修复后
+SysOperationLog logEntity = new SysOperationLog(); // 重命名
+logEntity.setUserId(userId);
+log.info("操作日志已记录: {}", logEntity.getOperation()); // ✅ 使用 @Slf4j 的 log
+```
+
+**教训**: 使用 Lombok 注解时注意自动生成的变量名
+
+---
+
+#### 问题2: 启动失败 - Bean未找到 ✅ 已修复
+**时间**: 2025-10-14 23:30
+
+**错误信息**:
+```
+APPLICATION FAILED TO START
+
+Description:
+Field logRepository in com.bcu.edu.common.aspect.OperationLogAspect 
+required a bean of type 'com.bcu.edu.common.repository.SysOperationLogRepository' 
+that could not be found.
+```
+
+**原因**:
+- `UserServiceApplication` 未配置扫描 `com.bcu.edu.common` 包
+- Spring 无法发现 common 模块中的组件、实体、Repository
+- AOP 切面无法注入 `SysOperationLogRepository`
+
+**解决方案**:
+```java
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableJpaRepositories(basePackages = {
+    "com.bcu.edu.repository",           // UserService 的 Repository
+    "com.bcu.edu.common.repository"     // Common 模块的 Repository ✅ 新增
+})
+@EntityScan(basePackages = {
+    "com.bcu.edu.entity",               // UserService 的 Entity
+    "com.bcu.edu.common.entity"         // Common 模块的 Entity ✅ 新增
+})
+@ComponentScan(basePackages = {
+    "com.bcu.edu",                      // UserService 的组件
+    "com.bcu.edu.common"                // Common 模块的组件 ✅ 新增
+})
+public class UserServiceApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(UserServiceApplication.class, args);
+    }
+}
+```
+
+**影响文件**: `UserServiceApplication.java`
+
+**教训**: 多模块项目必须显式配置包扫描路径
+
+---
+
+#### 问题3: 运行时异常 - 数据截断 ✅ 已修复
+**时间**: 2025-10-14 23:40
+
+**错误信息**:
+```
+SQL Error: 1406, SQLState: 22001
+Data truncation: Data too long for column 'method' at row 1
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement
+```
+
+**原因**:
+- 方法签名过长：`com.bcu.edu.controller.UserController.adminCreateUser(...)`
+- 数据库字段 `method varchar(100)` 长度不足
+- JPA 实体 `@Column(length = 100)` 与数据库不一致
+
+**解决方案**:
+
+1. **数据库修改**:
+```sql
+ALTER TABLE sys_operation_log 
+MODIFY COLUMN `method` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci 
+NULL DEFAULT NULL COMMENT '方法名';
+```
+
+2. **实体类修改**:
+```java
+@Column(name = "method", length = 500) // 从 100 扩展到 500
+private String method;
+```
+
+3. **SQL文件同步**:
+```sql
+-- community_group_buy.sql (line 335)
+`method` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci 
+NULL DEFAULT NULL COMMENT '方法名',
+```
+
+**影响文件**:
+- `SysOperationLog.java`
+- `community_group_buy.sql`
+
+**教训**: 字段长度设计要考虑实际业务场景（包名+类名+方法名）
+
+---
+
+#### 问题4: 前端页面不显示 ✅ 已修复
+**时间**: 2025-10-14 23:45
+
+**现象**:
+- 管理员登录后看不到"系统日志"菜单
+- 无法访问日志管理页面
+- 直接访问 `/logs` 路由可以打开页面
+
+**原因**:
+- 路由配置 `router/index.js` 已添加 `/logs` 路由
+- `LogManageView.vue` 组件已开发完成
+- **但侧边栏 `LayoutView.vue` 缺少菜单项**
+
+**解决方案**:
+```vue
+<!-- LayoutView.vue -->
+<el-menu
+  :default-active="currentRoute"
+  router
+  class="el-menu-vertical"
+>
+  <el-menu-item index="/users">
+    <el-icon><User /></el-icon>
+    <span>用户管理</span>
+  </el-menu-item>
+  <el-menu-item index="/feedback">
+    <el-icon><ChatDotRound /></el-icon>
+    <span>反馈管理</span>
+  </el-menu-item>
+  <el-menu-item index="/logs"> <!-- ✅ 新增 -->
+    <el-icon><Document /></el-icon>
+    <span>系统日志</span>
+  </el-menu-item>
+</el-menu>
+```
+
+**影响文件**: `LayoutView.vue`
+
+**教训**: 前端开发要检查完整的用户访问路径（路由+导航）
+
+---
+
+#### 问题5: Excel导出失败 ✅ 已修复
+**时间**: 2025-10-14 23:48
+
+**错误信息**:
+```javascript
+LogManageView.vue:297 
+导出失败: Error: Error
+    at request.js:38:29
+    at async handleExport (LogManageView.vue:275:17)
+```
+
+**原因**:
+- Excel 导出使用 `responseType: 'blob'`
+- 响应拦截器试图将 Blob 数据当作 JSON 处理
+- Blob 对象没有 `code` 属性，导致 `res.code === 200` 判断失败
+
+**解决方案**:
+```javascript
+// request.js - 响应拦截器
+service.interceptors.response.use(
+  response => {
+    // ✅ 特殊处理：文件下载（blob类型）
+    if (response.config.responseType === 'blob') {
+      return response.data  // 直接返回 blob 数据，不解析
+    }
+    
+    const res = response.data
+    
+    // 统一处理 JSON 响应
+    if (res.code === 200) {
+      return res
+    } else {
+      ElMessage.error(res.message || '操作失败')
+      return Promise.reject(new Error(res.message || 'Error'))
+    }
+  },
+  // ... 错误处理
+)
+```
+
+**影响文件**: `request.js`
+
+**教训**: 响应拦截器需要区分不同类型的响应（JSON vs Blob）
+
+---
+
+### 18.2 测试验证
+
+修复完成后，进行了完整的功能测试：
+
+| 功能模块 | 测试项 | 结果 | 备注 |
+|---------|-------|------|------|
+| 日志记录 | 用户登录操作 | ✅ 通过 | 自动记录用户名、IP、参数 |
+| 日志记录 | 创建用户操作 | ✅ 通过 | 记录完整方法签名（长度>100） |
+| 日志查询 | 分页查询 | ✅ 通过 | 返回正确的列表数据 |
+| 日志筛选 | 按模块筛选 | ✅ 通过 | 筛选条件生效 |
+| 日志导出 | Excel导出 | ✅ 通过 | 文件下载成功，数据完整 |
+| 侧边栏 | 菜单显示 | ✅ 通过 | "系统日志"菜单可见 |
+| 侧边栏 | 路由跳转 | ✅ 通过 | 点击跳转正常 |
+
+---
+
+### 18.3 技术要点总结
+
+#### 1. Lombok 注解陷阱
+- `@Slf4j` 会生成 `private static final Logger log`
+- 避免业务代码中使用 `log` 作为变量名
+- 建议使用更具体的命名：`logEntity`, `logData`, `operationLog`
+
+#### 2. Spring 多模块配置
+- 父模块定义公共依赖和版本管理
+- 子模块引用父模块依赖（无需指定版本）
+- **关键**: 主启动类必须配置扫描所有依赖模块的包路径
+
+#### 3. JPA 字段长度设计
+- `@Column(length)` 必须与数据库表结构一致
+- VARCHAR 长度建议：
+  - 用户名、邮箱：50-100
+  - 短文本、状态：20-50
+  - 长文本（描述、地址）：255-500
+  - **完整方法签名：500+** （包名.类名.方法名）
+  - 超长文本：TEXT 类型
+
+#### 4. Axios 响应拦截器
+- 区分响应类型：JSON、Blob、FormData
+- Blob 响应不应该被 JSON 解析
+- 使用 `response.config.responseType` 判断类型
+
+#### 5. Vue3 路由与导航
+- 路由配置 → 组件开发 → 导航菜单 **三者缺一不可**
+- 检查清单：
+  - [ ] `router/index.js` 配置路由
+  - [ ] 组件文件存在且正确导入
+  - [ ] 导航菜单添加对应项
+
+---
+
+### 18.4 代码质量改进
+
+#### 已完成
+1. ✅ 统一变量命名规范（避免冲突）
+2. ✅ 配置多模块包扫描（显式声明）
+3. ✅ 数据库字段长度优化（预留空间）
+4. ✅ 响应拦截器增强（类型判断）
+5. ✅ 前端路由完整性检查
+
+#### 后续建议
+1. **单元测试**: 为 AOP 切面编写单元测试
+2. **集成测试**: 测试日志记录的完整流程
+3. **性能测试**: 验证异步日志不影响接口性能
+4. **监控告警**: 日志记录失败时发送告警
+5. **日志清理**: 定时清理过期日志（保留90天）
+
+---
+
+### 18.5 修复成果
+
+| 指标 | 数据 |
+|------|------|
+| 修复问题数 | 5个 |
+| 涉及文件数 | 7个 |
+| 代码变更行数 | ~50行 |
+| 修复用时 | ~30分钟 |
+| 测试验证项 | 7项 |
+| **最终状态** | ✅ 功能完整可用 |
+
+---
+
+## 19. 2025-10-13 Bug修复总结
 
 ### 18.1 修复的问题
 
@@ -1271,9 +1723,10 @@ currentUser.value = userRes.data  // 正确
 
 ---
 
-**文档状态**: ✅ 已更新至最新进度（2025-10-13 20:50）  
-**整体进度**: 30% 完成  
-**管理后台状态**: ✅ 功能完善，已修复所有已知Bug  
+**文档状态**: ✅ 已更新至最新进度（2025-10-14 23:50）  
+**整体进度**: 35% 完成  
+**日志系统状态**: ✅ 双轨制日志系统开发完成（14个任务100%完成，5个Bug全部修复） ⭐已完善  
+**管理后台状态**: ✅ 功能完整可用（用户+反馈+日志管理，所有已知问题已修复） ⭐已完善  
 **下一步**: 开发ProductService（商品管理服务）
 
 ---

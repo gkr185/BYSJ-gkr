@@ -9,10 +9,22 @@ Common模块是社区团购系统的公共基础模块，为所有微服务提�
 ```
 common/
 ├── src/main/java/com/bcu/edu/common/
+│   ├── annotation/             # 自定义注解 ⭐新增
+│   │   └── OperationLog.java   # 操作日志注解
+│   ├── aspect/                 # AOP切面 ⭐新增
+│   │   └── OperationLogAspect.java  # 操作日志切面
 │   ├── config/                 # 配置类
-│   │   └── WebConfig.java      # Web配置（CORS等）
+│   │   ├── WebConfig.java      # Web配置（CORS等）
+│   │   └── AsyncConfig.java    # 异步任务配置 ⭐新增
 │   ├── constant/               # 常量类
 │   │   └── Constants.java      # 系统常量定义
+│   ├── controller/             # REST控制器 ⭐新增
+│   │   └── LogController.java  # 日志管理API
+│   ├── dto/                    # 数据传输对象 ⭐新增
+│   │   ├── OperationLogDTO.java  # 操作日志DTO
+│   │   └── OperationLogQuery.java # 日志查询条件
+│   ├── entity/                 # JPA实体类 ⭐新增
+│   │   └── SysOperationLog.java  # 操作日志实体
 │   ├── enums/                  # 枚举类
 │   │   └── ResultCode.java     # 返回结果码枚举
 │   ├── exception/              # 异常类
@@ -20,13 +32,21 @@ common/
 │   │   └── BusinessException.java  # 业务异常
 │   ├── handler/                # 处理器
 │   │   └── GlobalExceptionHandler.java  # 全局异常处理器
+│   ├── repository/             # JPA数据访问层 ⭐新增
+│   │   └── SysOperationLogRepository.java  # 日志Repository
 │   ├── result/                 # 返回结果封装
 │   │   ├── Result.java         # 统一返回结果
 │   │   └── PageResult.java     # 分页结果
+│   ├── service/                # 业务服务层 ⭐新增
+│   │   └── OperationLogService.java  # 日志业务服务
 │   └── utils/                  # 工具类
 │       ├── SecurityUtil.java   # 安全工具（加密、解密、脱敏）
 │       ├── JwtUtil.java        # JWT工具
-│       └── DateUtil.java       # 日期工具
+│       ├── DateUtil.java       # 日期工具
+│       ├── IpUtil.java         # IP地址工具 ⭐新增
+│       └── ExcelUtil.java      # Excel导出工具 ⭐新增
+├── src/main/resources/
+│   └── logback-spring.xml      # Logback配置 ⭐新增
 └── pom.xml
 ```
 
@@ -36,16 +56,20 @@ common/
 
 - **Spring Boot Web**: 提供Web相关功能
 - **Spring Boot Validation**: 参数校验
+- **Spring Boot AOP**: AOP切面编程 ⭐新增
+- **Spring Data JPA**: ORM数据持久化 ⭐新增
 - **Lombok**: 简化代码
 - **Hutool**: 工具类库（加密、日期等）
 - **JWT**: JSON Web Token认证
 - **Jackson**: JSON序列化
+- **Apache POI**: Excel导出 ⭐新增
 
 ### 版本信息
 
 - Spring Boot: 3.2.3
 - Hutool: 5.8.25
 - JWT: 0.11.5
+- Apache POI: 5.2.5 ⭐新增
 
 ## 使用指南
 
@@ -364,6 +388,156 @@ public class UserController {
 }
 ```
 
+### 9. 操作日志系统（双轨制）⭐新增
+
+系统实现了双轨制日志架构：
+1. **Logback技术日志** - 文件日志，用于开发调试和错误追踪
+2. **AOP操作日志** - 数据库日志，用于业务审计和操作追溯
+
+#### 9.1 使用@OperationLog注解记录操作
+
+只需在Controller方法上添加注解，即可自动记录操作日志：
+
+```java
+@RestController
+@RequestMapping("/api/user")
+public class UserController {
+    
+    // 基础使用
+    @OperationLog(value = "创建用户", module = "用户管理")
+    @PostMapping
+    public Result<User> createUser(@RequestBody UserCreateRequest request) {
+        return Result.success(userService.createUser(request));
+    }
+    
+    // 不记录参数（用于登录、注册等敏感操作）
+    @OperationLog(
+        value = "用户登录", 
+        module = "认证管理", 
+        recordParams = false  // 不记录请求参数
+    )
+    @PostMapping("/login")
+    public Result<LoginResponse> login(@RequestBody LoginRequest request) {
+        return Result.success(userService.login(request));
+    }
+    
+    // 自定义敏感字段脱敏
+    @OperationLog(
+        value = "修改密码", 
+        module = "用户管理",
+        sensitiveFields = {"password", "newPassword", "oldPassword"}
+    )
+    @PutMapping("/password")
+    public Result<Void> changePassword(@RequestBody PasswordChangeRequest request) {
+        userService.changePassword(request);
+        return Result.success();
+    }
+}
+```
+
+**注解参数说明**：
+- `value`: 操作内容描述（必填）
+- `module`: 操作模块（可选，默认空字符串）
+- `recordParams`: 是否记录请求参数（可选，默认true）
+- `recordResult`: 是否记录返回结果（可选，默认false）
+- `sensitiveFields`: 敏感参数字段，会被替换为`***`（可选，默认包含password、token、secret）
+
+**自动记录的信息**：
+- 操作人ID和用户名（从JWT Token提取）
+- 操作内容和所属模块
+- 方法全路径
+- 请求参数（JSON格式，支持脱敏）
+- 操作结果（SUCCESS/FAIL）
+- 错误信息（失败时记录）
+- 执行时长（毫秒）
+- 客户端IP地址
+- 操作时间
+
+#### 9.2 查询操作日志
+
+使用LogController提供的API查询日志：
+
+```java
+// 前端示例：分页查询操作日志
+import { getOperationLogs } from '@/api/log'
+
+const loadLogs = async () => {
+  const res = await getOperationLogs({
+    page: 1,
+    size: 10,
+    username: 'admin',      // 可选：操作人用户名
+    module: '用户管理',      // 可选：操作模块
+    startDate: '2025-10-01T00:00:00',  // 可选：开始时间
+    endDate: '2025-10-14T23:59:59',    // 可选：结束时间
+    keyword: '创建'           // 可选：关键词
+  })
+  console.log(res.data.list)  // 日志列表
+  console.log(res.data.total) // 总记录数
+}
+```
+
+#### 9.3 导出操作日志为Excel
+
+```java
+// 前端示例：导出Excel
+import { exportOperationLogs } from '@/api/log'
+
+const handleExport = async () => {
+  const res = await exportOperationLogs({
+    module: '用户管理',
+    startDate: '2025-10-01T00:00:00',
+    endDate: '2025-10-14T23:59:59'
+  })
+  
+  // 创建下载链接
+  const blob = new Blob([res], {
+    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  })
+  const url = window.URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = 'operation_logs.xlsx'
+  link.click()
+  window.URL.revokeObjectURL(url)
+}
+```
+
+#### 9.4 Logback配置
+
+`logback-spring.xml` 已预配置：
+- 控制台彩色输出
+- 文件持久化（按日期+大小滚动）
+- INFO/ERROR分级输出
+- 异步写入提升性能
+- 保留30天历史日志
+
+日志文件位置：`./logs/${spring.application.name}/`
+
+#### 9.5 微服务启动配置
+
+每个微服务需要扫描common模块的组件：
+
+```java
+@SpringBootApplication
+@EnableJpaRepositories(basePackages = {
+    "com.bcu.edu.repository",
+    "com.bcu.edu.common.repository"  // 扫描common的Repository
+})
+@EntityScan(basePackages = {
+    "com.bcu.edu.entity",
+    "com.bcu.edu.common.entity"  // 扫描common的Entity
+})
+@ComponentScan(basePackages = {
+    "com.bcu.edu",
+    "com.bcu.edu.common"  // 扫描common的所有组件
+})
+public class YourServiceApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(YourServiceApplication.class, args);
+    }
+}
+```
+
 ## 注意事项
 
 1. **密钥安全**：生产环境中，加密密钥、JWT密钥、数据库密码等敏感信息应从配置文件或环境变量读取，不要硬编码在代码中。
@@ -377,6 +551,15 @@ public class UserController {
 5. **日志记录**：所有工具类已集成Slf4j日志，异常会自动记录到日志文件。
 
 ## 版本历史
+
+- **v2.0** (2025-10-14): 日志系统版本 ⭐新增
+  - 双轨制日志架构（Logback + AOP）
+  - @OperationLog注解自动记录操作日志
+  - 异步日志保存提升性能
+  - 敏感参数自动脱敏
+  - 日志查询与Excel导出API
+  - IP地址获取工具
+  - Excel导出工具
 
 - **v1.0** (2025-10-12): 初始版本
   - 统一返回结果封装

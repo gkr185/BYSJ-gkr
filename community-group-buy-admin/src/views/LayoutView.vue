@@ -27,6 +27,10 @@
             <el-icon><ChatDotRound /></el-icon>
             <span>反馈管理</span>
           </el-menu-item>
+          <el-menu-item index="/logs">
+            <el-icon><Document /></el-icon>
+            <span>系统日志</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       
@@ -43,7 +47,7 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 import { ElMessageBox } from 'element-plus'
-import { User, ChatDotRound } from '@element-plus/icons-vue'
+import { User, ChatDotRound, Document } from '@element-plus/icons-vue'
 
 const route = useRoute()
 const router = useRouter()

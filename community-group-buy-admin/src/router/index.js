@@ -3,6 +3,7 @@ import LoginView from '../views/LoginView.vue'
 import LayoutView from '../views/LayoutView.vue'
 import UserManageView from '../views/UserManageView.vue'
 import FeedbackManageView from '../views/FeedbackManageView.vue'
+import LogManageView from '../views/LogManageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +29,12 @@ const router = createRouter({
           path: '/feedback',
           name: 'feedback',
           component: FeedbackManageView
+        },
+        {
+          path: '/logs',
+          name: 'logs',
+          component: LogManageView,
+          meta: { title: '系统日志', role: 'ADMIN' }
         }
       ]
     }
