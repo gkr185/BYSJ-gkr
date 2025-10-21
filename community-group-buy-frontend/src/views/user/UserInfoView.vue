@@ -1,5 +1,6 @@
 <template>
-  <div class="user-info-page">
+  <div class="user-info-page-wrapper">
+    <div class="user-info-page">
     <h2>个人信息</h2>
     
     <el-card>
@@ -30,6 +31,7 @@
         </el-form-item>
       </el-form>
     </el-card>
+  </div>
   </div>
 </template>
 
@@ -117,12 +119,27 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.user-info-page-wrapper {
+  min-height: 100vh;
+  padding-top: 84px; /* 64px导航栏 + 20px间隔 */
+  background-color: #f5f5f5;
+}
+
 .user-info-page {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
 }
 
 h2 {
   margin-bottom: 20px;
   color: #333;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .user-info-page-wrapper {
+    padding-top: 76px; /* 56px导航栏 + 20px间隔 */
+  }
 }
 </style>

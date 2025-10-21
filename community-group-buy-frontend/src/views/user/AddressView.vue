@@ -1,5 +1,6 @@
 <template>
-  <div class="address-page">
+  <div class="address-page-wrapper">
+    <div class="address-page">
     <div class="header-bar">
       <h2>收货地址</h2>
       <el-button type="primary" @click="showAddressEdit(null)">新增地址</el-button>
@@ -121,6 +122,7 @@
         <el-button type="primary" @click="handleSaveAddress">保存</el-button>
       </template>
     </el-dialog>
+  </div>
   </div>
 </template>
 
@@ -345,8 +347,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.address-page-wrapper {
+  min-height: 100vh;
+  padding-top: 84px; /* 64px导航栏 + 20px间隔 */
+  background-color: #f5f5f5;
+}
+
 .address-page {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
 }
 
 .header-bar {
@@ -359,5 +369,12 @@ onMounted(() => {
 h2 {
   color: #333;
   margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .address-page-wrapper {
+    padding-top: 76px; /* 56px导航栏 + 20px间隔 */
+  }
 }
 </style>

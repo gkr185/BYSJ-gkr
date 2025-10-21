@@ -1,46 +1,25 @@
 <template>
   <div id="app">
-    <!-- 顶部导航 -->
-    <div class="header" v-if="!hideHeader">
-      <div class="header-content">
-        <div class="logo">社区团购系统</div>
-        <div class="nav">
-          <el-button text @click="router.push('/home')">首页</el-button>
-          <el-button text @click="router.push('/profile')">个人中心</el-button>
-          <el-button text v-if="!userStore.isLogin" @click="router.push('/login')">登录</el-button>
-          <el-button text v-else @click="handleLogout">退出</el-button>
-        </div>
-      </div>
-    </div>
+    <!-- 顶部导航栏 -->
+    <TopNav :show="!hideNav"  />
 
     <!-- 主内容区 -->
-    <div class="main-content" :class="{ 'no-header': hideHeader }">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useUserStore } from '@/stores/user'
-import { ElMessageBox } from 'element-plus'
+import { useRoute } from 'vue-router'
+import TopNav from '@/components/common/TopNav.vue'
 
 const route = useRoute()
-const router = useRouter()
-const userStore = useUserStore()
 
-const hideHeader = computed(() => route.path === '/login')
-
-const handleLogout = () => {
-  ElMessageBox.confirm('确定要退出登录吗？', '提示', {
-    confirmButtonText: '确定',
-    cancelButtonText: '取消'
-  }).then(() => {
-    userStore.logout()
-    router.push('/login')
-  }).catch(() => {})
-}
+// 不显示导航栏的页面列表
+const hideNav = computed(() => {
+  const noNavPages = ['/login']
+  return noNavPages.includes(route.path)
+})
 </script>
 
 <style>
@@ -51,49 +30,32 @@ const handleLogout = () => {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
   background-color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
   min-height: 100vh;
 }
 
-.header {
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 0 20px;
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.logo {
-  font-size: 18px;
-  font-weight: bold;
-  color: #409eff;
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
 }
 
-.nav {
-  display: flex;
-  gap: 10px;
-}
-
-.main-content {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-.main-content.no-header {
-  margin: 0;
-  padding: 0;
-  max-width: none;
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>

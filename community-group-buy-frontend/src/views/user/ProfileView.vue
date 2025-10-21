@@ -1,5 +1,6 @@
 <template>
-  <div class="profile-page">
+  <div class="profile-page-wrapper">
+    <div class="profile-page">
     <h2>个人中心</h2>
     
     <!-- 用户信息卡片 -->
@@ -72,6 +73,7 @@
       </el-col>
     </el-row>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -116,8 +118,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.profile-page-wrapper {
+  min-height: 100vh;
+  padding-top: 84px; /* 64px导航栏 + 20px间隔 */
+  background-color: #f5f5f5;
+}
+
 .profile-page {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
 }
 
 h2 {
@@ -160,5 +170,12 @@ h2 {
 .menu-desc {
   font-size: 13px;
   color: #909399;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .profile-page-wrapper {
+    padding-top: 76px; /* 56px导航栏 + 20px间隔 */
+  }
 }
 </style>

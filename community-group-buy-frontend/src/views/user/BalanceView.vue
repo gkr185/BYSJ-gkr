@@ -1,5 +1,6 @@
 <template>
-  <div class="balance-page">
+  <div class="balance-page-wrapper">
+    <div class="balance-page">
     <h2>我的余额</h2>
     
     <el-row :gutter="20">
@@ -47,6 +48,7 @@
       <el-empty description="暂无交易记录" />
     </el-card>
   </div>
+  </div>
 </template>
 
 <script setup>
@@ -85,8 +87,16 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.balance-page-wrapper {
+  min-height: 100vh;
+  padding-top: 84px; /* 64px导航栏 + 20px间隔 */
+  background-color: #f5f5f5;
+}
+
 .balance-page {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
 }
 
 h2 {
@@ -114,5 +124,12 @@ h3 {
   font-size: 24px;
   font-weight: bold;
   color: #409eff;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .balance-page-wrapper {
+    padding-top: 76px; /* 56px导航栏 + 20px间隔 */
+  }
 }
 </style>

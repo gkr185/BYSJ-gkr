@@ -51,14 +51,46 @@ const router = createRouter({
       component: () => import('../views/user/FeedbackView.vue'),
       meta: { title: '意见反馈', requireAuth: true }
     },
+    // 商品相关路由
+    {
+      path: '/products',
+      name: 'products',
+      component: () => import('../views/product/ProductListView.vue'),
+      meta: { title: '商品列表' }
+    },
+    {
+      path: '/products/:id',
+      name: 'product-detail',
+      component: () => import('../views/product/ProductDetailView.vue'),
+      meta: { title: '商品详情' }
+    },
+    // 拼团相关路由
+    {
+      path: '/group-buy',
+      name: 'group-buy',
+      component: () => import('../views/product/GroupBuyView.vue'),
+      meta: { title: '拼团活动' }
+    },
+    // 购物车
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/order/CartView.vue'),
+      meta: { title: '购物车' }
+    },
+    // 订单相关路由
+    {
+      path: '/order/confirm',
+      name: 'order-confirm',
+      component: () => import('../views/order/OrderConfirmView.vue'),
+      meta: { title: '确认订单', requireAuth: true }
+    },
     {
       path: '/user/orders',
       name: 'orders',
-      component: () => import('../views/user/PlaceholderView.vue'),
+      component: () => import('../views/order/OrderListView.vue'),
       meta: { 
         title: '我的订单',
-        icon: 'orders-o',
-        description: '订单功能正在开发中，敬请期待...',
         requireAuth: true
       }
     },

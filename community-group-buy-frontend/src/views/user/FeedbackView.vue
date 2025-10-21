@@ -1,5 +1,6 @@
 <template>
-  <div class="feedback-page">
+  <div class="feedback-page-wrapper">
+    <div class="feedback-page">
     <h2>意见反馈</h2>
     
     <el-tabs v-model="activeTab">
@@ -60,6 +61,7 @@
         <el-empty v-if="feedbackList.length === 0" description="暂无反馈记录" />
       </el-tab-pane>
     </el-tabs>
+  </div>
   </div>
 </template>
 
@@ -171,12 +173,27 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.feedback-page-wrapper {
+  min-height: 100vh;
+  padding-top: 84px; /* 64px导航栏 + 20px间隔 */
+  background-color: #f5f5f5;
+}
+
 .feedback-page {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
 }
 
 h2 {
   margin-bottom: 20px;
   color: #333;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .feedback-page-wrapper {
+    padding-top: 76px; /* 56px导航栏 + 20px间隔 */
+  }
 }
 </style>
