@@ -236,7 +236,7 @@ export const mockBanners = [
   {
     id: 2,
     image_url: 'https://via.placeholder.com/1200x400/4ECDC4/FFFFFF?text=限时拼团+低至5折',
-    link_url: '/group-buy',
+    link_url: '/groupbuy/activity/1', // ⭐更新：跳转到具体活动页
     sort: 2,
     status: 1
   },

@@ -82,12 +82,26 @@
                 <div class="item-info">
                   <div class="item-name">
                     {{ item.product_name }}
-                    <el-tag v-if="item.activity_id" type="danger" size="small">
-                      拼团
+                    <el-tag v-if="item.team_id" type="danger" size="small">
+                      拼团 · {{ item.team_no }}
+                    </el-tag>
+                    <el-tag v-else-if="item.activity_id" type="warning" size="small">
+                      拼团活动
                     </el-tag>
                   </div>
                   <div class="item-price">¥{{ item.price }}</div>
                   <div class="item-quantity">× {{ item.quantity }}</div>
+                  <!-- ⭐新增：团信息链接（如果是拼团订单） -->
+                  <div v-if="item.team_id" class="item-team-link">
+                    <el-button 
+                      link 
+                      type="primary" 
+                      size="small"
+                      @click.stop="goToTeamDetail(item.team_id)"
+                    >
+                      查看团详情 →
+                    </el-button>
+                  </div>
                 </div>
                 <div class="item-total">
                   ¥{{ item.total_price.toFixed(2) }}
@@ -201,8 +215,14 @@ import {
   getOrderStatusType,
   payOrder,
   cancelOrder,
-  formatDateTime
+  formatDateTime,
+  getOrderTeamInfo // ⭐新增：获取订单团信息
 } from '@/mock/orders'
+import {
+  apiGetTeamDetail,
+  getTeamStatusText,
+  getTeamStatusType
+} from '@/api/groupbuy' // ⭐新增：团相关API
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -422,13 +442,23 @@ const handleViewRefundDetail = (order) => {
   ElMessage.info('退款详情功能开发中')
 }
 
+// ⭐新增：跳转到团详情页
+const goToTeamDetail = (teamId) => {
+  router.push(`/groupbuy/team/${teamId}`)
+}
+
 // 查看订单详情
 const handleViewDetail = (order) => {
+  // ⭐检查是否有拼团信息
+  const teamInfo = getOrderTeamInfo(order)
+  const teamHtml = teamInfo ? `<p><strong>拼团团号：</strong>${teamInfo.team_no} <a href="#" onclick="event.preventDefault(); window.location.href='/groupbuy/team/${teamInfo.team_id}'">查看团详情</a></p>` : ''
+  
   ElMessageBox.alert(
     `
     <div style="line-height: 2;">
       <p><strong>订单号：</strong>${order.order_sn}</p>
       <p><strong>创建时间：</strong>${formatDateTime(order.create_time)}</p>
+      ${teamHtml}
       <p><strong>收货人：</strong>${order.address.receiver} ${order.address.phone}</p>
       <p><strong>收货地址：</strong>${order.address.province}${order.address.city}${order.address.district}${order.address.detail}</p>
       <p><strong>商品总额：</strong>¥${order.total_amount.toFixed(2)}</p>
@@ -583,6 +613,10 @@ onMounted(() => {
 .item-quantity {
   font-size: 13px;
   color: #999;
+}
+
+.item-team-link {
+  margin-top: 4px;
 }
 
 .item-total {

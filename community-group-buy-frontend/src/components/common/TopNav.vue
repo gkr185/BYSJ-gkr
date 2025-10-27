@@ -38,8 +38,38 @@
             购物车
           </el-button>
         </el-badge>
-        <el-button :icon="User" @click="router.push('/profile')">
-          个人中心
+        
+        <!-- 用户菜单 -->
+        <el-dropdown v-if="userStore.isLogin" trigger="click" @command="handleUserCommand">
+          <el-button :icon="User">
+            {{ userStore.userInfo?.username || '用户' }}
+            <el-icon class="el-icon--right"><ArrowDown /></el-icon>
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="profile">
+                <el-icon><User /></el-icon>
+                个人中心
+              </el-dropdown-item>
+              <el-dropdown-item command="orders">
+                <el-icon><Document /></el-icon>
+                我的订单
+              </el-dropdown-item>
+              <el-dropdown-item command="groupbuy">
+                <el-icon><UserFilled /></el-icon>
+                我的拼团
+              </el-dropdown-item>
+              <el-dropdown-item divided command="logout">
+                <el-icon><SwitchButton /></el-icon>
+                退出登录
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+        
+        <!-- 未登录显示登录按钮 -->
+        <el-button v-else :icon="User" @click="router.push('/login')">
+          登录
         </el-button>
       </div>
     </div>
@@ -49,11 +79,15 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   ShoppingBag, HomeFilled, Goods, Document,
-  ShoppingCart, User
+  ShoppingCart, User, ArrowDown, SwitchButton, UserFilled
 } from '@element-plus/icons-vue'
 import { getCartCount } from '@/utils/cart'
+import { useUserStore } from '@/stores/user'
+
+const userStore = useUserStore()
 
 const props = defineProps({
   show: {
@@ -74,7 +108,8 @@ const isActive = (routeName) => {
   if (routeName === 'home') {
     return currentPath === '/home' || currentPath === '/'
   } else if (routeName === 'products') {
-    return currentPath.startsWith('/products') || currentPath === '/group-buy'
+    // ⭐更新：包含新的拼团路由
+    return currentPath.startsWith('/products') || currentPath.startsWith('/groupbuy')
   } else if (routeName === 'orders') {
     return currentPath.startsWith('/user/orders') || currentPath === '/order/confirm'
   }
@@ -104,6 +139,38 @@ onUnmounted(() => {
 // 导航方法
 const navigateTo = (path) => {
   router.push(path)
+}
+
+// 处理用户菜单命令
+const handleUserCommand = async (command) => {
+  if (command === 'profile') {
+    router.push('/profile')
+  } else if (command === 'orders') {
+    router.push('/user/orders')
+  } else if (command === 'groupbuy') {
+    router.push('/groupbuy/my')
+  } else if (command === 'logout') {
+    try {
+      await ElMessageBox.confirm(
+        '确定要退出登录吗？',
+        '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }
+      )
+      
+      // 执行退出登录
+      userStore.logout()
+      ElMessage.success('已退出登录')
+      
+      // 跳转到首页
+      router.push('/home')
+    } catch (error) {
+      // 用户取消
+    }
+  }
 }
 </script>
 
@@ -228,6 +295,22 @@ const navigateTo = (path) => {
 
 .nav-right :deep(.el-badge__content) {
   border: 2px solid #667eea;
+}
+
+/* 用户下拉菜单样式 */
+.nav-right .el-dropdown {
+  cursor: pointer;
+}
+
+.nav-right :deep(.el-dropdown-menu__item) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+}
+
+.nav-right :deep(.el-dropdown-menu__item .el-icon) {
+  font-size: 16px;
 }
 
 /* 响应式设计 */

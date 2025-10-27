@@ -203,8 +203,21 @@ const handleGroupBuy = () => {
     return
   }
   
-  // 跳转到拼团页面
-  router.push(`/group-buy?product_id=${product.value.product_id}`)
+  // ⭐跳转到拼团活动页面（v2.0优化版）
+  // 注意：这里需要activity_id，实际应该从商品信息中获取当前进行中的活动ID
+  // Mock版本暂时使用固定映射
+  const activityIdMap = {
+    1: 1,  // 草莓 -> 活动1
+    6: 2,  // 牛奶 -> 活动2
+    10: 3  // 面包 -> 活动3
+  }
+  const activityId = activityIdMap[product.value.product_id]
+  
+  if (activityId) {
+    router.push(`/groupbuy/activity/${activityId}`)
+  } else {
+    ElMessage.warning('该商品暂无拼团活动')
+  }
 }
 </script>
 

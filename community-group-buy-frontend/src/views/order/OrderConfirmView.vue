@@ -75,8 +75,11 @@
                   />
                   <div class="product-details">
                     <div class="product-name">{{ row.product_name }}</div>
-                    <el-tag v-if="row.activity_id" type="danger" size="small">
-                      拼团商品
+                    <el-tag v-if="row.team_id" type="danger" size="small">
+                      拼团商品 · {{ row.team_no }}
+                    </el-tag>
+                    <el-tag v-else-if="row.activity_id" type="warning" size="small">
+                      拼团活动
                     </el-tag>
                   </div>
                 </div>
@@ -265,7 +268,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
@@ -276,13 +279,21 @@ import { getCart, clearCart } from '@/utils/cart'
 import { getUserAddressList } from '@/api/user'
 import { mockProducts } from '@/mock/products'
 import { createOrder } from '@/mock/orders'
+import { apiGetTeamDetail } from '@/api/groupbuy' // ⭐新增：获取团详情
 
 const router = useRouter()
+const route = useRoute() // ⭐新增：获取路由参数
 const userStore = useUserStore()
 
 const loading = ref(true)
 const submitting = ref(false)
 const showAddressDialog = ref(false)
+
+// ⭐新增：拼团相关参数（从URL获取）
+const teamId = ref(route.query.team_id || null)
+const activityId = ref(route.query.activity_id || null)
+const productId = ref(route.query.product_id || null)
+const teamInfo = ref(null) // 存储团详情
 
 // 地址相关
 const addressList = ref([])
@@ -345,8 +356,42 @@ const fetchAddressList = async () => {
   }
 }
 
+// ⭐新增：加载拼团信息
+const loadTeamInfo = async () => {
+  if (!teamId.value) return
+  
+  try {
+    const data = await apiGetTeamDetail(teamId.value)
+    if (data) {
+      teamInfo.value = data
+      // 使用拼团活动的商品信息
+      cartItems.value = [{
+        product_id: data.activity.product_id,
+        product_name: data.activity.product_name,
+        cover_img: data.activity.product_img,
+        price: data.activity.group_price,
+        quantity: 1,
+        activity_id: data.activity_id,
+        team_id: data.team_id, // ⭐关键：关联团ID
+        team_no: data.team_no
+      }]
+      loading.value = false
+    }
+  } catch (error) {
+    console.error('获取团详情失败:', error)
+    ElMessage.error('获取拼团信息失败')
+    loading.value = false
+  }
+}
+
 // 加载购物车商品
 const loadCartItems = () => {
+  // ⭐如果是拼团订单，不从购物车加载，而是从团信息加载
+  if (teamId.value) {
+    loadTeamInfo()
+    return
+  }
+  
   const cart = getCart()
   
   // 如果购物车为空，使用默认测试商品
@@ -359,7 +404,8 @@ const loadCartItems = () => {
         cover_img: 'https://via.placeholder.com/100/FF6B6B/FFFFFF?text=草莓',
         price: 25.00,
         quantity: 1,
-        activity_id: null
+        activity_id: null,
+        team_id: null // ⭐新增
       },
       {
         product_id: 2,
@@ -367,7 +413,8 @@ const loadCartItems = () => {
         cover_img: 'https://via.placeholder.com/100/FFB6C1/FFFFFF?text=苹果',
         price: 19.90,
         quantity: 1,
-        activity_id: 1 // 拼团商品
+        activity_id: 1, // 拼团商品
+        team_id: null // ⭐新增
       }
     ]
     console.log('使用默认测试商品（购物车为空）')
@@ -384,7 +431,8 @@ const loadCartItems = () => {
         cover_img: product.cover_img,
         price: cartItem.activityId ? product.group_price : product.price, // 如果是拼团商品使用拼团价
         quantity: cartItem.quantity,
-        activity_id: cartItem.activityId || null // 拼团活动ID
+        activity_id: cartItem.activityId || null, // 拼团活动ID
+        team_id: cartItem.teamId || null // ⭐新增：拼团团ID
       }
     }).filter(item => item !== null) // 过滤掉找不到的商品
   }
@@ -447,6 +495,8 @@ const handleSubmitOrder = async () => {
         item_id: index + 1, // Mock用，实际由数据库生成
         product_id: item.product_id,
         activity_id: item.activity_id,
+        team_id: item.team_id || null, // ⭐新增：拼团团ID
+        team_no: item.team_no || null, // ⭐新增：团号
         product_name: item.product_name, // 快照：商品名称
         product_img: item.cover_img, // 快照：商品图片
         price: item.price, // 购买单价（拼团价或原价）
@@ -458,17 +508,22 @@ const handleSubmitOrder = async () => {
     // 模拟创建订单
     const order = createOrder(orderData)
     
-    // 清空购物车
-    clearCart()
-    
-    // 触发购物车更新事件
-    window.dispatchEvent(new Event('cart-updated'))
+    // ⭐如果不是拼团订单，才清空购物车
+    if (!teamId.value) {
+      clearCart()
+      // 触发购物车更新事件
+      window.dispatchEvent(new Event('cart-updated'))
+    }
     
     ElMessage.success('订单提交成功！')
     
-    // 跳转到订单详情或支付页面
+    // ⭐拼团订单跳转到团详情页，普通订单跳转到订单列表
     setTimeout(() => {
-      router.push(`/user/orders`)
+      if (teamId.value) {
+        router.push(`/groupbuy/team/${teamId.value}`)
+      } else {
+        router.push(`/user/orders`)
+      }
     }, 1000)
   } catch (error) {
     console.error('提交订单失败:', error)

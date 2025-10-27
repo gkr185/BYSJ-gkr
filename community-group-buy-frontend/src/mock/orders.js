@@ -62,6 +62,7 @@ export const mockOrders = [
         order_id: 1001,
         product_id: 1,
         activity_id: null, // 非拼团商品为null
+        team_id: null, // ⭐新增：拼团团ID
         product_name: '新鲜草莓', // 快照
         product_img: 'https://via.placeholder.com/100/FF6B6B/FFFFFF?text=草莓',
         price: 25.00, // 购买单价
@@ -73,6 +74,8 @@ export const mockOrders = [
         order_id: 1001,
         product_id: 2,
         activity_id: 1, // 拼团商品
+        team_id: 5001, // ⭐新增：拼团团ID
+        team_no: 'T20251027001', // ⭐团号（用于显示）
         product_name: '苹果（拼团）',
         product_img: 'https://via.placeholder.com/100/FFB6C1/FFFFFF?text=苹果',
         price: 19.90, // 拼团价
@@ -113,6 +116,8 @@ export const mockOrders = [
         order_id: 1002,
         product_id: 6,
         activity_id: 2,
+        team_id: 5005, // ⭐新增：拼团团ID
+        team_no: 'T20251026002', // ⭐团号
         product_name: '鲜牛奶（拼团）',
         product_img: 'https://via.placeholder.com/100/4D96FF/FFFFFF?text=牛奶',
         price: 12.90,
@@ -153,6 +158,7 @@ export const mockOrders = [
         order_id: 1003,
         product_id: 3,
         activity_id: null,
+        team_id: null, // ⭐非拼团
         product_name: '西瓜',
         product_img: 'https://via.placeholder.com/100/98D8C8/FFFFFF?text=西瓜',
         price: 18.50,
@@ -164,6 +170,7 @@ export const mockOrders = [
         order_id: 1003,
         product_id: 5,
         activity_id: null,
+        team_id: null, // ⭐非拼团
         product_name: '鸡蛋',
         product_img: 'https://via.placeholder.com/100/FAD390/333333?text=鸡蛋',
         price: 20.00,
@@ -294,5 +301,45 @@ export function formatDateTime(dateTime) {
     hour: '2-digit',
     minute: '2-digit'
   })
+}
+
+/**
+ * 获取订单的拼团信息（如果是拼团订单）
+ * @param {Object} order - 订单对象
+ * @returns {Object|null} 拼团信息 { team_id, team_no, team_status, team_progress }
+ */
+export function getOrderTeamInfo(order) {
+  // 检查订单是否包含拼团商品
+  const groupBuyItem = order.items?.find(item => item.team_id)
+  if (!groupBuyItem) return null
+  
+  // 从 groupbuy.js 动态获取团状态（实际项目中应该从API获取）
+  // 这里简化处理，返回订单项中的团信息
+  return {
+    team_id: groupBuyItem.team_id,
+    team_no: groupBuyItem.team_no,
+    // 注意：实际应该从 mockTeams 中查询团的实时状态
+    // 这里仅用于展示
+    has_team: true
+  }
+}
+
+/**
+ * 根据订单ID获取订单
+ * @param {Number} orderId - 订单ID
+ * @returns {Object|null} 订单对象
+ */
+export function getOrderById(orderId) {
+  const order = mockOrders.find(o => o.order_id === parseInt(orderId))
+  
+  if (!order) return null
+  
+  // 检查是否有拼团信息
+  const teamInfo = getOrderTeamInfo(order)
+  
+  return {
+    ...order,
+    team_info: teamInfo
+  }
 }
 

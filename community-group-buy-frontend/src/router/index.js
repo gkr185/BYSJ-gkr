@@ -64,12 +64,24 @@ const router = createRouter({
       component: () => import('../views/product/ProductDetailView.vue'),
       meta: { title: '商品详情' }
     },
-    // 拼团相关路由
+    // 拼团相关路由（v2.0优化版）
     {
-      path: '/group-buy',
-      name: 'group-buy',
-      component: () => import('../views/product/GroupBuyView.vue'),
+      path: '/groupbuy/activity/:id',
+      name: 'groupbuy-activity',
+      component: () => import('../views/groupbuy/ActivityView.vue'),
       meta: { title: '拼团活动' }
+    },
+    {
+      path: '/groupbuy/team/:id',
+      name: 'groupbuy-team',
+      component: () => import('../views/groupbuy/TeamView.vue'),
+      meta: { title: '团详情' }
+    },
+    {
+      path: '/groupbuy/my',
+      name: 'my-groupbuy',
+      component: () => import('../views/groupbuy/MyGroupBuyView.vue'),
+      meta: { title: '我的拼团', requireAuth: true }
     },
     // 购物车
     {
@@ -86,22 +98,17 @@ const router = createRouter({
       meta: { title: '确认订单', requireAuth: true }
     },
     {
+      path: '/payment',
+      name: 'payment',
+      component: () => import('../views/payment/PaymentView.vue'),
+      meta: { title: '支付订单', requireAuth: true }
+    },
+    {
       path: '/user/orders',
       name: 'orders',
       component: () => import('../views/order/OrderListView.vue'),
       meta: { 
         title: '我的订单',
-        requireAuth: true
-      }
-    },
-    {
-      path: '/user/groups',
-      name: 'groups',
-      component: () => import('../views/user/PlaceholderView.vue'),
-      meta: { 
-        title: '我的拼团',
-        icon: 'friends-o',
-        description: '拼团功能正在开发中，敬请期待...',
         requireAuth: true
       }
     },

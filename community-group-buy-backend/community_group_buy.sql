@@ -11,7 +11,7 @@
  Target Server Version : 80036 (8.0.36)
  File Encoding         : 65001
 
- Date: 14/10/2025 23:41:49
+ Date: 27/10/2025 23:53:37
 */
 
 SET NAMES utf8mb4;
@@ -34,10 +34,70 @@ CREATE TABLE `commission_record`  (
   INDEX `idx_order_id`(`order_id` ASC) USING BTREE,
   CONSTRAINT `fk_commission_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_commission_order` FOREIGN KEY (`order_id`) REFERENCES `order_main` (`order_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录团长佣金计算与结算明细' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录团长佣金计算与结算明细' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of commission_record
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for community
+-- ----------------------------
+DROP TABLE IF EXISTS `community`;
+CREATE TABLE `community`  (
+  `community_id` bigint NOT NULL AUTO_INCREMENT COMMENT '社区ID',
+  `community_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '社区名称',
+  `province` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '省份',
+  `city` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '城市',
+  `district` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '区/县',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '详细地址',
+  `longitude` decimal(10, 6) NOT NULL COMMENT '社区中心经度',
+  `latitude` decimal(10, 6) NOT NULL COMMENT '社区中心纬度',
+  `status` tinyint NOT NULL DEFAULT 1 COMMENT '状态（0-禁用；1-启用）',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`community_id`) USING BTREE,
+  INDEX `idx_location`(`province` ASC, `city` ASC, `district` ASC) USING BTREE,
+  INDEX `idx_status`(`status` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '社区表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of community
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for community_application
+-- ----------------------------
+DROP TABLE IF EXISTS `community_application`;
+CREATE TABLE `community_application`  (
+  `application_id` bigint NOT NULL AUTO_INCREMENT COMMENT '申请ID',
+  `applicant_id` bigint NOT NULL COMMENT '申请人ID（团长申请人）',
+  `community_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '社区名称',
+  `province` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '省份',
+  `city` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '城市',
+  `district` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '区/县',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '详细地址',
+  `longitude` decimal(10, 6) NULL DEFAULT NULL COMMENT '经度（管理员审核时填写）',
+  `latitude` decimal(10, 6) NULL DEFAULT NULL COMMENT '纬度（管理员审核时填写）',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '申请说明',
+  `status` tinyint NOT NULL DEFAULT 0 COMMENT '审核状态（0-待审核；1-已通过；2-已拒绝）',
+  `reject_reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '拒绝原因',
+  `approved_community_id` bigint NULL DEFAULT NULL COMMENT '审核通过后生成的社区ID',
+  `auditor_id` bigint NULL DEFAULT NULL COMMENT '审核人ID',
+  `audit_time` datetime NULL DEFAULT NULL COMMENT '审核时间',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '申请时间',
+  PRIMARY KEY (`application_id`) USING BTREE,
+  INDEX `idx_applicant_id`(`applicant_id` ASC) USING BTREE,
+  INDEX `idx_status`(`status` ASC) USING BTREE,
+  INDEX `idx_create_time`(`create_time` ASC) USING BTREE,
+  INDEX `fk_app_community`(`approved_community_id` ASC) USING BTREE,
+  INDEX `fk_app_auditor`(`auditor_id` ASC) USING BTREE,
+  CONSTRAINT `fk_app_applicant` FOREIGN KEY (`applicant_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `fk_app_auditor` FOREIGN KEY (`auditor_id`) REFERENCES `sys_user` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `fk_app_community` FOREIGN KEY (`approved_community_id`) REFERENCES `community` (`community_id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '社区申请表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of community_application
 -- ----------------------------
 
 -- ----------------------------
@@ -57,7 +117,7 @@ CREATE TABLE `delivery`  (
   INDEX `idx_leader_id`(`leader_id` ASC) USING BTREE,
   INDEX `idx_dispatch_group`(`dispatch_group` ASC) USING BTREE,
   CONSTRAINT `fk_delivery_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储配送路径与分单结果（支撑Dijkstra算法）' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储配送路径与分单结果（支撑Dijkstra算法）' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of delivery
@@ -70,21 +130,22 @@ DROP TABLE IF EXISTS `group_buy`;
 CREATE TABLE `group_buy`  (
   `activity_id` bigint NOT NULL AUTO_INCREMENT COMMENT '活动ID',
   `product_id` bigint NOT NULL COMMENT '关联商品ID',
-  `leader_id` bigint NULL DEFAULT NULL COMMENT '发起团长ID（可空，系统默认团长）',
-  `group_price` decimal(10, 2) NOT NULL COMMENT '拼团价（活动专属）',
+  `group_price` decimal(10, 2) NOT NULL COMMENT '拼团价',
   `required_num` int NOT NULL DEFAULT 2 COMMENT '成团人数',
+  `max_num` int NULL DEFAULT NULL COMMENT '最大人数限制（可空，无限制）',
   `start_time` datetime NOT NULL COMMENT '活动开始时间',
   `end_time` datetime NOT NULL COMMENT '活动结束时间',
-  `status` tinyint NOT NULL DEFAULT 0 COMMENT '状态（0-未开始；1-进行中；2-已结束；3-异常）',
-  `qrcode_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '拼团二维码URL',
-  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '拼团专属链接',
+  `status` tinyint NOT NULL DEFAULT 1 COMMENT '活动状态（0未开始/1进行中/2已结束/3异常）',
+  `qrcode_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '活动二维码URL',
+  `link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '活动专属链接',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`activity_id`) USING BTREE,
   UNIQUE INDEX `uk_link`(`link` ASC) USING BTREE,
   INDEX `idx_product_id`(`product_id` ASC) USING BTREE,
-  INDEX `idx_leader_id`(`leader_id` ASC) USING BTREE,
-  CONSTRAINT `fk_group_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  INDEX `idx_status`(`status` ASC) USING BTREE,
+  INDEX `idx_time`(`start_time` ASC, `end_time` ASC) USING BTREE,
   CONSTRAINT `fk_group_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储拼团活动核心参数，覆盖全生命周期' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '拼团活动表（活动模板）' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of group_buy
@@ -106,10 +167,43 @@ CREATE TABLE `group_buy_join`  (
   INDEX `idx_user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `fk_join_activity` FOREIGN KEY (`activity_id`) REFERENCES `group_buy` (`activity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_join_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录用户参与拼团的行为与状态' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录用户参与拼团的行为与状态' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of group_buy_join
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for group_buy_team
+-- ----------------------------
+DROP TABLE IF EXISTS `group_buy_team`;
+CREATE TABLE `group_buy_team`  (
+  `team_id` bigint NOT NULL AUTO_INCREMENT COMMENT '团ID',
+  `team_no` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '团号（用于分享链接，如：T20251027001）',
+  `activity_id` bigint NOT NULL COMMENT '关联活动ID',
+  `launcher_id` bigint NOT NULL COMMENT '发起人用户ID',
+  `leader_id` bigint NOT NULL COMMENT '归属团长ID（配送团点）',
+  `required_num` int NOT NULL COMMENT '成团人数（从活动复制）',
+  `current_num` int NOT NULL DEFAULT 0 COMMENT '当前人数',
+  `team_status` tinyint NOT NULL DEFAULT 0 COMMENT '团状态（0拼团中/1已成团/2已失败）',
+  `success_time` datetime NULL DEFAULT NULL COMMENT '成团时间',
+  `expire_time` datetime NOT NULL COMMENT '过期时间（24小时后）',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  PRIMARY KEY (`team_id`) USING BTREE,
+  UNIQUE INDEX `uk_team_no`(`team_no` ASC) USING BTREE,
+  INDEX `idx_activity_id`(`activity_id` ASC) USING BTREE,
+  INDEX `idx_launcher_id`(`launcher_id` ASC) USING BTREE,
+  INDEX `idx_leader_id`(`leader_id` ASC) USING BTREE,
+  INDEX `idx_team_status`(`team_status` ASC) USING BTREE,
+  INDEX `idx_expire_time`(`expire_time` ASC) USING BTREE,
+  INDEX `idx_create_time`(`create_time` ASC) USING BTREE,
+  CONSTRAINT `fk_team_activity` FOREIGN KEY (`activity_id`) REFERENCES `group_buy` (`activity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_team_launcher` FOREIGN KEY (`launcher_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `fk_team_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '团实例表（具体的团）' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of group_buy_team
 -- ----------------------------
 
 -- ----------------------------
@@ -133,7 +227,7 @@ CREATE TABLE `group_leader_store`  (
   PRIMARY KEY (`store_id`) USING BTREE,
   UNIQUE INDEX `uk_leader_id`(`leader_id` ASC) USING BTREE,
   CONSTRAINT `fk_store_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储团长信息及团点地理数据，支持分单与配送' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储团长信息及团点地理数据，支持分单与配送' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of group_leader_store
@@ -155,7 +249,7 @@ CREATE TABLE `group_member`  (
   INDEX `idx_member_id`(`member_id` ASC) USING BTREE,
   CONSTRAINT `fk_member_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_member_user` FOREIGN KEY (`member_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理团长与团员的绑定关系' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理团长与团员的绑定关系' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of group_member
@@ -182,7 +276,7 @@ CREATE TABLE `order_item`  (
   CONSTRAINT `fk_item_activity` FOREIGN KEY (`activity_id`) REFERENCES `group_buy` (`activity_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_item_order` FOREIGN KEY (`order_id`) REFERENCES `order_main` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_item_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储订单商品明细（快照设计）' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储订单商品明细（快照设计）' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of order_item
@@ -219,7 +313,7 @@ CREATE TABLE `order_main`  (
   CONSTRAINT `fk_order_delivery` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_order_leader` FOREIGN KEY (`leader_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_order_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储订单核心信息，关联用户、团长与配送' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储订单核心信息，关联用户、团长与配送' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of order_main
@@ -247,7 +341,7 @@ CREATE TABLE `payment_record`  (
   INDEX `idx_transaction_id`(`transaction_id` ASC) USING BTREE,
   CONSTRAINT `fk_payment_order` FOREIGN KEY (`order_id`) REFERENCES `order_main` (`order_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_payment_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录支付/充值/退款明细，保障交易安全' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录支付/充值/退款明细，保障交易安全' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of payment_record
@@ -272,7 +366,7 @@ CREATE TABLE `product`  (
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `idx_category_id`(`category_id` ASC) USING BTREE,
   CONSTRAINT `fk_product_category` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`category_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储商品信息，支持拼团及普通购买' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储商品信息，支持拼团及普通购买' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product
@@ -290,7 +384,7 @@ CREATE TABLE `product_category`  (
   `status` tinyint NOT NULL DEFAULT 1 COMMENT '状态（0-禁用；1-启用）',
   PRIMARY KEY (`category_id`) USING BTREE,
   INDEX `idx_parent_id`(`parent_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理商品分类体系，支持多级分类' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理商品分类体系，支持多级分类' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product_category
@@ -316,7 +410,7 @@ CREATE TABLE `shopping_cart`  (
   CONSTRAINT `fk_cart_activity` FOREIGN KEY (`activity_id`) REFERENCES `group_buy` (`activity_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_cart_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储用户待购商品，支持拼团/普通商品混存' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储用户待购商品，支持拼团/普通商品混存' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of shopping_cart
@@ -345,11 +439,18 @@ CREATE TABLE `sys_operation_log`  (
   INDEX `idx_create_time`(`create_time` ASC) USING BTREE,
   INDEX `idx_result`(`result` ASC) USING BTREE,
   CONSTRAINT `fk_log_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录系统操作审计日志，保障安全' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '记录系统操作审计日志，保障安全' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_operation_log
 -- ----------------------------
+INSERT INTO `sys_operation_log` VALUES (1, 1, '1', '修改用户状态', '用户管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.changeUserStatus(java.lang.Long,java.lang.Integer)', '[5,0]', 'SUCCESS', NULL, 26, '0:0:0:0:0:0:0:1', '2025-10-14 23:48:27');
+INSERT INTO `sys_operation_log` VALUES (2, 1, '1', '修改用户状态', '用户管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.changeUserStatus(java.lang.Long,java.lang.Integer)', '[5,1]', 'SUCCESS', NULL, 5, '0:0:0:0:0:0:0:1', '2025-10-14 23:48:59');
+INSERT INTO `sys_operation_log` VALUES (3, NULL, 'unknown', '用户登录', '认证管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.login(com.bcu.edu.dto.request.UserLoginRequest)', NULL, 'SUCCESS', NULL, 409, '0:0:0:0:0:0:0:1', '2025-10-19 18:57:12');
+INSERT INTO `sys_operation_log` VALUES (4, NULL, 'unknown', '用户登录', '认证管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.login(com.bcu.edu.dto.request.UserLoginRequest)', NULL, 'SUCCESS', NULL, 3, '0:0:0:0:0:0:0:1', '2025-10-19 18:57:34');
+INSERT INTO `sys_operation_log` VALUES (5, NULL, 'unknown', '用户登录', '认证管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.login(com.bcu.edu.dto.request.UserLoginRequest)', NULL, 'SUCCESS', NULL, 439, '0:0:0:0:0:0:0:1', '2025-10-27 20:14:57');
+INSERT INTO `sys_operation_log` VALUES (6, 3, '22', '用户登录', '认证管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.login(com.bcu.edu.dto.request.UserLoginRequest)', NULL, 'SUCCESS', NULL, 6, '0:0:0:0:0:0:0:1', '2025-10-27 20:15:14');
+INSERT INTO `sys_operation_log` VALUES (7, NULL, 'unknown', '用户登录', '认证管理', 'public com.bcu.edu.common.result.Result com.bcu.edu.controller.UserController.login(com.bcu.edu.dto.request.UserLoginRequest)', NULL, 'SUCCESS', NULL, 241, '0:0:0:0:0:0:0:1', '2025-10-27 20:22:56');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -371,7 +472,7 @@ CREATE TABLE `sys_user`  (
   UNIQUE INDEX `uk_username`(`username` ASC) USING BTREE,
   UNIQUE INDEX `uk_phone`(`phone` ASC) USING BTREE,
   UNIQUE INDEX `uk_wx_openid`(`wx_openid` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储所有用户（普通用户/团长/管理员）基础信息' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储所有用户（普通用户/团长/管理员）基础信息' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
@@ -380,7 +481,7 @@ INSERT INTO `sys_user` VALUES (1, '1', '96cae35ce8a9b0244178bf28e4966c2ce1b83857
 INSERT INTO `sys_user` VALUES (2, '测试用户1', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 1, '测试用户1', '12312312311', NULL, NULL, 1, '2025-10-12 19:20:44', '2025-10-12 20:53:49');
 INSERT INTO `sys_user` VALUES (3, '22', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 1, '1231', '12312312312', NULL, '', 1, '2025-10-12 20:12:52', '2025-10-12 21:07:01');
 INSERT INTO `sys_user` VALUES (4, '33', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 1, NULL, '12312312333', NULL, NULL, 1, '2025-10-12 21:22:06', NULL);
-INSERT INTO `sys_user` VALUES (5, '44', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 1, '', '12312312344', NULL, NULL, 1, '2025-10-14 23:40:21', NULL);
+INSERT INTO `sys_user` VALUES (5, '44', '96cae35ce8a9b0244178bf28e4966c2ce1b8385723a96a6b838858cdd6ca0a1e', 1, '', '12312312344', NULL, NULL, 1, '2025-10-14 23:40:21', '2025-10-14 23:48:59');
 
 -- ----------------------------
 -- Table structure for user_account
@@ -395,7 +496,7 @@ CREATE TABLE `user_account`  (
   PRIMARY KEY (`account_id`) USING BTREE,
   UNIQUE INDEX `uk_user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `fk_account_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理用户余额及资金流转' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '管理用户余额及资金流转' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_account
@@ -425,7 +526,7 @@ CREATE TABLE `user_address`  (
   PRIMARY KEY (`address_id`) USING BTREE,
   INDEX `idx_user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `fk_address_user` FOREIGN KEY (`user_id`) REFERENCES `sys_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储用户收货地址，支持地理路径计算' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '存储用户收货地址，支持地理路径计算' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_address
