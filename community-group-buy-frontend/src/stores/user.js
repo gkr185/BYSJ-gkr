@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { login as loginApi, getUserInfo as getUserInfoApi } from '../api/user'
 
 export const useUserStore = defineStore('user', () => {
@@ -9,6 +9,9 @@ export const useUserStore = defineStore('user', () => {
 
   // 是否已登录
   const isLogin = ref(!!token.value)
+  
+  // 是否为团长（role=2）
+  const isLeader = computed(() => userInfo.value?.role === 2)
 
   /**
    * 登录
@@ -63,6 +66,7 @@ export const useUserStore = defineStore('user', () => {
     token,
     userInfo,
     isLogin,
+    isLeader,
     login,
     logout,
     updateUserInfo

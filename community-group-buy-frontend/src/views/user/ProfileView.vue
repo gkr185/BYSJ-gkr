@@ -72,6 +72,76 @@
         </el-card>
       </el-col>
     </el-row>
+
+    <!-- 团长专属菜单（v3.0新增）-->
+    <div v-if="userStore.isLeader" class="leader-section">
+      <el-divider>
+        <el-tag type="warning" size="large" effect="dark">
+          <el-icon><Star /></el-icon>
+          团长管理
+        </el-tag>
+      </el-divider>
+
+      <el-row :gutter="20">
+        <el-col :span="8">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/dashboard')">
+            <div class="leader-icon">
+              <el-icon :size="32" color="#409EFF"><DataAnalysis /></el-icon>
+            </div>
+            <div class="menu-title">团长工作台</div>
+            <div class="menu-desc">数据概览和快捷操作</div>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/launch')">
+            <div class="leader-icon">
+              <el-icon :size="32" color="#67C23A"><Plus /></el-icon>
+            </div>
+            <div class="menu-title">发起拼团</div>
+            <div class="menu-desc">选择活动并发起拼团</div>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/members')">
+            <div class="leader-icon">
+              <el-icon :size="32" color="#E6A23C"><UserFilled /></el-icon>
+            </div>
+            <div class="menu-title">团员管理</div>
+            <div class="menu-desc">查看和管理团成员</div>
+          </el-card>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="20" style="margin-top: 20px;">
+        <el-col :span="8">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/delivery')">
+            <div class="leader-icon">
+              <el-icon :size="32" color="#F56C6C"><Van /></el-icon>
+            </div>
+            <div class="menu-title">配送管理</div>
+            <div class="menu-desc">查看配送订单和路线</div>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/commission')">
+            <div class="leader-icon">
+              <el-icon :size="32" color="#F56C6C"><Money /></el-icon>
+            </div>
+            <div class="menu-title">我的佣金</div>
+            <div class="menu-desc">查看佣金余额和明细</div>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/community/apply')">
+            <div class="leader-icon">
+              <el-icon :size="32" color="#909399"><OfficeBuilding /></el-icon>
+            </div>
+            <div class="menu-title">申请社区</div>
+            <div class="menu-desc">申请新的团购社区</div>
+          </el-card>
+        </el-col>
+      </el-row>
+    </div>
   </div>
   </div>
 </template>
@@ -82,6 +152,15 @@ import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { getAccountInfo } from '@/api/user'
 import { ElMessage } from 'element-plus'
+import {
+  Star,
+  DataAnalysis,
+  Plus,
+  UserFilled,
+  Van,
+  Money,
+  OfficeBuilding
+} from '@element-plus/icons-vue'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -170,6 +249,35 @@ h2 {
 .menu-desc {
   font-size: 13px;
   color: #909399;
+}
+
+/* 团长专属区块（v3.0新增）*/
+.leader-section {
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #FFF9E6 0%, #FFE0B2 100%);
+  border-radius: 12px;
+}
+
+.leader-section :deep(.el-divider__text) {
+  background: transparent;
+}
+
+.leader-menu-card {
+  background: white;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.leader-menu-card:hover {
+  border-color: #F57C00;
+  box-shadow: 0 6px 16px rgba(245, 124, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.leader-icon {
+  margin-bottom: 12px;
+  text-align: center;
 }
 
 /* 响应式设计 */

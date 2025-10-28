@@ -341,7 +341,13 @@ const canSubmit = computed(() => {
 // 获取收货地址列表
 const fetchAddressList = async () => {
   try {
-    const data = await getUserAddressList()
+    // 确保用户已登录
+    if (!userStore.userInfo?.userId) {
+      ElMessage.warning('请先登录')
+      return
+    }
+    
+    const data = await getUserAddressList(userStore.userInfo.userId)
     addressList.value = data || []
     
     // 自动选择默认地址

@@ -54,6 +54,11 @@ export const getAddressList = (userId) => {
 }
 
 /**
+ * 获取用户地址列表（别名，兼容性）
+ */
+export const getUserAddressList = getAddressList
+
+/**
  * 添加收货地址
  */
 export const addAddress = (data) => {

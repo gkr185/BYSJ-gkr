@@ -121,6 +121,67 @@ const router = createRouter({
         icon: 'info-o',
         description: '关于我们'
       }
+    },
+    // 团长专属路由（v3.0新增）
+    {
+      path: '/leader/dashboard',
+      name: 'leader-dashboard',
+      component: () => import('../views/leader/LeaderDashboard.vue'),
+      meta: { 
+        title: '团长工作台',
+        requireAuth: true,
+        requiresLeader: true
+      }
+    },
+    {
+      path: '/leader/launch',
+      name: 'leader-launch',
+      component: () => import('../views/leader/LaunchGroupBuy.vue'),
+      meta: { 
+        title: '发起拼团',
+        requireAuth: true,
+        requiresLeader: true
+      }
+    },
+    {
+      path: '/leader/members',
+      name: 'leader-members',
+      component: () => import('../views/leader/MemberManage.vue'),
+      meta: { 
+        title: '团员管理',
+        requireAuth: true,
+        requiresLeader: true
+      }
+    },
+    {
+      path: '/leader/delivery',
+      name: 'leader-delivery',
+      component: () => import('../views/leader/DeliveryManage.vue'),
+      meta: { 
+        title: '配送管理',
+        requireAuth: true,
+        requiresLeader: true
+      }
+    },
+    {
+      path: '/leader/commission',
+      name: 'leader-commission',
+      component: () => import('../views/leader/CommissionView.vue'),
+      meta: { 
+        title: '佣金中心',
+        requireAuth: true,
+        requiresLeader: true
+      }
+    },
+    {
+      path: '/leader/community/apply',
+      name: 'community-apply',
+      component: () => import('../views/leader/CommunityApplyView.vue'),
+      meta: { 
+        title: '申请社区',
+        requireAuth: true,
+        requiresLeader: true
+      }
     }
   ]
 })
@@ -131,6 +192,20 @@ router.beforeEach((to, from, next) => {
   
   // 设置页面标题
   document.title = to.meta.title || '社区团购'
+  
+  // 检查团长权限（v3.0新增）
+  if (to.meta.requiresLeader) {
+    if (!userStore.isLogin) {
+      ElMessage.warning('请先登录')
+      next('/login')
+      return
+    }
+    if (!userStore.isLeader) {
+      ElMessage.warning('仅团长可访问此页面')
+      next('/profile')
+      return
+    }
+  }
   
   // 需要登录的页面
   if (to.meta.requireAuth && !userStore.isLogin) {
