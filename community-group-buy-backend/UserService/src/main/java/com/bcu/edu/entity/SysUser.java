@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 @Table(name = "sys_user", indexes = {
         @Index(name = "uk_username", columnList = "username", unique = true),
         @Index(name = "uk_phone", columnList = "phone", unique = true),
-        @Index(name = "uk_wx_openid", columnList = "wx_openid", unique = true)
+        @Index(name = "uk_wx_openid", columnList = "wx_openid", unique = true),
+        @Index(name = "idx_community_id", columnList = "community_id")
 })
 @Comment("用户基础信息表")
 public class SysUser {
@@ -57,6 +58,10 @@ public class SysUser {
     @Column(name = "avatar", length = 255)
     @Comment("头像URL")
     private String avatar;
+
+    @Column(name = "community_id")
+    @Comment("归属社区ID（v3.0新增，跨库关联）")
+    private Long communityId;
 
     @Column(name = "status", nullable = false)
     @Comment("状态（0-禁用；1-正常）")

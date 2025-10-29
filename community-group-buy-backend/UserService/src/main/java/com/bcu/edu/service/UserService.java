@@ -248,5 +248,67 @@ public class UserService {
         statistics.put("disabledUsers", userRepository.countByStatus(SysUser.Status.DISABLED.getCode()));
         return statistics;
     }
+
+    // ========== v3.0新增：社区关联功能 ==========
+
+    /**
+     * 关联用户到社区（v3.0新增）
+     * @param userId 用户ID
+     * @param communityId 社区ID
+     * @return 更新后的用户信息
+     */
+    @Transactional
+    public UserInfoResponse associateCommunity(Long userId, Long communityId) {
+        SysUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new BusinessException(ResultCode.USER_NOT_FOUND));
+
+        // TODO: 调用LeaderService验证社区是否存在
+        // if (!leaderServiceClient.existsCommunity(communityId)) {
+        //     throw new BusinessException("社区不存在");
+        // }
+
+        user.setCommunityId(communityId);
+        user = userRepository.save(user);
+
+        log.info("用户已关联社区: userId={}, communityId={}", userId, communityId);
+
+        return UserInfoResponse.fromEntity(user);
+    }
+
+    /**
+     * 查询社区内的所有用户（v3.0新增）
+     * @param communityId 社区ID
+     * @return 用户列表
+     */
+    public List<UserInfoResponse> getUsersByCommunity(Long communityId) {
+        List<SysUser> users = userRepository.findByCommunityId(communityId);
+        return users.stream()
+                .map(UserInfoResponse::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 查询社区内的团长（v3.0新增）
+     * @param communityId 社区ID
+     * @return 团长列表
+     */
+    public List<UserInfoResponse> getLeadersByCommunity(Long communityId) {
+        List<SysUser> leaders = userRepository.findByCommunityIdAndRole(
+            communityId, 
+            SysUser.Role.LEADER.getCode()
+        );
+        return leaders.stream()
+                .map(UserInfoResponse::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 统计社区内的用户数量（v3.0新增）
+     * @param communityId 社区ID
+     * @return 用户数量
+     */
+    public long countUsersByCommunity(Long communityId) {
+        return userRepository.countByCommunityId(communityId);
+    }
 }
 

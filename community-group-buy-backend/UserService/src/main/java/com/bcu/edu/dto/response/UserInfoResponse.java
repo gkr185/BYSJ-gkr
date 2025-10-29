@@ -25,6 +25,8 @@ public class UserInfoResponse {
     private String phone;
     private String wxOpenid;
     private String avatar;
+    private Long communityId;  // v3.0新增
+    private String communityName;  // v3.0新增（跨库查询）
     private Integer status;
     private String statusName;
     private LocalDateTime createTime;
@@ -43,6 +45,8 @@ public class UserInfoResponse {
                 .phone(user.getPhone())
                 .wxOpenid(user.getWxOpenid())
                 .avatar(user.getAvatar())
+                .communityId(user.getCommunityId())
+                // communityName需要跨服务调用LeaderService获取，暂时为null
                 .status(user.getStatus())
                 .statusName(getStatusName(user.getStatus()))
                 .createTime(user.getCreateTime())

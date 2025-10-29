@@ -70,5 +70,20 @@ public interface SysUserRepository extends JpaRepository<SysUser, Long> {
      * 统计指定状态的用户数量
      */
     long countByStatus(Integer status);
+
+    /**
+     * 根据社区ID查询用户列表（v3.0新增）
+     */
+    List<SysUser> findByCommunityId(Long communityId);
+
+    /**
+     * 查询指定社区内的团长（v3.0新增）
+     */
+    List<SysUser> findByCommunityIdAndRole(Long communityId, Integer role);
+
+    /**
+     * 统计社区内的用户数量（v3.0新增）
+     */
+    long countByCommunityId(Long communityId);
 }
 
