@@ -4,7 +4,7 @@ import router from '../router'
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://localhost:8061', // UserService端口
+  baseURL: 'http://localhost:9000', // ⭐ API Gateway 统一入口
   timeout: 10000
 })
 

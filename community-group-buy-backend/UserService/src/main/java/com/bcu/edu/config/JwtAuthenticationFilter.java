@@ -37,7 +37,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
-        // 从请求头获取Token
+        // ⭐ 检查是否来自网关（网关已完成鉴权）
+        String fromGateway = request.getHeader("X-Gateway-Request");
+        if ("true".equals(fromGateway)) {
+            // 来自网关，直接信任并从请求头获取用户信息
+            String userIdStr = request.getHeader("X-User-Id");
+            String username = request.getHeader("X-Username");
+            String roleStr = request.getHeader("X-User-Role");
+            
+            if (StringUtils.hasText(userIdStr)) {
+                request.setAttribute("userId", Long.parseLong(userIdStr));
+                request.setAttribute("username", username);
+                if (StringUtils.hasText(roleStr)) {
+                    request.setAttribute("role", Integer.parseInt(roleStr));
+                }
+                log.debug("网关请求，用户信息: userId={}, username={}", userIdStr, username);
+            }
+            
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        // ⭐ 不是来自网关（直接访问或Feign调用），需要验证JWT
         String token = getTokenFromRequest(request);
 
         if (StringUtils.hasText(token)) {

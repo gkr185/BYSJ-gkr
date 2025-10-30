@@ -3,7 +3,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 
 // 创建axios实例
 const request = axios.create({
-  baseURL: 'http://localhost:8061', // UserService 端口
+  baseURL: 'http://localhost:9000', // ⭐ API Gateway 统一入口
   timeout: 10000
 })
 

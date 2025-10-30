@@ -4,6 +4,10 @@ import LayoutView from '../views/LayoutView.vue'
 import UserManageView from '../views/UserManageView.vue'
 import FeedbackManageView from '../views/FeedbackManageView.vue'
 import LogManageView from '../views/LogManageView.vue'
+import CommunityManageView from '../views/CommunityManageView.vue'
+import CommunityApplicationView from '../views/CommunityApplicationView.vue'
+import LeaderManageView from '../views/LeaderManageView.vue'
+import CommissionManageView from '../views/CommissionManageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +39,30 @@ const router = createRouter({
           name: 'logs',
           component: LogManageView,
           meta: { title: '系统日志', role: 'ADMIN' }
+        },
+        {
+          path: '/community',
+          name: 'community',
+          component: CommunityManageView,
+          meta: { title: '社区管理' }
+        },
+        {
+          path: '/community-application',
+          name: 'communityApplication',
+          component: CommunityApplicationView,
+          meta: { title: '社区申请审核' }
+        },
+        {
+          path: '/leader',
+          name: 'leader',
+          component: LeaderManageView,
+          meta: { title: '团长管理' }
+        },
+        {
+          path: '/commission',
+          name: 'commission',
+          component: CommissionManageView,
+          meta: { title: '佣金管理' }
         }
       ]
     }

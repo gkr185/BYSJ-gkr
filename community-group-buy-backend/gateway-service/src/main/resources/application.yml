@@ -1,0 +1,166 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway-service
+  
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        instance-id: ${spring.application.name}-${server.port}
+        prefer-ip-address: true
+        health-check-path: /actuator/health
+        health-check-interval: 15s
+    
+    gateway:
+      # 启用服务发现
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      
+      # 路由配置
+      routes:
+        # ==================== UserService 路由 ====================
+        - id: user-service
+          uri: lb://UserService
+          predicates:
+            - Path=/api/user/**,/api/account/**,/api/address/**,/api/feedback/**,/api/admin/logs/**
+        
+        # UserService - Swagger UI（可选，暂时保留直接访问）
+        # 直接访问: http://localhost:8061/swagger-ui.html
+        
+        # ==================== ProductService 路由（待开发）====================
+        - id: product-service
+          uri: lb://ProductService
+          predicates:
+            - Path=/api/product/**
+        
+        - id: product-service-swagger
+          uri: lb://ProductService
+          predicates:
+            - Path=/product/api-docs/**
+          filters:
+            - RewritePath=/product/api-docs/(?<segment>.*), /api-docs/$\{segment}
+        
+        # ==================== GroupBuyService 路由（待开发）====================
+        - id: groupbuy-service
+          uri: lb://GroupBuyService
+          predicates:
+            - Path=/api/groupbuy/**
+        
+        - id: groupbuy-service-swagger
+          uri: lb://GroupBuyService
+          predicates:
+            - Path=/groupbuy/api-docs/**
+          filters:
+            - RewritePath=/groupbuy/api-docs/(?<segment>.*), /api-docs/$\{segment}
+        
+        # ==================== OrderService 路由（待开发）====================
+        - id: order-service
+          uri: lb://OrderService
+          predicates:
+            - Path=/api/order/**,/api/cart/**
+        
+        - id: order-service-swagger
+          uri: lb://OrderService
+          predicates:
+            - Path=/order/api-docs/**
+          filters:
+            - RewritePath=/order/api-docs/(?<segment>.*), /api-docs/$\{segment}
+        
+        # ==================== PaymentService 路由（待开发）====================
+        - id: payment-service
+          uri: lb://PaymentService
+          predicates:
+            - Path=/api/payment/**
+        
+        - id: payment-service-swagger
+          uri: lb://PaymentService
+          predicates:
+            - Path=/payment/api-docs/**
+          filters:
+            - RewritePath=/payment/api-docs/(?<segment>.*), /api-docs/$\{segment}
+        
+        # ==================== LeaderService 路由 ====================
+        - id: leader-service
+          uri: lb://LeaderService
+          predicates:
+            - Path=/api/leader/**,/api/community/**,/api/community-application/**,/api/commission/**,/api/admin/community/**
+        
+        - id: leader-service-swagger
+          uri: lb://LeaderService
+          predicates:
+            - Path=/leader/api-docs/**
+          filters:
+            - RewritePath=/leader/api-docs/(?<segment>.*), /api-docs/$\{segment}
+        
+        # ==================== DeliveryService 路由（待开发）====================
+        - id: delivery-service
+          uri: lb://DeliveryService
+          predicates:
+            - Path=/api/delivery/**
+        
+        - id: delivery-service-swagger
+          uri: lb://DeliveryService
+          predicates:
+            - Path=/delivery/api-docs/**
+          filters:
+            - RewritePath=/delivery/api-docs/(?<segment>.*), /api-docs/$\{segment}
+      
+      # ⚠️ CORS配置已移至 CorsConfig.java（避免配置冲突）
+      # globalcors:
+      #   cors-configurations:
+      #     '[/**]':
+      #       allowed-origin-patterns:
+      #         - "http://localhost:*"
+      #         - "http://127.0.0.1:*"
+      #       allowed-methods:
+      #         - GET
+      #         - POST
+      #         - PUT
+      #         - DELETE
+      #         - OPTIONS
+      #         - PATCH
+      #       allowed-headers: "*"
+      #       allow-credentials: true
+      #       max-age: 3600
+
+# JWT配置
+jwt:
+  secret: bcu-community-group-buy-system-jwt-secret-key-2025-must-be-at-least-256-bits-long-for-hs256-algorithm
+  expiration: 604800000  # 7天（毫秒）
+
+# 网关白名单（无需JWT鉴权的接口）
+gateway:
+  whitelist:
+    - /api/user/register
+    - /api/user/login
+    - /api-docs
+    - /swagger-ui
+    - /*/api-docs/**
+    - /actuator/health
+    - /actuator/info
+
+# Management配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+# 日志配置
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    com.bcu.edu.gateway: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+

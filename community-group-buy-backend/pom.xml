@@ -10,8 +10,10 @@
     </parent>
 
     <modules>
-        <module>UserService</module>
         <module>common</module>
+        <module>gateway-service</module>
+        <module>UserService</module>
+        <module>LeaderService</module>
     </modules>
 
     <groupId>bcu.edu</groupId>

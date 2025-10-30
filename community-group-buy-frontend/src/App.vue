@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <!-- 顶部导航栏 -->
-    <TopNav :show="!hideNav"  />
+    
 
     <!-- 主内容区 -->
     <router-view />
@@ -11,15 +10,11 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import TopNav from '@/components/common/TopNav.vue'
+
 
 const route = useRoute()
 
-// 不显示导航栏的页面列表
-const hideNav = computed(() => {
-  const noNavPages = ['/login']
-  return noNavPages.includes(route.path)
-})
+
 </script>
 
 <style>

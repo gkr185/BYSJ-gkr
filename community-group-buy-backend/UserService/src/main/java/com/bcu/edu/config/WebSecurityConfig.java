@@ -3,10 +3,12 @@ package com.bcu.edu.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+
+// ⚠️ 以下import已移除（CORS配置已移至Gateway）：
+// import org.springframework.web.cors.CorsConfiguration;
+// import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+// import org.springframework.web.filter.CorsFilter;
 
 /**
  * Web安全配置
@@ -30,8 +32,10 @@ public class WebSecurityConfig {
     }
 
     /**
-     * CORS配置
+     * ⚠️ 已注释：使用API Gateway后，CORS统一在Gateway层配置
+     * 业务服务不需要配置CORS，避免响应头重复导致跨域失败
      */
+    /*
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -50,5 +54,6 @@ public class WebSecurityConfig {
         
         return bean;
     }
+    */
 }
 

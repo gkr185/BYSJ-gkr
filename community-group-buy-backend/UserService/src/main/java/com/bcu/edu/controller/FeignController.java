@@ -63,6 +63,30 @@ public class FeignController {
         }
     }
 
+    /**
+     * 更新用户角色（供LeaderService调用）
+     * 
+     * 角色说明：
+     * 0 - 普通用户
+     * 1 - 管理员
+     * 2 - 团长
+     */
+    @PostMapping("/user/{userId}/role")
+    @Operation(summary = "更新用户角色", description = "供LeaderService调用，团长审核通过后更新用户角色")
+    public Result<Void> updateUserRole(
+            @PathVariable Long userId,
+            @RequestParam Integer role) {
+        log.info("[Feign] 更新用户角色：userId={}, role={}", userId, role);
+        
+        try {
+            userService.updateUserRole(userId, role);
+            return Result.success("用户角色更新成功");
+        } catch (Exception e) {
+            log.error("[Feign] 更新用户角色失败：{}", e.getMessage(), e);
+            return Result.error("用户角色更新失败：" + e.getMessage());
+        }
+    }
+
     // ========== 社区相关接口 ==========
 
     /**

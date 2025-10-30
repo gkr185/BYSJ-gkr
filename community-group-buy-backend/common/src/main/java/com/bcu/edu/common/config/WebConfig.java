@@ -10,13 +10,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  *
  * @author 耿康瑞
  * @date 2025-10-12
+ * 
+ * ⚠️ 注意：使用API Gateway后，CORS统一在Gateway层配置
+ * 业务服务不需要配置CORS，避免响应头重复
  */
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
     /**
-     * 配置CORS跨域访问
+     * ⚠️ 已注释：使用API Gateway后，CORS统一在Gateway层配置
+     * 业务服务不需要配置CORS，避免响应头重复导致跨域失败
      */
+    /*
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
@@ -31,5 +36,6 @@ public class WebConfig implements WebMvcConfigurer {
                 // 预检请求的有效期（单位：秒）
                 .maxAge(3600);
     }
+    */
 }
 

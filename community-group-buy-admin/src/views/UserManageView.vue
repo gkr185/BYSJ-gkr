@@ -126,8 +126,23 @@
                 {{ currentUser.status === 1 ? '正常' : '禁用' }}
               </el-tag>
             </el-descriptions-item>
-            <el-descriptions-item label="微信OpenID" :span="2">
+            <el-descriptions-item label="头像">
+              <el-image 
+                v-if="currentUser.avatar" 
+                :src="currentUser.avatar" 
+                style="width: 50px; height: 50px; border-radius: 50%;"
+                :preview-src-list="[currentUser.avatar]"
+              />
+              <span v-else>未设置</span>
+            </el-descriptions-item>
+            <el-descriptions-item label="微信OpenID">
               {{ currentUser.wxOpenid || '未绑定' }}
+            </el-descriptions-item>
+            <el-descriptions-item label="归属社区" :span="2">
+              <el-tag v-if="currentUser.communityId" type="success">
+                {{ getCommunityName(currentUser.communityId) }}
+              </el-tag>
+              <span v-else>未分配</span>
             </el-descriptions-item>
             <el-descriptions-item label="注册时间" :span="2">
               {{ currentUser.createTime }}
@@ -221,6 +236,28 @@
             <el-option label="管理员" :value="3" />
           </el-select>
         </el-form-item>
+        <el-form-item label="归属社区" prop="communityId">
+          <el-select 
+            v-model="createForm.communityId" 
+            placeholder="请选择社区（可选）" 
+            style="width: 100%" 
+            clearable
+            filterable
+          >
+            <el-option 
+              v-for="community in communityList" 
+              :key="community.communityId" 
+              :label="community.communityName" 
+              :value="community.communityId" 
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="微信OpenID" prop="wxOpenid">
+          <el-input v-model="createForm.wxOpenid" placeholder="请输入微信OpenID（可选）" />
+        </el-form-item>
+        <el-form-item label="头像URL" prop="avatar">
+          <el-input v-model="createForm.avatar" placeholder="请输入头像URL（可选）" />
+        </el-form-item>
       </el-form>
       <template #footer>
         <el-button @click="createDialogVisible = false">取消</el-button>
@@ -264,6 +301,28 @@
             <el-option label="管理员" :value="3" />
           </el-select>
         </el-form-item>
+        <el-form-item label="归属社区" prop="communityId">
+          <el-select 
+            v-model="editForm.communityId" 
+            placeholder="请选择社区（可选）" 
+            style="width: 100%" 
+            clearable
+            filterable
+          >
+            <el-option 
+              v-for="community in communityList" 
+              :key="community.communityId" 
+              :label="community.communityName" 
+              :value="community.communityId" 
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="微信OpenID" prop="wxOpenid">
+          <el-input v-model="editForm.wxOpenid" placeholder="请输入微信OpenID（可选）" />
+        </el-form-item>
+        <el-form-item label="头像URL" prop="avatar">
+          <el-input v-model="editForm.avatar" placeholder="请输入头像URL（可选）" />
+        </el-form-item>
       </el-form>
       <template #footer>
         <el-button @click="editDialogVisible = false">取消</el-button>
@@ -288,6 +347,7 @@ import {
   getUserAddresses,
   getUserAccount
 } from '../api/user'
+import { getCommunityList } from '../api/leader'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 
@@ -301,6 +361,7 @@ const currentUser = ref(null)
 const detailActiveTab = ref('info')
 const userAddresses = ref([])  // 确保初始化为空数组
 const userAccount = ref(null)
+const communityList = ref([])  // 社区列表
 
 // 创建用户
 const createDialogVisible = ref(false)
@@ -311,7 +372,10 @@ const createForm = reactive({
   password: '',
   phone: '',
   realName: '',
-  role: 1
+  role: 1,
+  wxOpenid: '',
+  avatar: '',
+  communityId: null
 })
 
 const createRules = {
@@ -343,7 +407,10 @@ const editForm = reactive({
   phone: '',
   realName: '',
   role: 1,
-  originalRole: 1
+  originalRole: 1,
+  wxOpenid: '',
+  avatar: '',
+  communityId: null
 })
 
 const editRules = {
@@ -421,6 +488,12 @@ const getRoleType = (role) => {
     3: 'danger'
   }
   return typeMap[role] || 'info'
+}
+
+// 获取社区名称
+const getCommunityName = (communityId) => {
+  const community = communityList.value.find(c => c.communityId === communityId)
+  return community ? community.communityName : '未知社区'
 }
 
 // 查看用户详情
@@ -503,7 +576,10 @@ const showCreateDialog = () => {
     password: '',
     phone: '',
     realName: '',
-    role: 1
+    role: 1,
+    wxOpenid: '',
+    avatar: '',
+    communityId: null
   })
   createDialogVisible.value = true
 }
@@ -538,7 +614,10 @@ const showEditDialog = (user) => {
     phone: user.phone,
     realName: user.realName || '',
     role: user.role,
-    originalRole: user.role
+    originalRole: user.role,
+    wxOpenid: user.wxOpenid || '',
+    avatar: user.avatar || '',
+    communityId: user.communityId || null
   })
   editDialogVisible.value = true
 }
@@ -554,7 +633,10 @@ const handleEdit = async () => {
         // 1. 更新基本信息
         const updateData = {
           phone: editForm.phone,
-          realName: editForm.realName
+          realName: editForm.realName,
+          wxOpenid: editForm.wxOpenid,
+          avatar: editForm.avatar,
+          communityId: editForm.communityId
         }
         
         // 如果填写了新密码，则更新密码
@@ -581,8 +663,19 @@ const handleEdit = async () => {
   })
 }
 
+// 获取社区列表
+const fetchCommunityList = async () => {
+  try {
+    const res = await getCommunityList()
+    communityList.value = res.data || []
+  } catch (error) {
+    console.error('获取社区列表失败:', error)
+  }
+}
+
 onMounted(() => {
   fetchUsers()
+  fetchCommunityList()
 })
 </script>
 

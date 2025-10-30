@@ -310,5 +310,21 @@ public class UserService {
     public long countUsersByCommunity(Long communityId) {
         return userRepository.countByCommunityId(communityId);
     }
+
+    /**
+     * 更新用户角色（供LeaderService调用）
+     * @param userId 用户ID
+     * @param role 角色（0-普通用户 1-管理员 2-团长）
+     */
+    @Transactional
+    public void updateUserRole(Long userId, Integer role) {
+        SysUser user = userRepository.findById(userId)
+                .orElseThrow(() -> new BusinessException(ResultCode.USER_NOT_FOUND));
+
+        user.setRole(role);
+        userRepository.save(user);
+
+        log.info("[Feign] 用户角色已更新: userId={}, role={}", userId, role);
+    }
 }
 
