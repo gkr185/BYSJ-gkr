@@ -131,3 +131,213 @@ export const getMyFeedback = (userId) => {
   })
 }
 
+/**
+ * 分页查询用户反馈
+ * @param {number} userId - 用户ID
+ * @param {object} params - 查询参数 { page, size }
+ */
+export const getMyFeedbackPage = (userId, params) => {
+  return request({
+    url: `/api/feedback/user/${userId}/page`,
+    method: 'GET',
+    params
+  })
+}
+
+/**
+ * 获取反馈详情
+ * @param {number} feedbackId - 反馈ID
+ */
+export const getFeedbackDetail = (feedbackId) => {
+  return request({
+    url: `/api/feedback/${feedbackId}`,
+    method: 'GET'
+  })
+}
+
+// ==================== 账户操作 ====================
+
+/**
+ * 账户充值
+ * @param {number} userId - 用户ID
+ * @param {number} amount - 充值金额
+ */
+export const recharge = (userId, amount) => {
+  return request({
+    url: `/api/account/recharge/${userId}`,
+    method: 'POST',
+    params: { amount }
+  })
+}
+
+/**
+ * 账户扣款
+ * @param {number} userId - 用户ID
+ * @param {number} amount - 扣款金额
+ */
+export const deduct = (userId, amount) => {
+  return request({
+    url: `/api/account/deduct/${userId}`,
+    method: 'POST',
+    params: { amount }
+  })
+}
+
+/**
+ * 冻结金额
+ * @param {number} userId - 用户ID
+ * @param {number} amount - 冻结金额
+ */
+export const freezeAmount = (userId, amount) => {
+  return request({
+    url: `/api/account/freeze/${userId}`,
+    method: 'POST',
+    params: { amount }
+  })
+}
+
+/**
+ * 解冻金额
+ * @param {number} userId - 用户ID
+ * @param {number} amount - 解冻金额
+ */
+export const unfreezeAmount = (userId, amount) => {
+  return request({
+    url: `/api/account/unfreeze/${userId}`,
+    method: 'POST',
+    params: { amount }
+  })
+}
+
+// ==================== 管理员功能 ====================
+
+/**
+ * 搜索用户（管理员）
+ * @param {string} keyword - 搜索关键词
+ */
+export const searchUsers = (keyword) => {
+  return request({
+    url: '/api/user/search',
+    method: 'GET',
+    params: { keyword }
+  })
+}
+
+/**
+ * 按角色查询用户（管理员）
+ * @param {number} role - 角色（1-普通用户；2-团长；3-管理员）
+ */
+export const getUsersByRole = (role) => {
+  return request({
+    url: `/api/user/role/${role}`,
+    method: 'GET'
+  })
+}
+
+/**
+ * 更改用户角色（管理员）
+ * @param {number} userId - 用户ID
+ * @param {number} role - 新角色（1-普通用户；2-团长；3-管理员）
+ */
+export const updateUserRole = (userId, role) => {
+  return request({
+    url: `/api/user/role/${userId}`,
+    method: 'PUT',
+    params: { role }
+  })
+}
+
+/**
+ * 更改用户状态（管理员）
+ * @param {number} userId - 用户ID
+ * @param {number} status - 状态（0-禁用；1-正常）
+ */
+export const updateUserStatus = (userId, status) => {
+  return request({
+    url: `/api/user/status/${userId}`,
+    method: 'PUT',
+    params: { status }
+  })
+}
+
+/**
+ * 用户统计（管理员）
+ */
+export const getUserStatistics = () => {
+  return request({
+    url: '/api/user/statistics',
+    method: 'GET'
+  })
+}
+
+/**
+ * 管理员创建用户（管理员）
+ * @param {object} data - 用户数据
+ */
+export const adminCreateUser = (data) => {
+  return request({
+    url: '/api/user/admin/create',
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 删除用户（管理员）
+ * @param {number} userId - 用户ID
+ */
+export const deleteUser = (userId) => {
+  return request({
+    url: `/api/user/delete/${userId}`,
+    method: 'DELETE'
+  })
+}
+
+/**
+ * 管理员回复反馈（管理员）
+ * @param {object} data - { feedbackId, reply, status }
+ */
+export const replyFeedback = (data) => {
+  return request({
+    url: '/api/feedback/reply',
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 查询所有反馈（管理员）
+ * @param {object} params - 查询参数 { page, size }
+ */
+export const getAllFeedback = (params) => {
+  return request({
+    url: '/api/feedback/all',
+    method: 'GET',
+    params
+  })
+}
+
+/**
+ * 按状态查询反馈（管理员）
+ * @param {number} status - 状态（0-待处理；1-处理中；2-已解决；3-已关闭）
+ * @param {object} params - 查询参数 { page, size }
+ */
+export const getFeedbackByStatus = (status, params) => {
+  return request({
+    url: `/api/feedback/status/${status}`,
+    method: 'GET',
+    params
+  })
+}
+
+/**
+ * 删除反馈（管理员）
+ * @param {number} feedbackId - 反馈ID
+ */
+export const deleteFeedback = (feedbackId) => {
+  return request({
+    url: `/api/feedback/delete/${feedbackId}`,
+    method: 'DELETE'
+  })
+}
+

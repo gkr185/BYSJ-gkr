@@ -1,16 +1,16 @@
 <template>
   <el-card :body-style="{ padding: '0px' }" class="product-card" shadow="hover">
     <div class="product-image" @click="goToDetail">
-      <img :src="product.cover_img" :alt="product.product_name" />
-      <div v-if="product.group_price" class="group-tag">
+      <img :src="product.coverImg" :alt="product.productName" />
+      <div v-if="product.groupPrice" class="group-tag">
         <el-tag type="danger" size="small">拼团</el-tag>
       </div>
     </div>
     <div class="product-info">
-      <div class="product-name" @click="goToDetail">{{ product.product_name }}</div>
+      <div class="product-name" @click="goToDetail">{{ product.productName }}</div>
       <div class="product-price">
-        <span v-if="product.group_price" class="group-price">¥{{ product.group_price }}</span>
-        <span :class="['original-price', product.group_price ? 'has-group' : '']">
+        <span v-if="product.groupPrice" class="group-price">¥{{ product.groupPrice }}</span>
+        <span :class="['original-price', product.groupPrice ? 'has-group' : '']">
           ¥{{ product.price }}
         </span>
       </div>
@@ -20,7 +20,7 @@
           type="primary" 
           size="small" 
           :icon="ShoppingCart"
-          @click="handleAddToCart"
+          @click.stop="handleAddToCart"
           :disabled="product.stock === 0"
         >
           {{ product.stock === 0 ? '已售罄' : '加购' }}
@@ -34,7 +34,7 @@
 import { useRouter } from 'vue-router'
 import { ShoppingCart } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { addToCart } from '@/utils/cart'
+import { useCartStore } from '@/stores/cart'
 
 const props = defineProps({
   product: {
@@ -44,9 +44,10 @@ const props = defineProps({
 })
 
 const router = useRouter()
+const cartStore = useCartStore()
 
 const goToDetail = () => {
-  router.push(`/products/${props.product.product_id}`)
+  router.push(`/products/${props.product.productId}`)
 }
 
 const handleAddToCart = () => {
@@ -55,7 +56,7 @@ const handleAddToCart = () => {
     return
   }
   
-  addToCart(props.product, 1)
+  cartStore.addItem(props.product, 1)
   ElMessage.success('已添加到购物车')
 }
 </script>
