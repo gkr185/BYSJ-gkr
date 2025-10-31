@@ -9,45 +9,48 @@ Common模块是社区团购系统的公共基础模块，为所有微服务提�
 ```
 common/
 ├── src/main/java/com/bcu/edu/common/
-│   ├── annotation/             # 自定义注解 ⭐新增
+│   ├── annotation/             # 自定义注解
 │   │   └── OperationLog.java   # 操作日志注解
-│   ├── aspect/                 # AOP切面 ⭐新增
-│   │   └── OperationLogAspect.java  # 操作日志切面
+│   ├── aspect/                 # AOP切面
+│   │   └── OperationLogAspect.java  # 操作日志切面（Feign调用）⭐改造 v3.0
 │   ├── config/                 # 配置类
 │   │   ├── WebConfig.java      # Web配置（CORS等）
-│   │   └── AsyncConfig.java    # 异步任务配置 ⭐新增
+│   │   └── AsyncConfig.java    # 异步任务配置
 │   ├── constant/               # 常量类
 │   │   └── Constants.java      # 系统常量定义
-│   ├── controller/             # REST控制器 ⭐新增
-│   │   └── LogController.java  # 日志管理API
-│   ├── dto/                    # 数据传输对象 ⭐新增
-│   │   ├── OperationLogDTO.java  # 操作日志DTO
+│   ├── dto/                    # 数据传输对象
+│   │   ├── OperationLogDTO.java  # 操作日志DTO（跨服务传输）⭐新增 v3.0
 │   │   └── OperationLogQuery.java # 日志查询条件
-│   ├── entity/                 # JPA实体类 ⭐新增
-│   │   └── SysOperationLog.java  # 操作日志实体
+│   ├── entity/                 # JPA实体类
+│   │   └── SysOperationLog.java  # 操作日志实体（UserService专用）
 │   ├── enums/                  # 枚举类
 │   │   └── ResultCode.java     # 返回结果码枚举
 │   ├── exception/              # 异常类
 │   │   ├── BaseException.java      # 基础异常
 │   │   └── BusinessException.java  # 业务异常
+│   ├── feign/                  # Feign客户端 ⭐新增 v3.0
+│   │   ├── LogFeignClient.java     # 日志服务Feign客户端
+│   │   └── LogFeignClientFallback.java  # Feign降级处理
 │   ├── handler/                # 处理器
 │   │   └── GlobalExceptionHandler.java  # 全局异常处理器
-│   ├── repository/             # JPA数据访问层 ⭐新增
-│   │   └── SysOperationLogRepository.java  # 日志Repository
+│   ├── repository/             # JPA数据访问层
+│   │   └── SysOperationLogRepository.java  # 日志Repository（UserService专用）
 │   ├── result/                 # 返回结果封装
 │   │   ├── Result.java         # 统一返回结果
 │   │   └── PageResult.java     # 分页结果
-│   ├── service/                # 业务服务层 ⭐新增
-│   │   └── OperationLogService.java  # 日志业务服务
 │   └── utils/                  # 工具类
 │       ├── SecurityUtil.java   # 安全工具（加密、解密、脱敏）
 │       ├── JwtUtil.java        # JWT工具
 │       ├── DateUtil.java       # 日期工具
-│       ├── IpUtil.java         # IP地址工具 ⭐新增
-│       └── ExcelUtil.java      # Excel导出工具 ⭐新增
+│       ├── IpUtil.java         # IP地址工具
+│       └── ExcelUtil.java      # Excel导出工具
 ├── src/main/resources/
-│   └── logback-spring.xml      # Logback配置 ⭐新增
+│   └── logback-spring.xml      # Logback配置
 └── pom.xml
+
+注意：
+- LogController 和 LogService 已移至 UserService（日志服务提供方）
+- common 模块只保留 Feign 客户端接口和 DTO
 ```
 
 ## 依赖说明
@@ -56,13 +59,14 @@ common/
 
 - **Spring Boot Web**: 提供Web相关功能
 - **Spring Boot Validation**: 参数校验
-- **Spring Boot AOP**: AOP切面编程 ⭐新增
-- **Spring Data JPA**: ORM数据持久化 ⭐新增
+- **Spring Boot AOP**: AOP切面编程
+- **Spring Data JPA**: ORM数据持久化
+- **Spring Cloud OpenFeign**: 微服务间调用 ⭐新增（v3.0）
 - **Lombok**: 简化代码
 - **Hutool**: 工具类库（加密、日期等）
 - **JWT**: JSON Web Token认证
 - **Jackson**: JSON序列化
-- **Apache POI**: Excel导出 ⭐新增
+- **Apache POI**: Excel导出
 
 ### 版本信息
 
@@ -388,11 +392,17 @@ public class UserController {
 }
 ```
 
-### 9. 操作日志系统（双轨制）⭐新增
+### 9. 操作日志系统（微服务架构）⭐改造 v3.0
 
-系统实现了双轨制日志架构：
+系统实现了基于微服务的日志架构：
 1. **Logback技术日志** - 文件日志，用于开发调试和错误追踪
-2. **AOP操作日志** - 数据库日志，用于业务审计和操作追溯
+2. **AOP操作日志** - 通过Feign调用UserService保存到数据库，用于业务审计和操作追溯
+
+**架构说明**：
+- 日志统一存储在 `user_service_db.sys_operation_log` 表中
+- 各微服务通过 Feign 调用 UserService 的日志接口保存日志
+- Fallback 降级处理，确保日志失败不影响业务
+- 异步保存，响应时间增加 < 10ms
 
 #### 9.1 使用@OperationLog注解记录操作
 
@@ -453,9 +463,34 @@ public class UserController {
 - 客户端IP地址
 - 操作时间
 
-#### 9.2 查询操作日志
+#### 9.2 日志流转流程
 
-使用LogController提供的API查询日志：
+```
+ProductService/LeaderService (业务服务)
+         ↓
+   @OperationLog 注解
+         ↓
+   OperationLogAspect (切面)
+         ↓
+   LogFeignClient (Feign客户端)
+         ↓ Feign调用
+   UserService LogController
+         ↓
+   LogService (日志服务)
+         ↓
+   SysOperationLogRepository
+         ↓
+   user_service_db.sys_operation_log (数据库)
+```
+
+**降级处理**：
+- 如果 UserService 不可用，触发 `LogFeignClientFallback`
+- 本地记录警告日志，业务继续执行
+- 日志保存失败不影响业务
+
+#### 9.3 查询操作日志
+
+使用 UserService 的 LogController 提供的API查询日志：
 
 ```java
 // 前端示例：分页查询操作日志
@@ -476,7 +511,7 @@ const loadLogs = async () => {
 }
 ```
 
-#### 9.3 导出操作日志为Excel
+#### 9.4 导出操作日志为Excel
 
 ```java
 // 前端示例：导出Excel
@@ -502,7 +537,7 @@ const handleExport = async () => {
 }
 ```
 
-#### 9.4 Logback配置
+#### 9.5 Logback配置
 
 `logback-spring.xml` 已预配置：
 - 控制台彩色输出
@@ -513,30 +548,51 @@ const handleExport = async () => {
 
 日志文件位置：`./logs/${spring.application.name}/`
 
-#### 9.5 微服务启动配置
+#### 9.6 微服务日志功能接入
 
-每个微服务需要扫描common模块的组件：
+**步骤1：启用 Feign 客户端扫描**
+
+在微服务启动类添加 Feign 扫描配置（ProductService、LeaderService 等）：
 
 ```java
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = {
-    "com.bcu.edu.repository",
-    "com.bcu.edu.common.repository"  // 扫描common的Repository
-})
-@EntityScan(basePackages = {
-    "com.bcu.edu.entity",
-    "com.bcu.edu.common.entity"  // 扫描common的Entity
-})
-@ComponentScan(basePackages = {
-    "com.bcu.edu",
-    "com.bcu.edu.common"  // 扫描common的所有组件
-})
-public class YourServiceApplication {
+@EnableDiscoveryClient
+@EnableFeignClients(basePackages = {"com.bcu.edu.common.feign", "com.bcu.edu"})
+public class ProductServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(YourServiceApplication.class, args);
+        SpringApplication.run(ProductServiceApplication.class, args);
     }
 }
 ```
+
+**步骤2：在 Controller 中使用 @OperationLog 注解**
+
+```java
+@RestController
+@RequestMapping("/api/product/admin/category")
+public class AdminCategoryController {
+    
+    @OperationLog(value = "创建分类", module = "商品管理")
+    @PostMapping
+    public Result<Category> createCategory(@RequestBody CategoryRequest request) {
+        // 业务逻辑...
+    }
+}
+```
+
+**步骤3：验证日志保存**
+
+```sql
+-- 查询 UserService 数据库中的日志
+SELECT * FROM user_service_db.sys_operation_log 
+WHERE module = '商品管理' 
+ORDER BY create_time DESC;
+```
+
+**特殊说明（UserService）**：
+- UserService 自身不需要配置 Feign 扫描（因为它是日志服务提供方）
+- UserService 的日志可以选择直接使用本地 Repository 保存
+- `OperationLogAspect` 中已处理循环依赖问题（`@Autowired(required = false)`）
 
 ## 注意事项
 
@@ -550,9 +606,28 @@ public class YourServiceApplication {
 
 5. **日志记录**：所有工具类已集成Slf4j日志，异常会自动记录到日志文件。
 
+6. **日志系统依赖**：操作日志通过 Feign 调用 UserService 保存，需确保：
+   - UserService 服务正常运行
+   - Consul 服务发现可用
+   - 如果 UserService 不可用，会触发 Fallback 降级，业务不受影响
+   
+7. **编译顺序**：修改 common 模块后，需重新编译：
+   ```bash
+   mvn clean install -pl common -am
+   ```
+
 ## 版本历史
 
-- **v2.0** (2025-10-14): 日志系统版本 ⭐新增
+- **v3.0** (2025-10-31): 日志系统微服务改造 ⭐重大更新
+  - 日志系统改造为 Feign 调用方式
+  - 新增 LogFeignClient 和 LogFeignClientFallback
+  - 新增 OperationLogDTO 跨服务传输对象
+  - 日志集中存储在 UserService 数据库
+  - Fallback 降级处理，确保高可用
+  - 符合微服务架构最佳实践
+  - 详细文档：`docs/社区团购系统/三级文档（归档）/日志系统改造完成报告.md`
+
+- **v2.0** (2025-10-14): 日志系统版本
   - 双轨制日志架构（Logback + AOP）
   - @OperationLog注解自动记录操作日志
   - 异步日志保存提升性能

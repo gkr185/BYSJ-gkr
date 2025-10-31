@@ -30,7 +30,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableDiscoveryClient  // 启用服务发现
-@EnableFeignClients     // 启用Feign客户端
+@EnableFeignClients(basePackages = {"com.bcu.edu.common.feign", "com.bcu.edu.client"})  // 启用Feign客户端（扫描 common 和 client 包）
 @EnableScheduling       // 启用定时任务（佣金结算）
 public class LeaderServiceApplication {
 

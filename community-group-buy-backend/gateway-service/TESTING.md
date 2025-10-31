@@ -7,6 +7,8 @@
 #### 检查清单
 - [ ] Consul已启动（http://localhost:8500）
 - [ ] UserService已启动并注册到Consul
+- [ ] ProductService已启动并注册到Consul ⭐ 新增
+- [ ] LeaderService已启动并注册到Consul
 - [ ] Gateway已启动并注册到Consul
 
 #### 启动命令
@@ -19,7 +21,15 @@ consul agent -dev
 cd community-group-buy-backend/UserService
 mvn spring-boot:run
 
-# 3. 启动Gateway
+# 3. 启动ProductService ⭐ 新增
+cd community-group-buy-backend/ProductService
+mvn spring-boot:run
+
+# 4. 启动LeaderService
+cd community-group-buy-backend/LeaderService
+mvn spring-boot:run
+
+# 5. 启动Gateway
 cd community-group-buy-backend/gateway-service
 mvn spring-boot:run
 ```
@@ -31,6 +41,8 @@ mvn spring-boot:run
 确认看到以下服务：
 - ✅ gateway-service
 - ✅ UserService
+- ✅ ProductService ⭐ 新增
+- ✅ LeaderService
 
 ---
 
@@ -199,6 +211,140 @@ curl -X PUT http://localhost:9000/api/user/update/1 \
     "phone": "13900139001",
     ...
   }
+}
+```
+
+---
+
+### 测试8：获取商品列表（ProductService，无需Token）
+
+```bash
+curl -X GET "http://localhost:9000/api/product/list?page=0&size=10"
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "content": [
+      {
+        "productId": 1,
+        "productName": "新鲜苹果",
+        "price": 9.99,
+        "stock": 100,
+        "status": 1
+      }
+    ],
+    "totalElements": 10,
+    "totalPages": 1
+  }
+}
+```
+
+---
+
+### 测试9：获取分类列表（ProductService，无需Token）
+
+```bash
+curl -X GET "http://localhost:9000/api/category/list"
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": [
+    {
+      "categoryId": 1,
+      "categoryName": "水果",
+      "parentId": 0,
+      "sort": 1,
+      "status": 1
+    }
+  ]
+}
+```
+
+---
+
+### 测试10：商品搜索（ProductService，无需Token）
+
+```bash
+curl -X GET "http://localhost:9000/api/product/search?keyword=苹果&page=0&size=10"
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "content": [
+      {
+        "productId": 1,
+        "productName": "新鲜苹果",
+        "price": 9.99,
+        "stock": 100
+      }
+    ]
+  }
+}
+```
+
+---
+
+### 测试11：创建商品（管理端，需要Token + 管理员权限）
+
+```bash
+curl -X POST http://localhost:9000/api/admin/product \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "categoryId": 1,
+    "productName": "测试商品",
+    "coverImg": "http://example.com/image.jpg",
+    "detail": "这是一个测试商品",
+    "price": 19.99,
+    "groupPrice": 15.99,
+    "stock": 100
+  }'
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "productId": 2,
+    "productName": "测试商品",
+    "price": 19.99,
+    "status": 1
+  }
+}
+```
+
+---
+
+### 测试12：Feign内部接口 - 扣减库存
+
+```bash
+curl -X POST http://localhost:9000/feign/product/1/stock/deduct \
+  -H "Content-Type: application/json" \
+  -d '{
+    "quantity": 5
+  }'
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": true
 }
 ```
 

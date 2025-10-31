@@ -25,15 +25,15 @@
 
 ### 路由规则
 
-| 前端请求 | 网关路由 | 后端服务 | 端口 |
-|---------|---------|---------|------|
-| `/api/user/**` | → | UserService | 8061 |
-| `/api/product/**` | → | ProductService | 8062 |
-| `/api/groupbuy/**` | → | GroupBuyService | 8063 |
-| `/api/order/**` | → | OrderService | 8065 |
-| `/api/payment/**` | → | PaymentService | 8066 |
-| `/api/leader/**` | → | LeaderService | 8068 |
-| `/api/delivery/**` | → | DeliveryService | 8067 |
+| 前端请求 | 网关路由 | 后端服务 | 端口 | 状态 |
+|---------|---------|---------|------|------|
+| `/api/user/**` | → | UserService | 8061 | ✅ 已完成 |
+| `/api/product/**` `/api/category/**` | → | ProductService | 8062 | ✅ 已完成 |
+| `/api/groupbuy/**` | → | GroupBuyService | 8063 | ⏳ 待开发 |
+| `/api/order/**` `/api/cart/**` | → | OrderService | 8065 | ⏳ 待开发 |
+| `/api/payment/**` | → | PaymentService | 8066 | ⏳ 待开发 |
+| `/api/leader/**` `/api/community/**` | → | LeaderService | 8068 | ✅ 已完成 |
+| `/api/delivery/**` | → | DeliveryService | 8067 | ⏳ 待开发 |
 
 ---
 
@@ -285,5 +285,5 @@ UserService处理
 
 ---
 
-**状态**: ✅ Gateway开发完成，已集成UserService
+**状态**: ✅ Gateway开发完成，已集成UserService、ProductService、LeaderService
 

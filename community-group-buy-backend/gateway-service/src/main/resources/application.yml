@@ -34,11 +34,11 @@ spring:
         # UserService - Swagger UI（可选，暂时保留直接访问）
         # 直接访问: http://localhost:8061/swagger-ui.html
         
-        # ==================== ProductService 路由（待开发）====================
+        # ==================== ProductService 路由 ✅ 已完成 ====================
         - id: product-service
           uri: lb://ProductService
           predicates:
-            - Path=/api/product/**
+            - Path=/api/product/**,/api/category/**,/api/admin/product/**,/api/admin/category/**,/feign/product/**
         
         - id: product-service-swagger
           uri: lb://ProductService

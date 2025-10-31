@@ -1,8 +1,8 @@
 package com.bcu.edu.common.aspect;
 
 import com.bcu.edu.common.annotation.OperationLog;
-import com.bcu.edu.common.entity.SysOperationLog;
-import com.bcu.edu.common.repository.SysOperationLogRepository;
+import com.bcu.edu.common.dto.OperationLogDTO;
+import com.bcu.edu.common.feign.LogFeignClient;
 import com.bcu.edu.common.utils.JwtUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,15 +21,19 @@ import java.util.concurrent.Executor;
 
 /**
  * 操作日志切面
- * 拦截带@OperationLog注解的方法，自动记录操作日志到数据库
+ * 拦截带@OperationLog注解的方法，通过Feign调用UserService记录日志
+ * 
+ * 改造说明（2025-10-31）:
+ * - 原方案: 直接使用Repository保存到本地数据库（导致跨库问题）
+ * - 新方案: 通过Feign调用UserService的日志API（符合微服务架构）
  */
 @Aspect
 @Component
 @Slf4j
 public class OperationLogAspect {
 
-    @Autowired
-    private SysOperationLogRepository logRepository;
+    @Autowired(required = false)
+    private LogFeignClient logFeignClient;
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -73,45 +77,45 @@ public class OperationLogAspect {
     }
 
     /**
-     * 异步保存日志到数据库
+     * 异步保存日志（通过Feign调用UserService）
      */
     @Async("logExecutor")
     public void saveLogAsync(ProceedingJoinPoint joinPoint, OperationLog operationLog,
                              String resultStatus, String errorMsg, long duration) {
         try {
-            // 构建日志对象
-            SysOperationLog logEntity = new SysOperationLog();
+            // 如果没有配置LogFeignClient（UserService自身），跳过
+            if (logFeignClient == null) {
+                log.debug("LogFeignClient未配置，跳过日志记录");
+                return;
+            }
 
-            // 获取用户信息
-            Long userId = getCurrentUserId();
-            String username = getCurrentUsername();
-            logEntity.setUserId(userId);
-            logEntity.setUsername(username != null ? username : "unknown");
-
-            // 设置操作信息
-            logEntity.setOperation(operationLog.value());
-            logEntity.setModule(operationLog.module());
-            logEntity.setMethod(joinPoint.getSignature().toLongString());
+            // 构建日志DTO对象
+            OperationLogDTO logDTO = OperationLogDTO.builder()
+                    .userId(getCurrentUserId())
+                    .username(getCurrentUsername() != null ? getCurrentUsername() : "unknown")
+                    .operation(operationLog.value())
+                    .module(operationLog.module())
+                    .method(joinPoint.getSignature().toLongString())
+                    .result(resultStatus)
+                    .errorMsg(errorMsg)
+                    .duration((int) duration)
+                    .ip(getClientIp())
+                    .build();
 
             // 序列化参数（支持脱敏）
             if (operationLog.recordParams()) {
                 String params = serializeParams(joinPoint.getArgs(), operationLog.sensitiveFields());
-                logEntity.setParams(params);
+                logDTO.setParams(params);
             }
 
-            // 设置执行结果
-            logEntity.setResult(resultStatus);
-            logEntity.setErrorMsg(errorMsg);
-            logEntity.setDuration((int) duration);
-
-            // 获取客户端IP
-            logEntity.setIp(getClientIp());
-
-            // 保存到数据库
-            logRepository.save(logEntity);
-            log.info("操作日志已记录: {}", logEntity.getOperation());
+            // 通过Feign调用UserService保存日志
+            logFeignClient.saveLog(logDTO);
+            log.debug("操作日志已通过Feign记录: module={}, operation={}", 
+                    logDTO.getModule(), logDTO.getOperation());
         } catch (Exception e) {
-            log.error("异步保存日志失败", e);
+            // 日志记录失败不影响业务，仅记录本地日志
+            log.error("异步保存日志失败: module={}, operation={}", 
+                    operationLog.module(), operationLog.value(), e);
         }
     }
 
@@ -157,6 +161,7 @@ public class OperationLogAspect {
 
     /**
      * 序列化方法参数为JSON（支持敏感字段脱敏）
+     * 注意：会过滤掉无法序列化的类型（如 MultipartFile）
      */
     private String serializeParams(Object[] args, String[] sensitiveFields) {
         try {
@@ -164,7 +169,20 @@ public class OperationLogAspect {
                 return "[]";
             }
 
-            String json = objectMapper.writeValueAsString(args);
+            // 过滤掉无法序列化的参数类型
+            Object[] serializableArgs = new Object[args.length];
+            for (int i = 0; i < args.length; i++) {
+                if (args[i] == null) {
+                    serializableArgs[i] = null;
+                } else if (isSerializable(args[i])) {
+                    serializableArgs[i] = args[i];
+                } else {
+                    // 对于无法序列化的类型，只记录类型名称
+                    serializableArgs[i] = "[" + args[i].getClass().getSimpleName() + "]";
+                }
+            }
+
+            String json = objectMapper.writeValueAsString(serializableArgs);
 
             // 脱敏处理
             json = maskSensitiveFields(json, sensitiveFields);
@@ -179,6 +197,37 @@ public class OperationLogAspect {
             log.error("参数序列化失败", e);
             return "[序列化失败]";
         }
+    }
+
+    /**
+     * 判断对象是否可安全序列化
+     * 
+     * @param obj 待判断的对象
+     * @return true-可序列化; false-不可序列化
+     */
+    private boolean isSerializable(Object obj) {
+        if (obj == null) {
+            return true;
+        }
+        
+        String className = obj.getClass().getName();
+        
+        // 过滤掉Spring的MultipartFile及其实现类
+        if (className.contains("MultipartFile")) {
+            return false;
+        }
+        
+        // 过滤掉InputStream及其子类
+        if (obj instanceof java.io.InputStream) {
+            return false;
+        }
+        
+        // 过滤掉HttpServletRequest/Response
+        if (className.contains("HttpServlet")) {
+            return false;
+        }
+        
+        return true;
     }
 
     /**

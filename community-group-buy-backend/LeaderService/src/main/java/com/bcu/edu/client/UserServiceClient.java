@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.*;
  * @date 2025-10-30
  * @description 调用UserService的内部接口
  */
-@FeignClient(name = "UserService", path = "/feign")
+@FeignClient(
+    name = "UserService",
+    contextId = "userServiceClient",  // 指定唯一的 contextId，避免与 LogFeignClient 冲突
+    path = "/feign"
+)
 public interface UserServiceClient {
 
     /**

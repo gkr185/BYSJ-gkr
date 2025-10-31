@@ -8,6 +8,8 @@ import CommunityManageView from '../views/CommunityManageView.vue'
 import CommunityApplicationView from '../views/CommunityApplicationView.vue'
 import LeaderManageView from '../views/LeaderManageView.vue'
 import CommissionManageView from '../views/CommissionManageView.vue'
+import ProductManageView from '../views/ProductManageView.vue'
+import CategoryManageView from '../views/CategoryManageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -63,6 +65,18 @@ const router = createRouter({
           name: 'commission',
           component: CommissionManageView,
           meta: { title: '佣金管理' }
+        },
+        {
+          path: '/products',
+          name: 'products',
+          component: ProductManageView,
+          meta: { title: '商品管理' }
+        },
+        {
+          path: '/categories',
+          name: 'categories',
+          component: CategoryManageView,
+          meta: { title: '分类管理' }
         }
       ]
     }

@@ -14,6 +14,7 @@
         <module>gateway-service</module>
         <module>UserService</module>
         <module>LeaderService</module>
+        <module>ProductService</module>
     </modules>
 
     <groupId>bcu.edu</groupId>

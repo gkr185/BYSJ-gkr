@@ -39,6 +39,14 @@
             <el-icon><Coin /></el-icon>
             <span>佣金管理</span>
           </el-menu-item>
+          <el-menu-item index="/products">
+            <el-icon><ShoppingBag /></el-icon>
+            <span>商品管理</span>
+          </el-menu-item>
+          <el-menu-item index="/categories">
+            <el-icon><List /></el-icon>
+            <span>分类管理</span>
+          </el-menu-item>
           <el-menu-item index="/feedback">
             <el-icon><ChatDotRound /></el-icon>
             <span>反馈管理</span>
@@ -63,7 +71,7 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 import { ElMessageBox } from 'element-plus'
-import { User, ChatDotRound, Document, OfficeBuilding, Stamp, Avatar, Coin } from '@element-plus/icons-vue'
+import { User, ChatDotRound, Document, OfficeBuilding, Stamp, Avatar, Coin, ShoppingBag, List } from '@element-plus/icons-vue'
 
 const route = useRoute()
 const router = useRouter()
