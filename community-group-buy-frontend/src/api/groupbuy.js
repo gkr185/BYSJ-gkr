@@ -1,16 +1,32 @@
 import request from '../utils/request'
 
-// ==================== 拼团活动 API ====================
+/**
+ * 拼团服务 API
+ * 版本: v1.0.0
+ * 对应后端: GroupBuyService
+ * API文档: docs/社区团购系统/二级文档（参考）/API_GroupBuyService.md
+ */
+
+// ==================== 拼团活动管理 API ====================
 
 /**
- * 获取拼团活动列表
- * @param {object} params - 查询参数 { page, size, status, communityId }
+ * 获取所有拼团活动列表
  */
-export const getGroupBuyActivities = (params) => {
+export const getActivities = () => {
   return request({
-    url: '/api/groupbuy/activity/list',
-    method: 'GET',
-    params
+    url: '/api/groupbuy/activities',
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取进行中的拼团活动
+ * 说明：返回 status=1 且在时间范围内的活动
+ */
+export const getOngoingActivities = () => {
+  return request({
+    url: '/api/groupbuy/activities/ongoing',
+    method: 'GET'
   })
 }
 
@@ -18,7 +34,7 @@ export const getGroupBuyActivities = (params) => {
  * 获取拼团活动详情
  * @param {number} activityId - 活动ID
  */
-export const getGroupBuyActivityDetail = (activityId) => {
+export const getActivityDetail = (activityId) => {
   return request({
     url: `/api/groupbuy/activity/${activityId}`,
     method: 'GET'
@@ -26,11 +42,10 @@ export const getGroupBuyActivityDetail = (activityId) => {
 }
 
 /**
- * 创建拼团活动（团长专属）
- * v3.0规则：只有团长可以创建拼团活动
- * @param {object} data - 活动数据
+ * 创建拼团活动（管理员）
+ * @param {object} data - { productId, groupPrice, requiredNum, maxNum, startTime, endTime }
  */
-export const createGroupBuyActivity = (data) => {
+export const createActivity = (data) => {
   return request({
     url: '/api/groupbuy/activity',
     method: 'POST',
@@ -39,11 +54,11 @@ export const createGroupBuyActivity = (data) => {
 }
 
 /**
- * 更新拼团活动（团长）
+ * 更新拼团活动（管理员）
  * @param {number} activityId - 活动ID
  * @param {object} data - 活动数据
  */
-export const updateGroupBuyActivity = (activityId, data) => {
+export const updateActivity = (activityId, data) => {
   return request({
     url: `/api/groupbuy/activity/${activityId}`,
     method: 'PUT',
@@ -52,61 +67,33 @@ export const updateGroupBuyActivity = (activityId, data) => {
 }
 
 /**
- * 结束拼团活动（团长）
+ * 删除拼团活动（管理员）
  * @param {number} activityId - 活动ID
  */
-export const endGroupBuyActivity = (activityId) => {
+export const deleteActivity = (activityId) => {
   return request({
-    url: `/api/groupbuy/activity/${activityId}/end`,
-    method: 'POST'
+    url: `/api/groupbuy/activity/${activityId}`,
+    method: 'DELETE'
   })
 }
 
-/**
- * 获取社区的拼团活动（推荐）
- * @param {number} communityId - 社区ID
- * @param {object} params - 查询参数 { page, size }
- */
-export const getCommunityGroupBuyActivities = (communityId, params) => {
-  return request({
-    url: `/api/groupbuy/activity/community/${communityId}`,
-    method: 'GET',
-    params
-  })
-}
-
-// ==================== 拼团团队 API ====================
+// ==================== 团管理 API ====================
 
 /**
- * 获取活动下的拼团团队列表
- * @param {number} activityId - 活动ID
- * @param {object} params - 查询参数 { page, size, status }
+ * 团长发起拼团（⭐v3.0核心接口）
+ * 权限：仅团长可调用（role=2）
+ * 说明：
+ * - 仅团长可发起拼团
+ * - 自动关联团长的社区
+ * - 团长可选择是否立即参与
+ * 
+ * @param {object} data - 发起拼团请求
+ * @param {number} data.activityId - 活动ID（必填）
+ * @param {boolean} data.joinImmediately - 是否立即参与（可选，默认false）
+ * @param {number} data.addressId - 收货地址ID（joinImmediately=true时必填）
+ * @param {number} data.quantity - 购买数量（可选，默认1）
  */
-export const getGroupBuyTeams = (activityId, params) => {
-  return request({
-    url: `/api/groupbuy/team/activity/${activityId}`,
-    method: 'GET',
-    params
-  })
-}
-
-/**
- * 获取拼团团队详情
- * @param {number} teamId - 团队ID
- */
-export const getGroupBuyTeamDetail = (teamId) => {
-  return request({
-    url: `/api/groupbuy/team/${teamId}`,
-    method: 'GET'
-  })
-}
-
-/**
- * 发起拼团（团长开团）
- * v3.0规则：只有团长可以发起拼团
- * @param {object} data - { activityId, leaderId, leaderName, targetCount, endTime }
- */
-export const launchGroupBuyTeam = (data) => {
+export const launchTeam = (data) => {
   return request({
     url: '/api/groupbuy/team/launch',
     method: 'POST',
@@ -115,178 +102,95 @@ export const launchGroupBuyTeam = (data) => {
 }
 
 /**
- * 查询团长发起的拼团（团长）
- * @param {number} leaderId - 团长ID
- * @param {object} params - 查询参数 { page, size, status }
+ * 用户参与拼团（⭐核心接口）
+ * 权限：已登录用户
+ * 说明：
+ * - 行锁检查团状态
+ * - 防重复参团
+ * - Feign调用OrderService创建订单
+ * 
+ * @param {object} data - 参团请求
+ * @param {number} data.teamId - 团ID（必填）
+ * @param {number} data.addressId - 收货地址ID（必填）
+ * @param {number} data.quantity - 购买数量（必填，最小为1）
  */
-export const getLeaderGroupBuyTeams = (leaderId, params) => {
+export const joinTeam = (data) => {
   return request({
-    url: `/api/groupbuy/team/leader/${leaderId}`,
-    method: 'GET',
-    params
-  })
-}
-
-// ==================== 拼团成员 API ====================
-
-/**
- * 加入拼团
- * v3.0规则：加入时立即支付
- * @param {object} data - { teamId, userId, userName, phone, quantity, paymentAmount }
- */
-export const joinGroupBuy = (data) => {
-  return request({
-    url: '/api/groupbuy/member/join',
+    url: '/api/groupbuy/team/join',
     method: 'POST',
     data
   })
 }
 
 /**
- * 获取团队成员列表
- * @param {number} teamId - 团队ID
+ * 获取团详情
+ * 权限：无需登录
+ * @param {number} teamId - 团ID
  */
-export const getGroupBuyMembers = (teamId) => {
+export const getTeamDetail = (teamId) => {
   return request({
-    url: `/api/groupbuy/member/team/${teamId}`,
+    url: `/api/groupbuy/team/${teamId}/detail`,
     method: 'GET'
   })
 }
 
 /**
- * 获取用户参与的拼团记录
- * @param {number} userId - 用户ID
- * @param {object} params - 查询参数 { page, size, status }
+ * 获取活动的团列表（⭐社区优先排序）
+ * 权限：无需登录
+ * 说明：
+ * - v3.0社区优先推荐
+ * - 优先显示本社区的团
+ * - SQL ORDER BY CASE实现
+ * 
+ * @param {number} activityId - 活动ID
+ * @param {object} params - 查询参数
+ * @param {number} params.communityId - 用户的社区ID（可选，用于社区优先排序）
  */
-export const getMyGroupBuys = (userId, params) => {
+export const getActivityTeams = (activityId, params) => {
   return request({
-    url: `/api/groupbuy/member/user/${userId}`,
+    url: `/api/groupbuy/activity/${activityId}/teams`,
     method: 'GET',
     params
   })
 }
 
 /**
- * 获取拼团成员详情
- * @param {number} memberId - 成员ID
+ * 退出拼团
+ * 权限：已登录用户
+ * 说明：成团前可退，自动退款
+ * @param {number} teamId - 团ID
  */
-export const getGroupBuyMemberDetail = (memberId) => {
+export const quitTeam = (teamId) => {
   return request({
-    url: `/api/groupbuy/member/${memberId}`,
-    method: 'GET'
-  })
-}
-
-/**
- * 取消拼团（仅限未成团）
- * @param {number} memberId - 成员ID
- */
-export const cancelGroupBuyMember = (memberId) => {
-  return request({
-    url: `/api/groupbuy/member/${memberId}/cancel`,
-    method: 'POST'
-  })
-}
-
-// ==================== 拼团订单 API ====================
-
-/**
- * 创建拼团订单
- * v3.0规则：加入拼团时立即支付并创建订单
- * @param {object} data - 订单数据
- */
-export const createGroupBuyOrder = (data) => {
-  return request({
-    url: '/api/groupbuy/order',
+    url: '/api/groupbuy/team/quit',
     method: 'POST',
-    data
+    params: { teamId }
   })
 }
 
 /**
- * 获取拼团订单详情
+ * 支付回调（内部接口）
+ * 权限：无需Token
+ * 说明：由PaymentService支付成功后回调
  * @param {number} orderId - 订单ID
  */
-export const getGroupBuyOrderDetail = (orderId) => {
+export const paymentCallback = (orderId) => {
   return request({
-    url: `/api/groupbuy/order/${orderId}`,
-    method: 'GET'
+    url: '/api/groupbuy/payment/callback',
+    method: 'POST',
+    params: { orderId }
   })
 }
 
 /**
- * 获取用户的拼团订单列表
- * @param {number} userId - 用户ID
- * @param {object} params - 查询参数 { page, size, status }
+ * 获取我的拼团记录
+ * 权限：需要登录
+ * 说明：查询用户参与的所有拼团，按参团时间倒序
+ * @returns {Promise<Array>} 拼团记录列表
  */
-export const getMyGroupBuyOrders = (userId, params) => {
+export const getMyTeams = () => {
   return request({
-    url: `/api/groupbuy/order/user/${userId}`,
-    method: 'GET',
-    params
-  })
-}
-
-/**
- * 获取团队的拼团订单列表（团长）
- * @param {number} teamId - 团队ID
- */
-export const getTeamGroupBuyOrders = (teamId) => {
-  return request({
-    url: `/api/groupbuy/order/team/${teamId}`,
-    method: 'GET'
-  })
-}
-
-// ==================== 拼团状态查询 ====================
-
-/**
- * 检查拼团状态
- * @param {number} teamId - 团队ID
- * @returns {object} { status, currentCount, targetCount, remainingTime }
- */
-export const checkGroupBuyStatus = (teamId) => {
-  return request({
-    url: `/api/groupbuy/team/${teamId}/status`,
-    method: 'GET'
-  })
-}
-
-/**
- * 检查用户是否已参与拼团
- * @param {number} userId - 用户ID
- * @param {number} teamId - 团队ID
- */
-export const checkUserInTeam = (userId, teamId) => {
-  return request({
-    url: `/api/groupbuy/member/check`,
-    method: 'GET',
-    params: { userId, teamId }
-  })
-}
-
-// ==================== 拼团统计（团长） ====================
-
-/**
- * 获取团长的拼团统计
- * @param {number} leaderId - 团长ID
- * @returns {object} { totalTeams, successTeams, failedTeams, totalMembers, totalRevenue }
- */
-export const getLeaderGroupBuyStatistics = (leaderId) => {
-  return request({
-    url: `/api/groupbuy/statistics/leader/${leaderId}`,
-    method: 'GET'
-  })
-}
-
-/**
- * 获取活动统计
- * @param {number} activityId - 活动ID
- * @returns {object} { totalTeams, successTeams, totalMembers, totalRevenue }
- */
-export const getActivityStatistics = (activityId) => {
-  return request({
-    url: `/api/groupbuy/statistics/activity/${activityId}`,
+    url: '/api/groupbuy/teams/my',
     method: 'GET'
   })
 }

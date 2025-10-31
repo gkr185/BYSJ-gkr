@@ -101,6 +101,23 @@ export const getCommunityApplicationById = (applicationId) => {
 }
 
 /**
+ * 【管理员】补充社区申请的经纬度信息（审核前调用）
+ * @param {Number} applicationId 申请ID
+ * @param {Number} latitude 纬度
+ * @param {Number} longitude 经度
+ */
+export const updateCommunityApplicationCoordinates = (applicationId, latitude, longitude) => {
+  return request({
+    url: `/api/community-application/${applicationId}/coordinates`,
+    method: 'POST',
+    params: {
+      latitude,
+      longitude
+    }
+  })
+}
+
+/**
  * 【管理员】审核社区申请
  * @param {Number} applicationId 申请ID
  * @param {Number} reviewerId 审核人ID
@@ -150,6 +167,23 @@ export const getLeaderById = (storeId) => {
   return request({
     url: `/api/leader/${storeId}`,
     method: 'GET'
+  })
+}
+
+/**
+ * 【管理员】补充团点的经纬度信息（审核前调用）
+ * @param {Number} storeId 团点ID
+ * @param {Number} latitude 纬度
+ * @param {Number} longitude 经度
+ */
+export const updateLeaderStoreCoordinates = (storeId, latitude, longitude) => {
+  return request({
+    url: `/api/leader/${storeId}/coordinates`,
+    method: 'POST',
+    params: {
+      latitude,
+      longitude
+    }
   })
 }
 

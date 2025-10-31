@@ -47,14 +47,14 @@ spring:
           filters:
             - RewritePath=/product/api-docs/(?<segment>.*), /api-docs/$\{segment}
         
-        # ==================== GroupBuyService 路由（待开发）====================
+        # ==================== GroupBuyService 路由 ✅ 已完成 ====================
         - id: groupbuy-service
-          uri: lb://GroupBuyService
+          uri: lb://groupbuy-service
           predicates:
             - Path=/api/groupbuy/**
         
         - id: groupbuy-service-swagger
-          uri: lb://GroupBuyService
+          uri: lb://groupbuy-service
           predicates:
             - Path=/groupbuy/api-docs/**
           filters:

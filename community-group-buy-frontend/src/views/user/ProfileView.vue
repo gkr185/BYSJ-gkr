@@ -73,6 +73,92 @@
       </el-col>
     </el-row>
 
+    <!-- 申请成为团长（普通用户可见）-->
+    <el-card v-if="!userStore.isLeader" class="apply-leader-card" @click="navigateTo('/leader/apply')">
+      <div class="apply-content">
+        <div class="apply-icon">
+          <el-icon :size="48" color="#F57C00"><Star /></el-icon>
+        </div>
+        <div class="apply-text">
+          <h3>成为团长，开启收益之旅</h3>
+          <p>发起拼团活动，赚取订单佣金，服务社区居民</p>
+        </div>
+        <el-button type="warning" size="large">
+          立即申请
+          <el-icon class="el-icon--right"><Right /></el-icon>
+        </el-button>
+      </div>
+    </el-card>
+
+    <!-- 我的申请状态（普通用户可见）-->
+    <div v-if="!userStore.isLeader" style="margin-top: 20px;">
+      <el-card>
+        <template #header>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <el-icon><Document /></el-icon>
+            <span>我的申请</span>
+            <el-button 
+              type="text" 
+              size="small" 
+              @click.stop="fetchApplicationStatus" 
+              style="margin-left: auto;"
+            >
+              <el-icon><Refresh /></el-icon>
+              刷新
+            </el-button>
+          </div>
+        </template>
+
+        <!-- 社区申请状态 -->
+        <div v-if="communityApplication" style="margin-bottom: 15px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <el-tag type="info" size="small">社区申请</el-tag>
+            <el-tag :type="getStatusType(communityApplication.status)" size="small">
+              {{ getStatusText(communityApplication.status) }}
+            </el-tag>
+          </div>
+          <div style="color: #606266; font-size: 14px;">
+            <p style="margin: 5px 0;">社区名称：{{ communityApplication.communityName }}</p>
+            <p style="margin: 5px 0;">申请时间：{{ formatDate(communityApplication.createdAt) }}</p>
+            <p v-if="communityApplication.reviewComment" style="margin: 5px 0; color: #909399;">
+              审核意见：{{ communityApplication.reviewComment }}
+            </p>
+          </div>
+        </div>
+
+        <!-- 团长申请状态 -->
+        <div v-if="leaderApplication">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+            <el-tag type="warning" size="small">团长申请</el-tag>
+            <el-tag :type="getLeaderStatusType(leaderApplication.status)" size="small">
+              {{ getLeaderStatusText(leaderApplication.status) }}
+            </el-tag>
+          </div>
+          <div style="color: #606266; font-size: 14px;">
+            <p style="margin: 5px 0;">团点名称：{{ leaderApplication.storeName }}</p>
+            <p style="margin: 5px 0;">所属社区：{{ leaderApplication.communityName || '待分配' }}</p>
+            <p style="margin: 5px 0;">申请时间：{{ formatDate(leaderApplication.createdAt) }}</p>
+            <p v-if="leaderApplication.reviewComment" style="margin: 5px 0; color: #909399;">
+              审核意见：{{ leaderApplication.reviewComment }}
+            </p>
+          </div>
+        </div>
+
+        <!-- 无申请记录 -->
+        <el-empty 
+          v-if="!communityApplication && !leaderApplication && !loadingApplications"
+          description="暂无申请记录"
+          :image-size="80"
+        />
+
+        <!-- 加载中 -->
+        <div v-if="loadingApplications" style="text-align: center; padding: 20px;">
+          <el-icon class="is-loading" :size="30"><Loading /></el-icon>
+          <p style="margin-top: 10px; color: #909399;">加载中...</p>
+        </div>
+      </el-card>
+    </div>
+
     <!-- 团长专属菜单（v3.0新增）-->
     <div v-if="userStore.isLeader" class="leader-section">
       <el-divider>
@@ -84,42 +170,21 @@
 
       <el-row :gutter="20">
         <el-col :span="8">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/dashboard')">
-            <div class="leader-icon">
-              <el-icon :size="32" color="#409EFF"><DataAnalysis /></el-icon>
-            </div>
-            <div class="menu-title">团长工作台</div>
-            <div class="menu-desc">数据概览和快捷操作</div>
-          </el-card>
-        </el-col>
-        <el-col :span="8">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/launch')">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/groupbuy')">
             <div class="leader-icon">
               <el-icon :size="32" color="#67C23A"><Plus /></el-icon>
             </div>
             <div class="menu-title">发起拼团</div>
-            <div class="menu-desc">选择活动并发起拼团</div>
+            <div class="menu-desc">选择拼团活动并发起</div>
           </el-card>
         </el-col>
         <el-col :span="8">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/members')">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/teams')">
             <div class="leader-icon">
-              <el-icon :size="32" color="#E6A23C"><UserFilled /></el-icon>
+              <el-icon :size="32" color="#909399"><Grid /></el-icon>
             </div>
-            <div class="menu-title">团员管理</div>
-            <div class="menu-desc">查看和管理团成员</div>
-          </el-card>
-        </el-col>
-      </el-row>
-
-      <el-row :gutter="20" style="margin-top: 20px;">
-        <el-col :span="8">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/delivery')">
-            <div class="leader-icon">
-              <el-icon :size="32" color="#F56C6C"><Van /></el-icon>
-            </div>
-            <div class="menu-title">配送管理</div>
-            <div class="menu-desc">查看配送订单和路线</div>
+            <div class="menu-title">我的团队</div>
+            <div class="menu-desc">查看我发起的拼团</div>
           </el-card>
         </el-col>
         <el-col :span="8">
@@ -129,15 +194,6 @@
             </div>
             <div class="menu-title">我的佣金</div>
             <div class="menu-desc">查看佣金余额和明细</div>
-          </el-card>
-        </el-col>
-        <el-col :span="8">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/community/apply')">
-            <div class="leader-icon">
-              <el-icon :size="32" color="#909399"><OfficeBuilding /></el-icon>
-            </div>
-            <div class="menu-title">申请社区</div>
-            <div class="menu-desc">申请新的团购社区</div>
           </el-card>
         </el-col>
       </el-row>
@@ -151,21 +207,26 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { getAccountInfo } from '@/api/user'
+import { getMyCommunityApplications, getMyLeaderInfo } from '@/api/leader'
 import { ElMessage } from 'element-plus'
 import {
   Star,
-  DataAnalysis,
   Plus,
-  UserFilled,
-  Van,
   Money,
-  OfficeBuilding
+  Grid,
+  Right,
+  Document,
+  Refresh,
+  Loading
 } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const userStore = useUserStore()
 
 const accountBalance = ref('0.00')
+const communityApplication = ref(null)
+const leaderApplication = ref(null)
+const loadingApplications = ref(false)
 
 // 获取账户余额
 const fetchBalance = async () => {
@@ -189,9 +250,85 @@ const navigateTo = (path) => {
   router.push(path)
 }
 
-onMounted(() => {
+// 获取申请状态
+const fetchApplicationStatus = async () => {
+  if (!userStore.userInfo?.userId) return
+  
+  loadingApplications.value = true
+  try {
+    // 获取社区申请记录
+    const communityRes = await getMyCommunityApplications(userStore.userInfo.userId)
+    if (communityRes.code === 200 && communityRes.data && communityRes.data.length > 0) {
+      // 取最新的申请记录（假设返回的是数组）
+      communityApplication.value = communityRes.data[0]
+    } else {
+      communityApplication.value = null
+    }
+    
+    // 获取团长申请记录
+    const leaderRes = await getMyLeaderInfo(userStore.userInfo.userId)
+    if (leaderRes.code === 200 && leaderRes.data) {
+      leaderApplication.value = leaderRes.data
+      
+      // 如果团长申请已通过（status=1），刷新用户信息以更新角色
+      if (leaderRes.data.status === 1) {
+        await userStore.updateUserInfo()
+      }
+    } else {
+      leaderApplication.value = null
+    }
+  } catch (error) {
+    console.error('获取申请状态失败:', error)
+    // 发生错误时清空数据，避免显示旧数据
+    communityApplication.value = null
+    leaderApplication.value = null
+  } finally {
+    loadingApplications.value = false
+  }
+}
+
+// 社区申请状态辅助函数
+const getStatusType = (status) => {
+  const map = { 0: 'warning', 1: 'success', 2: 'danger' }
+  return map[status] || 'info'
+}
+
+const getStatusText = (status) => {
+  const map = { 0: '待审核', 1: '已通过', 2: '已拒绝' }
+  return map[status] || '未知'
+}
+
+// 团长申请状态辅助函数
+const getLeaderStatusType = (status) => {
+  const map = { 0: 'warning', 1: 'success', 2: 'danger' }
+  return map[status] || 'info'
+}
+
+const getLeaderStatusText = (status) => {
+  const map = { 0: '待审核', 1: '正常运营', 2: '已拒绝/已停用' }
+  return map[status] || '未知'
+}
+
+// 日期格式化
+const formatDate = (dateStr) => {
+  if (!dateStr) return ''
+  return new Date(dateStr).toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+onMounted(async () => {
   if (userStore.isLogin) {
+    // 刷新用户信息（确保角色是最新的）
+    await userStore.updateUserInfo()
+    
+    // 获取账户余额和申请状态
     fetchBalance()
+    fetchApplicationStatus()
   }
 })
 </script>
@@ -249,6 +386,47 @@ h2 {
 .menu-desc {
   font-size: 13px;
   color: #909399;
+}
+
+/* 申请成为团长卡片 */
+.apply-leader-card {
+  margin-top: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, #FFF9E6 0%, #FFE0B2 100%);
+  border: 2px solid #F57C00;
+}
+
+.apply-leader-card:hover {
+  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.apply-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.apply-icon {
+  flex-shrink: 0;
+}
+
+.apply-text {
+  flex: 1;
+}
+
+.apply-text h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.apply-text p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
 }
 
 /* 团长专属区块（v3.0新增）*/

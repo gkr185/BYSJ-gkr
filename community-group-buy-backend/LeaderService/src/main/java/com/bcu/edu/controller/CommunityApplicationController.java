@@ -81,6 +81,30 @@ public class CommunityApplicationController {
     }
 
     /**
+     * 【管理员】补充经纬度信息（审核前调用）
+     * 
+     * POST /api/community-application/{applicationId}/coordinates
+     */
+    @PostMapping("/{applicationId}/coordinates")
+    @Operation(summary = "补充经纬度信息", description = "管理员在审核前补充申请的经纬度信息")
+    public Result<CommunityApplication> updateCoordinates(
+            @Parameter(description = "申请ID") @PathVariable Long applicationId,
+            @Parameter(description = "纬度") @RequestParam java.math.BigDecimal latitude,
+            @Parameter(description = "经度") @RequestParam java.math.BigDecimal longitude
+    ) {
+        log.info("管理员补充申请{}的经纬度：{}, {}", applicationId, latitude, longitude);
+
+        try {
+            CommunityApplication updated = applicationService.updateApplicationCoordinates(
+                    applicationId, latitude, longitude
+            );
+            return Result.success("经纬度信息已补充", updated);
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return Result.error(e.getMessage());
+        }
+    }
+
+    /**
      * 【管理员】审核申请
      * 
      * POST /api/community-application/{applicationId}/review

@@ -9,12 +9,12 @@
       </template>
       
       <!-- 状态Tabs -->
-      <el-tabs v-model="activeTab" @tab-click="handleTabClick">
+      <el-tabs v-model="activeTab" @tab-change="handleTabChange">
         <el-tab-pane label="待审核" name="pending">
           <el-badge :value="pendingCount" :hidden="pendingCount === 0" class="tab-badge" />
         </el-tab-pane>
         <el-tab-pane label="正常运营" name="active"></el-tab-pane>
-        <el-tab-pane label="已停用" name="disabled"></el-tab-pane>
+        <el-tab-pane label="已拒绝/已停用" name="disabled"></el-tab-pane>
       </el-tabs>
       
       <!-- 团长列表表格 -->
@@ -135,6 +135,45 @@
             <el-radio :label="false">拒绝</el-radio>
           </el-radio-group>
         </el-form-item>
+        
+        <!-- 经纬度输入（审核通过时必填） -->
+        <el-form-item label="纬度" prop="latitude" v-if="reviewForm.approved">
+          <el-input-number
+            v-model="reviewForm.latitude"
+            :precision="6"
+            :step="0.000001"
+            :min="-90"
+            :max="90"
+            placeholder="请输入纬度"
+            style="width: 100%"
+          />
+          <div style="color: #909399; font-size: 12px; margin-top: 5px;">
+            纬度范围：-90 到 90，例如：北京天安门 39.904200
+          </div>
+        </el-form-item>
+        
+        <el-form-item label="经度" prop="longitude" v-if="reviewForm.approved">
+          <el-input-number
+            v-model="reviewForm.longitude"
+            :precision="6"
+            :step="0.000001"
+            :min="-180"
+            :max="180"
+            placeholder="请输入经度"
+            style="width: 100%"
+          />
+          <div style="color: #909399; font-size: 12px; margin-top: 5px;">
+            经度范围：-180 到 180，例如：北京天安门 116.407400
+          </div>
+          <div style="color: #E6A23C; font-size: 12px; margin-top: 5px;">
+            💡 提示：可以通过
+            <el-link type="primary" href="https://lbs.amap.com/tools/picker" target="_blank">
+              高德地图坐标拾取器
+            </el-link>
+            获取精确坐标
+          </div>
+        </el-form-item>
+        
         <el-form-item label="审核意见" prop="reviewComment">
           <el-input 
             v-model="reviewForm.reviewComment" 
@@ -156,7 +195,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useRouter } from 'vue-router'
-import { getPendingLeaderApplications, getLeadersByStatus, reviewLeaderApplication, disableLeader } from '../api/leader'
+import { getPendingLeaderApplications, getLeadersByStatus, reviewLeaderApplication, disableLeader, updateLeaderStoreCoordinates } from '../api/leader'
 import { useUserStore } from '../stores/user'
 
 const router = useRouter()
@@ -170,7 +209,13 @@ const reviewDialogVisible = ref(false)
 const currentLeader = ref(null)
 const submitting = ref(false)
 const reviewFormRef = ref(null)
-const reviewForm = ref({ approved: true, reviewComment: '' })
+const reviewForm = ref({
+  approved: true,
+  reviewComment: '',
+  latitude: '',
+  longitude: ''
+})
+const currentRequestId = ref(0) // 请求ID，用于防止竞态条件
 const reviewRules = {
   approved: [{ required: true, message: '请选择审核结果', trigger: 'change' }],
   reviewComment: [
@@ -179,6 +224,34 @@ const reviewRules = {
         callback(new Error('拒绝时必须填写原因'))
       } else { callback() }
     }, trigger: 'blur' }
+  ],
+  latitude: [
+    {
+      validator: (rule, value, callback) => {
+        if (reviewForm.value.approved === true && !value) {
+          callback(new Error('审核通过时必须填写纬度'))
+        } else if (value && (isNaN(value) || value < -90 || value > 90)) {
+          callback(new Error('纬度必须在 -90 到 90 之间'))
+        } else {
+          callback()
+        }
+      },
+      trigger: 'blur'
+    }
+  ],
+  longitude: [
+    {
+      validator: (rule, value, callback) => {
+        if (reviewForm.value.approved === true && !value) {
+          callback(new Error('审核通过时必须填写经度'))
+        } else if (value && (isNaN(value) || value < -180 || value > 180)) {
+          callback(new Error('经度必须在 -180 到 180 之间'))
+        } else {
+          callback()
+        }
+      },
+      trigger: 'blur'
+    }
   ]
 }
 
@@ -186,30 +259,57 @@ const pendingCount = computed(() => activeTab.value === 'pending' ? leaderList.v
 
 const fetchLeaders = async () => {
   loading.value = true
+  
+  // 生成新的请求ID
+  const requestId = ++currentRequestId.value
+  const currentTab = activeTab.value
+  
   try {
     let res
-    if (activeTab.value === 'pending') {
+    if (currentTab === 'pending') {
       res = await getPendingLeaderApplications()
     } else {
-      const status = activeTab.value === 'active' ? 1 : 2
+      const status = currentTab === 'active' ? 1 : 2
       res = await getLeadersByStatus(status)
     }
-    if (res.code === 200) {
-      leaderList.value = res.data || []
-    } else {
-      ElMessage.error(res.message || '获取团长列表失败')
+    
+    // 只有当前请求是最新的，且标签未改变时才更新数据
+    if (requestId === currentRequestId.value && currentTab === activeTab.value) {
+      if (res.code === 200) {
+        leaderList.value = res.data || []
+      } else {
+        ElMessage.error(res.message || '获取团长列表失败')
+      }
     }
   } catch (error) {
-    console.error('获取团长列表失败:', error)
-    ElMessage.error('获取团长列表失败')
+    // 只有当前请求是最新的时才显示错误
+    if (requestId === currentRequestId.value) {
+      console.error('获取团长列表失败:', error)
+      ElMessage.error('获取团长列表失败')
+    }
   } finally {
-    loading.value = false
+    // 只有当前请求是最新的时才关闭loading
+    if (requestId === currentRequestId.value) {
+      loading.value = false
+    }
   }
 }
 
-const handleTabClick = () => fetchLeaders()
+const handleTabChange = (tabName) => {
+  console.log('标签切换到:', tabName)
+  fetchLeaders()
+}
 const showDetailDialog = (row) => { currentLeader.value = row; detailDialogVisible.value = true }
-const showReviewDialog = (row) => { currentLeader.value = row; reviewForm.value = { approved: true, reviewComment: '' }; reviewDialogVisible.value = true }
+const showReviewDialog = (row) => {
+  currentLeader.value = row
+  reviewForm.value = {
+    approved: true,
+    reviewComment: '',
+    latitude: row.latitude || '',
+    longitude: row.longitude || ''
+  }
+  reviewDialogVisible.value = true
+}
 
 const handleReviewSubmit = async () => {
   if (!reviewFormRef.value) return
@@ -218,9 +318,32 @@ const handleReviewSubmit = async () => {
     submitting.value = true
     try {
       const adminUserId = userStore.userInfo?.userId || 1
-      const res = await reviewLeaderApplication(currentLeader.value.storeId, adminUserId, reviewForm.value.approved, reviewForm.value.reviewComment)
+      
+      // 如果审核通过，先补充经纬度信息
+      if (reviewForm.value.approved && reviewForm.value.latitude && reviewForm.value.longitude) {
+        const coordRes = await updateLeaderStoreCoordinates(
+          currentLeader.value.storeId,
+          parseFloat(reviewForm.value.latitude),
+          parseFloat(reviewForm.value.longitude)
+        )
+        if (coordRes.code !== 200) {
+          ElMessage.error(coordRes.message || '补充经纬度信息失败')
+          return
+        }
+      }
+      
+      // 提交审核
+      const res = await reviewLeaderApplication(
+        currentLeader.value.storeId,
+        adminUserId,
+        reviewForm.value.approved,
+        reviewForm.value.reviewComment
+      )
       if (res.code === 200) {
-        ElMessage.success({ message: reviewForm.value.approved ? '审核通过！用户角色已更新为团长' : '已拒绝申请', duration: 3000 })
+        ElMessage.success({
+          message: reviewForm.value.approved ? '审核通过！用户角色已更新为团长' : '已拒绝申请',
+          duration: 3000
+        })
         reviewDialogVisible.value = false
         fetchLeaders()
       } else {
@@ -255,7 +378,12 @@ const handleDisable = async (row) => {
 
 const resetReviewForm = () => {
   if (reviewFormRef.value) reviewFormRef.value.resetFields()
-  reviewForm.value = { approved: true, reviewComment: '' }
+  reviewForm.value = {
+    approved: true,
+    reviewComment: '',
+    latitude: '',
+    longitude: ''
+  }
 }
 
 const viewCommunity = (communityId) => {
@@ -264,7 +392,7 @@ const viewCommunity = (communityId) => {
 }
 
 const getStatusType = (status) => ({ 0: 'warning', 1: 'success', 2: 'danger' }[status] || 'info')
-const getStatusText = (status) => ({ 0: '待审核', 1: '正常运营', 2: '已停用' }[status] || '未知')
+const getStatusText = (status) => ({ 0: '待审核', 1: '正常运营', 2: '已拒绝/已停用' }[status] || '未知')
 const formatDate = (dateStr) => {
   if (!dateStr) return ''
   return new Date(dateStr).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })

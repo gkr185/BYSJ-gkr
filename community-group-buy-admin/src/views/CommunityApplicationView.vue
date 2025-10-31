@@ -9,7 +9,7 @@
       </template>
       
       <!-- 状态Tabs -->
-      <el-tabs v-model="activeTab" @tab-click="handleTabClick">
+      <el-tabs v-model="activeTab" @tab-change="handleTabChange">
         <el-tab-pane label="待审核" name="pending">
           <el-badge :value="pendingCount" :hidden="pendingCount === 0" class="tab-badge" />
         </el-tab-pane>
@@ -162,7 +162,10 @@
             <p>申请人：{{ currentApplication.applicantName }}</p>
             <p>社区名称：{{ currentApplication.communityName }}</p>
             <p style="color: #E6A23C; font-weight: bold; margin-top: 10px">
-              ⚠️ 审核通过后将自动创建社区，并将申请人设置为该社区的团长！
+              ⚠️ 审核通过后将自动创建社区记录
+            </p>
+            <p style="color: #909399; font-size: 12px; margin-top: 5px">
+              申请人需要单独申请成为该社区的团长
             </p>
           </template>
         </el-alert>
@@ -173,6 +176,42 @@
             <el-radio :label="false">拒绝</el-radio>
           </el-radio-group>
         </el-form-item>
+        
+        <!-- 经纬度输入（审核通过时必填） -->
+        <template v-if="reviewForm.approved">
+          <el-alert
+            type="warning"
+            :closable="false"
+            style="margin-bottom: 15px"
+          >
+            <template #title>
+              <span style="font-weight: bold">📍 请补充社区经纬度信息</span>
+            </template>
+            <div style="margin-top: 5px; font-size: 13px">
+              可使用<el-link type="primary" href="https://lbs.amap.com/tools/picker" target="_blank">高德地图坐标拾取工具</el-link>获取经纬度
+            </div>
+          </el-alert>
+          
+          <el-form-item label="纬度" prop="latitude">
+            <el-input 
+              v-model="reviewForm.latitude" 
+              placeholder="例如：39.904200"
+              clearable
+            >
+              <template #append>°N</template>
+            </el-input>
+          </el-form-item>
+          
+          <el-form-item label="经度" prop="longitude">
+            <el-input 
+              v-model="reviewForm.longitude" 
+              placeholder="例如：116.407400"
+              clearable
+            >
+              <template #append>°E</template>
+            </el-input>
+          </el-form-item>
+        </template>
         
         <el-form-item label="审核意见" prop="reviewComment">
           <el-input 
@@ -205,6 +244,7 @@ import { useRouter } from 'vue-router'
 import {
   getPendingCommunityApplications,
   getCommunityApplicationsByStatus,
+  updateCommunityApplicationCoordinates,
   reviewCommunityApplication
 } from '../api/leader'
 import { useUserStore } from '../stores/user'
@@ -216,6 +256,7 @@ const userStore = useUserStore()
 const applicationList = ref([])
 const loading = ref(false)
 const activeTab = ref('pending')
+const currentRequestId = ref(0) // 请求ID，用于防止竞态条件
 
 // 对话框
 const detailDialogVisible = ref(false)
@@ -227,13 +268,43 @@ const submitting = ref(false)
 const reviewFormRef = ref(null)
 const reviewForm = ref({
   approved: true,
-  reviewComment: ''
+  reviewComment: '',
+  latitude: '',
+  longitude: ''
 })
 
 // 表单验证规则
 const reviewRules = {
   approved: [
     { required: true, message: '请选择审核结果', trigger: 'change' }
+  ],
+  latitude: [
+    {
+      validator: (rule, value, callback) => {
+        if (reviewForm.value.approved === true && !value) {
+          callback(new Error('审核通过时必须填写纬度'))
+        } else if (value && (isNaN(value) || value < -90 || value > 90)) {
+          callback(new Error('纬度必须在 -90 到 90 之间'))
+        } else {
+          callback()
+        }
+      },
+      trigger: 'blur'
+    }
+  ],
+  longitude: [
+    {
+      validator: (rule, value, callback) => {
+        if (reviewForm.value.approved === true && !value) {
+          callback(new Error('审核通过时必须填写经度'))
+        } else if (value && (isNaN(value) || value < -180 || value > 180)) {
+          callback(new Error('经度必须在 -180 到 180 之间'))
+        } else {
+          callback()
+        }
+      },
+      trigger: 'blur'
+    }
   ],
   reviewComment: [
     {
@@ -257,29 +328,44 @@ const pendingCount = computed(() => {
 // 方法
 const fetchApplications = async () => {
   loading.value = true
+  
+  // 生成新的请求ID
+  const requestId = ++currentRequestId.value
+  const currentTab = activeTab.value
+  
   try {
     let res
-    if (activeTab.value === 'pending') {
+    if (currentTab === 'pending') {
       res = await getPendingCommunityApplications()
     } else {
-      const status = activeTab.value === 'approved' ? 1 : 2
+      const status = currentTab === 'approved' ? 1 : 2
       res = await getCommunityApplicationsByStatus(status)
     }
     
-    if (res.code === 200) {
-      applicationList.value = res.data || []
-    } else {
-      ElMessage.error(res.message || '获取申请列表失败')
+    // 只有当前请求是最新的，且标签未改变时才更新数据
+    if (requestId === currentRequestId.value && currentTab === activeTab.value) {
+      if (res.code === 200) {
+        applicationList.value = res.data || []
+      } else {
+        ElMessage.error(res.message || '获取申请列表失败')
+      }
     }
   } catch (error) {
-    console.error('获取申请列表失败:', error)
-    ElMessage.error('获取申请列表失败')
+    // 只有当前请求是最新的时才显示错误
+    if (requestId === currentRequestId.value) {
+      console.error('获取申请列表失败:', error)
+      ElMessage.error('获取申请列表失败')
+    }
   } finally {
-    loading.value = false
+    // 只有当前请求是最新的时才关闭loading
+    if (requestId === currentRequestId.value) {
+      loading.value = false
+    }
   }
 }
 
-const handleTabClick = () => {
+const handleTabChange = (tabName) => {
+  console.log('标签切换到:', tabName)
   fetchApplications()
 }
 
@@ -292,7 +378,10 @@ const showReviewDialog = (row) => {
   currentApplication.value = row
   reviewForm.value = {
     approved: true,
-    reviewComment: ''
+    reviewComment: '',
+    // 如果申请已有经纬度，自动填充
+    latitude: row.latitude ? String(row.latitude) : '',
+    longitude: row.longitude ? String(row.longitude) : ''
   }
   reviewDialogVisible.value = true
 }
@@ -307,6 +396,21 @@ const handleReviewSubmit = async () => {
     try {
       const adminUserId = userStore.userInfo?.userId || 1 // 获取管理员ID
       
+      // 如果审核通过，先补充经纬度信息
+      if (reviewForm.value.approved && reviewForm.value.latitude && reviewForm.value.longitude) {
+        const coordRes = await updateCommunityApplicationCoordinates(
+          currentApplication.value.applicationId,
+          parseFloat(reviewForm.value.latitude),
+          parseFloat(reviewForm.value.longitude)
+        )
+        
+        if (coordRes.code !== 200) {
+          ElMessage.error(coordRes.message || '补充经纬度信息失败')
+          return
+        }
+      }
+      
+      // 提交审核
       const res = await reviewCommunityApplication(
         currentApplication.value.applicationId,
         adminUserId,
@@ -317,7 +421,7 @@ const handleReviewSubmit = async () => {
       if (res.code === 200) {
         ElMessage.success({
           message: reviewForm.value.approved 
-            ? '审核通过！社区已自动创建' 
+            ? '审核通过！社区已创建' 
             : '已拒绝申请',
           duration: 3000
         })
@@ -341,7 +445,9 @@ const resetReviewForm = () => {
   }
   reviewForm.value = {
     approved: true,
-    reviewComment: ''
+    reviewComment: '',
+    latitude: '',
+    longitude: ''
   }
 }
 

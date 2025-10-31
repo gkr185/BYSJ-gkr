@@ -42,8 +42,25 @@ public class JwtAuthenticationFilter implements GlobalFilter, Ordered {
 
     // 白名单（直接定义，避免注入问题）
     private static final List<String> WHITELIST = Arrays.asList(
+        // UserService - 公开接口
         "/api/user/register",
         "/api/user/login",
+        
+        // GroupBuyService - 公开接口（查询类）
+        "/api/groupbuy/team/*/detail",           // 团详情
+        "/api/groupbuy/activity/*/teams",        // 活动团列表（社区优先）
+        "/api/groupbuy/activities",              // 活动列表
+        "/api/groupbuy/activities/ongoing",      // 进行中的活动
+        "/api/groupbuy/activity/*",              // 活动详情（仅GET）
+        
+        // ProductService - 公开接口（查询类）
+        "/api/product/**",                       // 商品查询（C端）
+        "/api/category/**",                      // 分类查询（C端）
+        
+        // LeaderService - 公开接口（查询类）
+        "/api/community/list",                   // 社区列表
+        
+        // Swagger & Actuator
         "/api-docs/**",
         "/swagger-ui/**",
         "/actuator/health",

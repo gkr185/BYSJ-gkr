@@ -7,8 +7,9 @@
 #### 检查清单
 - [ ] Consul已启动（http://localhost:8500）
 - [ ] UserService已启动并注册到Consul
-- [ ] ProductService已启动并注册到Consul ⭐ 新增
+- [ ] ProductService已启动并注册到Consul
 - [ ] LeaderService已启动并注册到Consul
+- [ ] GroupBuyService已启动并注册到Consul ⭐ 新增
 - [ ] Gateway已启动并注册到Consul
 
 #### 启动命令
@@ -21,7 +22,7 @@ consul agent -dev
 cd community-group-buy-backend/UserService
 mvn spring-boot:run
 
-# 3. 启动ProductService ⭐ 新增
+# 3. 启动ProductService
 cd community-group-buy-backend/ProductService
 mvn spring-boot:run
 
@@ -29,7 +30,11 @@ mvn spring-boot:run
 cd community-group-buy-backend/LeaderService
 mvn spring-boot:run
 
-# 5. 启动Gateway
+# 5. 启动GroupBuyService ⭐ 新增
+cd community-group-buy-backend/GroupBuyService
+mvn spring-boot:run
+
+# 6. 启动Gateway
 cd community-group-buy-backend/gateway-service
 mvn spring-boot:run
 ```
@@ -41,8 +46,9 @@ mvn spring-boot:run
 确认看到以下服务：
 - ✅ gateway-service
 - ✅ UserService
-- ✅ ProductService ⭐ 新增
+- ✅ ProductService
 - ✅ LeaderService
+- ✅ GroupBuyService ⭐ 新增
 
 ---
 
@@ -594,17 +600,330 @@ echo '{"username":"gateway_test","password":"123456"}' > login.json
 
 ---
 
+## 🎯 GroupBuyService测试（⭐新增）
+
+### 测试10：获取活动列表（白名单，无需Token）
+
+```bash
+curl -X GET http://localhost:9000/api/groupbuy/activities
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": [
+    {
+      "activityId": 1,
+      "productId": 1,
+      "groupPrice": 19.90,
+      "requiredNum": 3,
+      "status": 1,
+      ...
+    }
+  ]
+}
+```
+
+---
+
+### 测试11：团长发起拼团（需要团长Token）
+
+```bash
+# 需要团长身份（role=2）
+export LEADER_TOKEN="YOUR_LEADER_TOKEN_HERE"
+
+curl -X POST http://localhost:9000/api/groupbuy/team/launch \
+  -H "Authorization: Bearer $LEADER_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "activityId": 1,
+    "joinImmediately": true,
+    "addressId": 1,
+    "quantity": 1
+  }'
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "teamId": 1,
+    "teamNo": "T20251031001",
+    "communityId": 10,
+    "communityName": "幸福小区",
+    "requiredNum": 3,
+    "currentNum": 1,
+    "remainNum": 2,
+    "teamStatus": 0,
+    "teamStatusDesc": "拼团中",
+    ...
+  }
+}
+```
+
+**⚠️ 注意**：
+- 仅团长可发起（role=2）
+- 自动关联团长的社区（v3.0特性）
+- 团号格式：T + yyyyMMdd + 6位随机数
+
+---
+
+### 测试12：用户参与拼团（需要Token）
+
+```bash
+export USER_TOKEN="YOUR_USER_TOKEN_HERE"
+
+curl -X POST http://localhost:9000/api/groupbuy/team/join \
+  -H "Authorization: Bearer $USER_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "teamId": 1,
+    "addressId": 2,
+    "quantity": 1
+  }'
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "orderId": 8002,
+    "teamId": 1,
+    "teamNo": "T20251031001",
+    "currentNum": 2,
+    "requiredNum": 3,
+    "remainNum": 1,
+    "payAmount": 19.90,
+    "expireTime": "2025-11-01 20:00:00"
+  }
+}
+```
+
+**⚠️ 技术亮点**：
+- 行锁防并发（SELECT ... FOR UPDATE）
+- 防重复参团（唯一索引 uk_team_user）
+- Feign调用OrderService创建订单
+
+---
+
+### 测试13：获取团详情（白名单，无需Token）
+
+```bash
+curl -X GET http://localhost:9000/api/groupbuy/team/1/detail
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "teamId": 1,
+    "teamNo": "T20251031001",
+    "communityId": 10,
+    "communityName": "幸福小区",
+    "requiredNum": 3,
+    "currentNum": 2,
+    "remainNum": 1,
+    "teamStatus": 0,
+    "teamStatusDesc": "拼团中",
+    "members": [
+      {
+        "userId": 1,
+        "username": "leader123",
+        "isLauncher": 1,
+        "status": 0,
+        "statusDesc": "待支付"
+      },
+      {
+        "userId": 2,
+        "username": "user001",
+        "isLauncher": 0,
+        "status": 0,
+        "statusDesc": "待支付"
+      }
+    ],
+    ...
+  }
+}
+```
+
+---
+
+### 测试14：获取活动团列表（社区优先，无需Token）⭐v3.0
+
+```bash
+# 传入用户社区ID，本社区的团优先显示
+curl -X GET "http://localhost:9000/api/groupbuy/activity/1/teams?communityId=10"
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": [
+    {
+      "teamId": 1,
+      "communityId": 10,
+      "communityName": "幸福小区",
+      "currentNum": 2,
+      "requiredNum": 3,
+      ...
+    },
+    {
+      "teamId": 3,
+      "communityId": 11,
+      "communityName": "阳光小区",
+      ...
+    }
+  ]
+}
+```
+
+**⚠️ v3.0特性**：
+- SQL ORDER BY CASE实现社区优先排序
+- communityId=10的团排在前面
+- 提升用户体验
+
+---
+
+### 测试15：模拟支付回调（内部接口）
+
+```bash
+# 模拟PaymentService回调
+curl -X POST "http://localhost:9000/api/groupbuy/payment/callback?orderId=8002"
+```
+
+**预期结果**：
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": null
+}
+```
+
+**⚠️ 核心逻辑**：
+- 更新参团状态（UNPAID → PAID）
+- 更新团人数（current_num++）
+- 检查是否成团（current_num >= required_num）
+- 幂等性保证（双重行锁 + 双重状态检查）
+
+---
+
+### 测试16：完整拼团流程（集成测试）
+
+**步骤1：管理员创建活动**
+```bash
+export ADMIN_TOKEN="YOUR_ADMIN_TOKEN_HERE"
+
+curl -X POST http://localhost:9000/api/groupbuy/activity \
+  -H "Authorization: Bearer $ADMIN_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "productId": 1,
+    "groupPrice": 19.90,
+    "requiredNum": 3,
+    "startTime": "2025-10-31T00:00:00",
+    "endTime": "2025-12-31T23:59:59"
+  }'
+```
+
+**步骤2：团长发起拼团**
+```bash
+export LEADER_TOKEN="YOUR_LEADER_TOKEN_HERE"
+
+curl -X POST http://localhost:9000/api/groupbuy/team/launch \
+  -H "Authorization: Bearer $LEADER_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "activityId": 1,
+    "joinImmediately": true,
+    "addressId": 1,
+    "quantity": 1
+  }'
+# 保存返回的teamId=1, orderId=8001
+```
+
+**步骤3：用户1参团**
+```bash
+export USER1_TOKEN="YOUR_USER1_TOKEN_HERE"
+
+curl -X POST http://localhost:9000/api/groupbuy/team/join \
+  -H "Authorization: Bearer $USER1_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "teamId": 1,
+    "addressId": 2,
+    "quantity": 1
+  }'
+# 保存返回的orderId=8002
+```
+
+**步骤4：用户2参团（满3人）**
+```bash
+export USER2_TOKEN="YOUR_USER2_TOKEN_HERE"
+
+curl -X POST http://localhost:9000/api/groupbuy/team/join \
+  -H "Authorization: Bearer $USER2_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "teamId": 1,
+    "addressId": 3,
+    "quantity": 1
+  }'
+# 保存返回的orderId=8003
+```
+
+**步骤5：模拟支付回调（3次）**
+```bash
+# 团长支付
+curl -X POST "http://localhost:9000/api/groupbuy/payment/callback?orderId=8001"
+
+# 用户1支付
+curl -X POST "http://localhost:9000/api/groupbuy/payment/callback?orderId=8002"
+
+# 用户2支付（触发成团）⭐
+curl -X POST "http://localhost:9000/api/groupbuy/payment/callback?orderId=8003"
+```
+
+**步骤6：验证成团**
+```bash
+curl -X GET http://localhost:9000/api/groupbuy/team/1/detail
+```
+
+**预期结果**：
+- teamStatus = 1（已成团）
+- 所有成员status = 2（已成团）
+- 订单状态 = 1（待发货）
+
+**⚠️ 测试要点**：
+- 成团逻辑只触发一次（幂等性）
+- 所有成员状态同步更新
+- 订单状态批量更新
+
+---
+
 ## ✅ 测试完成标准
 
 所有以下项目都通过，则测试完成：
 
 1. ✅ 所有基础功能测试通过
 2. ✅ 所有UserService接口测试通过
-3. ✅ 用户端所有功能测试通过
-4. ✅ 管理端所有功能测试通过
-5. ✅ 日志记录正常
-6. ✅ 无CORS错误
-7. ✅ 性能测试达标（可选）
+3. ✅ 所有GroupBuyService接口测试通过 ⭐ 新增
+4. ✅ 完整拼团流程测试通过（集成测试）⭐ 新增
+5. ✅ 用户端所有功能测试通过
+6. ✅ 管理端所有功能测试通过
+7. ✅ 日志记录正常
+8. ✅ 无CORS错误
+9. ✅ 性能测试达标（可选）
 
 ---
 

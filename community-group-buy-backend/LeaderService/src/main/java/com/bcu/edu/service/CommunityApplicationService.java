@@ -2,16 +2,13 @@ package com.bcu.edu.service;
 
 import com.bcu.edu.entity.Community;
 import com.bcu.edu.entity.CommunityApplication;
-import com.bcu.edu.entity.GroupLeaderStore;
 import com.bcu.edu.repository.CommunityApplicationRepository;
 import com.bcu.edu.repository.CommunityRepository;
-import com.bcu.edu.repository.GroupLeaderStoreRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -25,7 +22,7 @@ import java.util.Optional;
  * 1. 社区申请提交
  * 2. 管理员审核
  * 3. 审核通过自动创建Community
- * 4. （预留）自动创建GroupLeaderStore记录
+ * 4. 申请人需要单独申请成为团长
  */
 @Slf4j
 @Service
@@ -34,7 +31,6 @@ public class CommunityApplicationService {
 
     private final CommunityApplicationRepository applicationRepository;
     private final CommunityRepository communityRepository;
-    private final GroupLeaderStoreRepository leaderStoreRepository;
 
     /**
      * 提交社区申请
@@ -96,6 +92,11 @@ public class CommunityApplicationService {
         application.setReviewedAt(LocalDateTime.now());
 
         if (approved) {
+            // 审核通过前，验证必要字段
+            if (application.getLatitude() == null || application.getLongitude() == null) {
+                throw new IllegalArgumentException("审核通过前必须补充经纬度信息");
+            }
+            
             // 审核通过
             application.setStatus(1);
 
@@ -103,17 +104,42 @@ public class CommunityApplicationService {
             Community newCommunity = createCommunityFromApplication(application);
             application.setCreatedCommunityId(newCommunity.getCommunityId());
 
-            // 自动创建GroupLeaderStore记录
-            GroupLeaderStore leaderStore = createLeaderStoreFromApplication(application, newCommunity);
-
-            log.info("审核通过，社区{}创建成功，申请人{}成为团长，团点ID：{}", 
-                    newCommunity.getName(), application.getApplicantId(), leaderStore.getStoreId());
+            log.info("审核通过，社区{}创建成功。申请人{}需要单独申请成为团长", 
+                    newCommunity.getName(), application.getApplicantId());
         } else {
             // 审核拒绝
             application.setStatus(2);
             log.info("审核拒绝，申请ID：{}，原因：{}", applicationId, reviewComment);
         }
 
+        return applicationRepository.save(application);
+    }
+    
+    /**
+     * 管理员补充社区申请的经纬度信息（审核前调用）
+     * 
+     * @param applicationId 申请ID
+     * @param latitude 纬度
+     * @param longitude 经度
+     */
+    @Transactional
+    public CommunityApplication updateApplicationCoordinates(
+            Long applicationId,
+            java.math.BigDecimal latitude,
+            java.math.BigDecimal longitude
+    ) {
+        CommunityApplication application = applicationRepository.findById(applicationId)
+                .orElseThrow(() -> new IllegalArgumentException("申请不存在：" + applicationId));
+        
+        // 只有待审核的申请可以补充信息
+        if (application.getStatus() != 0) {
+            throw new IllegalStateException("只有待审核的申请可以补充信息");
+        }
+        
+        application.setLatitude(latitude);
+        application.setLongitude(longitude);
+        
+        log.info("管理员补充申请{}的经纬度：{}, {}", applicationId, latitude, longitude);
         return applicationRepository.save(application);
     }
 
@@ -134,39 +160,6 @@ public class CommunityApplicationService {
         community.setStatus(1); // 1-正常运营
 
         return communityRepository.save(community);
-    }
-
-    /**
-     * 根据申请自动创建团长门店
-     */
-    private GroupLeaderStore createLeaderStoreFromApplication(
-            CommunityApplication application, 
-            Community community
-    ) {
-        GroupLeaderStore store = new GroupLeaderStore();
-        store.setLeaderId(application.getApplicantId());
-        store.setLeaderName(application.getApplicantName());
-        store.setLeaderPhone(application.getApplicantPhone());
-        store.setCommunityId(community.getCommunityId());
-        store.setCommunityName(community.getName());
-        store.setStoreName(application.getApplicantName() + "的团点");
-        store.setAddress(community.getAddress());
-        store.setProvince(community.getProvince());
-        store.setCity(community.getCity());
-        store.setDistrict(community.getDistrict());
-        store.setDetailAddress(community.getAddress());
-        store.setLatitude(community.getLatitude());
-        store.setLongitude(community.getLongitude());
-        store.setMaxDeliveryRange(community.getServiceRadius());
-        store.setDescription("由社区申请自动创建");
-        store.setCommissionRate(BigDecimal.valueOf(10.00));
-        store.setTotalCommission(BigDecimal.ZERO);
-        store.setStatus(1); // 1-正常运营
-        store.setReviewerId(application.getReviewerId());
-        store.setReviewComment("社区申请审核通过，自动创建团长门店");
-        store.setReviewedAt(LocalDateTime.now());
-
-        return leaderStoreRepository.save(store);
     }
 
     /**

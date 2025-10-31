@@ -44,10 +44,47 @@ const router = createRouter({
       meta: { title: '拼团活动' }
     },
     {
+      path: '/groupbuy/team/:id',
+      name: 'teamDetail',
+      component: () => import('../views/groupbuy/TeamDetailView.vue'),
+      meta: { title: '团详情' }
+    },
+    {
       path: '/user/groups',
       name: 'myGroups',
       component: () => import('../views/groupbuy/MyGroupBuysView.vue'),
       meta: { title: '我的拼团', requireAuth: true }
+    },
+    // 团长端相关
+    {
+      path: '/leader/apply',
+      name: 'leaderApply',
+      component: () => import('../views/leader/LeaderApplyView.vue'),
+      meta: { title: '申请成为团长', requireAuth: true }
+    },
+    {
+      path: '/community/apply',
+      name: 'communityApply',
+      component: () => import('../views/community/CommunityApplyView.vue'),
+      meta: { title: '申请新社区', requireAuth: true }
+    },
+    {
+      path: '/leader/launch/:activityId',
+      name: 'leaderLaunch',
+      component: () => import('../views/leader/LaunchTeamView.vue'),
+      meta: { title: '发起拼团', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/teams',
+      name: 'leaderTeams',
+      component: () => import('../views/leader/MyTeamsView.vue'),
+      meta: { title: '我的团队', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/commission',
+      name: 'leaderCommission',
+      component: () => import('../views/leader/CommissionView.vue'),
+      meta: { title: '佣金管理', requireAuth: true, requiresLeader: true }
     },
     // 订单相关
     {

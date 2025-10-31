@@ -119,6 +119,30 @@ public class LeaderController {
     }
 
     /**
+     * 【管理员】补充团点经纬度信息（审核前调用）
+     * 
+     * POST /api/leader/{storeId}/coordinates
+     */
+    @PostMapping("/{storeId}/coordinates")
+    @Operation(summary = "补充团点经纬度信息", description = "管理员在审核前补充团点的经纬度信息")
+    public Result<GroupLeaderStore> updateCoordinates(
+            @Parameter(description = "团点ID") @PathVariable Long storeId,
+            @Parameter(description = "纬度") @RequestParam java.math.BigDecimal latitude,
+            @Parameter(description = "经度") @RequestParam java.math.BigDecimal longitude
+    ) {
+        log.info("管理员补充团点{}的经纬度：{}, {}", storeId, latitude, longitude);
+
+        try {
+            GroupLeaderStore updated = leaderApplicationService.updateStoreCoordinates(
+                    storeId, latitude, longitude
+            );
+            return Result.success("经纬度信息已补充", updated);
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return Result.error(e.getMessage());
+        }
+    }
+
+    /**
      * 【管理员】审核团长申请
      * 
      * POST /api/leader/{storeId}/review

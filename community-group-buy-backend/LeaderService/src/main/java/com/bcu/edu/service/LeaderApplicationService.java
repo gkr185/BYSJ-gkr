@@ -39,8 +39,9 @@ public class LeaderApplicationService {
      * 
      * 业务规则：
      * 1. 用户只能申请一次团长（包含待审核、正常运营状态）
-     * 2. 申请的社区必须存在
-     * 3. 验证用户是否存在（调用UserService）
+     * 2. 如果申请已有社区，社区必须存在
+     * 3. 如果申请新社区，communityId为null，等待管理员审核后分配
+     * 4. 验证用户是否存在（调用UserService）
      */
     @Transactional
     public GroupLeaderStore submitApplication(GroupLeaderStore application) {
@@ -49,11 +50,7 @@ public class LeaderApplicationService {
             throw new IllegalArgumentException("您已是团长，无法重复申请");
         }
 
-        // 规则2：验证社区是否存在，并获取社区信息
-        Community community = communityRepository.findById(application.getCommunityId())
-                .orElseThrow(() -> new IllegalArgumentException("申请的社区不存在：" + application.getCommunityId()));
-
-        // 规则3：验证用户是否存在（调用UserService）
+        // 规则2：验证用户是否存在（调用UserService）
         try {
             Result<Boolean> result = userServiceClient.existsUser(application.getLeaderId());
             if (result.getData() == null || !result.getData()) {
@@ -64,17 +61,74 @@ public class LeaderApplicationService {
             throw new IllegalStateException("验证用户信息失败，请稍后重试");
         }
 
-        // 自动填充社区相关信息
-        application.setCommunityName(community.getName());
-        application.setProvince(community.getProvince());
-        application.setCity(community.getCity());
-        application.setDistrict(community.getDistrict());
+        // 规则3：如果申请已有社区，验证社区是否存在并自动填充社区信息
+        if (application.getCommunityId() != null) {
+            Community community = communityRepository.findById(application.getCommunityId())
+                    .orElseThrow(() -> new IllegalArgumentException("申请的社区不存在：" + application.getCommunityId()));
+            
+            // 自动填充社区相关信息
+            application.setCommunityName(community.getName());
+            application.setProvince(community.getProvince());
+            application.setCity(community.getCity());
+            application.setDistrict(community.getDistrict());
+            
+            log.info("用户{}提交团长申请，选择已有社区：{}", application.getLeaderId(), application.getCommunityId());
+        } else {
+            // 申请新社区时，communityId为null，等待管理员审核社区申请后关联
+            log.info("用户{}提交团长申请，同时申请新社区", application.getLeaderId());
+        }
         
-        // 设置初始状态
-        application.setStatus(0); // 0-待审核
+        // 规则4：检查是否有已停用的记录，如果有则更新而不是创建新记录
+        Optional<GroupLeaderStore> existingStore = leaderStoreRepository.findByLeaderId(application.getLeaderId());
+        if (existingStore.isPresent() && existingStore.get().getStatus() == 2) {
+            // 已停用的记录，更新而不是创建新记录
+            GroupLeaderStore store = existingStore.get();
+            store.setStoreName(application.getStoreName());
+            store.setAddress(application.getAddress());
+            store.setCommunityId(application.getCommunityId());
+            store.setCommunityName(application.getCommunityName());
+            store.setProvince(application.getProvince());
+            store.setCity(application.getCity());
+            store.setDistrict(application.getDistrict());
+            store.setDescription(application.getDescription());
+            store.setStatus(0); // 0-待审核
+            // 保留历史佣金数据
+            
+            log.info("用户{}重新提交团长申请（更新已停用记录），团点ID：{}", application.getLeaderId(), store.getStoreId());
+            return leaderStoreRepository.save(store);
+        } else {
+            // 设置初始状态，创建新记录
+            application.setStatus(0); // 0-待审核
+            return leaderStoreRepository.save(application);
+        }
+    }
 
-        log.info("用户{}提交团长申请，社区：{}", application.getLeaderId(), application.getCommunityId());
-        return leaderStoreRepository.save(application);
+    /**
+     * 管理员补充团长申请的经纬度信息（审核前调用）
+     * 
+     * @param storeId 团点ID
+     * @param latitude 纬度
+     * @param longitude 经度
+     */
+    @Transactional
+    public GroupLeaderStore updateStoreCoordinates(
+            Long storeId,
+            java.math.BigDecimal latitude,
+            java.math.BigDecimal longitude
+    ) {
+        GroupLeaderStore store = leaderStoreRepository.findById(storeId)
+                .orElseThrow(() -> new IllegalArgumentException("团点不存在：" + storeId));
+        
+        // 只有待审核的申请可以补充信息
+        if (store.getStatus() != 0) {
+            throw new IllegalStateException("只有待审核的申请可以补充信息");
+        }
+        
+        store.setLatitude(latitude);
+        store.setLongitude(longitude);
+        
+        log.info("管理员补充团点{}的经纬度：{}, {}", storeId, latitude, longitude);
+        return leaderStoreRepository.save(store);
     }
 
     /**
@@ -98,6 +152,11 @@ public class LeaderApplicationService {
         // 检查申请状态
         if (store.getStatus() != 0) {
             throw new IllegalStateException("该申请已被审核，无法重复审核");
+        }
+        
+        // 审核通过前，验证必要字段（经纬度可选，但如果要支持路径规划则必须）
+        if (approved && (store.getLatitude() == null || store.getLongitude() == null)) {
+            log.warn("审核通过，但团点{}缺少经纬度信息，路径规划功能将不可用", storeId);
         }
 
         // 更新审核信息

@@ -29,7 +29,7 @@
 |---------|---------|---------|------|------|
 | `/api/user/**` | → | UserService | 8061 | ✅ 已完成 |
 | `/api/product/**` `/api/category/**` | → | ProductService | 8062 | ✅ 已完成 |
-| `/api/groupbuy/**` | → | GroupBuyService | 8063 | ⏳ 待开发 |
+| `/api/groupbuy/**` | → | GroupBuyService | 8063 | ✅ 已完成 |
 | `/api/order/**` `/api/cart/**` | → | OrderService | 8065 | ⏳ 待开发 |
 | `/api/payment/**` | → | PaymentService | 8066 | ⏳ 待开发 |
 | `/api/leader/**` `/api/community/**` | → | LeaderService | 8068 | ✅ 已完成 |
@@ -285,5 +285,5 @@ UserService处理
 
 ---
 
-**状态**: ✅ Gateway开发完成，已集成UserService、ProductService、LeaderService
+**状态**: ✅ Gateway开发完成，已集成UserService、ProductService、LeaderService、GroupBuyService
 

@@ -1,0 +1,1208 @@
+[2025-10-31 18:07:39.711] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 29592 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 18:07:39.717] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 18:07:40.920] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-10-31 18:07:41.108] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 179 ms. Found 5 JPA repository interfaces.
+[2025-10-31 18:07:41.392] [INFO ] [LeaderService] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=16faf085-a9a5-31cd-88ca-73988b61b48c
+[2025-10-31 18:07:41.750] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-10-31 18:07:41.753] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.754] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.763] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.766] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.768] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$781/0x000000080113f570] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.770] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.776] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.784] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.786] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.788] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.793] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.802] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.805] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.806] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.809] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:41.810] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:07:42.130] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8068 (http)
+[2025-10-31 18:07:42.235] [INFO ] [LeaderService] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2473 ms
+[2025-10-31 18:07:42.531] [INFO ] [LeaderService] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-10-31 18:07:42.594] [INFO ] [LeaderService] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-10-31 18:07:42.632] [INFO ] [LeaderService] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-10-31 18:07:42.867] [INFO ] [LeaderService] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-10-31 18:07:42.902] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Starting...
+[2025-10-31 18:07:43.104] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.pool.HikariPool:?] - LeaderServiceHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@192ecf8
+[2025-10-31 18:07:43.108] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Start completed.
+[2025-10-31 18:07:43.178] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-10-31 18:07:43.181] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-10-31 18:07:44.367] [INFO ] [LeaderService] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-10-31 18:07:44.605] [INFO ] [LeaderService] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 18:07:44.982] [INFO ] [LeaderService] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-10-31 18:07:46.412] [INFO ] [LeaderService] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 17 endpoint(s) beneath base path '/actuator'
+[2025-10-31 18:07:46.467] [WARN ] [LeaderService] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-10-31 18:07:46.534] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 18:07:47.761] [WARN ] [LeaderService] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-10-31 18:07:47.848] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8068 (http) with context path ''
+[2025-10-31 18:07:47.849] [INFO ] [LeaderService] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='LeaderService-8068', name='LeaderService', tags=[], address='192.168.245.1', meta={secure=false}, port=8068, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='15s', ttl='null', http='http://192.168.245.1:8068/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-10-31 18:07:48.215] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Started LeaderServiceApplication in 9.531 seconds (process running for 10.329)
+[2025-10-31 18:07:51.732] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-10-31 18:07:51.734] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 1 ms
+[2025-10-31 18:08:18.705] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 18:08:20.564] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 18:08:22.111] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 18:08:22.818] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 18:08:23.457] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommissionController:?] - 管理员查询待结算佣金
+[2025-10-31 18:41:02.536] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: LeaderService-8068
+[2025-10-31 18:41:02.545] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 18:41:02.548] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
+[2025-10-31 18:41:02.550] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.
+[2025-10-31 18:42:58.119] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 17764 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 18:42:58.122] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 18:42:58.945] [WARN ] [LeaderService] [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:?] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'UserService.FeignClientSpecification' defined in null: Cannot register bean definition [Generic bean: class [org.springframework.cloud.openfeign.FeignClientSpecification]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null] for bean 'UserService.FeignClientSpecification' since there is already [Generic bean: class [org.springframework.cloud.openfeign.FeignClientSpecification]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null] bound.
+[2025-10-31 18:42:58.955] [INFO ] [LeaderService] [main] [o.s.b.a.logging.ConditionEvaluationReportLogger:?] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2025-10-31 18:42:58.978] [ERROR] [LeaderService] [main] [o.s.b.diagnostics.LoggingFailureAnalysisReporter:?] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'UserService.FeignClientSpecification' could not be registered. A bean with that name has already been defined and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+[2025-10-31 18:48:49.958] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 29552 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 18:48:49.962] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 18:48:50.697] [WARN ] [LeaderService] [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:?] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'UserService.FeignClientSpecification' defined in null: Cannot register bean definition [Generic bean: class [org.springframework.cloud.openfeign.FeignClientSpecification]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null] for bean 'UserService.FeignClientSpecification' since there is already [Generic bean: class [org.springframework.cloud.openfeign.FeignClientSpecification]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null] bound.
+[2025-10-31 18:48:50.707] [INFO ] [LeaderService] [main] [o.s.b.a.logging.ConditionEvaluationReportLogger:?] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2025-10-31 18:48:50.728] [ERROR] [LeaderService] [main] [o.s.b.diagnostics.LoggingFailureAnalysisReporter:?] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'UserService.FeignClientSpecification' could not be registered. A bean with that name has already been defined and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+[2025-10-31 18:49:17.076] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 16496 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 18:49:17.080] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 18:49:17.701] [WARN ] [LeaderService] [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:?] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'UserService.FeignClientSpecification' defined in null: Cannot register bean definition [Generic bean: class [org.springframework.cloud.openfeign.FeignClientSpecification]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null] for bean 'UserService.FeignClientSpecification' since there is already [Generic bean: class [org.springframework.cloud.openfeign.FeignClientSpecification]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodNames=null; destroyMethodNames=null] bound.
+[2025-10-31 18:49:17.711] [INFO ] [LeaderService] [main] [o.s.b.a.logging.ConditionEvaluationReportLogger:?] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2025-10-31 18:49:17.730] [ERROR] [LeaderService] [main] [o.s.b.diagnostics.LoggingFailureAnalysisReporter:?] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'UserService.FeignClientSpecification' could not be registered. A bean with that name has already been defined and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+[2025-10-31 18:51:25.868] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 36056 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 18:51:25.871] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 18:51:26.819] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-10-31 18:51:26.967] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 141 ms. Found 5 JPA repository interfaces.
+[2025-10-31 18:51:27.172] [INFO ] [LeaderService] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=c534ceb8-b4dd-3aeb-9267-f354cbea0ba7
+[2025-10-31 18:51:27.453] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-10-31 18:51:27.455] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.457] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.464] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.466] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.468] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$781/0x000000080113e590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.470] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.475] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.480] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.482] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.483] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.489] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.494] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.497] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.498] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.499] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.501] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 18:51:27.744] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8068 (http)
+[2025-10-31 18:51:27.830] [INFO ] [LeaderService] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 1922 ms
+[2025-10-31 18:51:28.080] [INFO ] [LeaderService] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-10-31 18:51:28.138] [INFO ] [LeaderService] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-10-31 18:51:28.170] [INFO ] [LeaderService] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-10-31 18:51:28.388] [INFO ] [LeaderService] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-10-31 18:51:28.423] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Starting...
+[2025-10-31 18:51:28.560] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.pool.HikariPool:?] - LeaderServiceHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a7c72af
+[2025-10-31 18:51:28.561] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Start completed.
+[2025-10-31 18:51:28.602] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-10-31 18:51:28.603] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-10-31 18:51:29.493] [INFO ] [LeaderService] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-10-31 18:51:29.551] [INFO ] [LeaderService] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 18:51:29.832] [INFO ] [LeaderService] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-10-31 18:51:31.095] [INFO ] [LeaderService] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 17 endpoint(s) beneath base path '/actuator'
+[2025-10-31 18:51:31.153] [WARN ] [LeaderService] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-10-31 18:51:31.219] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 18:51:31.338] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 18:51:32.333] [WARN ] [LeaderService] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-10-31 18:51:32.415] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8068 (http) with context path ''
+[2025-10-31 18:51:32.417] [INFO ] [LeaderService] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='LeaderService-8068', name='LeaderService', tags=[], address='192.168.245.1', meta={secure=false}, port=8068, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='15s', ttl='null', http='http://192.168.245.1:8068/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-10-31 18:51:32.794] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Started LeaderServiceApplication in 7.752 seconds (process running for 8.444)
+[2025-10-31 18:51:34.210] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-10-31 18:51:34.212] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 2 ms
+[2025-10-31 18:51:36.762] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.CommissionController:?] - 管理员查询待结算佣金
+[2025-10-31 18:51:37.174] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 18:51:37.706] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 18:51:38.216] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 18:51:38.789] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 18:51:39.770] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 18:51:40.150] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommissionController:?] - 管理员查询待结算佣金
+[2025-10-31 18:59:45.994] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: LeaderService-8068
+[2025-10-31 18:59:46.000] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 18:59:46.004] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
+[2025-10-31 18:59:46.010] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.
+[2025-10-31 19:01:44.137] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 30532 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 19:01:44.140] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 19:01:45.278] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-10-31 19:01:45.464] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 178 ms. Found 5 JPA repository interfaces.
+[2025-10-31 19:01:45.773] [INFO ] [LeaderService] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=c534ceb8-b4dd-3aeb-9267-f354cbea0ba7
+[2025-10-31 19:01:46.128] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-10-31 19:01:46.132] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.136] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.147] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.150] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.153] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$781/0x000000080113e590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.155] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.163] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.170] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.173] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.173] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.182] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.191] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.193] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.196] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.199] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.201] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 19:01:46.527] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8068 (http)
+[2025-10-31 19:01:46.644] [INFO ] [LeaderService] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2464 ms
+[2025-10-31 19:01:46.979] [INFO ] [LeaderService] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-10-31 19:01:47.044] [INFO ] [LeaderService] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-10-31 19:01:47.079] [INFO ] [LeaderService] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-10-31 19:01:47.314] [INFO ] [LeaderService] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-10-31 19:01:47.348] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Starting...
+[2025-10-31 19:01:47.488] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.pool.HikariPool:?] - LeaderServiceHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@62c42a3
+[2025-10-31 19:01:47.489] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Start completed.
+[2025-10-31 19:01:47.533] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-10-31 19:01:47.534] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-10-31 19:01:48.474] [INFO ] [LeaderService] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-10-31 19:01:48.535] [INFO ] [LeaderService] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 19:01:48.832] [INFO ] [LeaderService] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-10-31 19:01:50.210] [INFO ] [LeaderService] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 17 endpoint(s) beneath base path '/actuator'
+[2025-10-31 19:01:50.270] [WARN ] [LeaderService] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-10-31 19:01:50.351] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 19:01:50.456] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 19:01:51.521] [WARN ] [LeaderService] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-10-31 19:01:51.601] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8068 (http) with context path ''
+[2025-10-31 19:01:51.603] [INFO ] [LeaderService] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='LeaderService-8068', name='LeaderService', tags=[], address='192.168.245.1', meta={secure=false}, port=8068, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='15s', ttl='null', http='http://192.168.245.1:8068/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-10-31 19:01:51.958] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Started LeaderServiceApplication in 8.69 seconds (process running for 9.416)
+[2025-10-31 19:02:05.039] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-10-31 19:02:05.043] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 3 ms
+[2025-10-31 19:03:14.088] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 19:03:15.859] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.CommissionController:?] - 管理员查询待结算佣金
+[2025-10-31 19:22:54.675] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommissionController:?] - 管理员查询待结算佣金
+[2025-10-31 21:35:23.173] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:39:38.941] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:39:38.987] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:39:47.621] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:39:47.635] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:40:38.350] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:40:38.376] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:43:01.279] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 用户3提交社区申请：测试社区
+[2025-10-31 21:43:01.313] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.service.CommunityApplicationService:?] - 用户3提交社区申请：测试社区
+[2025-10-31 21:43:01.360] [WARN ] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:?] - SQL Error: 1048, SQLState: 23000
+[2025-10-31 21:43:01.360] [ERROR] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:?] - Column 'city' cannot be null
+[2025-10-31 21:43:01.373] [ERROR] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Column 'city' cannot be null] [insert into community_application (address,applicant_id,applicant_name,applicant_phone,application_reason,city,community_name,created_at,created_community_id,description,district,latitude,longitude,province,review_comment,reviewed_at,reviewer_id,service_radius,status,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into community_application (address,applicant_id,applicant_name,applicant_phone,application_reason,city,community_name,created_at,created_community_id,description,district,latitude,longitude,province,review_comment,reviewed_at,reviewer_id,service_radius,status,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; constraint [null]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:290)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy2/jdk.proxy2.$Proxy192.save(Unknown Source)
+	at com.bcu.edu.service.CommunityApplicationService.submitApplication(CommunityApplicationService.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.CommunityApplicationService$$SpringCGLIB$$0.submitApplication(<generated>)
+	at com.bcu.edu.controller.CommunityApplicationController.submitApplication(CommunityApplicationController.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Column 'city' cannot be null] [insert into community_application (address,applicant_id,applicant_name,applicant_phone,application_reason,city,community_name,created_at,created_community_id,description,district,latitude,longitude,province,review_comment,reviewed_at,reviewer_id,service_radius,status,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:62)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy166.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy166.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 78 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'city' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
+	... 134 common frames omitted
+[2025-10-31 21:44:43.690] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:44:43.707] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:44:54.925] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:44:54.942] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:45:08.501] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:45:08.524] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:46:59.534] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 用户3提交社区申请：测试测试社区101
+[2025-10-31 21:46:59.539] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.service.CommunityApplicationService:?] - 用户3提交社区申请：测试测试社区101
+[2025-10-31 21:46:59.581] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 用户3提交团长申请
+[2025-10-31 21:46:59.586] [ERROR] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:371)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:246)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy2/jdk.proxy2.$Proxy171.findById(Unknown Source)
+	at com.bcu.edu.service.LeaderApplicationService.submitApplication(LeaderApplicationService.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.LeaderApplicationService$$SpringCGLIB$$0.submitApplication(<generated>)
+	at com.bcu.edu.controller.LeaderController.applyForLeader(LeaderController.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.IllegalArgumentException: The given id must not be null
+	at org.springframework.util.Assert.notNull(Assert.java:172)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:302)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 78 common frames omitted
+[2025-10-31 21:48:46.695] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:48:46.718] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:50:37.729] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: LeaderService-8068
+[2025-10-31 21:50:37.738] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 21:50:37.741] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
+[2025-10-31 21:50:37.743] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.
+[2025-10-31 21:50:43.200] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 29972 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 21:50:43.202] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 21:50:44.229] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-10-31 21:50:44.394] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 157 ms. Found 5 JPA repository interfaces.
+[2025-10-31 21:50:44.611] [INFO ] [LeaderService] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=c534ceb8-b4dd-3aeb-9267-f354cbea0ba7
+[2025-10-31 21:50:44.912] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-10-31 21:50:44.916] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.919] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.934] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.937] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.939] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$781/0x000000080113e590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.943] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.950] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.958] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.960] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.961] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.968] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.976] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.978] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.980] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.982] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:44.984] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 21:50:45.273] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8068 (http)
+[2025-10-31 21:50:45.372] [INFO ] [LeaderService] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2131 ms
+[2025-10-31 21:50:45.705] [INFO ] [LeaderService] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-10-31 21:50:45.805] [INFO ] [LeaderService] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-10-31 21:50:45.854] [INFO ] [LeaderService] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-10-31 21:50:46.097] [INFO ] [LeaderService] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-10-31 21:50:46.129] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Starting...
+[2025-10-31 21:50:46.270] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.pool.HikariPool:?] - LeaderServiceHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ba9ed19
+[2025-10-31 21:50:46.272] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Start completed.
+[2025-10-31 21:50:46.314] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-10-31 21:50:46.316] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-10-31 21:50:47.311] [INFO ] [LeaderService] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-10-31 21:50:47.388] [INFO ] [LeaderService] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 21:50:47.679] [INFO ] [LeaderService] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-10-31 21:50:49.069] [INFO ] [LeaderService] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 17 endpoint(s) beneath base path '/actuator'
+[2025-10-31 21:50:49.127] [WARN ] [LeaderService] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-10-31 21:50:49.192] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 21:50:49.297] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 21:50:50.373] [WARN ] [LeaderService] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-10-31 21:50:50.467] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8068 (http) with context path ''
+[2025-10-31 21:50:50.468] [INFO ] [LeaderService] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='LeaderService-8068', name='LeaderService', tags=[], address='192.168.245.1', meta={secure=false}, port=8068, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='15s', ttl='null', http='http://192.168.245.1:8068/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-10-31 21:50:50.821] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Started LeaderServiceApplication in 8.523 seconds (process running for 9.227)
+[2025-10-31 21:50:59.280] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-10-31 21:50:59.282] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 1 ms
+[2025-10-31 21:51:34.100] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 用户3提交社区申请：测试团点101
+[2025-10-31 21:52:02.901] [INFO ] [LeaderService] [http-nio-8068-exec-5] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:52:08.725] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:52:12.284] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:52:12.670] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:52:13.517] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:53:17.682] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:55:23.232] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:55:23.252] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:55:26.888] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:55:26.904] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:56:15.303] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:27.834] [INFO ] [LeaderService] [http-nio-8068-exec-5] [c.b.edu.controller.CommunityApplicationController:?] - 管理员1审核申请：applicationId=1，approved=false
+[2025-10-31 21:56:27.850] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.service.CommunityApplicationService:?] - 审核拒绝，申请ID：1，原因：123123
+[2025-10-31 21:56:27.908] [INFO ] [LeaderService] [http-nio-8068-exec-7] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:29.870] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:31.100] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:56:31.628] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 21:56:32.175] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:32.916] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 21:56:33.569] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:56:36.301] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:37.072] [INFO ] [LeaderService] [http-nio-8068-exec-5] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:56:41.391] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:56:41.902] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:43.643] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:44.536] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:56:45.983] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:56:46.415] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:48.302] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:56:48.765] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:49.983] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:56:50.517] [INFO ] [LeaderService] [http-nio-8068-exec-7] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:51.689] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:52.932] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 21:56:54.192] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:56:58.043] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:56:58.783] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:57:03.786] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:57:03.798] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:57:11.292] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 用户3提交团长申请
+[2025-10-31 21:57:11.411] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.service.LeaderApplicationService:?] - 用户3提交团长申请，选择已有社区：1
+[2025-10-31 21:57:11.441] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:57:17.410] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:19.298] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:20.225] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:57:21.038] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:21.651] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:57:22.313] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 21:57:23.508] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 21:57:24.355] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:41.185] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员1审核团长申请：storeId=1，approved=false
+[2025-10-31 21:57:41.189] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.service.LeaderApplicationService:?] - 审核拒绝，团点ID：1，原因：123123
+[2025-10-31 21:57:41.210] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:42.503] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:43.013] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 21:57:47.846] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 21:57:48.847] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 21:57:50.147] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 21:57:50.853] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 21:57:54.077] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 21:57:57.052] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 21:57:57.072] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 21:58:18.444] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 用户3提交社区申请：123123123
+[2025-10-31 21:58:18.451] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.service.CommunityApplicationService:?] - 用户3提交社区申请：123123123
+[2025-10-31 21:58:18.465] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 用户3提交团长申请
+[2025-10-31 21:58:18.475] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.service.LeaderApplicationService:?] - 用户3提交团长申请，同时申请新社区
+[2025-10-31 21:58:18.487] [WARN ] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:?] - SQL Error: 1048, SQLState: 23000
+[2025-10-31 21:58:18.487] [ERROR] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:?] - Column 'community_id' cannot be null
+[2025-10-31 21:58:18.497] [ERROR] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Column 'community_id' cannot be null] [insert into group_leader_store (address,city,commission_rate,community_id,community_name,created_at,description,detail_address,district,latitude,leader_id,leader_name,leader_phone,longitude,max_delivery_range,province,review_comment,reviewed_at,reviewer_id,status,store_name,total_commission,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into group_leader_store (address,city,commission_rate,community_id,community_name,created_at,description,detail_address,district,latitude,leader_id,leader_name,leader_phone,longitude,max_delivery_range,province,review_comment,reviewed_at,reviewer_id,status,store_name,total_commission,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; constraint [null]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:290)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy2/jdk.proxy2.$Proxy173.save(Unknown Source)
+	at com.bcu.edu.service.LeaderApplicationService.submitApplication(LeaderApplicationService.java:84)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.LeaderApplicationService$$SpringCGLIB$$0.submitApplication(<generated>)
+	at com.bcu.edu.controller.LeaderController.applyForLeader(LeaderController.java:44)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Column 'community_id' cannot be null] [insert into group_leader_store (address,city,commission_rate,community_id,community_name,created_at,description,detail_address,district,latitude,leader_id,leader_name,leader_phone,longitude,max_delivery_range,province,review_comment,reviewed_at,reviewer_id,status,store_name,total_commission,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:62)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy166.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy166.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 78 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'community_id' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
+	... 134 common frames omitted
+[2025-10-31 22:21:12.294] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:21:12.318] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:21:15.823] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:21:15.838] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:21:50.063] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:21:50.084] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:24:21.673] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:24:21.700] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:28:28.183] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:28:28.201] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:28:36.518] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:28:36.540] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:28:46.251] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:28:46.264] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:28:49.955] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:28:49.976] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:31:14.553] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:31:14.574] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:39:04.601] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:39:04.619] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:48:11.032] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:48:11.053] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:48:17.727] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:48:19.010] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:48:19.704] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:48:20.308] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:48:20.855] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:48:21.996] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:48:22.627] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:48:23.892] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:48:24.462] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:48:25.015] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:48:25.815] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:48:26.422] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:48:26.926] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:48:27.721] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:48:28.565] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:48:29.632] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:48:30.273] [INFO ] [LeaderService] [http-nio-8068-exec-7] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:48:31.033] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:48:31.607] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:48:32.170] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 22:48:32.864] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:48:33.364] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:48:37.361] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 22:48:38.931] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:49:32.075] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:49:34.923] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:49:38.839] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:50:06.711] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 用户3查询自己的申请记录
+[2025-10-31 22:50:13.952] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:50:13.966] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:50:15.934] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:50:15.949] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:50:22.167] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 用户3查询自己的申请记录
+[2025-10-31 22:50:32.941] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:50:42.437] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员1审核申请：applicationId=2，approved=false
+[2025-10-31 22:50:42.440] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.service.CommunityApplicationService:?] - 审核拒绝，申请ID：2，原因：12313
+[2025-10-31 22:50:42.462] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:50:47.282] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:50:47.295] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:50:49.318] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 用户3查询自己的申请记录
+[2025-10-31 22:50:51.372] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 22:50:51.384] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 22:52:10.089] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:52:32.819] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:52:43.618] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:52:54.746] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:55:48.491] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:55:49.668] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 22:55:51.886] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:55:52.631] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:55:53.440] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:55:55.565] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:55:56.603] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:55:57.250] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:55:58.860] [INFO ] [LeaderService] [http-nio-8068-exec-5] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 22:56:02.955] [INFO ] [LeaderService] [http-nio-8068-exec-7] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:56:06.512] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 22:56:07.910] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 22:56:10.833] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:56:12.070] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 22:56:13.157] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 22:56:14.073] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:56:14.967] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:56:15.902] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:56:17.751] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:56:19.179] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:56:20.268] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:56:21.265] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 22:56:22.373] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:56:23.515] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:56:24.499] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 22:57:33.471] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:57:40.968] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:57:48.799] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 22:57:55.125] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:19:47.312] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:19:47.697] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:48.623] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:19:48.945] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:49.330] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:19:49.701] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:50.122] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:19:50.485] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:50.830] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:19:51.183] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:52.356] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:19:53.519] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:19:55.058] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:56.064] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:19:56.968] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:57.574] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:19:58.082] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:19:59.547] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:20:02.630] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:20:03.295] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:20:03.700] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:20:04.609] [INFO ] [LeaderService] [http-nio-8068-exec-5] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 23:20:05.601] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:20:06.465] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:20:07.318] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 23:20:30.162] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 23:20:34.654] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:21:20.160] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:21:21.419] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:21:21.910] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:21:22.636] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 23:21:23.091] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:21:23.988] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:21:24.742] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:21:27.496] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:21:28.064] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:21:29.630] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:21:31.435] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:22:41.361] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:22:46.054] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:23:05.270] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:23:09.989] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:27:02.266] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:27:03.151] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:27:03.592] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:27:04.572] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:27:05.084] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:27:05.717] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:27:06.121] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 23:27:15.879] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 用户3查询自己的申请记录
+[2025-10-31 23:27:59.517] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 用户3提交社区申请：测试测试101社区
+[2025-10-31 23:27:59.523] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.service.CommunityApplicationService:?] - 用户3提交社区申请：测试测试101社区
+[2025-10-31 23:28:06.566] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:28:11.419] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员1审核申请：applicationId=3，approved=true
+[2025-10-31 23:28:11.426] [WARN ] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:?] - SQL Error: 1062, SQLState: 23000
+[2025-10-31 23:28:11.426] [ERROR] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.engine.jdbc.spi.SqlExceptionHelper:?] - Duplicate entry '3' for key 'group_leader_store.uk_leader_id'
+[2025-10-31 23:28:11.430] [ERROR] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry '3' for key 'group_leader_store.uk_leader_id'] [insert into group_leader_store (address,city,commission_rate,community_id,community_name,created_at,description,detail_address,district,latitude,leader_id,leader_name,leader_phone,longitude,max_delivery_range,province,review_comment,reviewed_at,reviewer_id,status,store_name,total_commission,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into group_leader_store (address,city,commission_rate,community_id,community_name,created_at,description,detail_address,district,latitude,leader_id,leader_name,leader_phone,longitude,max_delivery_range,province,review_comment,reviewed_at,reviewer_id,status,store_name,total_commission,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; constraint [group_leader_store.uk_leader_id]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:290)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550)
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61)
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:220)
+	at jdk.proxy2/jdk.proxy2.$Proxy173.save(Unknown Source)
+	at com.bcu.edu.service.CommunityApplicationService.createLeaderStoreFromApplication(CommunityApplicationService.java:169)
+	at com.bcu.edu.service.CommunityApplicationService.reviewApplication(CommunityApplicationService.java:107)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.CommunityApplicationService$$SpringCGLIB$$0.reviewApplication(<generated>)
+	at com.bcu.edu.controller.CommunityApplicationController.reviewApplication(CommunityApplicationController.java:99)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Duplicate entry '3' for key 'group_leader_store.uk_leader_id'] [insert into group_leader_store (address,city,commission_rate,community_id,community_name,created_at,description,detail_address,district,latitude,leader_id,leader_name,leader_phone,longitude,max_delivery_range,province,review_comment,reviewed_at,reviewer_id,status,store_name,total_commission,updated_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:62)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2868)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:670)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:754)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:738)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy166.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy166.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	... 79 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '3' for key 'group_leader_store.uk_leader_id'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
+	... 135 common frames omitted
+[2025-10-31 23:28:17.115] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:31:20.534] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:31:23.773] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:31:25.180] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:31:27.978] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=2
+[2025-10-31 23:31:28.994] [INFO ] [LeaderService] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:31:31.707] [INFO ] [LeaderService] [http-nio-8068-exec-4] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:31:34.510] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:31:35.490] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:31:36.467] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:31:37.609] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:31:39.226] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:31:41.993] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:40:06.002] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: LeaderService-8068
+[2025-10-31 23:40:06.017] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 23:40:06.024] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
+[2025-10-31 23:40:06.030] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.
+[2025-10-31 23:40:12.741] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Starting LeaderServiceApplication using Java 17.0.6 with PID 26456 (E:\E\BYSJ\community-group-buy-backend\LeaderService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-10-31 23:40:12.743] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-10-31 23:40:13.794] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-10-31 23:40:13.962] [INFO ] [LeaderService] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 160 ms. Found 5 JPA repository interfaces.
+[2025-10-31 23:40:14.190] [INFO ] [LeaderService] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=c534ceb8-b4dd-3aeb-9267-f354cbea0ba7
+[2025-10-31 23:40:14.499] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-10-31 23:40:14.502] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.504] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.514] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.516] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.518] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$781/0x000000080113e590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.520] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.527] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.533] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.534] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.536] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.542] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.551] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.552] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.553] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.556] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.557] [WARN ] [LeaderService] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-10-31 23:40:14.816] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8068 (http)
+[2025-10-31 23:40:14.908] [INFO ] [LeaderService] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2125 ms
+[2025-10-31 23:40:15.216] [INFO ] [LeaderService] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-10-31 23:40:15.279] [INFO ] [LeaderService] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-10-31 23:40:15.317] [INFO ] [LeaderService] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-10-31 23:40:15.552] [INFO ] [LeaderService] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-10-31 23:40:15.586] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Starting...
+[2025-10-31 23:40:15.725] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.pool.HikariPool:?] - LeaderServiceHikariCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@62c42a3
+[2025-10-31 23:40:15.727] [INFO ] [LeaderService] [main] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Start completed.
+[2025-10-31 23:40:15.765] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-10-31 23:40:15.766] [WARN ] [LeaderService] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-10-31 23:40:16.685] [INFO ] [LeaderService] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-10-31 23:40:16.745] [INFO ] [LeaderService] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 23:40:17.034] [INFO ] [LeaderService] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-10-31 23:40:18.398] [INFO ] [LeaderService] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 17 endpoint(s) beneath base path '/actuator'
+[2025-10-31 23:40:18.454] [WARN ] [LeaderService] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-10-31 23:40:18.523] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 23:40:18.627] [INFO ] [LeaderService] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'UserService' URL not provided. Will try picking an instance via load-balancing.
+[2025-10-31 23:40:19.726] [WARN ] [LeaderService] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-10-31 23:40:19.820] [INFO ] [LeaderService] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8068 (http) with context path ''
+[2025-10-31 23:40:19.821] [INFO ] [LeaderService] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='LeaderService-8068', name='LeaderService', tags=[], address='192.168.245.1', meta={secure=false}, port=8068, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='15s', ttl='null', http='http://192.168.245.1:8068/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-10-31 23:40:20.176] [INFO ] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:?] - Started LeaderServiceApplication in 8.347 seconds (process running for 9.067)
+[2025-10-31 23:40:26.069] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-10-31 23:40:26.073] [INFO ] [LeaderService] [http-nio-8068-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 3 ms
+[2025-10-31 23:40:26.140] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:40:27.213] [INFO ] [LeaderService] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:40:27.664] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=2
+[2025-10-31 23:40:28.498] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:40:30.945] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 23:40:30.959] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:40:34.121] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 用户3查询自己的申请记录
+[2025-10-31 23:40:38.620] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:40:43.292] [INFO ] [LeaderService] [http-nio-8068-exec-10] [c.b.edu.controller.CommunityApplicationController:?] - 管理员1审核申请：applicationId=3，approved=true
+[2025-10-31 23:40:43.354] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.service.CommunityApplicationService:?] - 审核通过，社区测试测试101社区创建成功。申请人3的团长记录已重新激活，团点ID：1
+[2025-10-31 23:40:43.386] [INFO ] [LeaderService] [http-nio-8068-exec-1] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:40:45.921] [INFO ] [LeaderService] [http-nio-8068-exec-2] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:40:48.257] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:40:53.916] [INFO ] [LeaderService] [http-nio-8068-exec-5] [c.b.edu.controller.CommunityApplicationController:?] - 用户3查询自己的申请记录
+[2025-10-31 23:41:04.560] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 23:41:04.572] [INFO ] [LeaderService] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:41:08.991] [INFO ] [LeaderService] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-10-31 23:41:09.003] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:41:14.003] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:41:16.550] [INFO ] [LeaderService] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:41:17.251] [INFO ] [LeaderService] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:41:17.418] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:41:18.373] [INFO ] [LeaderService] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:41:19.566] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询团长列表：status=1
+[2025-10-31 23:44:05.330] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:44:08.233] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:46:11.196] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:46:53.586] [INFO ] [LeaderService] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:46:58.171] [INFO ] [LeaderService] [http-nio-8068-exec-6] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:46:59.063] [INFO ] [LeaderService] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
+[2025-10-31 23:46:59.757] [INFO ] [LeaderService] [http-nio-8068-exec-8] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
+[2025-10-31 23:47:00.431] [INFO ] [LeaderService] [http-nio-8068-exec-9] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询申请：status=1
+[2025-10-31 23:47:05.883] [INFO ] [LeaderService] [http-nio-8068-exec-1] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:48:50.759] [INFO ] [LeaderService] [http-nio-8068-exec-10] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
+[2025-10-31 23:49:05.204] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: LeaderService-8068
+[2025-10-31 23:49:05.223] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-10-31 23:49:05.226] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
+[2025-10-31 23:49:05.234] [INFO ] [LeaderService] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.

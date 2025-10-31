@@ -15,6 +15,7 @@
         <module>UserService</module>
         <module>LeaderService</module>
         <module>ProductService</module>
+        <module>GroupBuyService</module>
     </modules>
 
     <groupId>bcu.edu</groupId>

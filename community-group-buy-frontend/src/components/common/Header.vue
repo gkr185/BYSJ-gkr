@@ -171,7 +171,7 @@ const handleUserCommand = (command) => {
       router.push('/user/groups')
       break
     case 'leader':
-      router.push('/leader/dashboard')
+      router.push('/profile')
       break
     case 'logout':
       ElMessageBox.confirm('确定要退出登录吗？', '提示', {

@@ -1,0 +1,8 @@
+[2025-11-01 00:00:00.012] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - ====================================
+[2025-11-01 00:00:00.013] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - 开始检查过期团，当前时间：2025-11-01T00:00:00.012124100
+[2025-11-01 00:00:00.013] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - ====================================
+[2025-11-01 00:00:00.022] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - 未发现过期团，任务结束
+[2025-11-01 00:35:16.385] [INFO ] [groupbuy-service] [http-nio-8063-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-11-01 00:35:16.401] [INFO ] [groupbuy-service] [http-nio-8063-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 16 ms
+[2025-11-01 00:35:16.458] [INFO ] [groupbuy-service] [http-nio-8063-exec-1] [com.bcu.edu.service.TeamService:?] - 查询用户3的拼团记录
+[2025-11-01 00:35:26.507] [INFO ] [groupbuy-service] [http-nio-8063-exec-2] [com.bcu.edu.service.TeamService:?] - 查询用户3的拼团记录
