@@ -27,7 +27,7 @@ spring:
       routes:
         # ==================== UserService 路由 ====================
         - id: user-service
-          uri: lb://UserService
+          uri: lb://user-service
           predicates:
             - Path=/api/user/**,/api/account/**,/api/address/**,/api/feedback/**,/api/admin/logs/**
         
@@ -36,12 +36,12 @@ spring:
         
         # ==================== ProductService 路由 ✅ 已完成 ====================
         - id: product-service
-          uri: lb://ProductService
+          uri: lb://product-service
           predicates:
             - Path=/api/product/**,/api/category/**,/api/admin/product/**,/api/admin/category/**,/feign/product/**
         
         - id: product-service-swagger
-          uri: lb://ProductService
+          uri: lb://product-service
           predicates:
             - Path=/product/api-docs/**
           filters:
@@ -60,14 +60,14 @@ spring:
           filters:
             - RewritePath=/groupbuy/api-docs/(?<segment>.*), /api-docs/$\{segment}
         
-        # ==================== OrderService 路由（待开发）====================
+        # ==================== OrderService 路由 ✅ 已完成 ====================
         - id: order-service
-          uri: lb://OrderService
+          uri: lb://order-service
           predicates:
             - Path=/api/order/**,/api/cart/**
         
         - id: order-service-swagger
-          uri: lb://OrderService
+          uri: lb://order-service
           predicates:
             - Path=/order/api-docs/**
           filters:
@@ -88,12 +88,12 @@ spring:
         
         # ==================== LeaderService 路由 ====================
         - id: leader-service
-          uri: lb://LeaderService
+          uri: lb://leader-service
           predicates:
             - Path=/api/leader/**,/api/community/**,/api/community-application/**,/api/commission/**,/api/admin/community/**
         
         - id: leader-service-swagger
-          uri: lb://LeaderService
+          uri: lb://leader-service
           predicates:
             - Path=/leader/api-docs/**
           filters:

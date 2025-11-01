@@ -68,8 +68,33 @@ const router = createRouter({
       component: () => import('../views/community/CommunityApplyView.vue'),
       meta: { title: '申请新社区', requireAuth: true }
     },
+    // 团长功能页面（需要团长权限）
     {
-      path: '/leader/launch/:activityId',
+      path: '/leader/dashboard',
+      name: 'leaderDashboard',
+      component: () => import('../views/leader/DashboardView.vue'),
+      meta: { title: '团长工作台', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/activities',
+      name: 'leaderActivities',
+      component: () => import('../views/leader/ActivityManageView.vue'),
+      meta: { title: '活动管理', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/activities/create',
+      name: 'leaderCreateActivity',
+      component: () => import('../views/leader/CreateActivityView.vue'),
+      meta: { title: '创建活动', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/activities/edit/:id',
+      name: 'leaderEditActivity',
+      component: () => import('../views/leader/CreateActivityView.vue'),
+      meta: { title: '编辑活动', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/launch',
       name: 'leaderLaunch',
       component: () => import('../views/leader/LaunchTeamView.vue'),
       meta: { title: '发起拼团', requireAuth: true, requiresLeader: true }
@@ -86,12 +111,43 @@ const router = createRouter({
       component: () => import('../views/leader/CommissionView.vue'),
       meta: { title: '佣金管理', requireAuth: true, requiresLeader: true }
     },
+    {
+      path: '/leader/store',
+      name: 'leaderStore',
+      component: () => import('../views/leader/StoreSettingsView.vue'),
+      meta: { title: '团点设置', requireAuth: true, requiresLeader: true }
+    },
+    // 占位页面（需要后端支持）
+    {
+      path: '/leader/orders',
+      name: 'leaderOrders',
+      component: () => import('../views/leader/OrderManageView.vue'),
+      meta: { title: '订单管理', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/delivery',
+      name: 'leaderDelivery',
+      component: () => import('../views/leader/DeliveryManageView.vue'),
+      meta: { title: '配送管理', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/statistics',
+      name: 'leaderStatistics',
+      component: () => import('../views/leader/StatisticsView.vue'),
+      meta: { title: '数据统计', requireAuth: true, requiresLeader: true }
+    },
     // 订单相关
     {
       path: '/user/orders',
       name: 'myOrders',
       component: () => import('../views/order/MyOrdersView.vue'),
       meta: { title: '我的订单', requireAuth: true }
+    },
+    {
+      path: '/user/orders/:id',
+      name: 'orderDetail',
+      component: () => import('../views/order/OrderDetailView.vue'),
+      meta: { title: '订单详情', requireAuth: true }
     },
     // 登录
     {

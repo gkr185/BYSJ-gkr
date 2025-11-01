@@ -1,501 +1,448 @@
 <template>
-  <MainLayout>
-    <div class="launch-team-page">
-      <div class="container">
-        <el-page-header @back="router.back()" title="返回">
-          <template #content>
-            <h1 class="page-title">发起拼团</h1>
-          </template>
-        </el-page-header>
-
-        <!-- 加载状态 -->
-        <el-skeleton v-if="loading" :rows="8" animated />
-
-        <!-- 活动信息 -->
-        <el-card v-else-if="activity" class="activity-card" shadow="hover">
-          <template #header>
-            <div class="card-header">
-              <span>活动信息</span>
-              <el-tag :type="getStatusType(activity.status)" size="large">
-                {{ getStatusText(activity.status) }}
-              </el-tag>
-            </div>
-          </template>
-
-          <div class="activity-info">
-            <div class="info-row">
-              <span class="label">活动ID：</span>
-              <span class="value">{{ activity.activityId }}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">商品ID：</span>
-              <span class="value">{{ activity.productId }}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">拼团价：</span>
-              <span class="price">¥{{ activity.groupPrice }}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">成团人数：</span>
-              <span class="value">{{ activity.requiredNum }}人</span>
-            </div>
-            <div class="info-row">
-              <span class="label">活动时间：</span>
-              <span class="time">
-                {{ formatDate(activity.startTime) }} 至 {{ formatDate(activity.endTime) }}
-              </span>
-            </div>
-          </div>
-        </el-card>
-
-        <!-- 发起表单 -->
-        <el-card v-if="activity" class="form-card" shadow="hover">
-          <template #header>
-            <div class="card-header">
-              <el-icon><Edit /></el-icon>
-              <span>拼团设置</span>
-            </div>
-          </template>
-
-          <el-form 
-            ref="formRef" 
-            :model="form" 
-            :rules="rules" 
-            label-width="120px"
-          >
-            <el-form-item label="是否参与" prop="joinImmediately">
-              <el-switch 
-                v-model="form.joinImmediately"
-                active-text="立即参与拼团"
-                inactive-text="仅发起不参与"
-              />
-              <div class="form-tip">
-                <el-icon><InfoFilled /></el-icon>
-                <span>如果选择立即参与，您将作为第一个成员加入该团</span>
-              </div>
-            </el-form-item>
-
-            <template v-if="form.joinImmediately">
-              <el-form-item label="收货地址" prop="addressId">
-                <el-select 
-                  v-model="form.addressId" 
-                  placeholder="请选择收货地址"
-                  style="width: 100%"
-                >
-                  <el-option
-                    v-for="addr in addressList"
-                    :key="addr.addressId"
-                    :label="`${addr.receiver} ${addr.phone} | ${addr.province}${addr.city}${addr.district}${addr.detail}`"
-                    :value="addr.addressId"
-                  />
-                </el-select>
-                <el-button 
-                  link 
-                  type="primary" 
-                  @click="router.push('/user/address')"
-                  style="margin-top: 8px"
-                >
-                  <el-icon><Plus /></el-icon>
-                  添加新地址
-                </el-button>
-              </el-form-item>
-
-              <el-form-item label="购买数量" prop="quantity">
-                <el-input-number 
-                  v-model="form.quantity" 
-                  :min="1" 
-                  :max="10"
-                />
-                <span class="unit">件</span>
-              </el-form-item>
-
-              <el-form-item label="支付金额">
-                <span class="pay-amount">¥{{ totalAmount }}</span>
-              </el-form-item>
-            </template>
-
-            <el-divider />
-
-            <el-form-item label="温馨提示">
-              <el-alert
-                type="info"
-                :closable="false"
-                show-icon
-              >
-                <template #title>
-                  <div class="alert-content">
-                    <p>✅ 作为团长，您发起的团将自动关联到您的社区</p>
-                    <p>✅ 团号将自动生成，方便成员查找和加入</p>
-                    <p>✅ 团有效期为24小时，过期未成团将自动退款</p>
-                    <p v-if="form.joinImmediately">✅ 您将立即创建订单，请及时支付</p>
-                    <p v-else>⚠️ 您不参与拼团，只作为发起人</p>
-                  </div>
-                </template>
-              </el-alert>
-            </el-form-item>
-
-            <el-form-item>
-              <el-button 
-                type="primary" 
-                size="large" 
-                @click="handleLaunch"
-                :loading="launching"
-              >
-                <el-icon><Check /></el-icon>
-                确认发起拼团
-              </el-button>
-              <el-button size="large" @click="router.back()">
-                取消
-              </el-button>
-            </el-form-item>
-          </el-form>
-        </el-card>
-
-        <!-- 错误状态 -->
-        <el-empty v-else description="活动不存在或已结束" />
+  <div class="launch-team-wrapper">
+    <div class="launch-team-container">
+      <!-- 页面标题 -->
+      <div class="page-header">
+        <h2>发起拼团</h2>
+        <p class="subtitle">选择活动并创建拼团</p>
       </div>
 
-      <!-- 成功提示对话框 -->
+      <!-- 加载状态 -->
+      <el-skeleton v-if="loading" :rows="5" animated />
+
+      <!-- 活动列表 -->
+      <div v-else-if="activities.length > 0" class="activities-grid">
+        <el-card 
+          v-for="activity in activities" 
+          :key="activity.activityId"
+          class="activity-card"
+          shadow="hover"
+          @click="selectActivity(activity)"
+        >
+          <div class="activity-image">
+            <img :src="activity.productImage || '/default-product.png'" :alt="activity.productName" />
+            <div class="activity-badge">
+              <el-tag type="danger" size="small">拼团价</el-tag>
+            </div>
+          </div>
+          <div class="activity-info">
+            <h3 class="activity-name">{{ activity.productName }}</h3>
+            <div class="activity-price">
+              <span class="group-price">¥{{ activity.groupPrice }}</span>
+              <span class="original-price">¥{{ activity.originalPrice || activity.groupPrice * 1.5 }}</span>
+            </div>
+            <div class="activity-meta">
+              <span>{{ activity.requiredNum }}人成团</span>
+              <span v-if="activity.maxNum">限{{ activity.maxNum }}人</span>
+            </div>
+            <div class="activity-time">
+              <el-icon><Clock /></el-icon>
+              <span>{{ formatDate(activity.endTime) }}截止</span>
+            </div>
+          </div>
+          <div class="activity-actions">
+            <el-button type="primary" size="large" :icon="Plus" @click.stop="selectActivity(activity)">
+              发起拼团
+            </el-button>
+          </div>
+        </el-card>
+      </div>
+
+      <!-- 无数据 -->
+      <el-empty v-else description="暂无可发起的拼团活动">
+        <el-button type="primary" @click="router.push('/groupbuy')">查看拼团活动</el-button>
+      </el-empty>
+
+      <!-- 发起拼团对话框 -->
       <el-dialog
-        v-model="successDialogVisible"
-        title="拼团发起成功"
-        width="500px"
+        v-model="launchDialogVisible"
+        title="发起拼团"
+        width="600px"
         :close-on-click-modal="false"
-        :show-close="false"
       >
-        <div class="success-content">
-          <el-result
-            icon="success"
-            title="拼团已成功发起！"
-          >
-            <template #sub-title>
-              <div class="result-info">
-                <p>团号：<span class="highlight">{{ launchResult.teamNo }}</span></p>
-                <p v-if="launchResult.orderId">
-                  订单号：<span class="highlight">{{ launchResult.orderId }}</span>
-                </p>
-                <p>还需：<span class="highlight">{{ launchResult.remainNum }}人</span>成团</p>
+        <div v-if="selectedActivity" class="launch-dialog-content">
+          <el-alert type="info" :closable="false" style="margin-bottom: 20px;">
+            <template #title>
+              📢 作为团长，您发起拼团后用户可以看到并参与
+            </template>
+          </el-alert>
+
+          <div class="selected-activity-info">
+            <img :src="selectedActivity.productImage || '/default-product.png'" :alt="selectedActivity.productName" />
+            <div class="info-content">
+              <h3>{{ selectedActivity.productName }}</h3>
+              <p class="price">拼团价：<span>¥{{ selectedActivity.groupPrice }}</span></p>
+              <p class="meta">{{ selectedActivity.requiredNum }}人成团</p>
+            </div>
+          </div>
+
+          <el-divider />
+
+          <el-form :model="launchForm" label-width="120px">
+            <el-form-item label="是否参与拼团">
+              <el-radio-group v-model="launchForm.participate">
+                <el-radio :label="true">参与（作为第一人）</el-radio>
+                <el-radio :label="false">仅发起（不参与）</el-radio>
+              </el-radio-group>
+              <div class="form-tip">
+                选择"参与"需要立即支付拼团金额
               </div>
-            </template>
-            <template #extra>
-              <el-button 
-                type="primary" 
-                @click="viewTeam"
-              >
-                查看团详情
-              </el-button>
-              <el-button @click="backToList">
-                返回活动列表
-              </el-button>
-            </template>
-          </el-result>
+            </el-form-item>
+
+            <el-form-item label="选择收货地址" v-if="launchForm.participate">
+              <el-select v-model="launchForm.addressId" placeholder="请选择收货地址" style="width: 100%;">
+                <el-option
+                  v-for="addr in addresses"
+                  :key="addr.addressId"
+                  :label="`${addr.receiver} ${addr.phone} ${addr.province}${addr.city}${addr.district}${addr.detail}`"
+                  :value="addr.addressId"
+                />
+              </el-select>
+              <div class="form-tip">
+                <el-link type="primary" @click="router.push('/user/address')">管理收货地址</el-link>
+              </div>
+            </el-form-item>
+          </el-form>
         </div>
+
+        <template #footer>
+          <el-button @click="launchDialogVisible = false">取消</el-button>
+          <el-button type="primary" @click="handleLaunch" :loading="launching">
+            确认发起
+          </el-button>
+        </template>
       </el-dialog>
     </div>
-  </MainLayout>
+  </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
-import { 
-  Edit, InfoFilled, Plus, Check 
-} from '@element-plus/icons-vue'
-import MainLayout from '@/components/common/MainLayout.vue'
-import { getActivityDetail, launchTeam } from '@/api/groupbuy'
-import { getAddressList } from '@/api/user'
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
-import { formatDate as formatDateUtil } from '@/utils/formatter'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { Clock, Plus } from '@element-plus/icons-vue'
+import { getOngoingActivitiesWithProduct, launchTeam } from '@/api/groupbuy'
+import { getUserAddresses } from '@/api/user'
+import { formatDate } from '@/utils/formatter'
 
-const route = useRoute()
 const router = useRouter()
 const userStore = useUserStore()
 
-// 数据
-const loading = ref(true)
-const activity = ref(null)
-const addressList = ref([])
+// 数据状态
+const loading = ref(false)
+const activities = ref([])
+const selectedActivity = ref(null)
+const launchDialogVisible = ref(false)
 const launching = ref(false)
-const successDialogVisible = ref(false)
-const launchResult = ref(null)
+const addresses = ref([])
 
-const formRef = ref(null)
-const form = ref({
-  joinImmediately: true,
-  addressId: null,
-  quantity: 1
+// 发起表单
+const launchForm = ref({
+  participate: true,
+  addressId: null
 })
 
-const rules = {
-  addressId: [
-    { 
-      validator: (rule, value, callback) => {
-        if (form.value.joinImmediately && !value) {
-          callback(new Error('请选择收货地址'))
-        } else {
-          callback()
-        }
-      },
-      trigger: 'change'
-    }
-  ],
-  quantity: [
-    { required: true, message: '请输入购买数量', trigger: 'blur' }
-  ]
-}
-
-// 计算属性
-const totalAmount = computed(() => {
-  if (!activity.value) return '0.00'
-  return (activity.value.groupPrice * form.value.quantity).toFixed(2)
-})
-
-// 方法
-const fetchActivity = async () => {
-  const activityId = route.params.activityId
-  if (!activityId) {
-    router.push('/groupbuy')
-    return
-  }
-
+// 获取活动列表
+const fetchActivities = async () => {
   loading.value = true
   try {
-    const data = await getActivityDetail(activityId)
-    activity.value = data
+    const data = await getOngoingActivitiesWithProduct()
+    activities.value = data || []
   } catch (error) {
-    console.error('获取活动详情失败:', error)
-    ElMessage.error('获取活动详情失败')
+    console.error('获取活动列表失败:', error)
+    ElMessage.error('获取活动列表失败')
+    activities.value = []
   } finally {
     loading.value = false
   }
 }
 
-const fetchAddressList = async () => {
-  if (!userStore.isLogin) return
+// 获取收货地址
+const fetchAddresses = async () => {
+  if (!userStore.userInfo?.userId) return
   
   try {
-    const data = await getAddressList(userStore.userInfo.userId)
-    addressList.value = data || []
-    
-    // 自动选择默认地址
-    const defaultAddr = addressList.value.find(addr => addr.isDefault === 1)
+    const data = await getUserAddresses(userStore.userInfo.userId)
+    addresses.value = data || []
+    // 默认选择默认地址
+    const defaultAddr = addresses.value.find(a => a.isDefault === 1)
     if (defaultAddr) {
-      form.value.addressId = defaultAddr.addressId
+      launchForm.value.addressId = defaultAddr.addressId
     }
   } catch (error) {
-    console.error('获取地址列表失败:', error)
+    console.error('获取地址失败:', error)
   }
 }
 
+// 选择活动
+const selectActivity = (activity) => {
+  selectedActivity.value = activity
+  launchDialogVisible.value = true
+  fetchAddresses()
+}
+
+// 发起拼团
 const handleLaunch = async () => {
-  if (!formRef.value) return
+  if (!selectedActivity.value) return
   
-  await formRef.value.validate(async (valid) => {
-    if (!valid) return
-    
+  // 参与拼团时需要选择地址
+  if (launchForm.value.participate && !launchForm.value.addressId) {
+    ElMessage.warning('请选择收货地址')
+    return
+  }
+
+  try {
+    await ElMessageBox.confirm(
+      launchForm.value.participate 
+        ? '确认发起拼团并参与？您需要立即支付。' 
+        : '确认发起拼团？',
+      '确认发起',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'info'
+      }
+    )
+
     launching.value = true
-    try {
-      const params = {
-        activityId: activity.value.activityId,
-        joinImmediately: form.value.joinImmediately
-      }
 
-      if (form.value.joinImmediately) {
-        params.addressId = form.value.addressId
-        params.quantity = form.value.quantity
-      }
-
-      const result = await launchTeam(params)
-      launchResult.value = result
-      successDialogVisible.value = true
-    } catch (error) {
-      console.error('发起拼团失败:', error)
-      ElMessage.error(error.message || '发起拼团失败，请重试')
-    } finally {
-      launching.value = false
+    const params = {
+      activityId: selectedActivity.value.activityId,
+      participate: launchForm.value.participate,
+      addressId: launchForm.value.addressId
     }
-  })
-}
 
-const viewTeam = () => {
-  if (launchResult.value?.teamId) {
-    router.push(`/groupbuy/team/${launchResult.value.teamId}`)
+    const result = await launchTeam(params)
+
+    ElMessage.success('拼团发起成功！')
+    launchDialogVisible.value = false
+
+    // 如果参与拼团，跳转到支付页面
+    if (launchForm.value.participate && result.orderId) {
+      router.push(`/payment?orderId=${result.orderId}`)
+    } else {
+      // 否则跳转到团详情页
+      router.push(`/groupbuy/team/${result.teamId}`)
+    }
+  } catch (error) {
+    if (error !== 'cancel') {
+      console.error('发起拼团失败:', error)
+      ElMessage.error(error.message || '发起拼团失败')
+    }
+  } finally {
+    launching.value = false
   }
 }
 
-const backToList = () => {
-  router.push('/groupbuy')
-}
-
-const getStatusType = (status) => {
-  const types = {
-    0: 'info',
-    1: 'success',
-    2: 'warning',
-    3: 'danger'
-  }
-  return types[status] || 'info'
-}
-
-const getStatusText = (status) => {
-  const texts = {
-    0: '未开始',
-    1: '进行中',
-    2: '已结束',
-    3: '异常'
-  }
-  return texts[status] || '未知'
-}
-
-const formatDate = (dateStr) => {
-  return formatDateUtil(dateStr)
-}
-
-// 生命周期
+// 页面加载
 onMounted(() => {
-  fetchActivity()
-  fetchAddressList()
+  if (!userStore.isLeader) {
+    ElMessage.warning('仅团长可发起拼团')
+    router.push('/leader/apply')
+    return
+  }
+  
+  fetchActivities()
 })
 </script>
 
 <style scoped>
-.launch-team-page {
+.launch-team-wrapper {
   min-height: 100vh;
-  padding: 20px 0;
-  background: #f5f7fa;
+  padding-top: 84px;
+  background-color: #f5f5f5;
 }
 
-.container {
-  max-width: 800px;
+.launch-team-container {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
-.page-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #303133;
-  margin: 0;
+.page-header {
+  margin-bottom: 30px;
 }
 
-.activity-card,
-.form-card {
-  margin-top: 20px;
+.page-header h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 8px;
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.card-header > span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* 活动信息 */
-.activity-info {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.info-row {
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
-
-.info-row .label {
-  color: #909399;
-  min-width: 100px;
-}
-
-.info-row .value {
-  color: #303133;
-  font-weight: 500;
-}
-
-.info-row .price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #F56C6C;
-}
-
-.info-row .time {
-  color: #606266;
+.subtitle {
   font-size: 14px;
+  color: #909399;
 }
 
-/* 表单 */
-.form-tip {
+/* 活动网格 */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.activity-card {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.activity-card:hover {
+  transform: translateY(-4px);
+}
+
+.activity-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+  background-color: #f5f7fa;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.activity-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.activity-info {
+  padding: 15px;
+}
+
+.activity-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-price {
   display: flex;
-  align-items: center;
-  gap: 4px;
-  color: #909399;
-  font-size: 13px;
-  margin-top: 8px;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
-.unit {
-  margin-left: 8px;
-  color: #909399;
-}
-
-.pay-amount {
+.group-price {
   font-size: 24px;
   font-weight: bold;
-  color: #F56C6C;
+  color: #f56c6c;
 }
 
-.alert-content {
-  line-height: 1.8;
+.original-price {
+  font-size: 14px;
+  color: #909399;
+  text-decoration: line-through;
 }
 
-.alert-content p {
-  margin: 4px 0;
-}
-
-/* 成功对话框 */
-.success-content {
-  text-align: center;
-}
-
-.result-info {
-  margin: 20px 0;
-  line-height: 1.8;
-}
-
-.result-info p {
-  margin: 8px 0;
-  font-size: 15px;
+.activity-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
   color: #606266;
+  margin-bottom: 10px;
 }
 
-.result-info .highlight {
-  font-weight: bold;
-  color: #409EFF;
+.activity-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #909399;
+}
+
+.activity-actions {
+  padding: 0 15px 15px;
+}
+
+.activity-actions .el-button {
+  width: 100%;
+}
+
+/* 发起对话框 */
+.launch-dialog-content {
+  padding: 10px;
+}
+
+.selected-activity-info {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background-color: #f5f7fa;
+  border-radius: 8px;
+}
+
+.selected-activity-info img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info-content h3 {
   font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-/* 响应式 */
+.info-content .price {
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 8px;
+}
+
+.info-content .price span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f56c6c;
+}
+
+.info-content .meta {
+  font-size: 13px;
+  color: #909399;
+}
+
+.form-tip {
+  font-size: 12px;
+  color: #909399;
+  margin-top: 5px;
+}
+
+/* 响应式设计 */
 @media (max-width: 768px) {
-  .container {
-    max-width: 100%;
+  .launch-team-wrapper {
+    padding-top: 76px;
   }
 
-  .info-row {
-    flex-direction: column;
-    align-items: flex-start;
+  .launch-team-container {
+    padding: 10px;
   }
 
-  .info-row .label {
-    margin-bottom: 4px;
+  .activities-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .activity-image {
+    height: 150px;
+  }
+
+  .group-price {
+    font-size: 20px;
+  }
+
+  :deep(.el-dialog) {
+    width: 90% !important;
   }
 }
 </style>

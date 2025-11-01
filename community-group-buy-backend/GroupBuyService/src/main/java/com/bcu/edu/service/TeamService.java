@@ -470,11 +470,26 @@ public class TeamService {
     private TeamDetailResponse buildTeamDetailResponse(GroupBuyTeam team, GroupBuy activity, 
                                                        UserInfoDTO leader, CommunityDTO community,
                                                        List<MemberInfoResponse> members) {
+        // 获取商品信息
+        ProductDTO product = null;
+        try {
+            Result<ProductDTO> productResult = productServiceClient.getProduct(activity.getProductId());
+            if (productResult != null && productResult.getCode() == 200) {
+                product = productResult.getData();
+            }
+        } catch (Exception e) {
+            log.warn("获取商品{}信息失败: {}", activity.getProductId(), e.getMessage());
+        }
+        
         return TeamDetailResponse.builder()
             .teamId(team.getTeamId())
             .teamNo(team.getTeamNo())
             .activityId(team.getActivityId())
-            .activityName("拼团活动-" + activity.getProductId())  // TODO: 获取商品名称
+            .productId(activity.getProductId())
+            .productName(product != null ? product.getProductName() : "商品ID-" + activity.getProductId())
+            .productCoverImg(product != null ? product.getCoverImg() : null)
+            .productPrice(product != null ? product.getPrice() : null)
+            .activityName(product != null ? product.getProductName() : "拼团活动-" + activity.getProductId())
             .groupPrice(activity.getGroupPrice())
             .leaderId(team.getLeaderId())
             .leaderName(leader != null ? leader.getRealName() : null)
@@ -491,6 +506,85 @@ public class TeamService {
             .members(members)
             .shareLink("http://localhost:5173/team/" + team.getTeamId())
             .build();
+    }
+    
+    /**
+     * 获取团长发起的拼团记录（带分页、状态筛选）
+     * 
+     * <p>返回团长发起的所有拼团，按创建时间倒序
+     * 
+     * @param leaderId 团长ID
+     * @param status 团状态（null表示全部）
+     * @param page 页码（从1开始）
+     * @param limit 每页数量
+     * @return 分页结果 {list, total}
+     */
+    public com.bcu.edu.common.result.PageResult<TeamDetailResponse> getLeaderTeams(
+        Long leaderId, Integer status, int page, int limit) {
+        
+        log.info("查询团长{}的拼团记录，status={}, page={}, limit={}", leaderId, status, page, limit);
+        
+        // 计算偏移量
+        int offset = (page - 1) * limit;
+        
+        // 查询团列表
+        List<GroupBuyTeam> teams = teamRepository.findByLeaderIdWithFilter(leaderId, status, limit, offset);
+        
+        // 统计总数
+        long total = teamRepository.countByLeaderIdAndStatus(leaderId, status);
+        
+        log.info("团长{}共有{}个拼团记录，本页返回{}个", leaderId, total, teams.size());
+        
+        // 构建团详情列表
+        List<TeamDetailResponse> teamDetails = teams.stream()
+            .map(team -> {
+                try {
+                    // 查询活动信息
+                    GroupBuy activity = activityRepository.findById(team.getActivityId()).orElse(null);
+                    if (activity == null) {
+                        return null;
+                    }
+                    
+                    // 查询团长信息
+                    UserInfoDTO leader = null;
+                    try {
+                        Result<UserInfoDTO> leaderResult = userServiceClient.getUserInfo(team.getLeaderId());
+                        if (leaderResult != null && leaderResult.getCode() == 200) {
+                            leader = leaderResult.getData();
+                        }
+                    } catch (Exception e) {
+                        log.warn("获取团长{}信息失败: {}", team.getLeaderId(), e.getMessage());
+                    }
+                    
+                    // 查询社区信息
+                    CommunityDTO community = null;
+                    if (team.getCommunityId() != null) {
+                        try {
+                            Result<CommunityDTO> communityResult = leaderServiceClient.getCommunity(team.getCommunityId());
+                            if (communityResult != null && communityResult.getCode() == 200) {
+                                community = communityResult.getData();
+                            }
+                        } catch (Exception e) {
+                            log.warn("获取社区{}信息失败: {}", team.getCommunityId(), e.getMessage());
+                        }
+                    }
+                    
+                    // 查询团的所有成员
+                    List<GroupBuyMember> teamMembers = memberRepository.findByTeamIdOrderByJoinTimeAsc(team.getTeamId());
+                    List<MemberInfoResponse> memberInfos = teamMembers.stream()
+                        .map(this::convertToMemberInfo)
+                        .collect(Collectors.toList());
+                    
+                    return buildTeamDetailResponse(team, activity, leader, community, memberInfos);
+                } catch (Exception e) {
+                    log.error("构建拼团记录失败，teamId={}: {}", team.getTeamId(), e.getMessage(), e);
+                    return null;
+                }
+            })
+            .filter(team -> team != null)
+            .collect(Collectors.toList());
+        
+        return com.bcu.edu.common.result.PageResult.of(page, limit, total, teamDetails);
     }
     
     /**

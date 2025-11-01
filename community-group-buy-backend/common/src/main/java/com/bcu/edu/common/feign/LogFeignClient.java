@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @since 2025-10-31
  */
 @FeignClient(
-    name = "UserService",
+    name = "user-service",
     contextId = "logFeignClient",  // 指定唯一的 contextId，避免与其他 UserService 客户端冲突
     path = "/feign/log",
     fallback = LogFeignClientFallback.class

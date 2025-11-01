@@ -30,6 +30,42 @@
             </div>
           </el-card>
 
+          <!-- 商品信息 -->
+          <el-card v-if="teamDetail.productName" class="product-card" shadow="hover">
+            <div class="product-info-section">
+              <el-image 
+                v-if="teamDetail.productCoverImg"
+                :src="teamDetail.productCoverImg" 
+                fit="cover"
+                class="product-image"
+              >
+                <template #error>
+                  <div class="image-error">
+                    <el-icon><Picture /></el-icon>
+                  </div>
+                </template>
+              </el-image>
+              <div class="product-details">
+                <h2 class="product-name">{{ teamDetail.productName }}</h2>
+                <div class="product-price-info">
+                  <div class="price-item">
+                    <span class="label">拼团价</span>
+                    <span class="price group-price">¥{{ teamDetail.groupPrice }}</span>
+                  </div>
+                  <div v-if="teamDetail.productPrice" class="price-item">
+                    <span class="label">原价</span>
+                    <span class="price original-price">¥{{ teamDetail.productPrice }}</span>
+                  </div>
+                  <div v-if="teamDetail.productPrice && teamDetail.groupPrice" class="price-item">
+                    <el-tag type="danger" size="large">
+                      立省 ¥{{ (teamDetail.productPrice - teamDetail.groupPrice).toFixed(2) }}
+                    </el-tag>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </el-card>
+
           <!-- 拼团进度 -->
           <el-card class="progress-card" shadow="hover">
             <div class="progress-header">
@@ -552,6 +588,79 @@ onUnmounted(() => {
   font-size: 36px;
   font-weight: bold;
   color: #FFD700;
+}
+
+/* 商品信息卡片 */
+.product-card {
+  background: white;
+}
+
+.product-info-section {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.product-image .image-error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa;
+  font-size: 48px;
+  color: #c0c4cc;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #303133;
+  margin: 0 0 16px 0;
+}
+
+.product-price-info {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.product-price-info .price-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-price-info .label {
+  font-size: 14px;
+  color: #909399;
+}
+
+.product-price-info .price {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.product-price-info .group-price {
+  color: #F56C6C;
+}
+
+.product-price-info .original-price {
+  color: #909399;
+  text-decoration: line-through;
+  font-size: 18px;
 }
 
 /* 拼团进度卡片 */

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ProductService
+    name: product-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/product_service_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai

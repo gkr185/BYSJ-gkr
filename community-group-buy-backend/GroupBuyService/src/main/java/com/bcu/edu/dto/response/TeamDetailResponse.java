@@ -36,7 +36,27 @@ public class TeamDetailResponse {
     private Long activityId;
     
     /**
-     * 活动名称（冗余）
+     * 商品ID
+     */
+    private Long productId;
+    
+    /**
+     * 商品名称
+     */
+    private String productName;
+    
+    /**
+     * 商品封面图
+     */
+    private String productCoverImg;
+    
+    /**
+     * 商品原价
+     */
+    private BigDecimal productPrice;
+    
+    /**
+     * 活动名称（冗余，兼容旧代码）
      */
     private String activityName;
     

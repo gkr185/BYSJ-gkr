@@ -101,6 +101,39 @@ public interface TeamRepository extends JpaRepository<GroupBuyTeam, Long> {
     List<GroupBuyTeam> findByLeaderIdOrderByCreateTimeDesc(Long leaderId);
     
     /**
+     * 查询团长的团（带状态筛选，分页）
+     * 
+     * @param leaderId 团长ID
+     * @param status 团状态（0-拼团中, 1-已成团, 2-已失败）
+     * @param limit 返回数量
+     * @param offset 偏移量
+     * @return 团列表
+     */
+    @Query(value = """
+        SELECT * FROM group_buy_team t
+        WHERE t.leader_id = :leaderId
+          AND (:status IS NULL OR t.team_status = :status)
+        ORDER BY t.create_time DESC
+        LIMIT :limit OFFSET :offset
+        """, nativeQuery = true)
+    List<GroupBuyTeam> findByLeaderIdWithFilter(
+        @Param("leaderId") Long leaderId,
+        @Param("status") Integer status,
+        @Param("limit") int limit,
+        @Param("offset") int offset
+    );
+    
+    /**
+     * 统计团长的团数量（带状态筛选）
+     * 
+     * @param leaderId 团长ID
+     * @param status 团状态（null表示全部）
+     * @return 数量
+     */
+    @Query("SELECT COUNT(t) FROM GroupBuyTeam t WHERE t.leaderId = :leaderId AND (:status IS NULL OR t.teamStatus = :status)")
+    long countByLeaderIdAndStatus(@Param("leaderId") Long leaderId, @Param("status") Integer status);
+    
+    /**
      * 查询活动的所有团（不限状态）
      */
     List<GroupBuyTeam> findByActivityIdOrderByCreateTimeDesc(Long activityId);

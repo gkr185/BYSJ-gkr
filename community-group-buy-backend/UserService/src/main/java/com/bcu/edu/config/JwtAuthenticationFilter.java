@@ -118,6 +118,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         String[] whitelist = {
                 "/api/user/register",
                 "/api/user/login",
+                "/api/user/feign/",      // ✅ Feign 内部接口
+                "/feign/",                // ✅ Feign 内部接口（通用）
                 "/actuator/health",
                 "/swagger-ui",
                 "/api-docs",

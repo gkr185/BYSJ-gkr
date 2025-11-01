@@ -159,41 +159,113 @@
       </el-card>
     </div>
 
-    <!-- 团长专属菜单（v3.0新增）-->
+    <!-- 团长专属菜单（v3.0优化版）-->
     <div v-if="userStore.isLeader" class="leader-section">
       <el-divider>
         <el-tag type="warning" size="large" effect="dark">
           <el-icon><Star /></el-icon>
-          团长管理
+          团长管理中心
         </el-tag>
       </el-divider>
 
-      <el-row :gutter="20">
-        <el-col :span="8">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/groupbuy')">
+      <!-- 团长工作台入口（大卡片）-->
+      <el-card class="dashboard-card" @click="navigateTo('/leader/dashboard')">
+        <div class="dashboard-content">
+          <div class="dashboard-icon">
+            <el-icon :size="56"><DataBoard /></el-icon>
+          </div>
+          <div class="dashboard-text">
+            <h3>团长工作台</h3>
+            <p>数据概览、快捷操作、团队管理一站式服务</p>
+          </div>
+          <el-button type="warning" size="large">
+            进入工作台
+            <el-icon class="el-icon--right"><Right /></el-icon>
+          </el-button>
+        </div>
+      </el-card>
+
+      <!-- 团长功能菜单 -->
+      <el-row :gutter="15" style="margin-top: 20px;">
+        <el-col :span="6" :xs="12">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/launch')">
             <div class="leader-icon">
-              <el-icon :size="32" color="#67C23A"><Plus /></el-icon>
+              <el-icon :size="28" color="#67C23A"><Plus /></el-icon>
             </div>
             <div class="menu-title">发起拼团</div>
-            <div class="menu-desc">选择拼团活动并发起</div>
+            <div class="menu-desc">选择活动并发起</div>
           </el-card>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="6" :xs="12">
           <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/teams')">
             <div class="leader-icon">
-              <el-icon :size="32" color="#909399"><Grid /></el-icon>
+              <el-icon :size="28" color="#409EFF"><User /></el-icon>
             </div>
             <div class="menu-title">我的团队</div>
-            <div class="menu-desc">查看我发起的拼团</div>
+            <div class="menu-desc">查看拼团管理</div>
           </el-card>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="6" :xs="12">
           <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/commission')">
             <div class="leader-icon">
-              <el-icon :size="32" color="#F56C6C"><Money /></el-icon>
+              <el-icon :size="28" color="#F56C6C"><Money /></el-icon>
             </div>
-            <div class="menu-title">我的佣金</div>
-            <div class="menu-desc">查看佣金余额和明细</div>
+            <div class="menu-title">佣金管理</div>
+            <div class="menu-desc">查看收益明细</div>
+          </el-card>
+        </el-col>
+        <el-col :span="6" :xs="12">
+          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/store')">
+            <div class="leader-icon">
+              <el-icon :size="28" color="#E6A23C"><Setting /></el-icon>
+            </div>
+            <div class="menu-title">团点设置</div>
+            <div class="menu-desc">管理团点信息</div>
+          </el-card>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="15" style="margin-top: 15px;">
+        <el-col :span="6" :xs="12">
+          <el-card class="menu-card leader-menu-card placeholder-card" @click="navigateTo('/leader/orders')">
+            <div class="leader-icon">
+              <el-icon :size="28" color="#909399"><Document /></el-icon>
+            </div>
+            <div class="menu-title">订单管理</div>
+            <div class="menu-desc">
+              <el-tag type="info" size="small">待开发</el-tag>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6" :xs="12">
+          <el-card class="menu-card leader-menu-card placeholder-card" @click="navigateTo('/leader/delivery')">
+            <div class="leader-icon">
+              <el-icon :size="28" color="#909399"><Van /></el-icon>
+            </div>
+            <div class="menu-title">配送管理</div>
+            <div class="menu-desc">
+              <el-tag type="info" size="small">待开发</el-tag>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6" :xs="12">
+          <el-card class="menu-card leader-menu-card placeholder-card" @click="navigateTo('/leader/statistics')">
+            <div class="leader-icon">
+              <el-icon :size="28" color="#909399"><DataAnalysis /></el-icon>
+            </div>
+            <div class="menu-title">数据统计</div>
+            <div class="menu-desc">
+              <el-tag type="info" size="small">待开发</el-tag>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6" :xs="12">
+          <el-card class="menu-card leader-menu-card" @click="ElMessage.info('更多功能开发中...')">
+            <div class="leader-icon">
+              <el-icon :size="28" color="#C0C4CC"><MoreFilled /></el-icon>
+            </div>
+            <div class="menu-title">更多功能</div>
+            <div class="menu-desc">敬请期待</div>
           </el-card>
         </el-col>
       </el-row>
@@ -213,7 +285,12 @@ import {
   Star,
   Plus,
   Money,
-  Grid,
+  User,
+  Setting,
+  Van,
+  DataAnalysis,
+  DataBoard,
+  MoreFilled,
   Right,
   Document,
   Refresh,
@@ -429,7 +506,7 @@ h2 {
   font-size: 14px;
 }
 
-/* 团长专属区块（v3.0新增）*/
+/* 团长专属区块（v3.0优化版）*/
 .leader-section {
   margin-top: 40px;
   padding: 30px;
@@ -441,16 +518,80 @@ h2 {
   background: transparent;
 }
 
+/* 团长工作台大卡片 */
+.dashboard-card {
+  cursor: pointer;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  margin-bottom: 20px;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+  transform: translateY(-4px);
+}
+
+.dashboard-card :deep(.el-card__body) {
+  padding: 25px;
+}
+
+.dashboard-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dashboard-icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.dashboard-text {
+  flex: 1;
+  color: white;
+}
+
+.dashboard-text h3 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: white;
+}
+
+.dashboard-text p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* 团长功能菜单卡片 */
 .leader-menu-card {
   background: white;
   border: 2px solid transparent;
   transition: all 0.3s;
+  text-align: center;
 }
 
 .leader-menu-card:hover {
   border-color: #F57C00;
   box-shadow: 0 6px 16px rgba(245, 124, 0, 0.2);
   transform: translateY(-3px);
+}
+
+.leader-menu-card.placeholder-card {
+  opacity: 0.7;
+}
+
+.leader-menu-card.placeholder-card:hover {
+  border-color: #909399;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .leader-icon {

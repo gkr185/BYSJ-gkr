@@ -4333,3 +4333,2448 @@
         group_leader_store gls1_0 
     where
         gls1_0.leader_id=?
+[2025-11-01 10:42:38.476] [DEBUG] [LeaderService] [main] [com.bcu.edu.LeaderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-01 10:43:09.733] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.status=1 
+    order by
+        c1_0.created_at desc
+[2025-11-01 11:02:33.338] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:02:33.365] [DEBUG] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:02:37.413] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:02:37.427] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:02:44.540] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:02:44.553] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:02:47.027] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:02:47.041] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:23:49.194] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:23:49.209] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:25:22.134] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:25:22.150] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:25:24.305] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:25:24.318] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:25:25.942] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:25:25.956] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:25:27.406] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:25:27.417] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:41:25.428] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:41:25.445] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:42:01.590] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:42:01.602] [DEBUG] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:42:11.971] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:42:11.982] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:45:01.709] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:45:01.722] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:48:24.939] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:48:24.950] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:58:45.781] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 11:58:45.793] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 11:58:50.930] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 11:58:50.934] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-01 12:12:12.672] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 12:12:12.675] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-01 12:12:24.238] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:12:24.253] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:12:30.242] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:12:38.142] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.store_id=?
+[2025-11-01 12:12:38.174] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:12:44.398] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.status=0 
+    order by
+        gls1_0.created_at
+[2025-11-01 12:12:45.509] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.status=? 
+    order by
+        gls1_0.created_at desc
+[2025-11-01 12:12:46.729] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.status=? 
+    order by
+        gls1_0.created_at desc
+[2025-11-01 12:12:47.552] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.status=0 
+    order by
+        gls1_0.created_at
+[2025-11-01 12:12:48.600] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.status=? 
+    order by
+        gls1_0.created_at desc
+[2025-11-01 12:12:49.244] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:12:49.940] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:12:51.302] [DEBUG] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:12:52.696] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:12:53.868] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:13:01.803] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:13:01.814] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:13:03.956] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 12:13:03.959] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-01 12:13:03.961] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-01 12:13:06.853] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-01 12:13:08.050] [DEBUG] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-01 12:13:15.288] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:13:15.300] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:42:56.983] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:42:58.561] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:43:20.666] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:43:22.478] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:44:09.977] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.status=0 
+    order by
+        ca1_0.created_at
+[2025-11-01 12:46:51.407] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:46:51.418] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:47:12.998] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:47:13.012] [DEBUG] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:47:22.645] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 12:47:22.649] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-01 12:47:27.435] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:47:27.445] [DEBUG] [LeaderService] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:52:10.049] [DEBUG] [LeaderService] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:52:10.060] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:52:14.645] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 12:52:14.647] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-01 12:59:05.818] [DEBUG] [LeaderService] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:59:05.832] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:59:07.741] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:59:07.751] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 12:59:15.267] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 12:59:15.277] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 13:02:44.822] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 13:02:44.836] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 13:05:26.833] [DEBUG] [LeaderService] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 13:05:26.849] [DEBUG] [LeaderService] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 13:06:17.539] [DEBUG] [LeaderService] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 13:06:17.549] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 13:06:23.016] [DEBUG] [LeaderService] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ca1_0.application_id,
+        ca1_0.address,
+        ca1_0.applicant_id,
+        ca1_0.applicant_name,
+        ca1_0.applicant_phone,
+        ca1_0.application_reason,
+        ca1_0.city,
+        ca1_0.community_name,
+        ca1_0.created_at,
+        ca1_0.created_community_id,
+        ca1_0.description,
+        ca1_0.district,
+        ca1_0.latitude,
+        ca1_0.longitude,
+        ca1_0.province,
+        ca1_0.review_comment,
+        ca1_0.reviewed_at,
+        ca1_0.reviewer_id,
+        ca1_0.service_radius,
+        ca1_0.status,
+        ca1_0.updated_at 
+    from
+        community_application ca1_0 
+    where
+        ca1_0.applicant_id=? 
+    order by
+        ca1_0.created_at desc
+[2025-11-01 13:06:23.025] [DEBUG] [LeaderService] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-01 13:06:23.814] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 13:06:23.816] [DEBUG] [LeaderService] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-01 13:24:58.465] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-01 13:24:58.469] [DEBUG] [LeaderService] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1

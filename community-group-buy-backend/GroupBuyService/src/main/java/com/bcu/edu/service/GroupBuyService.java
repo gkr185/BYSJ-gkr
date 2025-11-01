@@ -4,6 +4,7 @@ import com.bcu.edu.client.ProductServiceClient;
 import com.bcu.edu.common.annotation.OperationLog;
 import com.bcu.edu.common.exception.BusinessException;
 import com.bcu.edu.common.result.Result;
+import com.bcu.edu.dto.response.ActivityWithProductResponse;
 import com.bcu.edu.dto.response.ProductDTO;
 import com.bcu.edu.entity.GroupBuy;
 import com.bcu.edu.enums.ActivityStatus;
@@ -13,9 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 拼团活动管理服务
@@ -147,6 +148,53 @@ public class GroupBuyService {
     public GroupBuy getActivityById(Long activityId) {
         return activityRepository.findById(activityId)
             .orElseThrow(() -> new BusinessException("活动不存在"));
+    }
+    
+    /**
+     * 获取进行中的活动（包含商品信息）
+     * 用于前端展示活动列表
+     */
+    public List<ActivityWithProductResponse> getOngoingActivitiesWithProduct() {
+        List<GroupBuy> activities = activityRepository.findOngoingActivities(LocalDateTime.now());
+        
+        return activities.stream()
+            .map(this::buildActivityWithProduct)
+            .filter(activity -> activity != null)
+            .collect(Collectors.toList());
+    }
+    
+    /**
+     * 构建包含商品信息的活动响应
+     */
+    private ActivityWithProductResponse buildActivityWithProduct(GroupBuy activity) {
+        try {
+            // 获取商品信息
+            Result<ProductDTO> productResult = productServiceClient.getProduct(activity.getProductId());
+            
+            if (productResult == null || productResult.getCode() != 200 || productResult.getData() == null) {
+                log.warn("获取商品{}信息失败", activity.getProductId());
+                return null;
+            }
+            
+            ProductDTO product = productResult.getData();
+            
+            return ActivityWithProductResponse.builder()
+                .activityId(activity.getActivityId())
+                .productId(activity.getProductId())
+                .productName(product.getProductName())
+                .productImage(product.getCoverImg())
+                .originalPrice(product.getPrice())
+                .groupPrice(activity.getGroupPrice())
+                .requiredNum(activity.getRequiredNum())
+                .maxNum(activity.getMaxNum())
+                .startTime(activity.getStartTime())
+                .endTime(activity.getEndTime())
+                .status(activity.getStatus())
+                .build();
+        } catch (Exception e) {
+            log.error("构建活动{}的商品信息失败: {}", activity.getActivityId(), e.getMessage());
+            return null;
+        }
     }
 }
 

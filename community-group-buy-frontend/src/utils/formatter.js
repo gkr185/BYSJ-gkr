@@ -39,6 +39,16 @@ export function formatDate(date, format = 'datetime') {
 }
 
 /**
+ * 格式化日期时间（别名）
+ * @param {String|Date} date - 日期
+ * @param {String} format - 格式: date, time, datetime
+ * @returns {String} 格式化后的日期时间
+ */
+export function formatDateTime(date, format = 'datetime') {
+  return formatDate(date, format)
+}
+
+/**
  * 格式化订单状态
  * @param {Number} status - 状态码
  * @returns {Object} { text, type }

@@ -1082,6 +1082,359 @@ http://localhost:8061/api-docs
 
 ---
 
+## 10. Feign内部接口（供其他微服务调用）
+
+### 10.1 接口概述
+
+Feign内部接口专门提供给其他微服务调用，**不对外暴露**，不经过API Gateway。
+
+| 接口 | 路径 | 调用方 | 功能 |
+|------|------|--------|------|
+| 验证用户是否存在 | `/api/user/feign/validate/{userId}` | OrderService | 创建订单时验证用户 |
+| 获取用户信息 | `/api/user/feign/info/{userId}` | GroupBuyService | 获取用户详细信息 |
+| 获取地址详情 | `/api/user/feign/address/{addressId}` | OrderService | 创建订单时获取地址 |
+| 更新用户角色 | `/feign/user/{userId}/role` | LeaderService | 团长审核通过后更新角色 |
+| 扣减余额 | `/feign/account/deduct` | OrderService/PaymentService | 支付扣款 |
+| 返还余额 | `/api/account/feign/refund` | GroupBuyService | 退款 |
+| 验证余额是否充足 | `/feign/account/check` | OrderService | 支付前检查 |
+
+---
+
+### 10.2 验证用户是否存在（OrderService专用）⭐⭐⭐⭐⭐
+
+```http
+GET /api/user/feign/validate/{userId}
+```
+
+**功能**: 验证指定用户ID是否存在
+
+**调用方**: OrderService（创建订单时调用）
+
+**路径参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+
+**响应示例**:
+
+成功响应（用户存在）:
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": true,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+失败响应（用户不存在）:
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": false,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+**业务逻辑**:
+1. 根据userId查询用户信息
+2. 如果查询成功返回true
+3. 如果查询失败（用户不存在或异常）返回false
+
+**特点**:
+- 不抛出异常，返回Boolean结果
+- 内部捕获所有异常，确保调用方能正常处理
+
+---
+
+### 10.3 获取地址详情（OrderService专用）⭐⭐⭐⭐⭐
+
+```http
+GET /api/user/feign/address/{addressId}
+```
+
+**功能**: 获取指定地址ID的详细信息
+
+**调用方**: OrderService（创建订单时调用）
+
+**路径参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| addressId | Long | 是 | 地址ID |
+
+**响应示例**:
+
+成功响应:
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "addressId": 2,
+    "userId": 4,
+    "receiverName": "张三",
+    "receiverPhone": "13800138000",
+    "province": "北京市",
+    "city": "北京市",
+    "district": "朝阳区",
+    "detailAddress": "XX街道XX号",
+    "isDefault": true,
+    "createTime": "2025-11-01T10:00:00",
+    "updateTime": null
+  },
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+失败响应:
+```json
+{
+  "code": 1000,
+  "message": "地址不存在",
+  "data": null,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+**业务逻辑**:
+1. 根据addressId查询地址信息
+2. 返回地址详情（AddressResponse）
+3. **不验证地址所有权**（内部服务调用，信任调用方）
+
+**安全说明**:
+- Feign接口不对外暴露（不在Gateway路由中）
+- 只有内部微服务可以访问
+- 信任调用方已在业务层验证了地址归属
+
+---
+
+### 10.4 获取用户信息（GroupBuyService专用）⭐⭐⭐⭐
+
+```http
+GET /api/user/feign/info/{userId}
+```
+
+**功能**: 获取用户详细信息
+
+**调用方**: GroupBuyService
+
+**路径参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+
+**响应示例**:
+
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": {
+    "userId": 4,
+    "username": "testuser",
+    "nickname": "测试用户",
+    "phone": "13800138000",
+    "email": "test@example.com",
+    "avatar": "http://example.com/avatar.jpg",
+    "role": 1,
+    "communityId": 1,
+    "status": 1,
+    "createTime": "2025-11-01T10:00:00"
+  },
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+---
+
+### 10.5 更新用户角色（LeaderService专用）⭐⭐⭐⭐
+
+```http
+POST /feign/user/{userId}/role?role=2
+```
+
+**功能**: 更新用户角色（团长审核通过后调用）
+
+**调用方**: LeaderService
+
+**路径参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+
+**URL参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| role | Integer | 是 | 角色类型（1-普通用户，2-团长，3-管理员） |
+
+**响应示例**:
+
+```json
+{
+  "code": 200,
+  "message": "用户角色更新成功",
+  "data": null,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+**业务逻辑**:
+1. 根据userId查询用户
+2. 更新用户角色
+3. 记录操作日志
+
+---
+
+### 10.6 扣减余额（OrderService/PaymentService专用）⭐⭐⭐⭐⭐
+
+```http
+POST /feign/account/deduct?userId=4&amount=100.00&sagaId=order-123
+```
+
+**功能**: 扣减用户账户余额（支持Saga分布式事务）
+
+**调用方**: OrderService、PaymentService
+
+**URL参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+| amount | BigDecimal | 是 | 扣减金额 |
+| sagaId | String | 是 | Saga事务ID（用于补偿） |
+
+**响应示例**:
+
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": null,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+**业务逻辑**:
+1. 检查账户余额是否充足
+2. 扣减余额
+3. 记录交易流水（保存sagaId用于补偿）
+
+---
+
+### 10.7 返还余额（GroupBuyService专用）⭐⭐⭐⭐⭐
+
+```http
+POST /api/account/feign/refund?userId=4&amount=100.00
+```
+
+**功能**: 返还用户账户余额（退款或Saga补偿）
+
+**调用方**: GroupBuyService（拼团失败退款）
+
+**URL参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+| amount | BigDecimal | 是 | 返还金额 |
+
+**响应示例**:
+
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": null,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+**业务逻辑**:
+1. 增加账户余额
+2. 记录退款流水
+
+---
+
+### 10.8 验证余额是否充足⭐⭐⭐
+
+```http
+GET /feign/account/check?userId=4&amount=100.00
+```
+
+**功能**: 验证用户余额是否充足
+
+**调用方**: OrderService（支付前验证）
+
+**URL参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+| amount | BigDecimal | 是 | 需要的金额 |
+
+**响应示例**:
+
+余额充足:
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": true,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+余额不足:
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": false,
+  "timestamp": "2025-11-01T15:00:00"
+}
+```
+
+---
+
+### 10.9 Feign接口设计原则
+
+1. **路径规范**: 使用`/api/{service}/feign/`或`/feign/`前缀
+2. **认证**: 不需要JWT Token（内部服务调用）
+3. **权限**: 不验证用户权限（信任调用方）
+4. **异常处理**: 尽量返回结果而非抛出异常
+5. **日志记录**: 记录调用方和关键参数
+6. **性能**: 优化查询，减少数据传输
+
+---
+
+## 11. 更新日志
+
+### v1.2.0 (2025-11-01)
+
+**新增功能**:
+- ✅ 新增2个OrderService专用Feign接口
+  - `/api/user/feign/validate/{userId}` - 验证用户是否存在
+  - `/api/user/feign/address/{addressId}` - 获取地址详情
+- ✅ 完善Feign接口文档
+- ✅ 添加接口设计原则说明
+
+**技术改进**:
+- 优化Feign接口异常处理
+- 添加详细的日志记录
+- 确保内部接口安全性
+
+---
+
+### v1.1.0 (2025-10-12)
+
+**初始版本**:
+- ✅ 用户注册与登录
+- ✅ 用户信息管理
+- ✅ 地址管理
+- ✅ 账户余额管理
+- ✅ 反馈管理
+- ✅ Feign内部接口（基础版）
+
+---
+
 ## 联系方式
 
 **开发者**: 耿康瑞  
@@ -1091,5 +1444,7 @@ http://localhost:8061/api-docs
 
 ---
 
+**当前版本**: v1.2.0  
+**最后更新**: 2025-11-01  
 **文档结束**
 

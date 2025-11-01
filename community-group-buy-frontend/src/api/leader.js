@@ -233,13 +233,18 @@ export const disableLeader = (storeId) => {
 
 /**
  * 查询我的佣金记录（团长）
- * @param {number} leaderId - 团长ID
+ * @param {object} params - 查询参数
+ * @param {number} params.leaderId - 团长ID
+ * @param {number} params.status - 结算状态 (0-未结算, 1-已结算)
+ * @param {number} params.page - 页码
+ * @param {number} params.limit - 每页数量
+ * @returns {Promise<Object>} { list, total }
  */
-export const getMyCommissionRecords = (leaderId) => {
+export const getMyCommissionRecords = (params) => {
   return request({
     url: '/api/commission/my',
     method: 'GET',
-    params: { leaderId }
+    params
   })
 }
 

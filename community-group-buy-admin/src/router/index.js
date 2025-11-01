@@ -10,6 +10,8 @@ import LeaderManageView from '../views/LeaderManageView.vue'
 import CommissionManageView from '../views/CommissionManageView.vue'
 import ProductManageView from '../views/ProductManageView.vue'
 import CategoryManageView from '../views/CategoryManageView.vue'
+import GroupBuyManageView from '../views/GroupBuyManageView.vue'
+import OrderManageView from '../views/OrderManageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +79,18 @@ const router = createRouter({
           name: 'categories',
           component: CategoryManageView,
           meta: { title: '分类管理' }
+        },
+        {
+          path: '/groupbuy',
+          name: 'groupbuy',
+          component: GroupBuyManageView,
+          meta: { title: '拼团活动管理' }
+        },
+        {
+          path: '/orders',
+          name: 'orders',
+          component: OrderManageView,
+          meta: { title: '订单管理' }
         }
       ]
     }

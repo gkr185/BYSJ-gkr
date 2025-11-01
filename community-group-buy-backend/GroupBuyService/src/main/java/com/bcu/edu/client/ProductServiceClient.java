@@ -33,7 +33,7 @@ public interface ProductServiceClient {
      * @param productId 商品ID
      * @return Result<ProductDTO>
      */
-    @GetMapping("/api/product/feign/{productId}")
+    @GetMapping("/feign/product/{productId}/info")
     Result<ProductDTO> getProduct(@PathVariable("productId") Long productId);
 }
 

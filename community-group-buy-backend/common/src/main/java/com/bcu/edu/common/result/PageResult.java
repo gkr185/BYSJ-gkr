@@ -63,6 +63,20 @@ public class PageResult<T> implements Serializable {
     }
 
     /**
+     * 构造分页结果（简化版，仅包含总数和列表）
+     *
+     * @param total 总记录数
+     * @param list 数据列表
+     */
+    public PageResult(Long total, List<T> list) {
+        this.total = total;
+        this.list = list;
+        this.pageSize = list != null ? list.size() : 0;
+        this.pageNum = 1;
+        this.pages = list != null && pageSize > 0 ? (int) Math.ceil((double) total / pageSize) : 0;
+    }
+
+    /**
      * 构造分页结果（兼容FeedbackService的调用方式）
      *
      * @param total 总记录数

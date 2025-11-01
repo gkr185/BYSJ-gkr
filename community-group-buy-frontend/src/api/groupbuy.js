@@ -31,6 +31,18 @@ export const getOngoingActivities = () => {
 }
 
 /**
+ * 获取进行中的拼团活动（包含商品信息）
+ * 说明：返回 status=1 且在时间范围内的活动，包含商品名称、图片等详细信息
+ * 用于团长发起拼团页面显示商品详情
+ */
+export const getOngoingActivitiesWithProduct = () => {
+  return request({
+    url: '/api/groupbuy/activities/ongoing-with-product',
+    method: 'GET'
+  })
+}
+
+/**
  * 获取拼团活动详情
  * @param {number} activityId - 活动ID
  */
@@ -192,6 +204,42 @@ export const getMyTeams = () => {
   return request({
     url: '/api/groupbuy/teams/my',
     method: 'GET'
+  })
+}
+
+/**
+ * 获取团长发起的团列表
+ * 权限：需要团长权限
+ * 说明：查询团长发起的所有拼团
+ * @param {object} params - 查询参数
+ * @param {number} params.leaderId - 团长ID
+ * @param {number} params.status - 团状态 (0-拼团中, 1-已成团, 2-已失败)
+ * @param {number} params.page - 页码
+ * @param {number} params.limit - 每页数量
+ * @returns {Promise<Object>} { list, total }
+ */
+export const getLeaderTeams = (params) => {
+  return request({
+    url: '/api/groupbuy/teams/leader',
+    method: 'GET',
+    params
+  })
+}
+
+/**
+ * 获取拼团活动列表（带筛选）
+ * 权限：无需登录
+ * @param {object} params - 查询参数
+ * @param {number} params.status - 活动状态 (0-未开始, 1-进行中, 2-已结束)
+ * @param {number} params.page - 页码
+ * @param {number} params.limit - 每页数量
+ * @returns {Promise<Array>} 活动列表
+ */
+export const getGroupBuyActivities = (params) => {
+  return request({
+    url: '/api/groupbuy/activities',
+    method: 'GET',
+    params
   })
 }
 

@@ -192,5 +192,32 @@ public class TeamController {
         List<TeamDetailResponse> teams = teamService.getUserTeams(userId);
         return Result.success(teams);
     }
+    
+    /**
+     * 获取团长发起的拼团记录（带分页、状态筛选）
+     * 
+     * <p>团长端使用，查询团长发起的所有拼团
+     * 
+     * @param leaderId 团长ID
+     * @param status 团状态（0-拼团中, 1-已成团, 2-已失败，null-全部）
+     * @param page 页码（从1开始）
+     * @param limit 每页数量
+     * @return 分页结果
+     */
+    @GetMapping("/teams/leader")
+    @Operation(summary = "团长拼团记录", description = "查询团长发起的所有拼团，支持分页和状态筛选")
+    public Result<com.bcu.edu.common.result.PageResult<TeamDetailResponse>> getLeaderTeams(
+        @Parameter(description = "团长ID") @RequestParam Long leaderId,
+        @Parameter(description = "团状态（0-拼团中, 1-已成团, 2-已失败）") @RequestParam(required = false) Integer status,
+        @Parameter(description = "页码") @RequestParam(defaultValue = "1") int page,
+        @Parameter(description = "每页数量") @RequestParam(defaultValue = "10") int limit) {
+        
+        log.info("查询团长{}的拼团记录，status={}, page={}, limit={}", leaderId, status, page, limit);
+        
+        com.bcu.edu.common.result.PageResult<TeamDetailResponse> result = 
+            teamService.getLeaderTeams(leaderId, status, page, limit);
+        
+        return Result.success(result);
+    }
 }
 

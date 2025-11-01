@@ -1,6 +1,7 @@
 package com.bcu.edu.controller;
 
 import com.bcu.edu.common.result.Result;
+import com.bcu.edu.dto.response.ActivityWithProductResponse;
 import com.bcu.edu.entity.GroupBuy;
 import com.bcu.edu.service.GroupBuyService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -86,6 +87,17 @@ public class ActivityController {
     @Operation(summary = "获取进行中的活动", description = "查询当前有效的拼团活动")
     public Result<List<GroupBuy>> getOngoingActivities() {
         List<GroupBuy> activities = groupBuyService.getOngoingActivities();
+        return Result.success(activities);
+    }
+    
+    /**
+     * 获取进行中的活动（包含商品信息）
+     * 用于团长发起拼团页面
+     */
+    @GetMapping("/activities/ongoing-with-product")
+    @Operation(summary = "获取进行中的活动（含商品信息）", description = "查询当前有效的拼团活动，包含商品名称、图片等详细信息")
+    public Result<List<ActivityWithProductResponse>> getOngoingActivitiesWithProduct() {
+        List<ActivityWithProductResponse> activities = groupBuyService.getOngoingActivitiesWithProduct();
         return Result.success(activities);
     }
     
