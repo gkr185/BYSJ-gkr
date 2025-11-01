@@ -3,7 +3,7 @@
     <div class="home-page">
       <!-- Banner轮播图 -->
       <section class="banner-section">
-        <el-carousel height="400px" indicator-position="inside">
+        <el-carousel height="400px" indicator-position="outside">
           <el-carousel-item v-for="item in banners" :key="item.id">
             <div class="banner-item" :style="{ backgroundColor: item.bgColor }">
               <div class="banner-content">
@@ -136,10 +136,10 @@ const fetchCategories = async () => {
   try {
     const data = await getCategoryList()
     // 只取一级分类
-    categories.value = data.filter(cat => cat.parentId === 0).slice(0, 8)
+    categories.value = (data || []).filter(cat => cat.parentId === 0).slice(0, 8)
   } catch (error) {
     console.error('Failed to fetch categories:', error)
-    ElMessage.error('获取分类失败')
+    // ElMessage 已在 request.js 中处理，此处无需重复提示
   } finally {
     categoriesLoading.value = false
   }
@@ -150,10 +150,10 @@ const fetchHotProducts = async () => {
   hotProductsLoading.value = true
   try {
     const data = await getHotProducts(8)
-    hotProducts.value = data
+    hotProducts.value = data || []
   } catch (error) {
     console.error('Failed to fetch hot products:', error)
-    ElMessage.error('获取热门商品失败')
+    // ElMessage 已在 request.js 中处理，此处无需重复提示
   } finally {
     hotProductsLoading.value = false
   }
@@ -164,10 +164,10 @@ const fetchRecommendProducts = async () => {
   recommendProductsLoading.value = true
   try {
     const data = await getRecommendProducts({ limit: 8 })
-    recommendProducts.value = data
+    recommendProducts.value = data || []
   } catch (error) {
     console.error('Failed to fetch recommend products:', error)
-    ElMessage.error('获取推荐商品失败')
+    // ElMessage 已在 request.js 中处理，此处无需重复提示
   } finally {
     recommendProductsLoading.value = false
   }

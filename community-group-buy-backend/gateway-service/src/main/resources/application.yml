@@ -73,14 +73,14 @@ spring:
           filters:
             - RewritePath=/order/api-docs/(?<segment>.*), /api-docs/$\{segment}
         
-        # ==================== PaymentService 路由（待开发）====================
+        # ==================== PaymentService 路由 ✅ 已完成 ====================
         - id: payment-service
-          uri: lb://PaymentService
+          uri: lb://payment-service
           predicates:
             - Path=/api/payment/**
         
         - id: payment-service-swagger
-          uri: lb://PaymentService
+          uri: lb://payment-service
           predicates:
             - Path=/payment/api-docs/**
           filters:

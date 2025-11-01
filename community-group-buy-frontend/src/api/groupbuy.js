@@ -243,3 +243,49 @@ export const getGroupBuyActivities = (params) => {
   })
 }
 
+/**
+ * 根据商品ID获取拼团活动（包含团列表）⭐商品详情页专用
+ * 权限：无需登录
+ * 说明：
+ * - 返回该商品的所有进行中拼团活动
+ * - 每个活动包含进行中的团列表（最多10个）
+ * - 支持社区优先排序
+ * 
+ * @param {number} productId - 商品ID
+ * @param {object} params - 查询参数
+ * @param {number} params.communityId - 用户社区ID（可选，用于社区优先排序）
+ * @returns {Promise<Array>} 活动列表（每个活动包含teams字段）
+ * 
+ * @example
+ * // 返回数据结构
+ * [
+ *   {
+ *     activityId: 1,
+ *     productId: 101,
+ *     groupPrice: 29.9,
+ *     requiredNum: 3,
+ *     teams: [
+ *       {
+ *         teamId: 5001,
+ *         teamNo: "T20251101001",
+ *         leaderId: 2001,
+ *         leaderName: "张团长",
+ *         communityId: 3001,
+ *         communityName: "阳光小区",
+ *         currentNum: 2,
+ *         requiredNum: 3,
+ *         teamStatus: 0,
+ *         expireTime: "2025-11-02T12:00:00"
+ *       }
+ *     ]
+ *   }
+ * ]
+ */
+export const getProductGroupBuyActivities = (productId, params) => {
+  return request({
+    url: `/api/groupbuy/product/${productId}/activities`,
+    method: 'GET',
+    params
+  })
+}
+

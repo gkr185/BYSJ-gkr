@@ -18,11 +18,16 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5174, // 使用5174端口，避免和管理后台冲突
+    port: 5174, // 用户端端口
+    hmr: {
+      protocol: 'ws',
+      host: 'localhost'
+    },
     proxy: {
       '/api': {
-        target: 'http://localhost:8061',
-        changeOrigin: true
+        target: 'http://localhost:9000', // Gateway统一入口
+        changeOrigin: true,
+        secure: false
       }
     }
   }

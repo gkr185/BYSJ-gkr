@@ -149,5 +149,55 @@ public class FeignController {
             return Result.error("查询订单失败: " + e.getMessage());
         }
     }
+
+    /**
+     * 更新订单支付状态（⭐⭐⭐关键接口）
+     * 
+     * <p>调用方: PaymentService.handleOrderPaymentSuccess()
+     * <p>场景: 支付成功后更新订单支付状态
+     * 
+     * @param orderId 订单ID
+     * @param payStatus 支付状态（0-未支付；1-已支付）
+     * @return 成功/失败
+     */
+    @PostMapping("/updatePayStatus")
+    @Operation(summary = "更新订单支付状态", description = "供PaymentService调用，支付成功后更新支付状态")
+    public Result<Void> updatePayStatus(@RequestParam("orderId") Long orderId, 
+                                        @RequestParam("payStatus") Integer payStatus) {
+        log.info("Feign调用: 更新订单支付状态, orderId={}, payStatus={}", orderId, payStatus);
+
+        try {
+            orderService.updatePayStatus(orderId, payStatus);
+            log.info("订单支付状态更新成功: orderId={}, payStatus={}", orderId, payStatus);
+            return Result.success("订单支付状态更新成功");
+        } catch (Exception e) {
+            log.error("订单支付状态更新失败", e);
+            return Result.error("订单支付状态更新失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 判断是否拼团订单（⭐⭐⭐关键接口）
+     * 
+     * <p>调用方: PaymentService.handleOrderPaymentSuccess()
+     * <p>场景: 支付成功后判断是否需要回调GroupBuyService
+     * 
+     * @param orderId 订单ID
+     * @return true-拼团订单；false-普通订单
+     */
+    @GetMapping("/isGroupBuyOrder/{orderId}")
+    @Operation(summary = "判断是否拼团订单", description = "供PaymentService调用，判断订单类型")
+    public Result<Boolean> isGroupBuyOrder(@PathVariable("orderId") Long orderId) {
+        log.info("Feign调用: 判断是否拼团订单, orderId={}", orderId);
+
+        try {
+            Boolean isGroupBuy = orderService.isGroupBuyOrder(orderId);
+            log.info("判断结果: orderId={}, isGroupBuy={}", orderId, isGroupBuy);
+            return Result.success(isGroupBuy);
+        } catch (Exception e) {
+            log.error("判断订单类型失败", e);
+            return Result.error("判断订单类型失败: " + e.getMessage());
+        }
+    }
 }
 

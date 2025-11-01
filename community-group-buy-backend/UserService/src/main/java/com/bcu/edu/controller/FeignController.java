@@ -212,5 +212,19 @@ public class FeignController {
         boolean sufficient = accountService.checkBalance(userId, amount);
         return Result.success(sufficient);
     }
+
+    /**
+     * 充值（供PaymentService调用）
+     * ⭐ PaymentService 调用此接口进行余额充值
+     */
+    @PostMapping("/feign/account/recharge")
+    @Operation(summary = "余额充值", description = "供PaymentService调用，用于用户充值")
+    public Result<Void> rechargeBalance(
+            @RequestParam Long userId,
+            @RequestParam BigDecimal amount) {
+        log.info("[Feign] PaymentService 调用余额充值：userId={}, amount={}", userId, amount);
+        accountService.recharge(userId, amount);
+        return Result.success("充值成功");
+    }
 }
 

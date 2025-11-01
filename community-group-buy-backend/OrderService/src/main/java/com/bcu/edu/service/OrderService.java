@@ -409,6 +409,32 @@ public class OrderService {
     }
 
     /**
+     * 判断是否拼团订单（供PaymentService调用）⭐核心方法
+     * 
+     * <p>判断逻辑：订单明细中任一商品有activity_id，则为拼团订单
+     * 
+     * @param orderId 订单ID
+     * @return true-拼团订单；false-普通订单
+     */
+    public Boolean isGroupBuyOrder(Long orderId) {
+        log.info("判断是否拼团订单: orderId={}", orderId);
+
+        // 查询订单明细
+        List<OrderItem> items = orderItemRepository.findByOrderId(orderId);
+        if (items.isEmpty()) {
+            log.warn("订单无商品明细: orderId={}", orderId);
+            return false;
+        }
+
+        // 如果任一商品有activity_id，则为拼团订单
+        boolean isGroupBuy = items.stream()
+            .anyMatch(item -> item.getActivityId() != null);
+
+        log.info("判断结果: orderId={}, isGroupBuy={}", orderId, isGroupBuy);
+        return isGroupBuy;
+    }
+
+    /**
      * 转换订单项为VO
      */
     private OrderItemVO convertToItemVO(OrderItem item) {

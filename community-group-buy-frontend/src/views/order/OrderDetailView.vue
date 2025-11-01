@@ -39,6 +39,7 @@
                     v-if="orderDetail.orderStatus === 0"
                     type="primary" 
                     size="large"
+                    @click="handlePay"
                   >
                     立即支付
                   </el-button>
@@ -219,6 +220,16 @@ const fetchOrderDetail = async () => {
   } finally {
     loading.value = false
   }
+}
+
+// 立即支付
+const handlePay = () => {
+  router.push({
+    name: 'payment',
+    query: {
+      orderId: orderDetail.value.orderId
+    }
+  })
 }
 
 // 取消订单

@@ -2,6 +2,7 @@ package com.bcu.edu.controller;
 
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.response.ActivityWithProductResponse;
+import com.bcu.edu.dto.response.ActivityWithTeamsResponse;
 import com.bcu.edu.entity.GroupBuy;
 import com.bcu.edu.service.GroupBuyService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -109,6 +110,33 @@ public class ActivityController {
     public Result<GroupBuy> getActivityById(@Parameter(description = "活动ID") @PathVariable Long id) {
         GroupBuy activity = groupBuyService.getActivityById(id);
         return Result.success(activity);
+    }
+    
+    /**
+     * 根据商品ID获取拼团活动（包含团列表）⭐商品详情页专用
+     * 
+     * <p>特性：
+     * <ul>
+     *   <li>返回该商品的所有进行中拼团活动</li>
+     *   <li>每个活动包含进行中的团列表（最多10个）</li>
+     *   <li>支持社区优先排序</li>
+     *   <li>无需登录即可访问</li>
+     * </ul>
+     * 
+     * @param productId 商品ID
+     * @param communityId 用户社区ID（可选，用于社区优先排序）
+     * @return 活动列表（每个活动包含teams字段）
+     */
+    @GetMapping("/product/{productId}/activities")
+    @Operation(summary = "获取商品的拼团活动（含团列表）", description = "商品详情页专用：返回该商品的所有进行中拼团活动及其团列表")
+    public Result<List<ActivityWithTeamsResponse>> getProductActivitiesWithTeams(
+        @Parameter(description = "商品ID") @PathVariable Long productId,
+        @Parameter(description = "用户社区ID（可选）") @RequestParam(required = false) Long communityId) {
+        
+        log.info("查询商品{}的拼团活动，communityId={}", productId, communityId);
+        
+        List<ActivityWithTeamsResponse> activities = groupBuyService.getProductActivitiesWithTeams(productId, communityId);
+        return Result.success(activities);
     }
 }
 

@@ -3,7 +3,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 
 // 创建axios实例
 const request = axios.create({
-  baseURL: 'http://localhost:9000', // ⭐ API Gateway 统一入口
+  baseURL: import.meta.env.DEV ? '' : 'http://localhost:9000', // 开发环境使用proxy，生产环境使用网关
   timeout: 10000
 })
 
@@ -27,13 +27,15 @@ request.interceptors.response.use(
   response => {
     const res = response.data
     
-    // 后端统一返回格式：{ code, message, data }
+    // 后端统一返回格式：{ code, message, data, timestamp, success }
+    // 业务成功（code=200），直接返回 data
     if (res.code === 200) {
-      return res.data // 返回data部分
-    } else {
-      ElMessage.error(res.message || '操作失败')
-      return Promise.reject(new Error(res.message || '操作失败'))
+      return res.data
     }
+    
+    // 业务失败，提示错误信息
+    ElMessage.error(res.message || '操作失败')
+    return Promise.reject(new Error(res.message || '操作失败'))
   },
   error => {
     console.error('Response Error:', error)

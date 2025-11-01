@@ -17,6 +17,7 @@
         <module>ProductService</module>
         <module>GroupBuyService</module>
         <module>OrderService</module>
+        <module>PaymentService</module>
     </modules>
 
     <groupId>bcu.edu</groupId>

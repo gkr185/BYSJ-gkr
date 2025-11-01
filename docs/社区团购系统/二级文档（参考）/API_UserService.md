@@ -3,9 +3,9 @@
 **服务名称**: UserService  
 **服务端口**: 8061  
 **Base URL**: `http://localhost:8061`  
-**版本**: v1.1.0  
+**版本**: v1.3.0  
 **文档日期**: 2025-10-12  
-**最后更新**: 2025-10-12 19:30
+**最后更新**: 2025-11-01 17:10
 
 ---
 
@@ -1097,6 +1097,7 @@ Feign内部接口专门提供给其他微服务调用，**不对外暴露**，�
 | 扣减余额 | `/feign/account/deduct` | OrderService/PaymentService | 支付扣款 |
 | 返还余额 | `/api/account/feign/refund` | GroupBuyService | 退款 |
 | 验证余额是否充足 | `/feign/account/check` | OrderService | 支付前检查 |
+| 充值余额 | `/feign/account/recharge` | PaymentService | 用户充值 ⭐NEW |
 
 ---
 
@@ -1394,7 +1395,90 @@ GET /feign/account/check?userId=4&amount=100.00
 
 ---
 
-### 10.9 Feign接口设计原则
+### 10.9 充值余额（PaymentService专用）⭐⭐⭐⭐⭐ NEW
+
+```http
+POST /feign/account/recharge?userId=3&amount=100.00
+```
+
+**功能**: 增加用户账户余额（充值）
+
+**调用方**: PaymentService
+
+**URL参数**:
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| userId | Long | 是 | 用户ID |
+| amount | BigDecimal | 是 | 充值金额 |
+
+**响应示例**:
+
+成功响应:
+```json
+{
+  "code": 200,
+  "message": "充值成功",
+  "data": null,
+  "timestamp": "2025-11-01T17:04:47"
+}
+```
+
+失败响应:
+```json
+{
+  "code": 500,
+  "message": "服务器内部错误",
+  "data": null,
+  "timestamp": "2025-11-01T17:04:47"
+}
+```
+
+**业务逻辑**:
+1. 根据userId查询用户账户
+2. 增加账户余额（balance = balance + amount）
+3. 记录充值流水
+4. 返回成功结果
+
+**特点**:
+- 不验证充值金额上限（由PaymentService业务层控制）
+- 记录详细的日志（userId、amount、调用方）
+- 支持分布式事务（事务隔离级别READ_COMMITTED）
+
+**调用示例**:
+```java
+// PaymentService中的调用
+@Autowired
+private UserServiceClient userServiceClient;
+
+public PaymentRecord recharge(Long userId, BigDecimal amount) {
+    // 1. 创建充值记录
+    PaymentRecord record = new PaymentRecord();
+    record.setUserId(userId);
+    record.setAmount(amount);
+    paymentRepository.save(record);
+    
+    // 2. 调用UserService增加余额
+    Result<Void> result = userServiceClient.recharge(userId, amount);
+    
+    if (result.getCode() == 200) {
+        // 3. 更新充值记录状态为成功
+        record.setPayStatus(PayStatus.SUCCESS.getCode());
+        paymentRepository.save(record);
+        return record;
+    } else {
+        throw new BusinessException("充值失败: " + result.getMessage());
+    }
+}
+```
+
+**安全说明**:
+- Feign接口仅供内部微服务调用
+- 不对外暴露（不在Gateway路由中）
+- 信任调用方已验证用户身份和充值金额合法性
+
+---
+
+### 10.10 Feign接口设计原则
 
 1. **路径规范**: 使用`/api/{service}/feign/`或`/feign/`前缀
 2. **认证**: 不需要JWT Token（内部服务调用）
@@ -1406,6 +1490,26 @@ GET /feign/account/check?userId=4&amount=100.00
 ---
 
 ## 11. 更新日志
+
+### v1.3.0 (2025-11-01) ⭐⭐⭐
+
+**新增功能**:
+- ✅ **新增PaymentService专用Feign接口**
+  - `/feign/account/recharge` - 充值余额接口 ⭐⭐⭐⭐⭐
+- ✅ 完善充值接口文档和调用示例
+- ✅ 添加充值接口安全说明
+
+**问题修复**:
+- ✅ 修复前端调用充值接口500错误
+- ✅ 完善Feign接口日志记录
+- ✅ 优化充值流程异常处理
+
+**技术改进**:
+- 支持PaymentService充值功能完整闭环
+- 确保分布式事务一致性
+- 添加详细的接口调用示例
+
+---
 
 ### v1.2.0 (2025-11-01)
 
@@ -1444,7 +1548,7 @@ GET /feign/account/check?userId=4&amount=100.00
 
 ---
 
-**当前版本**: v1.2.0  
-**最后更新**: 2025-11-01  
+**当前版本**: v1.3.0  
+**最后更新**: 2025-11-01 17:10  
 **文档结束**
 

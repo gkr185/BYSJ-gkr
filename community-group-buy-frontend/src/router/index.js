@@ -149,6 +149,19 @@ const router = createRouter({
       component: () => import('../views/order/OrderDetailView.vue'),
       meta: { title: '订单详情', requireAuth: true }
     },
+    // 支付相关
+    {
+      path: '/payment',
+      name: 'payment',
+      component: () => import('../views/payment/PaymentView.vue'),
+      meta: { title: '订单支付', requireAuth: true }
+    },
+    {
+      path: '/user/payment-records',
+      name: 'paymentRecords',
+      component: () => import('../views/payment/PaymentRecordsView.vue'),
+      meta: { title: '支付记录', requireAuth: true }
+    },
     // 登录
     {
       path: '/login',
