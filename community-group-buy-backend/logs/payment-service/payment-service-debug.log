@@ -1,42 +1,5 @@
-[2025-11-01 16:22:55.704] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
-[2025-11-01 16:26:47.415] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
-[2025-11-01 16:26:51.564] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    alter table payment_record 
-       modify column pay_status integer not null
-[2025-11-01 16:26:51.618] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    alter table payment_record 
-       modify column pay_type integer not null
-[2025-11-01 16:26:51.662] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    create table sys_operation_log (
-        log_id bigint not null auto_increment,
-        create_time datetime(6) not null,
-        duration integer,
-        error_msg TEXT,
-        ip varchar(50),
-        method varchar(500),
-        module varchar(50) not null,
-        operation varchar(255) not null,
-        params TEXT,
-        result varchar(20),
-        user_id bigint,
-        username varchar(50),
-        primary key (log_id)
-    ) engine=InnoDB
-[2025-11-01 16:26:51.677] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    create index idx_user_id 
-       on sys_operation_log (user_id)
-[2025-11-01 16:26:51.689] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    create index idx_module 
-       on sys_operation_log (module)
-[2025-11-01 16:26:51.700] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    create index idx_create_time 
-       on sys_operation_log (create_time)
-[2025-11-01 16:26:51.712] [DEBUG] [payment-service] [main] [org.hibernate.SQL:135] - 
-    create index idx_result 
-       on sys_operation_log (result)
-[2025-11-01 17:03:53.604] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
-[2025-11-01 17:04:15.580] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
-[2025-11-01 17:04:40.032] [DEBUG] [payment-service] [http-nio-8066-exec-3] [org.hibernate.SQL:135] - 
+[2025-11-04 20:19:07.252] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-04 21:00:55.517] [DEBUG] [payment-service] [http-nio-8066-exec-1] [org.hibernate.SQL:135] - 
     select
         pr1_0.pay_id,
         pr1_0.amount,
@@ -55,127 +18,15 @@
         pr1_0.user_id=? 
     order by
         pr1_0.create_time desc
-[2025-11-01 17:04:47.524] [DEBUG] [payment-service] [http-nio-8066-exec-5] [org.hibernate.SQL:135] - 
+[2025-11-04 21:00:57.693] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
     insert 
     into
         payment_record
         (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-[2025-11-01 17:04:47.785] [DEBUG] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=余额充值
-[2025-11-01 17:04:53.360] [DEBUG] [payment-service] [http-nio-8066-exec-6] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:06:41.904] [DEBUG] [payment-service] [http-nio-8066-exec-9] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:09:46.052] [DEBUG] [payment-service] [http-nio-8066-exec-9] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:09:51.359] [DEBUG] [payment-service] [http-nio-8066-exec-1] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:13:00.537] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
-    insert 
-    into
-        payment_record
-        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
-    values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-[2025-11-01 17:13:00.566] [DEBUG] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=余额充值
-[2025-11-01 17:13:22.386] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
-[2025-11-01 17:13:46.722] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:14:16.426] [DEBUG] [payment-service] [http-nio-8066-exec-6] [org.hibernate.SQL:135] - 
-    insert 
-    into
-        payment_record
-        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
-    values
-        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-[2025-11-01 17:14:16.685] [DEBUG] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=余额充值
-[2025-11-01 17:14:16.701] [DEBUG] [payment-service] [http-nio-8066-exec-6] [org.hibernate.SQL:135] - 
+[2025-11-04 21:00:57.900] [DEBUG] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=余额充值
+[2025-11-04 21:00:57.913] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
     update
         payment_record 
     set
@@ -190,198 +41,53 @@
         wx_transaction_id=? 
     where
         pay_id=?
-[2025-11-01 17:15:15.046] [DEBUG] [payment-service] [http-nio-8066-exec-3] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
+[2025-11-04 21:01:01.911] [DEBUG] [payment-service] [http-nio-8066-exec-4] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-04 21:01:01.933] [DEBUG] [payment-service] [http-nio-8066-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=余额充值
+[2025-11-04 21:01:01.934] [DEBUG] [payment-service] [http-nio-8066-exec-4] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
     where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:15:19.701] [DEBUG] [payment-service] [http-nio-8066-exec-4] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
+        pay_id=?
+[2025-11-04 21:01:18.995] [DEBUG] [payment-service] [http-nio-8066-exec-6] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-04 21:01:19.016] [DEBUG] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=余额充值
+[2025-11-04 21:01:19.017] [DEBUG] [payment-service] [http-nio-8066-exec-6] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
     where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:16:07.743] [DEBUG] [payment-service] [http-nio-8066-exec-10] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:17:08.832] [DEBUG] [payment-service] [http-nio-8066-exec-8] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:17:16.815] [DEBUG] [payment-service] [http-nio-8066-exec-10] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:18:08.073] [DEBUG] [payment-service] [http-nio-8066-exec-6] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:18:23.901] [DEBUG] [payment-service] [http-nio-8066-exec-9] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:18:30.000] [DEBUG] [payment-service] [http-nio-8066-exec-10] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:18:33.578] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 17:35:02.123] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
-[2025-11-01 18:39:55.076] [DEBUG] [payment-service] [http-nio-8066-exec-9] [org.hibernate.SQL:135] - 
-    select
-        pr1_0.pay_id,
-        pr1_0.amount,
-        pr1_0.create_time,
-        pr1_0.encrypt_sign,
-        pr1_0.order_id,
-        pr1_0.pay_callback_info,
-        pr1_0.pay_status,
-        pr1_0.pay_type,
-        pr1_0.transaction_id,
-        pr1_0.user_id,
-        pr1_0.wx_transaction_id 
-    from
-        payment_record pr1_0 
-    where
-        pr1_0.user_id=? 
-    order by
-        pr1_0.create_time desc
-[2025-11-01 19:00:34.306] [DEBUG] [payment-service] [http-nio-8066-exec-5] [org.hibernate.SQL:135] - 
+        pay_id=?
+[2025-11-04 21:01:46.384] [DEBUG] [payment-service] [http-nio-8066-exec-10] [org.hibernate.SQL:135] - 
     select
         pr1_0.pay_id,
         pr1_0.amount,
