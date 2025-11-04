@@ -29,7 +29,7 @@ spring:
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/api/user/**,/api/account/**,/api/address/**,/api/feedback/**,/api/admin/logs/**
+            - Path=/api/user/**,/api/account/**,/api/address/**,/api/feedback/**,/api/upload/**,/api/admin/logs/**
         
         # UserService - Swagger UI（可选，暂时保留直接访问）
         # 直接访问: http://localhost:8061/swagger-ui.html
@@ -145,6 +145,7 @@ gateway:
     - /*/api-docs/**
     - /actuator/health
     - /actuator/info
+    # 文件上传接口需要认证，不在白名单中
 
 # Management配置
 management:

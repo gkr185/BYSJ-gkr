@@ -1,608 +1,589 @@
 <template>
-  <div class="profile-page-wrapper">
-    <div class="profile-page">
-    <h2>个人中心</h2>
-    
-    <!-- 用户信息卡片 -->
-    <el-card style="margin-bottom: 20px;">
-      <div class="user-info">
-        <div>
-          <div class="info-item">
-            <span class="label">用户名：</span>
-            <span>{{ userStore.userInfo?.username || '未登录' }}</span>
+  <MainLayout>
+    <div class="profile-container">
+      <!-- 用户信息卡片 -->
+      <div class="user-card">
+        <div class="user-card-bg"></div>
+        <div class="user-info-section">
+          <div class="avatar-wrapper">
+            <el-avatar :size="100" :src="userStore.userInfo?.avatar" class="user-avatar">
+              {{ userStore.userInfo?.username?.charAt(0).toUpperCase() }}
+            </el-avatar>
+            <div class="avatar-badge" v-if="userStore.isLeader">
+              <el-icon><Star /></el-icon>
+              <span>团长</span>
+            </div>
           </div>
-          <div class="info-item">
-            <span class="label">真实姓名：</span>
-            <span>{{ userStore.userInfo?.realName || '未设置' }}</span>
+          
+          <div class="user-details">
+            <h2 class="username">{{ userStore.userInfo?.username }}</h2>
+            <p class="user-id">ID: {{ userStore.userInfo?.userId }}</p>
+            <div class="user-meta">
+              <el-tag v-if="userStore.userInfo?.role === 3" type="danger" effect="dark">管理员</el-tag>
+              <el-tag v-else-if="userStore.isLeader" type="warning" effect="dark">团长</el-tag>
+              <el-tag v-else type="primary" effect="plain">普通用户</el-tag>
+              <el-tag v-if="userStore.userInfo?.status === 1" type="success" effect="plain">正常</el-tag>
+              <el-tag v-else type="info" effect="plain">已禁用</el-tag>
+            </div>
           </div>
-          <div class="info-item">
-            <span class="label">手机号：</span>
-            <span>{{ userStore.userInfo?.phone || '未设置' }}</span>
-          </div>
-          <div class="info-item">
-            <span class="label">账户余额：</span>
-            <span style="color: #f56c6c; font-weight: bold;">¥{{ accountBalance }}</span>
-          </div>
-        </div>
-        <div v-if="!userStore.isLogin">
-          <el-button type="primary" @click="router.push('/login')">登录</el-button>
-        </div>
-      </div>
-    </el-card>
-
-    <!-- 功能菜单 -->
-    <el-row :gutter="20">
-      <el-col :span="8">
-        <el-card class="menu-card" @click="navigateTo('/user/info')">
-          <div class="menu-title">个人信息</div>
-          <div class="menu-desc">查看和编辑个人信息</div>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card class="menu-card" @click="navigateTo('/user/address')">
-          <div class="menu-title">收货地址</div>
-          <div class="menu-desc">管理我的收货地址</div>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card class="menu-card" @click="navigateTo('/user/balance')">
-          <div class="menu-title">我的余额</div>
-          <div class="menu-desc">查看账户余额和交易记录</div>
-        </el-card>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="20" style="margin-top: 20px;">
-      <el-col :span="8">
-        <el-card class="menu-card" @click="navigateTo('/user/orders')">
-          <div class="menu-title">我的订单</div>
-          <div class="menu-desc">查看订单列表和详情</div>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card class="menu-card" @click="navigateTo('/user/groups')">
-          <div class="menu-title">我的拼团</div>
-          <div class="menu-desc">查看参与的拼团活动</div>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card class="menu-card" @click="navigateTo('/user/feedback')">
-          <div class="menu-title">意见反馈</div>
-          <div class="menu-desc">提交问题和建议</div>
-        </el-card>
-      </el-col>
-    </el-row>
-
-    <!-- 申请成为团长（普通用户可见）-->
-    <el-card v-if="!userStore.isLeader" class="apply-leader-card" @click="navigateTo('/leader/apply')">
-      <div class="apply-content">
-        <div class="apply-icon">
-          <el-icon :size="48" color="#F57C00"><Star /></el-icon>
-        </div>
-        <div class="apply-text">
-          <h3>成为团长，开启收益之旅</h3>
-          <p>发起拼团活动，赚取订单佣金，服务社区居民</p>
-        </div>
-        <el-button type="warning" size="large">
-          立即申请
-          <el-icon class="el-icon--right"><Right /></el-icon>
-        </el-button>
-      </div>
-    </el-card>
-
-    <!-- 我的申请状态（普通用户可见）-->
-    <div v-if="!userStore.isLeader" style="margin-top: 20px;">
-      <el-card>
-        <template #header>
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <el-icon><Document /></el-icon>
-            <span>我的申请</span>
-            <el-button 
-              type="text" 
-              size="small" 
-              @click.stop="fetchApplicationStatus" 
-              style="margin-left: auto;"
-            >
-              <el-icon><Refresh /></el-icon>
-              刷新
+          
+          <div class="user-actions">
+            <el-button type="primary" :icon="Edit" @click="$router.push('/user/info')">
+              编辑资料
             </el-button>
           </div>
-        </template>
+        </div>
+      </div>
 
-        <!-- 社区申请状态 -->
-        <div v-if="communityApplication" style="margin-bottom: 15px;">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-            <el-tag type="info" size="small">社区申请</el-tag>
-            <el-tag :type="getStatusType(communityApplication.status)" size="small">
-              {{ getStatusText(communityApplication.status) }}
-            </el-tag>
+      <!-- 统计数据 -->
+      <div class="stats-grid">
+        <div class="stat-card" @click="$router.push('/user/orders')">
+          <div class="stat-icon orders">
+            <el-icon :size="32"><Document /></el-icon>
           </div>
-          <div style="color: #606266; font-size: 14px;">
-            <p style="margin: 5px 0;">社区名称：{{ communityApplication.communityName }}</p>
-            <p style="margin: 5px 0;">申请时间：{{ formatDate(communityApplication.createdAt) }}</p>
-            <p v-if="communityApplication.reviewComment" style="margin: 5px 0; color: #909399;">
-              审核意见：{{ communityApplication.reviewComment }}
-            </p>
+          <div class="stat-content">
+            <div class="stat-value">{{ stats.orderCount }}</div>
+            <div class="stat-label">我的订单</div>
           </div>
         </div>
 
-        <!-- 团长申请状态 -->
-        <div v-if="leaderApplication">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-            <el-tag type="warning" size="small">团长申请</el-tag>
-            <el-tag :type="getLeaderStatusType(leaderApplication.status)" size="small">
-              {{ getLeaderStatusText(leaderApplication.status) }}
-            </el-tag>
+        <div class="stat-card" @click="$router.push('/user/groups')">
+          <div class="stat-icon groups">
+            <el-icon :size="32"><Grid /></el-icon>
           </div>
-          <div style="color: #606266; font-size: 14px;">
-            <p style="margin: 5px 0;">团点名称：{{ leaderApplication.storeName }}</p>
-            <p style="margin: 5px 0;">所属社区：{{ leaderApplication.communityName || '待分配' }}</p>
-            <p style="margin: 5px 0;">申请时间：{{ formatDate(leaderApplication.createdAt) }}</p>
-            <p v-if="leaderApplication.reviewComment" style="margin: 5px 0; color: #909399;">
-              审核意见：{{ leaderApplication.reviewComment }}
-            </p>
+          <div class="stat-content">
+            <div class="stat-value">{{ stats.groupCount }}</div>
+            <div class="stat-label">我的拼团</div>
           </div>
         </div>
 
-        <!-- 无申请记录 -->
-        <el-empty 
-          v-if="!communityApplication && !leaderApplication && !loadingApplications"
-          description="暂无申请记录"
-          :image-size="80"
-        />
-
-        <!-- 加载中 -->
-        <div v-if="loadingApplications" style="text-align: center; padding: 20px;">
-          <el-icon class="is-loading" :size="30"><Loading /></el-icon>
-          <p style="margin-top: 10px; color: #909399;">加载中...</p>
+        <div class="stat-card" @click="$router.push('/user/balance')">
+          <div class="stat-icon balance">
+            <el-icon :size="32"><Wallet /></el-icon>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">¥{{ accountInfo.balance?.toFixed(2) || '0.00' }}</div>
+            <div class="stat-label">账户余额</div>
+          </div>
         </div>
-      </el-card>
+
+        <div class="stat-card" @click="$router.push('/user/address')">
+          <div class="stat-icon address">
+            <el-icon :size="32"><Location /></el-icon>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value">{{ stats.addressCount }}</div>
+            <div class="stat-label">收货地址</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能菜单 -->
+      <div class="menu-grid">
+        <div class="menu-section">
+          <h3 class="section-title">
+            <el-icon><User /></el-icon>
+            账户管理
+          </h3>
+          <div class="menu-list">
+            <div class="menu-item" @click="$router.push('/user/info')">
+              <div class="menu-item-icon">
+                <el-icon><Edit /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">个人资料</div>
+                <div class="menu-item-desc">修改个人信息</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+
+            <div class="menu-item" @click="$router.push('/user/address')">
+              <div class="menu-item-icon">
+                <el-icon><Location /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">收货地址</div>
+                <div class="menu-item-desc">管理收货地址</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+
+            <div class="menu-item" @click="$router.push('/user/balance')">
+              <div class="menu-item-icon">
+                <el-icon><Wallet /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">账户余额</div>
+                <div class="menu-item-desc">充值、查看余额</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3 class="section-title">
+            <el-icon><ShoppingBag /></el-icon>
+            订单服务
+          </h3>
+          <div class="menu-list">
+            <div class="menu-item" @click="$router.push('/user/orders')">
+              <div class="menu-item-icon">
+                <el-icon><Document /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">我的订单</div>
+                <div class="menu-item-desc">查看所有订单</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+
+            <div class="menu-item" @click="$router.push('/user/groups')">
+              <div class="menu-item-icon">
+                <el-icon><Grid /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">我的拼团</div>
+                <div class="menu-item-desc">查看拼团状态</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h3 class="section-title">
+            <el-icon><Setting /></el-icon>
+            其他服务
+          </h3>
+          <div class="menu-list">
+            <div class="menu-item" @click="$router.push('/user/feedback')">
+              <div class="menu-item-icon">
+                <el-icon><ChatDotRound /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">意见反馈</div>
+                <div class="menu-item-desc">提交问题和建议</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+
+            <div class="menu-item" @click="handleLogout">
+              <div class="menu-item-icon logout">
+                <el-icon><SwitchButton /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">退出登录</div>
+                <div class="menu-item-desc">退出当前账号</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- 团长专属菜单（v3.0优化版）-->
-    <div v-if="userStore.isLeader" class="leader-section">
-      <el-divider>
-        <el-tag type="warning" size="large" effect="dark">
-          <el-icon><Star /></el-icon>
-          团长管理中心
-        </el-tag>
-      </el-divider>
-
-      <!-- 团长工作台入口（大卡片）-->
-      <el-card class="dashboard-card" @click="navigateTo('/leader/dashboard')">
-        <div class="dashboard-content">
-          <div class="dashboard-icon">
-            <el-icon :size="56"><DataBoard /></el-icon>
-          </div>
-          <div class="dashboard-text">
-            <h3>团长工作台</h3>
-            <p>数据概览、快捷操作、团队管理一站式服务</p>
-          </div>
-          <el-button type="warning" size="large">
-            进入工作台
-            <el-icon class="el-icon--right"><Right /></el-icon>
-          </el-button>
-        </div>
-      </el-card>
-
-      <!-- 团长功能菜单 -->
-      <el-row :gutter="15" style="margin-top: 20px;">
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/launch')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#67C23A"><Plus /></el-icon>
-            </div>
-            <div class="menu-title">发起拼团</div>
-            <div class="menu-desc">选择活动并发起</div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/teams')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#409EFF"><User /></el-icon>
-            </div>
-            <div class="menu-title">我的团队</div>
-            <div class="menu-desc">查看拼团管理</div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/commission')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#F56C6C"><Money /></el-icon>
-            </div>
-            <div class="menu-title">佣金管理</div>
-            <div class="menu-desc">查看收益明细</div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card" @click="navigateTo('/leader/store')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#E6A23C"><Setting /></el-icon>
-            </div>
-            <div class="menu-title">团点设置</div>
-            <div class="menu-desc">管理团点信息</div>
-          </el-card>
-        </el-col>
-      </el-row>
-
-      <el-row :gutter="15" style="margin-top: 15px;">
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card placeholder-card" @click="navigateTo('/leader/orders')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#909399"><Document /></el-icon>
-            </div>
-            <div class="menu-title">订单管理</div>
-            <div class="menu-desc">
-              <el-tag type="info" size="small">待开发</el-tag>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card placeholder-card" @click="navigateTo('/leader/delivery')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#909399"><Van /></el-icon>
-            </div>
-            <div class="menu-title">配送管理</div>
-            <div class="menu-desc">
-              <el-tag type="info" size="small">待开发</el-tag>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card placeholder-card" @click="navigateTo('/leader/statistics')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#909399"><DataAnalysis /></el-icon>
-            </div>
-            <div class="menu-title">数据统计</div>
-            <div class="menu-desc">
-              <el-tag type="info" size="small">待开发</el-tag>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="menu-card leader-menu-card" @click="ElMessage.info('更多功能开发中...')">
-            <div class="leader-icon">
-              <el-icon :size="28" color="#C0C4CC"><MoreFilled /></el-icon>
-            </div>
-            <div class="menu-title">更多功能</div>
-            <div class="menu-desc">敬请期待</div>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
-  </div>
-  </div>
+  </MainLayout>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
-import { getAccountInfo } from '@/api/user'
-import { getMyCommunityApplications, getMyLeaderInfo } from '@/api/leader'
-import { ElMessage } from 'element-plus'
+import { useCartStore } from '@/stores/cart'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import {
-  Star,
-  Plus,
-  Money,
+  Edit,
   User,
-  Setting,
-  Van,
-  DataAnalysis,
-  DataBoard,
-  MoreFilled,
-  Right,
   Document,
-  Refresh,
-  Loading
+  Grid,
+  Wallet,
+  Location,
+  ArrowRight,
+  Star,
+  ShoppingBag,
+  Setting,
+  ChatDotRound,
+  SwitchButton
 } from '@element-plus/icons-vue'
+import MainLayout from '@/components/common/MainLayout.vue'
+import { getAccountInfo, getAddressList } from '@/api/user'
 
 const router = useRouter()
 const userStore = useUserStore()
+const cartStore = useCartStore()
 
-const accountBalance = ref('0.00')
-const communityApplication = ref(null)
-const leaderApplication = ref(null)
-const loadingApplications = ref(false)
+// 统计数据
+const stats = ref({
+  orderCount: 0,
+  groupCount: 0,
+  addressCount: 0
+})
 
-// 获取账户余额
-const fetchBalance = async () => {
-  if (!userStore.userInfo?.userId) return
-  
+// 账户信息
+const accountInfo = ref({
+  balance: 0,
+  frozenBalance: 0
+})
+
+// 加载账户信息
+const loadAccountInfo = async () => {
+  // 检查用户是否登录
+  if (!userStore.isLogin || !userStore.userInfo?.userId) {
+    return
+  }
+
   try {
-    const data = await getAccountInfo(userStore.userInfo.userId)
-    accountBalance.value = data.balance
+    const res = await getAccountInfo(userStore.userInfo.userId)
+    if (res.code === 200) {
+      accountInfo.value = res.data
+    }
   } catch (error) {
-    console.error('Failed to fetch balance:', error)
+    console.error('加载账户信息失败:', error)
   }
 }
 
-// 页面跳转
-const navigateTo = (path) => {
-  if (!userStore.isLogin && path !== '/login') {
+// 加载地址数量
+const loadAddressCount = async () => {
+  // 检查用户是否登录
+  if (!userStore.isLogin || !userStore.userInfo?.userId) {
+    return
+  }
+
+  try {
+    const res = await getAddressList(userStore.userInfo.userId)
+    if (res.code === 200) {
+      stats.value.addressCount = res.data?.length || 0
+    }
+  } catch (error) {
+    console.error('加载地址数量失败:', error)
+  }
+}
+
+// 退出登录
+const handleLogout = () => {
+  ElMessageBox.confirm('确定要退出登录吗？', '提示', {
+    type: 'warning',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消'
+  }).then(() => {
+    userStore.logout()
+    cartStore.clearCart()
+    ElMessage.success('已退出登录')
+    router.push('/login')
+  }).catch(() => {})
+}
+
+onMounted(() => {
+  // 检查用户是否登录
+  if (!userStore.isLogin) {
     ElMessage.warning('请先登录')
     router.push('/login')
     return
   }
-  router.push(path)
-}
 
-// 获取申请状态
-const fetchApplicationStatus = async () => {
-  if (!userStore.userInfo?.userId) return
-  
-  loadingApplications.value = true
-  try {
-    // 获取社区申请记录
-    const communityRes = await getMyCommunityApplications(userStore.userInfo.userId)
-    if (communityRes.code === 200 && communityRes.data && communityRes.data.length > 0) {
-      // 取最新的申请记录（假设返回的是数组）
-      communityApplication.value = communityRes.data[0]
-    } else {
-      communityApplication.value = null
-    }
-    
-    // 获取团长申请记录
-    const leaderRes = await getMyLeaderInfo(userStore.userInfo.userId)
-    if (leaderRes.code === 200 && leaderRes.data) {
-      leaderApplication.value = leaderRes.data
-      
-      // 如果团长申请已通过（status=1），刷新用户信息以更新角色
-      if (leaderRes.data.status === 1) {
-        await userStore.updateUserInfo()
-      }
-    } else {
-      leaderApplication.value = null
-    }
-  } catch (error) {
-    console.error('获取申请状态失败:', error)
-    // 发生错误时清空数据，避免显示旧数据
-    communityApplication.value = null
-    leaderApplication.value = null
-  } finally {
-    loadingApplications.value = false
-  }
-}
-
-// 社区申请状态辅助函数
-const getStatusType = (status) => {
-  const map = { 0: 'warning', 1: 'success', 2: 'danger' }
-  return map[status] || 'info'
-}
-
-const getStatusText = (status) => {
-  const map = { 0: '待审核', 1: '已通过', 2: '已拒绝' }
-  return map[status] || '未知'
-}
-
-// 团长申请状态辅助函数
-const getLeaderStatusType = (status) => {
-  const map = { 0: 'warning', 1: 'success', 2: 'danger' }
-  return map[status] || 'info'
-}
-
-const getLeaderStatusText = (status) => {
-  const map = { 0: '待审核', 1: '正常运营', 2: '已拒绝/已停用' }
-  return map[status] || '未知'
-}
-
-// 日期格式化
-const formatDate = (dateStr) => {
-  if (!dateStr) return ''
-  return new Date(dateStr).toLocaleString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-  })
-}
-
-onMounted(async () => {
-  if (userStore.isLogin) {
-    // 刷新用户信息（确保角色是最新的）
-    await userStore.updateUserInfo()
-    
-    // 获取账户余额和申请状态
-    fetchBalance()
-    fetchApplicationStatus()
-  }
+  loadAccountInfo()
+  loadAddressCount()
+  // TODO: 加载订单和拼团统计数据
+  stats.value.orderCount = 0
+  stats.value.groupCount = 0
 })
 </script>
 
 <style scoped>
-.profile-page-wrapper {
-  min-height: 100vh;
-  padding-top: 84px; /* 64px导航栏 + 20px间隔 */
-  background-color: #f5f5f5;
-}
-
-.profile-page {
+.profile-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px 20px 20px;
+  padding: 24px;
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #333;
+/* 用户信息卡片 */
+.user-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.user-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.user-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.info-item {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.label {
-  color: #909399;
-  margin-right: 10px;
-}
-
-.menu-card {
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.menu-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.menu-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.menu-desc {
-  font-size: 13px;
-  color: #909399;
-}
-
-/* 申请成为团长卡片 */
-.apply-leader-card {
-  margin-top: 30px;
-  cursor: pointer;
-  transition: all 0.3s;
-  background: linear-gradient(135deg, #FFF9E6 0%, #FFE0B2 100%);
-  border: 2px solid #F57C00;
-}
-
-.apply-leader-card:hover {
-  box-shadow: 0 8px 20px rgba(245, 124, 0, 0.3);
-  transform: translateY(-2px);
-}
-
-.apply-content {
+.user-info-section {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 10px;
+  gap: 32px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  margin-top: 140px;
+  border-radius: 20px;
 }
 
-.apply-icon {
+.avatar-wrapper {
+  position: relative;
   flex-shrink: 0;
 }
 
-.apply-text {
+.user-avatar {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  font-size: 36px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 4px solid #fff;
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-details {
   flex: 1;
 }
 
-.apply-text h3 {
+.username {
+  font-size: 28px;
+  font-weight: 700;
   margin: 0 0 8px 0;
-  font-size: 20px;
-  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.apply-text p {
-  margin: 0;
-  color: #666;
+.user-id {
   font-size: 14px;
+  color: #999;
+  margin: 0 0 16px 0;
 }
 
-/* 团长专属区块（v3.0优化版）*/
-.leader-section {
-  margin-top: 40px;
-  padding: 30px;
-  background: linear-gradient(135deg, #FFF9E6 0%, #FFE0B2 100%);
+.user-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.user-actions {
+  flex-shrink: 0;
+}
+
+.user-actions :deep(.el-button) {
   border-radius: 12px;
-}
-
-.leader-section :deep(.el-divider__text) {
-  background: transparent;
-}
-
-/* 团长工作台大卡片 */
-.dashboard-card {
-  cursor: pointer;
-  transition: all 0.3s;
+  padding: 12px 28px;
+  font-weight: 600;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
-  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
 }
 
-.dashboard-card:hover {
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
-  transform: translateY(-4px);
+.user-actions :deep(.el-button:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
 }
 
-.dashboard-card :deep(.el-card__body) {
-  padding: 25px;
+/* 统计数据网格 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
 }
 
-.dashboard-content {
+.stat-card {
   display: flex;
   align-items: center;
   gap: 20px;
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-.dashboard-icon {
-  flex-shrink: 0;
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.stat-icon {
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  border-radius: 16px;
+  color: #fff;
+  flex-shrink: 0;
 }
 
-.dashboard-text {
+.stat-icon.orders {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stat-icon.groups {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.stat-icon.balance {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.stat-icon.address {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.stat-content {
   flex: 1;
-  color: white;
 }
 
-.dashboard-text h3 {
-  margin: 0 0 8px 0;
-  font-size: 24px;
-  color: white;
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4px;
 }
 
-.dashboard-text p {
-  margin: 0;
+.stat-label {
   font-size: 14px;
-  opacity: 0.9;
+  color: #999;
 }
 
-/* 团长功能菜单卡片 */
-.leader-menu-card {
-  background: white;
-  border: 2px solid transparent;
+/* 功能菜单网格 */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.menu-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 20px 0;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
   transition: all 0.3s;
-  text-align: center;
+  cursor: pointer;
 }
 
-.leader-menu-card:hover {
-  border-color: #F57C00;
-  box-shadow: 0 6px 16px rgba(245, 124, 0, 0.2);
-  transform: translateY(-3px);
+.menu-item:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  transform: translateX(4px);
 }
 
-.leader-menu-card.placeholder-card {
-  opacity: 0.7;
+.menu-item-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  color: #667eea;
+  font-size: 24px;
+  flex-shrink: 0;
 }
 
-.leader-menu-card.placeholder-card:hover {
-  border-color: #909399;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.menu-item-icon.logout {
+  background: linear-gradient(135deg, rgba(245, 87, 108, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+  color: #f5576c;
 }
 
-.leader-icon {
-  margin-bottom: 12px;
-  text-align: center;
+.menu-item-content {
+  flex: 1;
+}
+
+.menu-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.menu-item-desc {
+  font-size: 13px;
+  color: #999;
+}
+
+.menu-item-arrow {
+  color: #ccc;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.menu-item:hover .menu-item-arrow {
+  color: #667eea;
+  transform: translateX(4px);
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .profile-page-wrapper {
-    padding-top: 76px; /* 56px导航栏 + 20px间隔 */
+  .user-info-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .user-actions {
+    width: 100%;
+  }
+
+  .user-actions :deep(.el-button) {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
+

@@ -116,3 +116,56 @@ export const getUserAccount = (userId) => {
   })
 }
 
+// ==================== 文件上传 ====================
+
+/**
+ * 上传用户头像
+ * @param {File} file - 头像文件
+ */
+export const uploadAvatar = (file) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request({
+    url: '/api/upload/avatar',
+    method: 'POST',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+}
+
+/**
+ * 上传反馈图片
+ * @param {File} file - 图片文件
+ */
+export const uploadFeedbackImage = (file) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request({
+    url: '/api/upload/feedback',
+    method: 'POST',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+}
+
+/**
+ * 上传通用文件
+ * @param {File} file - 文件
+ */
+export const uploadFile = (file) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  return request({
+    url: '/api/upload/file',
+    method: 'POST',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+}
+

@@ -37,6 +37,25 @@
       >
         <el-table-column prop="feedbackId" label="ID" width="80" />
         <el-table-column prop="userId" label="用户ID" width="100" />
+        <el-table-column label="图片" width="100" align="center">
+          <template #default="{ row }">
+            <div v-if="row.images" class="table-images">
+              <el-image
+                v-for="(img, index) in parseImages(row.images).slice(0, 2)"
+                :key="index"
+                :src="img"
+                :preview-src-list="parseImages(row.images)"
+                :initial-index="index"
+                fit="cover"
+                class="table-img"
+              />
+              <span v-if="parseImages(row.images).length > 2" class="more-images">
+                +{{ parseImages(row.images).length - 2 }}
+              </span>
+            </div>
+            <span v-else class="no-image">无</span>
+          </template>
+        </el-table-column>
         <el-table-column label="类型" width="120">
           <template #default="{ row }">
             <el-tag :type="getTypeColor(row.type)">
@@ -103,6 +122,19 @@
         </el-descriptions-item>
         <el-descriptions-item label="反馈内容">
           {{ currentFeedback.content }}
+        </el-descriptions-item>
+        <el-descriptions-item label="反馈图片" v-if="currentFeedback.images">
+          <div class="feedback-images">
+            <el-image
+              v-for="(img, index) in parseImages(currentFeedback.images)"
+              :key="index"
+              :src="img"
+              :preview-src-list="parseImages(currentFeedback.images)"
+              :initial-index="index"
+              fit="cover"
+              class="feedback-img"
+            />
+          </div>
         </el-descriptions-item>
         <el-descriptions-item label="状态">
           <el-tag :type="getStatusType(currentFeedback.status)">
@@ -290,6 +322,12 @@ const getStatusType = (status) => {
   return typeMap[status] || 'info'
 }
 
+// 解析图片URL（多张用逗号分隔）
+const parseImages = (imagesStr) => {
+  if (!imagesStr) return []
+  return imagesStr.split(',').map(url => url.trim()).filter(url => url)
+}
+
 // 查看详情
 const showDetail = async (feedback) => {
   try {
@@ -363,6 +401,46 @@ onMounted(() => {
 
 .filter-row {
   margin-bottom: 20px;
+}
+
+/* 反馈图片 */
+.feedback-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 表格图片样式 */
+.table-images {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.more-images {
+  font-size: 12px;
+  color: #909399;
+  margin-left: 4px;
+}
+
+.no-image {
+  color: #c0c4cc;
+  font-size: 12px;
 }
 </style>
 

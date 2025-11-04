@@ -1,9 +1,12 @@
 <template>
   <header class="app-header">
+    <!-- 顶部栏 -->
     <div class="header-container">
       <!-- Logo -->
-      <div class="header-logo" @click="router.push('/')">
-        <img src="@/assets/logo.svg" alt="社区团购" class="logo-img" />
+      <div class="header-logo" @click="$router.push('/')">
+        <el-icon :size="32" color="#409EFF">
+          <ShoppingBag />
+        </el-icon>
         <span class="logo-text">社区团购</span>
       </div>
 
@@ -11,12 +14,13 @@
       <div class="header-search">
         <el-input
           v-model="searchKeyword"
-          placeholder="搜索商品"
-          @keyup.enter="handleSearch"
+          placeholder="搜索商品..."
+          size="large"
           clearable
+          @keyup.enter="handleSearch"
         >
           <template #append>
-            <el-button :icon="Search" @click="handleSearch" />
+            <el-button :icon="Search" @click="handleSearch">搜索</el-button>
           </template>
         </el-input>
       </div>
@@ -24,56 +28,58 @@
       <!-- 右侧操作区 -->
       <div class="header-actions">
         <!-- 购物车 -->
-        <div class="cart-icon" @click="router.push('/cart')">
-          <el-badge :value="cartStore.totalCount" :max="99" :hidden="cartStore.totalCount === 0">
+        <div class="cart-icon" @click="$router.push('/cart')">
+          <el-badge :value="cartStore.totalCount" :hidden="cartStore.totalCount === 0">
             <el-icon :size="24"><ShoppingCart /></el-icon>
           </el-badge>
           <span class="action-text">购物车</span>
         </div>
 
-        <!-- 用户信息 -->
-        <div v-if="userStore.isLogin" class="user-menu">
-          <el-dropdown @command="handleUserCommand">
-            <div class="user-trigger">
-              <el-avatar :size="32">{{ userStore.userInfo?.username?.[0] || 'U' }}</el-avatar>
-              <span class="username">{{ userStore.userInfo?.username }}</span>
-            </div>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item command="profile">
-                  <el-icon><User /></el-icon>
-                  个人中心
-                </el-dropdown-item>
-                <el-dropdown-item command="orders">
-                  <el-icon><Document /></el-icon>
-                  我的订单
-                </el-dropdown-item>
-                <el-dropdown-item command="groups">
-                  <el-icon><Grid /></el-icon>
-                  我的拼团
-                </el-dropdown-item>
-                <el-dropdown-item v-if="userStore.isLeader" command="leader" divided>
-                  <el-icon><Star /></el-icon>
-                  团长工作台
-                </el-dropdown-item>
-                <el-dropdown-item command="logout" divided>
-                  <el-icon><SwitchButton /></el-icon>
-                  退出登录
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-        </div>
+        <!-- 用户菜单 -->
+        <el-dropdown v-if="userStore.isLogin" class="user-menu" @command="handleUserCommand">
+          <div class="user-trigger">
+            <el-avatar :size="32" :src="userStore.userInfo?.avatar">
+              {{ userStore.userInfo?.username?.charAt(0).toUpperCase() }}
+            </el-avatar>
+            <span class="username">{{ userStore.userInfo?.username }}</span>
+            <el-icon><User /></el-icon>
+          </div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="profile">
+                <el-icon><User /></el-icon>
+                个人中心
+              </el-dropdown-item>
+              <el-dropdown-item command="orders">
+                <el-icon><Document /></el-icon>
+                我的订单
+              </el-dropdown-item>
+              <el-dropdown-item command="groups">
+                <el-icon><Grid /></el-icon>
+                我的拼团
+              </el-dropdown-item>
+              <el-dropdown-item v-if="userStore.isLeader" command="leader" divided>
+                <el-icon><Star /></el-icon>
+                团长中心
+              </el-dropdown-item>
+              <el-dropdown-item command="logout" divided>
+                <el-icon><SwitchButton /></el-icon>
+                退出登录
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
 
-        <!-- 未登录状态 -->
-        <div v-else class="login-btn">
-          <el-button type="primary" @click="router.push('/login')">登录</el-button>
+        <!-- 登录/注册按钮 -->
+        <div v-else class="login-actions">
+          <el-button type="primary" @click="$router.push('/login')">登录</el-button>
+          <el-button @click="$router.push('/register')">注册</el-button>
         </div>
       </div>
     </div>
 
     <!-- 导航菜单 -->
-    <nav class="header-nav">
+    <div class="header-nav">
       <div class="nav-container">
         <el-menu
           :default-active="activeMenu"
@@ -81,28 +87,28 @@
           :ellipsis="false"
           background-color="#409EFF"
           text-color="#fff"
-          active-text-color="#FFD700"
+          active-text-color="#fff"
           @select="handleMenuSelect"
         >
           <el-menu-item index="/">
             <el-icon><HomeFilled /></el-icon>
-            <span>首页</span>
+            首页
           </el-menu-item>
           <el-menu-item index="/products">
             <el-icon><ShoppingBag /></el-icon>
-            <span>商品分类</span>
+            商品列表
           </el-menu-item>
           <el-menu-item index="/groupbuy">
             <el-icon><Grid /></el-icon>
-            <span>拼团活动</span>
+            拼团活动
           </el-menu-item>
           <el-menu-item v-if="userStore.isLogin" index="/profile">
             <el-icon><User /></el-icon>
-            <span>个人中心</span>
+            个人中心
           </el-menu-item>
         </el-menu>
       </div>
-    </nav>
+    </div>
   </header>
 </template>
 
@@ -194,14 +200,15 @@ const handleUserCommand = (command) => {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .header-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   gap: 40px;
@@ -211,10 +218,22 @@ const handleUserCommand = (command) => {
 .header-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   cursor: pointer;
   user-select: none;
   flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-logo:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .logo-img {
@@ -223,9 +242,13 @@ const handleUserCommand = (command) => {
 }
 
 .logo-text {
-  font-size: 20px;
-  font-weight: bold;
-  color: #409EFF;
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
 }
 
 /* 搜索框 */
@@ -234,20 +257,47 @@ const handleUserCommand = (command) => {
   max-width: 600px;
 }
 
+.header-search :deep(.el-input__wrapper) {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.header-search :deep(.el-input__wrapper:hover) {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.header-search :deep(.el-input__wrapper.is-focus) {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: #fff;
+}
+
 .header-search :deep(.el-input-group__append) {
-  background-color: #409EFF;
-  border-color: #409EFF;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  border-radius: 0 24px 24px 0;
+  padding: 0 20px;
 }
 
 .header-search :deep(.el-input-group__append .el-button) {
   color: #fff;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+}
+
+.header-search :deep(.el-input-group__append .el-button:hover) {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* 右侧操作区 */
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
@@ -257,18 +307,32 @@ const handleUserCommand = (command) => {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  transition: all 0.3s;
-  padding: 4px 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  position: relative;
 }
 
 .cart-icon:hover {
-  color: #409EFF;
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cart-icon :deep(.el-badge__content) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: 2px solid #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .action-text {
   font-size: 12px;
   margin-top: 4px;
+  font-weight: 500;
 }
 
 /* 用户菜单 */
@@ -279,33 +343,79 @@ const handleUserCommand = (command) => {
 .user-trigger {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 8px;
-  border-radius: 20px;
-  transition: all 0.3s;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
 .user-trigger:hover {
-  background-color: #f5f7fa;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.user-trigger :deep(.el-avatar) {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .username {
   font-size: 14px;
-  color: #333;
+  font-weight: 500;
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* 登录按钮 */
-.login-btn {
-  flex-shrink: 0;
+/* 登录/注册按钮 */
+.login-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.login-actions :deep(.el-button) {
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-actions :deep(.el-button--primary) {
+  background: rgba(255, 255, 255, 0.95);
+  color: #667eea;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-actions :deep(.el-button--primary:hover) {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.login-actions :deep(.el-button--default) {
+  background: transparent;
+  color: #fff;
+}
+
+.login-actions :deep(.el-button--default:hover) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
 }
 
 /* 导航菜单 */
 .header-nav {
-  background-color: #409EFF;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
@@ -315,19 +425,93 @@ const handleUserCommand = (command) => {
 
 .header-nav :deep(.el-menu) {
   border-bottom: none;
+  background: transparent;
 }
 
 .header-nav :deep(.el-menu-item) {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  margin: 4px 8px;
+  position: relative;
+}
+
+.header-nav :deep(.el-menu-item::before) {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 3px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav :deep(.el-menu-item:hover) {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.header-nav :deep(.el-menu-item:hover::before) {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .header-nav :deep(.el-menu-item.is-active) {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav :deep(.el-menu-item.is-active::before) {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* 下拉菜单样式 */
+:deep(.el-dropdown-menu) {
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+:deep(.el-dropdown-menu__item) {
+  border-radius: 8px;
+  margin: 4px 0;
+  transition: all 0.3s;
+  padding: 10px 16px;
+}
+
+:deep(.el-dropdown-menu__item:hover) {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  transform: translateX(4px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 12px 16px;
+    gap: 16px;
+  }
+  
+  .header-search {
+    max-width: 100%;
+  }
+  
+  .action-text {
+    display: none;
+  }
+  
+  .username {
+    display: none;
+  }
+  
+  .logo-text {
+    font-size: 18px;
+  }
 }
 </style>
 

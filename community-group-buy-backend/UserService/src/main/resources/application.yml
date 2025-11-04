@@ -29,6 +29,11 @@ spring:
       connection-timeout: 30000
       pool-name: HikariPoolCP
     type: com.zaxxer.hikari.HikariDataSource
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
   cloud:
     consul:
       host: localhost
@@ -80,4 +85,8 @@ springdoc:
   packages-to-scan: com.bcu.edu.controller
   default-produces-media-type: application/json
   default-consumes-media-type: application/json
-    
+
+# 文件上传路径配置
+file:
+  upload:
+    path: E:/E/BYSJ/community-group-buy-backend/uploads/user/

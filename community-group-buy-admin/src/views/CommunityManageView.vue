@@ -43,7 +43,7 @@
         <el-table-column prop="address" label="地址" min-width="200" show-overflow-tooltip />
         <el-table-column label="经纬度" width="180">
           <template #default="{ row }">
-            {{ row.latitude }}, {{ row.longitude }}
+            {{ row.longitude }}, {{ row.latitude }}
           </template>
         </el-table-column>
         <el-table-column label="服务半径" width="100">
@@ -130,20 +130,6 @@
         
         <el-row :gutter="20">
           <el-col :span="12">
-            <el-form-item label="纬度" prop="latitude">
-              <el-input-number 
-                v-model="communityForm.latitude" 
-                :precision="6"
-                :min="-90"
-                :max="90"
-                :step="0.000001"
-                controls-position="right"
-                style="width: 100%"
-                placeholder="纬度"
-              />
-            </el-form-item>
-          </el-col>
-          <el-col :span="12">
             <el-form-item label="经度" prop="longitude">
               <el-input-number 
                 v-model="communityForm.longitude" 
@@ -153,7 +139,21 @@
                 :step="0.000001"
                 controls-position="right"
                 style="width: 100%"
-                placeholder="经度"
+                placeholder="经度 (Longitude)"
+              />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item label="纬度" prop="latitude">
+              <el-input-number 
+                v-model="communityForm.latitude" 
+                :precision="6"
+                :min="-90"
+                :max="90"
+                :step="0.000001"
+                controls-position="right"
+                style="width: 100%"
+                placeholder="纬度 (Latitude)"
               />
             </el-form-item>
           </el-col>
@@ -214,11 +214,11 @@
         <el-descriptions-item label="详细地址" :span="2">
           {{ currentCommunity.address }}
         </el-descriptions-item>
-        <el-descriptions-item label="纬度">
-          {{ currentCommunity.latitude }}
-        </el-descriptions-item>
         <el-descriptions-item label="经度">
           {{ currentCommunity.longitude }}
+        </el-descriptions-item>
+        <el-descriptions-item label="纬度">
+          {{ currentCommunity.latitude }}
         </el-descriptions-item>
         <el-descriptions-item label="服务半径">
           {{ currentCommunity.serviceRadius }}米

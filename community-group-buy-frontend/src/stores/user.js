@@ -23,28 +23,43 @@ export const useUserStore = defineStore('user', () => {
   
   const userInfo = ref(getUserInfoFromStorage())
 
-  // 是否已登录
-  const isLogin = ref(!!token.value)
+  // 是否已登录（computed 自动响应 token 和 userInfo 变化）
+  const isLogin = computed(() => !!token.value && !!userInfo.value)
+
+  // 调试：打印初始状态
+  console.log('🔐 User Store 初始化:', {
+    hasToken: !!token.value,
+    hasUserInfo: !!userInfo.value,
+    isLogin: isLogin.value,
+    userId: userInfo.value?.userId
+  })
   
   // 是否为团长（role=2）
   const isLeader = computed(() => userInfo.value?.role === 2)
+  
+  // 用户社区ID（用于社区优先推荐）⭐⭐⭐
+  const communityId = computed(() => userInfo.value?.communityId)
 
   /**
    * 登录
    */
   const login = async (loginForm) => {
     try {
-      const data = await loginApi(loginForm)
+      const res = await loginApi(loginForm)
       
-      token.value = data.token
-      userInfo.value = data.userInfo
-      isLogin.value = true
-      
-      // 保存到localStorage
-      localStorage.setItem('user_token', data.token)
-      localStorage.setItem('user_info', JSON.stringify(data.userInfo))
-      
-      return data
+      if (res.code === 200) {
+        token.value = res.data.token
+        userInfo.value = res.data.userInfo
+        // isLogin 是 computed，会自动更新
+        
+        // 保存到localStorage
+        localStorage.setItem('user_token', res.data.token)
+        localStorage.setItem('user_info', JSON.stringify(res.data.userInfo))
+        
+        return res.data
+      } else {
+        throw new Error(res.message || '登录失败')
+      }
     } catch (error) {
       console.error('Login failed:', error)
       throw error
@@ -57,7 +72,7 @@ export const useUserStore = defineStore('user', () => {
   const logout = () => {
     token.value = ''
     userInfo.value = null
-    isLogin.value = false
+    // isLogin 是 computed，会自动更新
     
     localStorage.removeItem('user_token')
     localStorage.removeItem('user_info')
@@ -70,9 +85,11 @@ export const useUserStore = defineStore('user', () => {
     if (!userInfo.value?.userId) return
     
     try {
-      const data = await getUserInfoApi(userInfo.value.userId)
-      userInfo.value = data
-      localStorage.setItem('user_info', JSON.stringify(data))
+      const res = await getUserInfoApi(userInfo.value.userId)
+      if (res.code === 200) {
+        userInfo.value = res.data
+        localStorage.setItem('user_info', JSON.stringify(res.data))
+      }
     } catch (error) {
       console.error('Update user info failed:', error)
     }
@@ -83,6 +100,7 @@ export const useUserStore = defineStore('user', () => {
     userInfo,
     isLogin,
     isLeader,
+    communityId, // ⭐ 导出communityId，用于社区优先推荐
     login,
     logout,
     updateUserInfo

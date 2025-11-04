@@ -1,501 +1,736 @@
 <template>
-  <div class="balance-page-wrapper">
-    <div class="balance-page">
-      <!-- 页面标题 -->
+  <MainLayout>
+    <div class="balance-container">
       <div class="page-header">
-        <h2>我的余额</h2>
-        <p class="subtitle">查看账户余额和交易记录</p>
-      </div>
-    
-      <!-- 余额概览卡片 -->
-      <el-row :gutter="20" class="balance-cards">
-        <el-col :span="6" :xs="12">
-          <el-card class="balance-card" shadow="hover">
-            <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <el-icon :size="32"><Wallet /></el-icon>
-            </div>
-            <div class="card-content">
-              <div class="card-value">
-                <el-skeleton v-if="loading" :rows="1" animated />
-                <span v-else>¥{{ accountInfo.balance || '0.00' }}</span>
-              </div>
-              <div class="card-label">账户余额</div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="balance-card" shadow="hover">
-            <div class="card-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-              <el-icon :size="32"><CreditCard /></el-icon>
-            </div>
-            <div class="card-content">
-              <div class="card-value">
-                <el-skeleton v-if="loading" :rows="1" animated />
-                <span v-else>¥{{ accountInfo.totalRecharge || '0.00' }}</span>
-              </div>
-              <div class="card-label">累计充值</div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="balance-card" shadow="hover">
-            <div class="card-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-              <el-icon :size="32"><ShoppingBag /></el-icon>
-            </div>
-            <div class="card-content">
-              <div class="card-value">
-                <el-skeleton v-if="loading" :rows="1" animated />
-                <span v-else>¥{{ accountInfo.totalExpense || '0.00' }}</span>
-              </div>
-              <div class="card-label">累计消费</div>
-            </div>
-          </el-card>
-        </el-col>
-        <el-col :span="6" :xs="12">
-          <el-card class="balance-card" shadow="hover">
-            <div class="card-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-              <el-icon :size="32"><Money /></el-icon>
-            </div>
-            <div class="card-content">
-              <div class="card-value">
-                <el-skeleton v-if="loading" :rows="1" animated />
-                <span v-else>¥{{ accountInfo.totalCommission || '0.00' }}</span>
-              </div>
-              <div class="card-label">累计返佣</div>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
-
-      <!-- 操作按钮 -->
-      <div class="action-buttons">
-        <el-button type="primary" size="large" :icon="Plus" @click="handleRecharge">
-          充值
-        </el-button>
-        <el-button size="large" :icon="Download" @click="handleWithdraw">
-          提现
-        </el-button>
-        <el-button size="large" :icon="Document" @click="goToPaymentRecords">
-          支付记录
-        </el-button>
+        <el-button :icon="ArrowLeft" @click="$router.back()">返回</el-button>
+        <h2 class="page-title">
+          <el-icon><Wallet /></el-icon>
+          账户余额
+        </h2>
       </div>
 
-      <!-- 充值/提现说明 -->
-      <el-alert type="info" :closable="false" style="margin-top: 20px;">
-        <template #title>
-          💡 充值/提现说明
-        </template>
-        <ul style="margin: 10px 0 0 0; padding-left: 20px;">
-          <li>点击"充值"按钮可以进行余额充值（简化版本）</li>
-          <li>提现需联系客服处理，微信号：<strong>wxid_community_groupbuy</strong></li>
-          <li>余额可用于支付订单，满100元可提现</li>
-        </ul>
-      </el-alert>
-
-      <!-- 交易记录 -->
-      <el-card style="margin-top: 20px;" shadow="hover">
-        <template #header>
-          <div class="card-header">
-            <span><el-icon><List /></el-icon> 最近交易记录</span>
-            <el-button type="text" size="small" @click="fetchPaymentRecords">
-              <el-icon><Refresh /></el-icon>
-              刷新
-            </el-button>
+      <!-- 余额卡片 -->
+      <div class="balance-card">
+        <div class="balance-bg"></div>
+        <div class="balance-content">
+          <div class="balance-info">
+            <div class="balance-label">可用余额</div>
+            <div class="balance-value">¥{{ accountInfo.balance?.toFixed(2) || '0.00' }}</div>
+            <div class="frozen-balance">
+              冻结金额：¥{{ accountInfo.frozenBalance?.toFixed(2) || '0.00' }}
+            </div>
           </div>
-        </template>
-
-        <el-skeleton v-if="loadingRecords" :rows="5" animated />
-
-        <div v-else>
-          <!-- 交易记录表格 -->
-          <el-table :data="displayRecords" border stripe v-if="displayRecords.length > 0">
-            <el-table-column type="index" label="#" width="50" />
-            <el-table-column label="交易类型" width="100">
-              <template #default="{ row }">
-                <el-tag :type="getRecordTagType(row)" size="small">
-                  {{ getRecordTypeText(row) }}
-                </el-tag>
-              </template>
-            </el-table-column>
-            <el-table-column label="金额" width="120">
-              <template #default="{ row }">
-                <span :class="row.amount >= 0 ? 'amount-plus' : 'amount-minus'">
-                  {{ row.amount >= 0 ? '+' : '' }}¥{{ Math.abs(row.amount).toFixed(2) }}
-                </span>
-              </template>
-            </el-table-column>
-            <el-table-column label="支付方式" width="120">
-              <template #default="{ row }">
-                {{ getPayTypeTextLocal(row.payType) }}
-              </template>
-            </el-table-column>
-            <el-table-column label="状态" width="80">
-              <template #default="{ row }">
-                <el-tag :type="row.payStatus === 1 ? 'success' : 'danger'" size="small">
-                  {{ row.payStatus === 1 ? '成功' : '失败' }}
-                </el-tag>
-              </template>
-            </el-table-column>
-            <el-table-column label="备注" min-width="200" show-overflow-tooltip>
-              <template #default="{ row }">
-                <span v-if="row.orderId">
-                  订单支付（订单号：{{ row.orderId }}）
-                </span>
-                <span v-else-if="row.amount > 0">
-                  余额充值
-                </span>
-                <span v-else>
-                  订单退款（订单号：{{ row.orderId }}）
-                </span>
-              </template>
-            </el-table-column>
-            <el-table-column label="交易时间" width="160">
-              <template #default="{ row }">
-                {{ formatDateTime(row.createTime) }}
-              </template>
-            </el-table-column>
-          </el-table>
-
-          <!-- 无数据 -->
-          <el-empty v-else description="暂无交易记录" />
-
-          <!-- 查看全部按钮 -->
-          <div v-if="displayRecords.length > 0" style="text-align: center; margin-top: 20px;">
-            <el-button type="primary" @click="goToPaymentRecords">
-              查看全部记录
+          
+          <div class="balance-actions">
+            <el-button type="primary" :icon="CreditCard" size="large" @click="showRechargeDialog = true">
+              充值
             </el-button>
           </div>
         </div>
-      </el-card>
+      </div>
+
+      <!-- 交易记录 -->
+      <div class="transaction-section">
+        <div class="section-header">
+          <h3 class="section-title">
+            <el-icon><Document /></el-icon>
+            交易记录
+          </h3>
+          <el-radio-group v-model="filterType" size="small" @change="handleFilterChange">
+            <el-radio-button label="">全部</el-radio-button>
+            <el-radio-button label="recharge">充值</el-radio-button>
+            <el-radio-button label="consume">消费</el-radio-button>
+            <el-radio-button label="refund">退款</el-radio-button>
+          </el-radio-group>
+        </div>
+
+        <div v-loading="loading" class="transaction-list">
+          <el-empty v-if="!loading && transactionList.length === 0" description="暂无交易记录" />
+
+          <div
+            v-for="transaction in transactionList"
+            :key="transaction.id"
+            class="transaction-item"
+          >
+            <div class="transaction-icon" :class="getTransactionTypeClass(transaction.type)">
+              <el-icon v-if="transaction.type === 'recharge'"><CreditCard /></el-icon>
+              <el-icon v-else-if="transaction.type === 'consume'"><ShoppingCart /></el-icon>
+              <el-icon v-else-if="transaction.type === 'refund'"><RefreshLeft /></el-icon>
+              <el-icon v-else><Money /></el-icon>
+            </div>
+
+            <div class="transaction-content">
+              <div class="transaction-title">{{ getTransactionTitle(transaction.type) }}</div>
+              <div class="transaction-time">{{ formatTime(transaction.createTime) }}</div>
+              <div v-if="transaction.remark" class="transaction-remark">{{ transaction.remark }}</div>
+            </div>
+
+            <div class="transaction-amount" :class="getAmountClass(transaction.type)">
+              {{ getAmountText(transaction.type, transaction.amount) }}
+            </div>
+          </div>
+        </div>
+
+        <!-- 分页 -->
+        <div v-if="total > 0" class="pagination">
+          <el-pagination
+            :current-page="page"
+            :page-size="size"
+            :total="total"
+            :page-sizes="[10, 20, 50]"
+            layout="total, sizes, prev, pager, next, jumper"
+            @size-change="handleSizeChange"
+            @current-change="handlePageChange"
+          />
+        </div>
+      </div>
+
+      <!-- 充值对话框 -->
+      <el-dialog
+        v-model="showRechargeDialog"
+        title="账户充值"
+        width="500px"
+        :close-on-click-modal="false"
+      >
+        <el-form
+          ref="rechargeFormRef"
+          :model="rechargeForm"
+          :rules="rechargeRules"
+          label-width="100px"
+        >
+          <el-form-item label="充值金额" prop="amount">
+            <el-input
+              v-model.number="rechargeForm.amount"
+              type="number"
+              placeholder="请输入充值金额"
+              :prefix-icon="Money"
+              clearable
+            >
+              <template #append>元</template>
+            </el-input>
+          </el-form-item>
+
+          <el-form-item label="快捷金额">
+            <div class="quick-amount">
+              <el-button
+                v-for="amount in quickAmounts"
+                :key="amount"
+                @click="rechargeForm.amount = amount"
+              >
+                {{ amount }}元
+              </el-button>
+            </div>
+          </el-form-item>
+
+          <el-alert
+            title="温馨提示"
+            type="info"
+            :closable="false"
+            show-icon
+          >
+            <p>1. 充值金额将立即到账</p>
+            <p>2. 充值后可用于购买商品和参与拼团</p>
+            <p>3. 余额不支持提现，请根据实际需求充值</p>
+          </el-alert>
+        </el-form>
+
+        <template #footer>
+          <el-button @click="showRechargeDialog = false">取消</el-button>
+          <el-button type="primary" :loading="rechargeLoading" @click="handleRecharge">
+            确认充值
+          </el-button>
+        </template>
+      </el-dialog>
     </div>
-  </div>
+  </MainLayout>
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
-import { getAccountInfo } from '@/api/user'
-import { getPaymentRecords, recharge } from '@/api/payment'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import {
+  ArrowLeft,
   Wallet,
   CreditCard,
-  ShoppingBag,
-  Money,
-  Plus,
-  Download,
   Document,
-  List,
-  Refresh,
-  Search
+  ShoppingCart,
+  RefreshLeft,
+  Money
 } from '@element-plus/icons-vue'
+import MainLayout from '@/components/common/MainLayout.vue'
+import { getAccountInfo, recharge } from '@/api/user'
+import { getPaymentRecords } from '@/api/payment'
 
 const router = useRouter()
 const userStore = useUserStore()
-
+const rechargeFormRef = ref()
 const loading = ref(false)
-const loadingRecords = ref(false)
-const recharging = ref(false)
+const rechargeLoading = ref(false)
+const showRechargeDialog = ref(false)
+const filterType = ref('')
+const page = ref(1)
+const size = ref(10)
+const total = ref(0)
 
+// 账户信息
 const accountInfo = ref({
-  balance: '0.00',
-  totalRecharge: '0.00',
-  totalExpense: '0.00',
-  totalCommission: '0.00'
+  balance: 0,
+  frozenBalance: 0
 })
 
-// 支付记录
-const paymentRecords = ref([])
+// 交易记录
+const transactionList = ref([])
 
-// 显示最近5条记录
-const displayRecords = computed(() => {
-  return paymentRecords.value.slice(0, 5)
-})
+// 快捷充值金额
+const quickAmounts = [10, 50, 100, 200, 500, 1000]
 
 // 充值表单
-const rechargeAmount = ref(100)
+const rechargeForm = reactive({
+  amount: null
+})
 
-// 获取账户信息
-const fetchAccountInfo = async () => {
-  if (!userStore.userInfo?.userId) return
-  
-  loading.value = true
+// 充值验证规则（简化）
+const rechargeRules = {
+  amount: [
+    { required: true, message: '请输入充值金额', trigger: 'blur' }
+  ]
+}
+
+// 加载账户信息
+const loadAccountInfo = async () => {
+  // 检查用户是否登录
+  if (!userStore.isLogin || !userStore.userInfo?.userId) {
+    return
+  }
+
   try {
     const res = await getAccountInfo(userStore.userInfo.userId)
     if (res.code === 200) {
       accountInfo.value = res.data
-    } else {
-      ElMessage.error(res.message || '获取账户信息失败')
     }
   } catch (error) {
-    console.error('Failed to fetch account info:', error)
-    ElMessage.error('获取账户信息失败')
+    console.error('加载账户信息失败:', error)
+  }
+}
+
+// 加载交易记录
+const loadTransactions = async () => {
+  // 检查用户是否登录
+  if (!userStore.isLogin || !userStore.userInfo?.userId) {
+    return
+  }
+
+  loading.value = true
+  try {
+    const res = await getPaymentRecords()
+    console.log('💰 获取交易记录响应:', res)
+    
+    if (res.code === 200) {
+      // 转换后端数据格式为前端格式
+      const records = (res.data || []).map(record => {
+        // 判断交易类型
+        let type = 'other'
+        if (record.amount < 0) {
+          type = 'refund' // 退款
+        } else if (record.orderId === null) {
+          type = 'recharge' // 充值
+        } else {
+          type = 'consume' // 消费
+        }
+
+        return {
+          id: record.payId,
+          type: type,
+          amount: Math.abs(record.amount), // 使用绝对值
+          createTime: record.createTime,
+          orderId: record.orderId,
+          transactionId: record.transactionId,
+          remark: record.orderId ? `订单号: ${record.orderId}` : '账户充值'
+        }
+      })
+
+      // 按类型筛选
+      let filteredRecords = records
+      if (filterType.value) {
+        filteredRecords = records.filter(r => r.type === filterType.value)
+      }
+
+      // 手动分页（后端没有分页）
+      const start = (page.value - 1) * size.value
+      const end = start + size.value
+      transactionList.value = filteredRecords.slice(start, end)
+      total.value = filteredRecords.length
+
+      console.log('✅ 交易记录加载成功:', {
+        total: total.value,
+        currentPage: transactionList.value.length
+      })
+    } else {
+      ElMessage.error(res.message || '加载交易记录失败')
+      transactionList.value = []
+      total.value = 0
+    }
+  } catch (error) {
+    // 如果API未实现或报错，使用空数据
+    console.error('❌ 加载交易记录失败:', error)
+    transactionList.value = []
+    total.value = 0
   } finally {
     loading.value = false
   }
 }
 
-// 获取支付记录
-const fetchPaymentRecords = async () => {
-  loadingRecords.value = true
-  try {
-    const res = await getPaymentRecords()
-    if (res.code === 200) {
-      paymentRecords.value = res.data || []
-    } else {
-      ElMessage.error(res.message || '获取支付记录失败')
-    }
-  } catch (error) {
-    console.error('Failed to fetch payment records:', error)
-    ElMessage.error('获取支付记录失败')
-  } finally {
-    loadingRecords.value = false
+// 获取交易类型样式
+const getTransactionTypeClass = (type) => {
+  const classMap = {
+    'recharge': 'type-recharge',
+    'consume': 'type-consume',
+    'refund': 'type-refund'
   }
+  return classMap[type] || 'type-other'
+}
+
+// 获取交易标题
+const getTransactionTitle = (type) => {
+  const titleMap = {
+    'recharge': '账户充值',
+    'consume': '消费支付',
+    'refund': '退款到账'
+  }
+  return titleMap[type] || '其他交易'
+}
+
+// 获取金额样式
+const getAmountClass = (type) => {
+  return type === 'consume' ? 'amount-decrease' : 'amount-increase'
+}
+
+// 获取金额文本
+const getAmountText = (type, amount) => {
+  const prefix = type === 'consume' ? '-' : '+'
+  return `${prefix}¥${amount.toFixed(2)}`
+}
+
+// 格式化时间
+const formatTime = (time) => {
+  if (!time) return ''
+  const date = new Date(time)
+  return date.toLocaleString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+// 筛选变化
+const handleFilterChange = () => {
+  page.value = 1
+  loadTransactions()
+}
+
+// 分页处理
+const handleSizeChange = (newSize) => {
+  size.value = newSize
+  loadTransactions()
+}
+
+const handlePageChange = (newPage) => {
+  page.value = newPage
+  loadTransactions()
 }
 
 // 充值
 const handleRecharge = async () => {
-  try {
-    const { value: amount } = await ElMessageBox.prompt('请输入充值金额', '余额充值', {
-      confirmButtonText: '确认充值',
-      cancelButtonText: '取消',
-      inputPattern: /^[0-9]+(\.[0-9]{1,2})?$/,
-      inputErrorMessage: '请输入有效的金额',
-      inputValue: '100'
-    })
+  // 检查用户是否登录
+  if (!userStore.isLogin || !userStore.userInfo?.userId) {
+    ElMessage.warning('请先登录')
+    showRechargeDialog.value = false
+    router.push('/login')
+    return
+  }
 
-    if (!amount || parseFloat(amount) <= 0) {
-      ElMessage.warning('充值金额必须大于0')
-      return
-    }
+  await rechargeFormRef.value.validate(async (valid) => {
+    if (!valid) return
 
-    recharging.value = true
-    const res = await recharge({
-      amount: parseFloat(amount),
-      payType: 3 // 简化版本
-    })
-
-    if (res.code === 200) {
-      ElMessage.success('充值成功！')
+    rechargeLoading.value = true
+    try {
+      const res = await recharge(userStore.userInfo.userId, rechargeForm.amount)
       
-      // 刷新数据
-      await fetchAccountInfo()
-      await fetchPaymentRecords()
-    } else {
-      ElMessage.error(res.message || '充值失败')
-    }
-  } catch (error) {
-    if (error !== 'cancel') {
+      if (res.code === 200) {
+        ElMessage.success('充值成功')
+        showRechargeDialog.value = false
+        rechargeForm.amount = null
+        await loadAccountInfo()
+        await loadTransactions()
+      } else {
+        ElMessage.error(res.message || '充值失败')
+      }
+    } catch (error) {
+      ElMessage.error('充值失败，请稍后重试')
       console.error('充值失败:', error)
-      ElMessage.error('充值失败，请重试')
+    } finally {
+      rechargeLoading.value = false
     }
-  } finally {
-    recharging.value = false
-  }
-}
-
-// 提现
-const handleWithdraw = () => {
-  ElMessage.info('提现请联系客服微信：wxid_community_groupbuy')
-}
-
-// 跳转到支付记录
-const goToPaymentRecords = () => {
-  router.push({ name: 'paymentRecords' })
-}
-
-// 获取记录类型标签
-const getRecordTagType = (record) => {
-  if (record.orderId === null) {
-    return 'success' // 充值
-  } else if (record.amount < 0) {
-    return 'info' // 退款
-  } else {
-    return 'danger' // 支付
-  }
-}
-
-// 获取记录类型文本
-const getRecordTypeText = (record) => {
-  if (record.orderId === null) {
-    return '充值'
-  } else if (record.amount < 0) {
-    return '退款'
-  } else {
-    return '支付'
-  }
-}
-
-// 获取支付方式文本
-const getPayTypeTextLocal = (payType) => {
-  const map = {
-    1: '微信支付',
-    2: '支付宝',
-    3: '余额支付'
-  }
-  return map[payType] || '未知'
-}
-
-// 格式化日期时间
-const formatDateTime = (dateStr) => {
-  if (!dateStr) return '-'
-  const date = new Date(dateStr)
-  const year = date.getFullYear()
-  const month = String(date.getMonth() + 1).padStart(2, '0')
-  const day = String(date.getDate()).padStart(2, '0')
-  const hours = String(date.getHours()).padStart(2, '0')
-  const minutes = String(date.getMinutes()).padStart(2, '0')
-  const seconds = String(date.getSeconds()).padStart(2, '0')
-  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+  })
 }
 
 onMounted(() => {
-  fetchAccountInfo()
-  fetchPaymentRecords()
+  // 检查用户是否登录
+  if (!userStore.isLogin) {
+    ElMessage.warning('请先登录')
+    router.push('/login')
+    return
+  }
+  loadAccountInfo()
+  loadTransactions()
 })
 </script>
 
 <style scoped>
-.balance-page-wrapper {
-  min-height: 100vh;
-  padding-top: 84px;
-  background-color: #f5f5f5;
-}
-
-.balance-page {
-  max-width: 1400px;
+.balance-container {
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px 20px 20px;
+  padding: 24px;
 }
 
 .page-header {
-  margin-bottom: 20px;
-}
-
-.page-header h2 {
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.subtitle {
-  font-size: 14px;
-  color: #909399;
-  margin: 0;
-}
-
-/* 余额卡片 */
-.balance-cards {
-  margin-bottom: 20px;
-}
-
-.balance-card {
-  cursor: default;
-  transition: all 0.3s;
-}
-
-.balance-card:hover {
-  transform: translateY(-4px);
-}
-
-.balance-card :deep(.el-card__body) {
-  padding: 20px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
-.card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  flex-shrink: 0;
-}
-
-.card-content {
-  flex: 1;
-}
-
-.card-value {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.card-label {
-  font-size: 14px;
-  color: #909399;
-}
-
-/* 操作按钮 */
-.action-buttons {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.action-buttons .el-button {
-  flex: 1;
-  max-width: 200px;
-}
-
-/* 卡片头部 */
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.card-header > span {
+.page-title {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* 筛选表单 */
-.filter-form {
-  margin-bottom: 20px;
+/* 余额卡片 */
+.balance-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* 金额显示 */
-.amount-plus {
-  color: #67c23a;
-  font-weight: bold;
+.balance-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-.amount-minus {
-  color: #f56c6c;
-  font-weight: bold;
+.balance-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  color: #fff;
+}
+
+.balance-info {
+  flex: 1;
+}
+
+.balance-label {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.balance-value {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.frozen-balance {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.balance-actions :deep(.el-button) {
+  background: rgba(255, 255, 255, 0.95);
+  color: #4facfe;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+}
+
+.balance-actions :deep(.el-button:hover) {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 交易记录部分 */
+.transaction-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.section-header :deep(.el-radio-button__inner) {
+  border-radius: 8px;
+  border: none;
+}
+
+.section-header :deep(.el-radio-button__original-radio:checked + .el-radio-button__inner) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 交易列表 */
+.transaction-list {
+  min-height: 300px;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  margin-bottom: 12px;
+  background: #f8f9fa;
+}
+
+.transaction-item:hover {
+  background: #f0f0f0;
+  transform: translateX(4px);
+}
+
+.transaction-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.transaction-icon.type-recharge {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.transaction-icon.type-consume {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.transaction-icon.type-refund {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.transaction-icon.type-other {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.transaction-content {
+  flex: 1;
+}
+
+.transaction-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.transaction-time {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.transaction-remark {
+  font-size: 13px;
+  color: #666;
+}
+
+.transaction-amount {
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.transaction-amount.amount-increase {
+  color: #43e97b;
+}
+
+.transaction-amount.amount-decrease {
+  color: #f5576c;
+}
+
+/* 分页 */
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+:deep(.el-pagination) {
+  gap: 8px;
+}
+
+:deep(.el-pagination button),
+:deep(.el-pager li) {
+  border-radius: 8px;
+}
+
+:deep(.el-pager li.is-active) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 对话框样式 */
+:deep(.el-dialog) {
+  border-radius: 16px;
+}
+
+:deep(.el-dialog__header) {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+:deep(.el-dialog__title) {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+:deep(.el-dialog__body) {
+  padding: 24px;
+}
+
+:deep(.el-dialog__footer) {
+  padding: 16px 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 快捷金额 */
+.quick-amount {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.quick-amount :deep(.el-button) {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* 表单样式 */
+:deep(.el-form-item__label) {
+  font-weight: 600;
+  color: #333;
+}
+
+:deep(.el-input__wrapper) {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+:deep(.el-input__wrapper:hover) {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+:deep(.el-input__wrapper.is-focus) {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+:deep(.el-alert) {
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+:deep(.el-alert__content p) {
+  margin: 4px 0;
+  font-size: 13px;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .balance-page-wrapper {
-    padding-top: 76px;
+  .balance-container {
+    padding: 16px;
   }
 
-  .page-header h2 {
-    font-size: 24px;
-  }
-
-  .card-value {
-    font-size: 20px;
-  }
-
-  .action-buttons {
+  .balance-content {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px;
   }
 
-  .action-buttons .el-button {
-    max-width: 100%;
+  .balance-value {
+    font-size: 36px;
+  }
+
+  .balance-actions {
+    width: 100%;
+  }
+
+  .balance-actions :deep(.el-button) {
+    width: 100%;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .transaction-item {
+    flex-wrap: wrap;
+  }
+
+  .transaction-amount {
+    width: 100%;
+    text-align: right;
   }
 }
 </style>
+

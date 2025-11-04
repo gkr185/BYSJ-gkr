@@ -55,7 +55,14 @@
         style="width: 100%; margin-top: 20px"
       >
         <el-table-column prop="userId" label="用户ID" width="80" />
-        <el-table-column prop="username" label="用户名" width="150" />
+        <el-table-column label="头像" width="80" align="center">
+          <template #default="{ row }">
+            <el-avatar :size="40" :src="row.avatar">
+              {{ row.username?.charAt(0).toUpperCase() }}
+            </el-avatar>
+          </template>
+        </el-table-column>
+        <el-table-column prop="username" label="用户名" width="120" />
         <el-table-column label="角色" width="100">
           <template #default="{ row }">
             <el-tag :type="getRoleType(row.role)">
@@ -256,7 +263,22 @@
           <el-input v-model="createForm.wxOpenid" placeholder="请输入微信OpenID（可选）" />
         </el-form-item>
         <el-form-item label="头像URL" prop="avatar">
-          <el-input v-model="createForm.avatar" placeholder="请输入头像URL（可选）" />
+          <div style="display: flex; gap: 8px; align-items: start; flex-direction: column;">
+            <el-input v-model="createForm.avatar" placeholder="请输入头像URL（可选）" />
+            <el-upload
+              :action="uploadUrl"
+              :headers="getUploadHeaders()"
+              :show-file-list="false"
+              :before-upload="beforeAvatarUpload"
+              :on-success="(response) => handleAvatarSuccess(response, 'create')"
+              accept=".jpg,.jpeg,.png,.gif,.webp"
+            >
+              <el-button size="small" type="primary">
+                <el-icon><Upload /></el-icon>
+                上传头像
+              </el-button>
+            </el-upload>
+          </div>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -321,7 +343,22 @@
           <el-input v-model="editForm.wxOpenid" placeholder="请输入微信OpenID（可选）" />
         </el-form-item>
         <el-form-item label="头像URL" prop="avatar">
-          <el-input v-model="editForm.avatar" placeholder="请输入头像URL（可选）" />
+          <div style="display: flex; gap: 8px; align-items: start; flex-direction: column;">
+            <el-input v-model="editForm.avatar" placeholder="请输入头像URL（可选）" />
+            <el-upload
+              :action="uploadUrl"
+              :headers="getUploadHeaders()"
+              :show-file-list="false"
+              :before-upload="beforeAvatarUpload"
+              :on-success="(response) => handleAvatarSuccess(response, 'edit')"
+              accept=".jpg,.jpeg,.png,.gif,.webp"
+            >
+              <el-button size="small" type="primary">
+                <el-icon><Upload /></el-icon>
+                上传头像
+              </el-button>
+            </el-upload>
+          </div>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -335,7 +372,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, computed } from 'vue'
 import { 
   searchUsers, 
   getUsersByRole, 
@@ -345,11 +382,33 @@ import {
   updateUserInfo, 
   changeUserRole,
   getUserAddresses,
-  getUserAccount
+  getUserAccount,
+  uploadAvatar
 } from '../api/user'
 import { getCommunityList } from '../api/leader'
+import { useUserStore } from '../stores/user'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Plus } from '@element-plus/icons-vue'
+import { Plus, Upload } from '@element-plus/icons-vue'
+
+// 使用user store
+const userStore = useUserStore()
+
+// 文件上传相关
+const uploadUrl = 'http://localhost:9000/api/upload/avatar'
+
+// 获取上传headers（每次上传时动态获取最新token）
+const getUploadHeaders = () => {
+  // 从userStore或localStorage获取admin_token
+  const token = userStore.token || localStorage.getItem('admin_token')
+  
+  if (!token) {
+    ElMessage.error('未登录，请重新登录')
+  }
+  
+  return {
+    'Authorization': `Bearer ${token || ''}`
+  }
+}
 
 const loading = ref(false)
 const userList = ref([])
@@ -670,6 +729,37 @@ const fetchCommunityList = async () => {
     communityList.value = res.data || []
   } catch (error) {
     console.error('获取社区列表失败:', error)
+  }
+}
+
+// 上传头像前的验证
+const beforeAvatarUpload = (file) => {
+  const isValidType = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'].includes(file.type)
+  if (!isValidType) {
+    ElMessage.error('仅支持jpg、png、gif、webp格式的图片')
+    return false
+  }
+  
+  const isLt2M = file.size / 1024 / 1024 < 2
+  if (!isLt2M) {
+    ElMessage.error('头像大小不能超过2MB')
+    return false
+  }
+  
+  return true
+}
+
+// 头像上传成功
+const handleAvatarSuccess = (response, formType) => {
+  if (response.code === 200) {
+    if (formType === 'create') {
+      createForm.avatar = response.data
+    } else if (formType === 'edit') {
+      editForm.avatar = response.data
+    }
+    ElMessage.success('头像上传成功')
+  } else {
+    ElMessage.error(response.message || '上传失败')
   }
 }
 

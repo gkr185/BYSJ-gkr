@@ -3,9 +3,9 @@
 **服务名称**: UserService  
 **服务端口**: 8061  
 **Base URL**: `http://localhost:8061`  
-**版本**: v1.3.0  
+**版本**: v1.4.0  
 **文档日期**: 2025-10-12  
-**最后更新**: 2025-11-01 17:10
+**最后更新**: 2025-11-04 14:30 ⭐ 新增文件上传接口
 
 ---
 
@@ -19,7 +19,8 @@
 6. [地址管理接口](#6-地址管理接口)
 7. [账户管理接口](#7-账户管理接口)
 8. [反馈管理接口](#8-反馈管理接口)
-9. [Swagger文档](#9-swagger文档)
+9. [文件上传接口](#9-文件上传接口) ⭐ **新增（2025-11-04）**
+10. [Swagger文档](#10-swagger文档)
 
 ---
 
@@ -35,6 +36,7 @@
 - ✅ 收货地址管理
 - ✅ 用户账户余额管理
 - ✅ 用户反馈管理
+- ✅ 文件上传管理（头像、反馈图片） ⭐ **新增（2025-11-04）**
 
 ### 1.2 技术栈
 
@@ -1019,9 +1021,289 @@ Content-Type: application/json
 
 ---
 
-## 9. Swagger文档
+## 9. 文件上传接口
 
-### 9.1 访问Swagger UI
+### 9.1 上传通用文件
+
+**接口说明**: 上传用户相关文件（头像、反馈图片等）
+
+**请求方式**: `POST`
+
+**接口地址**: `/api/upload/file`
+
+**需要认证**: 否（建议根据业务需求添加）
+
+**请求参数**:
+
+| 参数名 | 类型 | 必填 | 说明 |
+|--------|------|------|------|
+| file | MultipartFile | 是 | 上传的文件 |
+
+**文件限制**:
+- 最大文件大小: 5MB
+- 允许的格式: jpg, jpeg, png, gif, webp
+
+**请求示例**:
+
+```bash
+curl -X POST "http://localhost:8061/api/upload/file" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@/path/to/image.jpg"
+```
+
+**响应示例（成功）**:
+
+```json
+{
+  "code": 200,
+  "message": "文件上传成功",
+  "data": "http://localhost:8061/uploads/user/20251104143025_123456.jpg"
+}
+```
+
+**响应示例（失败）**:
+
+```json
+{
+  "code": 400,
+  "message": "文件大小不能超过5MB",
+  "data": null
+}
+```
+
+---
+
+### 9.2 上传用户头像
+
+**接口说明**: 专门用于上传用户头像的接口，限制更小的文件大小
+
+**请求方式**: `POST`
+
+**接口地址**: `/api/upload/avatar`
+
+**需要认证**: 建议需要
+
+**请求参数**:
+
+| 参数名 | 类型 | 必填 | 说明 |
+|--------|------|------|------|
+| file | MultipartFile | 是 | 用户头像图片 |
+
+**文件限制**:
+- 最大文件大小: 2MB
+- 允许的格式: jpg, jpeg, png, gif, webp
+
+**请求示例**:
+
+```bash
+curl -X POST "http://localhost:8061/api/upload/avatar" \
+  -H "Content-Type: multipart/form-data" \
+  -H "Authorization: Bearer <token>" \
+  -F "file=@/path/to/avatar.jpg"
+```
+
+**响应示例（成功）**:
+
+```json
+{
+  "code": 200,
+  "message": "头像上传成功",
+  "data": "http://localhost:8061/uploads/user/20251104143025_654321.jpg"
+}
+```
+
+**响应示例（失败）**:
+
+```json
+{
+  "code": 400,
+  "message": "头像大小不能超过2MB",
+  "data": null
+}
+```
+
+---
+
+### 9.3 上传反馈图片
+
+**接口说明**: 专门用于上传用户反馈图片的接口
+
+**请求方式**: `POST`
+
+**接口地址**: `/api/upload/feedback`
+
+**需要认证**: 建议需要
+
+**请求参数**:
+
+| 参数名 | 类型 | 必填 | 说明 |
+|--------|------|------|------|
+| file | MultipartFile | 是 | 反馈图片 |
+
+**文件限制**:
+- 最大文件大小: 5MB
+- 允许的格式: jpg, jpeg, png, gif, webp
+
+**请求示例**:
+
+```bash
+curl -X POST "http://localhost:8061/api/upload/feedback" \
+  -H "Content-Type: multipart/form-data" \
+  -H "Authorization: Bearer <token>" \
+  -F "file=@/path/to/feedback.jpg"
+```
+
+**响应示例（成功）**:
+
+```json
+{
+  "code": 200,
+  "message": "反馈图片上传成功",
+  "data": "http://localhost:8061/uploads/user/20251104143025_789012.jpg"
+}
+```
+
+**响应示例（失败）**:
+
+```json
+{
+  "code": 400,
+  "message": "文件格式不支持，仅支持: jpg, jpeg, png, gif, webp",
+  "data": null
+}
+```
+
+---
+
+### 9.4 文件上传说明
+
+#### 文件命名规则
+
+上传的文件会被自动重命名，格式为：`yyyyMMddHHmmss_随机6位数字.扩展名`
+
+示例：`20251104143025_123456.jpg`
+
+#### 文件存储路径
+
+- **本地存储**: `E:/E/BYSJ/community-group-buy-backend/uploads/user/`
+- **访问URL**: `http://localhost:8061/uploads/user/{文件名}`
+
+#### 文件格式支持
+
+| 格式 | 说明 | 最大大小 |
+|------|------|---------|
+| jpg/jpeg | JPEG图片 | 5MB（头像2MB） |
+| png | PNG图片 | 5MB（头像2MB） |
+| gif | GIF动图 | 5MB（头像2MB） |
+| webp | WebP图片 | 5MB（头像2MB） |
+
+#### 错误码
+
+| 错误码 | 错误信息 | 说明 |
+|--------|---------|------|
+| 400 | 文件为空 | 未上传文件或文件为空 |
+| 400 | 文件大小不能超过XXX | 文件超过大小限制 |
+| 400 | 文件格式不支持 | 文件格式不在允许范围内 |
+| 500 | 文件上传失败 | 服务器文件保存失败 |
+
+#### 集成示例（前端）
+
+**使用Element Plus的上传组件**:
+
+```vue
+<template>
+  <el-upload
+    :action="uploadUrl"
+    :headers="uploadHeaders"
+    :on-success="handleSuccess"
+    :on-error="handleError"
+    :before-upload="beforeUpload"
+    :limit="1"
+    accept=".jpg,.jpeg,.png,.gif,.webp"
+  >
+    <el-button type="primary">选择文件</el-button>
+  </el-upload>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const uploadUrl = 'http://localhost:8061/api/upload/file'
+const uploadHeaders = ref({
+  // 如果需要认证，添加token
+  // 'Authorization': `Bearer ${token}`
+})
+
+const beforeUpload = (file) => {
+  // 文件大小验证（5MB）
+  const isLt5M = file.size / 1024 / 1024 < 5
+  if (!isLt5M) {
+    ElMessage.error('文件大小不能超过5MB')
+    return false
+  }
+  
+  // 文件格式验证
+  const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
+  if (!validTypes.includes(file.type)) {
+    ElMessage.error('仅支持jpg、png、gif、webp格式')
+    return false
+  }
+  
+  return true
+}
+
+const handleSuccess = (response) => {
+  if (response.code === 200) {
+    ElMessage.success('上传成功')
+    console.log('文件URL:', response.data)
+  } else {
+    ElMessage.error(response.message)
+  }
+}
+
+const handleError = (error) => {
+  ElMessage.error('上传失败')
+  console.error(error)
+}
+</script>
+```
+
+**使用原生Axios**:
+
+```javascript
+import axios from 'axios'
+
+const uploadFile = async (file) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  
+  try {
+    const response = await axios.post('http://localhost:8061/api/upload/file', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        // 如果需要认证
+        // 'Authorization': `Bearer ${token}`
+      }
+    })
+    
+    if (response.data.code === 200) {
+      console.log('文件URL:', response.data.data)
+      return response.data.data
+    } else {
+      throw new Error(response.data.message)
+    }
+  } catch (error) {
+    console.error('上传失败:', error)
+    throw error
+  }
+}
+```
+
+---
+
+## 10. Swagger文档
+
+### 10.1 访问Swagger UI
 
 启动UserService后，访问以下地址查看交互式API文档：
 
@@ -1029,13 +1311,13 @@ Content-Type: application/json
 http://localhost:8061/swagger-ui.html
 ```
 
-### 9.2 OpenAPI JSON
+### 10.2 OpenAPI JSON
 
 ```
 http://localhost:8061/api-docs
 ```
 
-### 9.3 在Swagger中使用JWT
+### 10.3 在Swagger中使用JWT
 
 1. 点击右上角 `Authorize` 按钮
 2. 在弹出框中输入JWT Token（不需要Bearer前缀）
@@ -1082,9 +1364,9 @@ http://localhost:8061/api-docs
 
 ---
 
-## 10. Feign内部接口（供其他微服务调用）
+## 11. Feign内部接口（供其他微服务调用）
 
-### 10.1 接口概述
+### 11.1 接口概述
 
 Feign内部接口专门提供给其他微服务调用，**不对外暴露**，不经过API Gateway。
 
@@ -1101,7 +1383,7 @@ Feign内部接口专门提供给其他微服务调用，**不对外暴露**，�
 
 ---
 
-### 10.2 验证用户是否存在（OrderService专用）⭐⭐⭐⭐⭐
+### 11.2 验证用户是否存在（OrderService专用）⭐⭐⭐⭐⭐
 
 ```http
 GET /api/user/feign/validate/{userId}
@@ -1149,7 +1431,7 @@ GET /api/user/feign/validate/{userId}
 
 ---
 
-### 10.3 获取地址详情（OrderService专用）⭐⭐⭐⭐⭐
+### 11.3 获取地址详情（OrderService专用）⭐⭐⭐⭐⭐
 
 ```http
 GET /api/user/feign/address/{addressId}
@@ -1210,7 +1492,7 @@ GET /api/user/feign/address/{addressId}
 
 ---
 
-### 10.4 获取用户信息（GroupBuyService专用）⭐⭐⭐⭐
+### 11.4 获取用户信息（GroupBuyService专用）⭐⭐⭐⭐
 
 ```http
 GET /api/user/feign/info/{userId}
@@ -1249,7 +1531,7 @@ GET /api/user/feign/info/{userId}
 
 ---
 
-### 10.5 更新用户角色（LeaderService专用）⭐⭐⭐⭐
+### 11.5 更新用户角色（LeaderService专用）⭐⭐⭐⭐
 
 ```http
 POST /feign/user/{userId}/role?role=2
@@ -1287,7 +1569,7 @@ POST /feign/user/{userId}/role?role=2
 
 ---
 
-### 10.6 扣减余额（OrderService/PaymentService专用）⭐⭐⭐⭐⭐
+### 11.6 扣减余额（OrderService/PaymentService专用）⭐⭐⭐⭐⭐
 
 ```http
 POST /feign/account/deduct?userId=4&amount=100.00&sagaId=order-123
@@ -1322,7 +1604,7 @@ POST /feign/account/deduct?userId=4&amount=100.00&sagaId=order-123
 
 ---
 
-### 10.7 返还余额（GroupBuyService专用）⭐⭐⭐⭐⭐
+### 11.7 返还余额（GroupBuyService专用）⭐⭐⭐⭐⭐
 
 ```http
 POST /api/account/feign/refund?userId=4&amount=100.00
@@ -1355,7 +1637,7 @@ POST /api/account/feign/refund?userId=4&amount=100.00
 
 ---
 
-### 10.8 验证余额是否充足⭐⭐⭐
+### 11.8 验证余额是否充足⭐⭐⭐
 
 ```http
 GET /feign/account/check?userId=4&amount=100.00
@@ -1395,7 +1677,7 @@ GET /feign/account/check?userId=4&amount=100.00
 
 ---
 
-### 10.9 充值余额（PaymentService专用）⭐⭐⭐⭐⭐ NEW
+### 11.9 充值余额（PaymentService专用）⭐⭐⭐⭐⭐ NEW
 
 ```http
 POST /feign/account/recharge?userId=3&amount=100.00
@@ -1478,7 +1760,7 @@ public PaymentRecord recharge(Long userId, BigDecimal amount) {
 
 ---
 
-### 10.10 Feign接口设计原则
+### 11.10 Feign接口设计原则
 
 1. **路径规范**: 使用`/api/{service}/feign/`或`/feign/`前缀
 2. **认证**: 不需要JWT Token（内部服务调用）
@@ -1548,7 +1830,7 @@ public PaymentRecord recharge(Long userId, BigDecimal amount) {
 
 ---
 
-**当前版本**: v1.3.0  
-**最后更新**: 2025-11-01 17:10  
+**当前版本**: v1.4.0  
+**最后更新**: 2025-11-04 14:30  
 **文档结束**
 

@@ -10,28 +10,7 @@
     
     <!-- 底部 -->
     <footer class="main-footer">
-      <div class="footer-container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h4>关于我们</h4>
-            <p>社区团购系统 - 便捷、优惠的社区购物体验</p>
-          </div>
-          <div class="footer-section">
-            <h4>联系方式</h4>
-            <p>客服电话：400-888-8888</p>
-            <p>工作时间：9:00 - 18:00</p>
-          </div>
-          <div class="footer-section">
-            <h4>帮助中心</h4>
-            <p><a href="#">常见问题</a></p>
-            <p><a href="#">配送说明</a></p>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          © 2025 社区团购系统. All rights reserved.
-        </div>
-      </div>
-    </footer>
+     </footer>
   </div>
 </template>
 
@@ -49,8 +28,8 @@ import Header from './Header.vue'
 /* 主内容区 */
 .main-content {
   flex: 1;
-  padding-top: 120px; /* Header高度(60px) + Nav高度(60px) */
-  min-height: calc(100vh - 120px - 200px); /* 减去Header和Footer高度 */
+  padding-top: 140px; /* Header顶部栏(~76px) + Nav菜单(~48px) + 间距(16px) */
+  min-height: calc(100vh - 140px);
   background-color: #f5f5f5;
 }
 
