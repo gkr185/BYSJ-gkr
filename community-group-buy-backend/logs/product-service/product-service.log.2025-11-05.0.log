@@ -1,0 +1,4 @@
+2025-11-05 00:01:34.185 [SpringApplicationShutdownHook] INFO  o.s.c.c.s.ConsulServiceRegistry - Deregistering service with consul: product-service-8062
+2025-11-05 00:01:34.200 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-05 00:01:34.208 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-11-05 00:01:34.211 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

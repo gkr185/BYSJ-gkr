@@ -29,6 +29,22 @@ const router = createRouter({
       meta: { title: '注册' }
     },
 
+    // === 商品详情 ===
+    {
+      path: '/products/:id',
+      name: 'productDetail',
+      component: () => import('../views/product/ProductDetailView.vue'),
+      meta: { title: '商品详情' }
+    },
+
+    // === 拼团相关 ===
+    {
+      path: '/groupbuy/product/:productId',
+      name: 'groupBuyProductDetail',
+      component: () => import('../views/groupbuy/GroupBuyProductDetailView.vue'),
+      meta: { title: '拼团详情' }
+    },
+
     // === 用户中心 ===
     {
       path: '/profile',
@@ -59,6 +75,20 @@ const router = createRouter({
       name: 'userFeedback',
       component: () => import('../views/user/FeedbackView.vue'),
       meta: { title: '意见反馈', requireAuth: true }
+    },
+
+    // === 团长相关 ===
+    {
+      path: '/leader/apply',
+      name: 'leaderApply',
+      component: () => import('../views/leader/LeaderApplyView.vue'),
+      meta: { title: '申请成为团长', requireAuth: true }
+    },
+    {
+      path: '/leader/dashboard',
+      name: 'leaderDashboard',
+      component: () => import('../views/leader/LeaderDashboardView.vue'),
+      meta: { title: '团长工作台', requireAuth: true, requiresLeader: true }
     },
 
     // === 404 页面（必须放在最后） ===

@@ -21,5 +21,10 @@ public class UserUpdateRequest {
     private String avatar;
 
     private String wxOpenid;
+
+    /**
+     * 所属社区ID
+     */
+    private Long communityId;
 }
 

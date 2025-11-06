@@ -1,0 +1,8 @@
+[2025-11-05 00:00:00.013] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - ====================================
+[2025-11-05 00:00:00.014] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - 开始检查过期团，当前时间：2025-11-05T00:00:00.013378
+[2025-11-05 00:00:00.014] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - ====================================
+[2025-11-05 00:00:00.034] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:?] - 未发现过期团，任务结束
+[2025-11-05 00:01:34.187] [INFO ] [groupbuy-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: groupbuy-service-8063
+[2025-11-05 00:01:34.198] [INFO ] [groupbuy-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-05 00:01:34.206] [INFO ] [groupbuy-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-05 00:01:34.208] [INFO ] [groupbuy-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.

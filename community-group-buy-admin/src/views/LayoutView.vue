@@ -55,6 +55,10 @@
             <el-icon><ShoppingCart /></el-icon>
             <span>订单管理</span>
           </el-menu-item>
+          <el-menu-item index="/payments">
+            <el-icon><CreditCard /></el-icon>
+            <span>支付管理</span>
+          </el-menu-item>
           <el-menu-item index="/feedback">
             <el-icon><ChatDotRound /></el-icon>
             <span>反馈管理</span>
@@ -79,7 +83,7 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 import { ElMessageBox } from 'element-plus'
-import { User, ChatDotRound, Document, OfficeBuilding, Stamp, Avatar, Coin, ShoppingBag, List, TrophyBase, ShoppingCart } from '@element-plus/icons-vue'
+import { User, ChatDotRound, Document, OfficeBuilding, Stamp, Avatar, Coin, ShoppingBag, List, TrophyBase, ShoppingCart, CreditCard } from '@element-plus/icons-vue'
 
 const route = useRoute()
 const router = useRouter()

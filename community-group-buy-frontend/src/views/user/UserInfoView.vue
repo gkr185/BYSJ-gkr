@@ -503,7 +503,8 @@ const handleSubmit = async () => {
     try {
       const res = await updateUserInfo(userStore.userInfo.userId, {
         realName: formData.realName,
-        phone: formData.phone
+        phone: formData.phone,
+        communityId: formData.communityId
       })
 
       if (res.code === 200) {
@@ -512,7 +513,8 @@ const handleSubmit = async () => {
         const updatedUserInfo = {
           ...userStore.userInfo,
           realName: formData.realName,
-          phone: formData.phone
+          phone: formData.phone,
+          communityId: formData.communityId
         }
         // 直接更新 store 中的 userInfo
         userStore.userInfo = updatedUserInfo

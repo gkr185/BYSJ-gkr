@@ -9,17 +9,25 @@ import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.request.CreatePaymentRequest;
 import com.bcu.edu.dto.request.RefundRequest;
 import com.bcu.edu.dto.response.PaymentResponse;
+import com.bcu.edu.dto.response.PaymentStatistics;
 import com.bcu.edu.entity.PaymentRecord;
 import com.bcu.edu.enums.PayStatus;
 import com.bcu.edu.enums.PayType;
 import com.bcu.edu.repository.PaymentRecordRepository;
 import com.bcu.edu.util.SecurityUtil;
+import jakarta.persistence.criteria.Predicate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -400,6 +408,170 @@ public class PaymentService {
      */
     public List<PaymentRecord> getUserRechargeRecords(Long userId) {
         return paymentRepository.findByUserIdAndOrderIdIsNullOrderByCreateTimeDesc(userId);
+    }
+
+    // ==================== 管理端方法 ====================
+
+    /**
+     * 查询所有用户的支付记录（管理端）
+     * 
+     * <p>支持多条件筛选：
+     * <ul>
+     *   <li>支付方式（payType）</li>
+     *   <li>支付状态（payStatus）</li>
+     *   <li>记录类型（recordType: recharge/payment/refund）</li>
+     *   <li>关键词搜索（keyword: 订单号/交易号）</li>
+     *   <li>日期范围（startTime/endTime）</li>
+     * </ul>
+     * 
+     * @param pageable 分页参数
+     * @param payType 支付方式（可选）
+     * @param payStatus 支付状态（可选）
+     * @param recordType 记录类型（可选：recharge/payment/refund）
+     * @param keyword 搜索关键词（可选）
+     * @param startTime 开始时间（可选）
+     * @param endTime 结束时间（可选）
+     * @return 分页的支付记录列表
+     */
+    public Page<PaymentRecord> getAdminPaymentRecords(Pageable pageable, 
+                                                       Integer payType, 
+                                                       Integer payStatus,
+                                                       String recordType, 
+                                                       String keyword,
+                                                       LocalDateTime startTime, 
+                                                       LocalDateTime endTime) {
+        log.info("管理端查询支付记录: payType={}, payStatus={}, recordType={}, keyword={}", 
+                 payType, payStatus, recordType, keyword);
+
+        // 构建动态查询条件
+        Specification<PaymentRecord> spec = (root, query, criteriaBuilder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+
+            // 支付方式筛选
+            if (payType != null) {
+                predicates.add(criteriaBuilder.equal(root.get("payType"), payType));
+            }
+
+            // 支付状态筛选
+            if (payStatus != null) {
+                predicates.add(criteriaBuilder.equal(root.get("payStatus"), payStatus));
+            }
+
+            // 记录类型筛选
+            if (recordType != null) {
+                switch (recordType) {
+                    case "recharge":
+                        // 充值记录：orderId为null，amount为正
+                        predicates.add(criteriaBuilder.isNull(root.get("orderId")));
+                        predicates.add(criteriaBuilder.greaterThan(root.get("amount"), BigDecimal.ZERO));
+                        break;
+                    case "payment":
+                        // 支付记录：orderId不为null，amount为正
+                        predicates.add(criteriaBuilder.isNotNull(root.get("orderId")));
+                        predicates.add(criteriaBuilder.greaterThan(root.get("amount"), BigDecimal.ZERO));
+                        break;
+                    case "refund":
+                        // 退款记录：amount为负
+                        predicates.add(criteriaBuilder.lessThan(root.get("amount"), BigDecimal.ZERO));
+                        break;
+                }
+            }
+
+            // 关键词搜索（订单号或交易号）
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                String likeKeyword = "%" + keyword.trim() + "%";
+                Predicate orderIdPredicate = criteriaBuilder.like(
+                    criteriaBuilder.toString(root.get("orderId")), likeKeyword);
+                Predicate transactionIdPredicate = criteriaBuilder.like(
+                    root.get("transactionId"), likeKeyword);
+                predicates.add(criteriaBuilder.or(orderIdPredicate, transactionIdPredicate));
+            }
+
+            // 日期范围筛选
+            if (startTime != null) {
+                predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("createTime"), startTime));
+            }
+            if (endTime != null) {
+                predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("createTime"), endTime));
+            }
+
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        };
+
+        return paymentRepository.findAll(spec, pageable);
+    }
+
+    /**
+     * 支付统计（管理端）
+     * 
+     * @param startTime 开始时间（可选）
+     * @param endTime 结束时间（可选）
+     * @return 统计数据
+     */
+    public PaymentStatistics getPaymentStatistics(LocalDateTime startTime, LocalDateTime endTime) {
+        log.info("管理端查询支付统计: startTime={}, endTime={}", startTime, endTime);
+
+        PaymentStatistics statistics = new PaymentStatistics();
+
+        // 1. 总记录数
+        Long total = paymentRepository.countByCreateTimeBetween(startTime, endTime);
+        statistics.setTotal(total);
+
+        // 2. 充值统计
+        Long rechargeCount = paymentRepository.countRechargeRecords(startTime, endTime);
+        BigDecimal rechargeAmount = paymentRepository.sumRechargeAmount(startTime, endTime);
+        statistics.setRechargeCount(rechargeCount);
+        statistics.setRechargeAmount(rechargeAmount);
+
+        // 3. 支付统计（订单支付）
+        Long paymentCount = paymentRepository.countPaymentRecords(startTime, endTime);
+        BigDecimal paymentAmount = paymentRepository.sumPaymentAmount(startTime, endTime);
+        statistics.setPaymentCount(paymentCount);
+        statistics.setPaymentAmount(paymentAmount);
+
+        // 4. 退款统计
+        Long refundCount = paymentRepository.countRefundRecords(startTime, endTime);
+        BigDecimal refundAmount = paymentRepository.sumRefundAmount(startTime, endTime);
+        statistics.setRefundCount(refundCount);
+        statistics.setRefundAmount(refundAmount);
+
+        // 5. 总交易金额（充值 + 支付 + 退款）
+        BigDecimal totalAmount = rechargeAmount.add(paymentAmount).add(refundAmount);
+        statistics.setTotalAmount(totalAmount);
+
+        // 6. 支付成功率
+        if (total > 0) {
+            Long successCount = paymentRepository.countSuccessRecords(startTime, endTime);
+            double successRate = (successCount.doubleValue() / total.doubleValue()) * 100;
+            statistics.setSuccessRate(BigDecimal.valueOf(successRate)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue());
+        }
+
+        // 7. 各支付方式占比
+        if (total > 0) {
+            // 余额支付
+            Long balanceCount = paymentRepository.countByPayType(PayType.BALANCE.getCode(), startTime, endTime);
+            double balanceRate = (balanceCount.doubleValue() / total.doubleValue()) * 100;
+            statistics.setBalancePayRate(BigDecimal.valueOf(balanceRate)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue());
+
+            // 微信支付
+            Long wechatCount = paymentRepository.countByPayType(PayType.WECHAT.getCode(), startTime, endTime);
+            double wechatRate = (wechatCount.doubleValue() / total.doubleValue()) * 100;
+            statistics.setWechatPayRate(BigDecimal.valueOf(wechatRate)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue());
+
+            // 支付宝支付
+            Long alipayCount = paymentRepository.countByPayType(PayType.ALIPAY.getCode(), startTime, endTime);
+            double alipayRate = (alipayCount.doubleValue() / total.doubleValue()) * 100;
+            statistics.setAlipayPayRate(BigDecimal.valueOf(alipayRate)
+                    .setScale(2, RoundingMode.HALF_UP).doubleValue());
+        }
+
+        log.info("统计完成: total={}, recharge={}, payment={}, refund={}", 
+                 total, rechargeCount, paymentCount, refundCount);
+
+        return statistics;
     }
 }
 

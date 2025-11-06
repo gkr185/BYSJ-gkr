@@ -1,0 +1,19 @@
+[2025-11-05 00:00:53.674] [DEBUG] [payment-service] [http-nio-8066-exec-7] [org.hibernate.SQL:135] - 
+    select
+        pr1_0.pay_id,
+        pr1_0.amount,
+        pr1_0.create_time,
+        pr1_0.encrypt_sign,
+        pr1_0.order_id,
+        pr1_0.pay_callback_info,
+        pr1_0.pay_status,
+        pr1_0.pay_type,
+        pr1_0.transaction_id,
+        pr1_0.user_id,
+        pr1_0.wx_transaction_id 
+    from
+        payment_record pr1_0 
+    where
+        pr1_0.user_id=? 
+    order by
+        pr1_0.create_time desc

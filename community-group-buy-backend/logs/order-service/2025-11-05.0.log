@@ -1,0 +1,9 @@
+[2025-11-05 00:00:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-05 00:00:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-05 00:00:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-04T23:30:00.011270400
+[2025-11-05 00:00:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-05 00:00:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-05 00:01:34.149] [INFO ] [order-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: order-service-8065
+[2025-11-05 00:01:34.160] [INFO ] [order-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-05 00:01:34.165] [INFO ] [order-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-05 00:01:34.168] [INFO ] [order-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.

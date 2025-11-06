@@ -62,6 +62,10 @@
                 <el-icon><Star /></el-icon>
                 团长中心
               </el-dropdown-item>
+              <el-dropdown-item command="switchUser" divided v-if="isDevelopment">
+                <el-icon><Refresh /></el-icon>
+                切换测试用户
+              </el-dropdown-item>
               <el-dropdown-item command="logout" divided>
                 <el-icon><SwitchButton /></el-icon>
                 退出登录
@@ -109,6 +113,12 @@
         </el-menu>
       </div>
     </div>
+
+    <!-- 切换测试用户对话框 -->
+    <SwitchUserDialog
+      v-model="showSwitchUserDialog"
+      @switched="handleUserSwitched"
+    />
   </header>
 </template>
 
@@ -127,8 +137,10 @@ import {
   Star,
   SwitchButton,
   HomeFilled,
-  ShoppingBag
+  ShoppingBag,
+  Refresh
 } from '@element-plus/icons-vue'
+import SwitchUserDialog from './SwitchUserDialog.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -136,6 +148,12 @@ const userStore = useUserStore()
 const cartStore = useCartStore()
 
 const searchKeyword = ref('')
+const showSwitchUserDialog = ref(false)
+
+// 是否为开发环境
+const isDevelopment = computed(() => {
+  return import.meta.env.DEV || import.meta.env.MODE === 'development'
+})
 
 // 当前激活的菜单
 const activeMenu = computed(() => {
@@ -179,6 +197,9 @@ const handleUserCommand = (command) => {
     case 'leader':
       router.push('/profile')
       break
+    case 'switchUser':
+      showSwitchUserDialog.value = true
+      break
     case 'logout':
       ElMessageBox.confirm('确定要退出登录吗？', '提示', {
         type: 'warning'
@@ -191,6 +212,14 @@ const handleUserCommand = (command) => {
       break
   }
 }
+
+// 用户切换成功
+const handleUserSwitched = () => {
+  // 刷新购物车
+  cartStore.loadCart()
+  // 刷新当前页面
+  router.go(0)
+}
 </script>
 
 <style scoped>
@@ -199,7 +228,7 @@ const handleUserCommand = (command) => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 999;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -259,7 +288,7 @@ const handleUserCommand = (command) => {
 
 .header-search :deep(.el-input__wrapper) {
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 24px;
+  border-radius: 24px 0 0 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
   border: 2px solid transparent;
@@ -433,7 +462,7 @@ const handleUserCommand = (command) => {
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px;
-  margin: 4px 8px;
+  margin: 0px 8px;
   position: relative;
 }
 

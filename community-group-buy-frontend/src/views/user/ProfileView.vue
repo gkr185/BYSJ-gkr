@@ -157,6 +157,40 @@
             其他服务
           </h3>
           <div class="menu-list">
+            <!-- 团长工作台 -->
+            <div 
+              v-if="userStore.isLeader" 
+              class="menu-item leader-dashboard" 
+              @click="$router.push('/leader/dashboard')"
+            >
+              <div class="menu-item-icon dashboard">
+                <el-icon><DataBoard /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">团长工作台</div>
+                <div class="menu-item-desc">管理团点和佣金</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+              <el-tag type="success" size="small" effect="dark" class="vip-tag">VIP</el-tag>
+            </div>
+
+            <!-- 申请成为团长 -->
+            <div 
+              v-if="!userStore.isLeader && userStore.userInfo?.role !== 3" 
+              class="menu-item leader-apply" 
+              @click="$router.push('/leader/apply')"
+            >
+              <div class="menu-item-icon leader">
+                <el-icon><Star /></el-icon>
+              </div>
+              <div class="menu-item-content">
+                <div class="menu-item-title">申请成为团长</div>
+                <div class="menu-item-desc">成为团长，赚取佣金</div>
+              </div>
+              <el-icon class="menu-item-arrow"><ArrowRight /></el-icon>
+              <el-tag type="danger" size="small" effect="dark" class="hot-tag">HOT</el-tag>
+            </div>
+
             <div class="menu-item" @click="$router.push('/user/feedback')">
               <div class="menu-item-icon">
                 <el-icon><ChatDotRound /></el-icon>
@@ -203,7 +237,8 @@ import {
   ShoppingBag,
   Setting,
   ChatDotRound,
-  SwitchButton
+  SwitchButton,
+  DataBoard
 } from '@element-plus/icons-vue'
 import MainLayout from '@/components/common/MainLayout.vue'
 import { getAccountInfo, getAddressList } from '@/api/user'
@@ -531,6 +566,50 @@ onMounted(() => {
 .menu-item-icon.logout {
   background: linear-gradient(135deg, rgba(245, 87, 108, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
   color: #f5576c;
+}
+
+.menu-item-icon.leader {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.2) 100%);
+  color: #ffa500;
+}
+
+.menu-item.leader-apply {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.05) 100%);
+  border: 1px dashed #ffd700;
+}
+
+.menu-item.leader-apply:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.1) 100%);
+  border: 1px dashed #ffa500;
+  transform: translateX(8px);
+}
+
+.hot-tag,
+.vip-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 11px;
+  padding: 2px 8px;
+  font-weight: 700;
+}
+
+.menu-item-icon.dashboard {
+  background: linear-gradient(135deg, rgba(103, 194, 58, 0.2) 0%, rgba(52, 211, 153, 0.2) 100%);
+  color: #67c23a;
+}
+
+.menu-item.leader-dashboard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(103, 194, 58, 0.05) 0%, rgba(52, 211, 153, 0.05) 100%);
+  border: 1px solid rgba(103, 194, 58, 0.3);
+}
+
+.menu-item.leader-dashboard:hover {
+  background: linear-gradient(135deg, rgba(103, 194, 58, 0.1) 0%, rgba(52, 211, 153, 0.1) 100%);
+  border: 1px solid rgba(103, 194, 58, 0.5);
+  transform: translateX(8px);
 }
 
 .menu-item-content {

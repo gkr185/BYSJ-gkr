@@ -153,6 +153,11 @@ public class UserService {
         if (request.getWxOpenid() != null) {
             user.setWxOpenid(request.getWxOpenid());
         }
+        // 更新所属社区
+        if (request.getCommunityId() != null) {
+            user.setCommunityId(request.getCommunityId());
+            log.debug("更新用户所属社区: userId={}, communityId={}", userId, request.getCommunityId());
+        }
 
         user = userRepository.save(user);
 

@@ -3,7 +3,7 @@
     <!-- 商品图片 -->
     <div class="product-image" @click="goToDetail">
       <el-image
-        :src="product.image || '/placeholder-product.png'"
+        :src="productImageUrl"
         fit="cover"
         lazy
       >
@@ -61,10 +61,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { ShoppingCart, Picture } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useCartStore } from '@/stores/cart'
+import { getProductImageUrl } from '@/utils/image'
 
 const props = defineProps({
   product: {
@@ -75,6 +77,11 @@ const props = defineProps({
 
 const router = useRouter()
 const cartStore = useCartStore()
+
+// 计算商品图片URL
+const productImageUrl = computed(() => {
+  return getProductImageUrl(props.product)
+})
 
 const goToDetail = () => {
   router.push(`/products/${props.product.productId}`)

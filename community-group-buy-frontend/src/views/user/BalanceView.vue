@@ -160,8 +160,8 @@ import {
   Money
 } from '@element-plus/icons-vue'
 import MainLayout from '@/components/common/MainLayout.vue'
-import { getAccountInfo, recharge } from '@/api/user'
-import { getPaymentRecords } from '@/api/payment'
+import { getAccountInfo } from '@/api/user'
+import { getPaymentRecords, recharge } from '@/api/payment'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -358,7 +358,11 @@ const handleRecharge = async () => {
 
     rechargeLoading.value = true
     try {
-      const res = await recharge(userStore.userInfo.userId, rechargeForm.amount)
+      // 调用 PaymentService 充值接口（会创建支付记录）
+      const res = await recharge({
+        amount: rechargeForm.amount,
+        payType: 3  // 余额支付
+      })
       
       if (res.code === 200) {
         ElMessage.success('充值成功')

@@ -12,6 +12,7 @@ import ProductManageView from '../views/ProductManageView.vue'
 import CategoryManageView from '../views/CategoryManageView.vue'
 import GroupBuyManageView from '../views/GroupBuyManageView.vue'
 import OrderManageView from '../views/OrderManageView.vue'
+import PaymentManageView from '../views/PaymentManageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -91,6 +92,12 @@ const router = createRouter({
           name: 'orders',
           component: OrderManageView,
           meta: { title: '订单管理' }
+        },
+        {
+          path: '/payments',
+          name: 'payments',
+          component: PaymentManageView,
+          meta: { title: '支付管理' }
         }
       ]
     }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * @description 调用UserService的内部接口
  */
 @FeignClient(
-    name = "UserService",
+    name = "user-service",  // 修正：使用实际的服务注册名称（与 application.yml 中的 spring.application.name 一致）
     contextId = "userServiceClient",  // 指定唯一的 contextId，避免与 LogFeignClient 冲突
     path = "/feign"
 )
