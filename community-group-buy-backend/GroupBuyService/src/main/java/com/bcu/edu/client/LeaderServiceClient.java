@@ -29,10 +29,12 @@ public interface LeaderServiceClient {
      *   <li>查询团详情时获取社区名称（可选）</li>
      * </ul>
      * 
+     * <p>注意：LeaderService的Feign接口路径为 /feign/community/{communityId}
+     * 
      * @param communityId 社区ID
      * @return Result<CommunityDTO>
      */
-    @GetMapping("/api/community/feign/{communityId}")
+    @GetMapping("/feign/community/{communityId}")
     Result<CommunityDTO> getCommunity(@PathVariable("communityId") Long communityId);
 }
 

@@ -146,8 +146,9 @@ public class PaymentService {
         log.info("开始余额支付: userId={}, amount={}", userId, record.getAmount());
 
         try {
-            // 1. 调用UserService扣款
-            Result<Void> deductResult = userServiceClient.deduct(userId, record.getAmount());
+            // 1. 调用UserService扣款（传递sagaId用于分布式事务追踪）
+            String sagaId = "PAY_" + record.getOrderId(); // 使用订单ID作为Saga事务ID
+            Result<Void> deductResult = userServiceClient.deduct(userId, record.getAmount(), sagaId);
             
             if (deductResult.getCode() == 200) {
                 // 2. 扣款成功，更新支付记录
@@ -155,7 +156,8 @@ public class PaymentService {
                 record.setTransactionId("BALANCE_" + System.currentTimeMillis());
                 paymentRepository.save(record);
                 
-                log.info("余额支付成功: payId={}, userId={}", record.getPayId(), userId);
+                log.info("余额支付成功: payId={}, userId={}, sagaId={}", 
+                    record.getPayId(), userId, sagaId);
                 
                 // 3. 执行支付成功后处理
                 handleOrderPaymentSuccess(record.getOrderId(), record.getPayId());
@@ -307,22 +309,32 @@ public class PaymentService {
         log.info("开始余额退款: userId={}, amount={}", userId, refundRecord.getAmount().abs());
 
         try {
-            // 调用UserService增加余额
-            Result<Void> rechargeResult = userServiceClient.recharge(userId, refundRecord.getAmount().abs());
+            // ⭐使用 refundToBalance 接口进行退款（统一接口调用）
+            Result<Void> refundResult = userServiceClient.refundToBalance(userId, refundRecord.getAmount().abs());
             
-            if (rechargeResult.getCode() == 200) {
+            // ✅ 验证返回结果
+            if (refundResult == null) {
+                log.error("余额退款失败: userId={}, 服务无响应", userId);
+                throw new BusinessException("退款失败: 服务无响应");
+            }
+            
+            if (refundResult.getCode() == 200) {
                 // 退款成功
                 refundRecord.setPayStatus(PayStatus.SUCCESS.getCode());
                 refundRecord.setTransactionId("REFUND_" + System.currentTimeMillis());
                 paymentRepository.save(refundRecord);
                 
-                log.info("余额退款成功: payId={}, userId={}", refundRecord.getPayId(), userId);
+                log.info("余额退款成功: payId={}, userId={}, amount={}", 
+                    refundRecord.getPayId(), userId, refundRecord.getAmount().abs());
             } else {
-                log.error("余额退款失败: userId={}, msg={}", userId, rechargeResult.getMessage());
-                throw new BusinessException("退款失败: " + rechargeResult.getMessage());
+                log.error("余额退款失败: userId={}, code={}, msg={}", 
+                    userId, refundResult.getCode(), refundResult.getMessage());
+                throw new BusinessException("退款失败: " + refundResult.getMessage());
             }
+        } catch (BusinessException e) {
+            throw e;
         } catch (Exception e) {
-            log.error("余额退款异常: userId={}", userId, e);
+            log.error("余额退款异常: userId={}, amount={}", userId, refundRecord.getAmount().abs(), e);
             throw new BusinessException("退款失败: " + e.getMessage());
         }
     }

@@ -207,6 +207,52 @@ export const getMyTeams = () => {
   })
 }
 
+// ==================== 团长管理团队 API (需要后端支持) ====================
+
+/**
+ * 团长提前结束拼团（已达起拼人数）
+ * 权限：团长
+ * 说明：当达到起拼人数后，团长可以选择提前结束拼团
+ * @param {number} teamId - 团ID
+ */
+export const finishTeamEarly = (teamId) => {
+  return request({
+    url: `/api/groupbuy/team/${teamId}/finish`,
+    method: 'POST'
+  })
+}
+
+/**
+ * 团长取消拼团
+ * 权限：团长
+ * 说明：团长可以取消拼团，自动退款给所有成员
+ * @param {number} teamId - 团ID
+ * @param {object} data - { reason: string } 取消原因
+ */
+export const cancelTeam = (teamId, data) => {
+  return request({
+    url: `/api/groupbuy/team/${teamId}/cancel`,
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 团长移除团队成员
+ * 权限：团长
+ * 说明：团长可以移除团队中的成员（成团前），自动退款给该成员
+ * @param {number} teamId - 团ID
+ * @param {number} memberId - 成员ID
+ * @param {object} data - { reason: string } 移除原因
+ */
+export const removeMember = (teamId, memberId, data) => {
+  return request({
+    url: `/api/groupbuy/team/${teamId}/member/${memberId}/remove`,
+    method: 'POST',
+    data
+  })
+}
+
 /**
  * 获取团长发起的团列表
  * 权限：需要团长权限

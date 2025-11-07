@@ -4,6 +4,7 @@ import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.request.JoinTeamRequest;
 import com.bcu.edu.dto.request.LaunchTeamRequest;
 import com.bcu.edu.dto.response.JoinResult;
+import com.bcu.edu.dto.response.MyTeamResponse;
 import com.bcu.edu.dto.response.TeamDetailResponse;
 import com.bcu.edu.service.RefundService;
 import com.bcu.edu.service.TeamService;
@@ -180,7 +181,7 @@ public class TeamController {
      */
     @GetMapping("/teams/my")
     @Operation(summary = "我的拼团记录", description = "查询用户参与的所有拼团，按参团时间倒序")
-    public Result<List<TeamDetailResponse>> getMyTeams(HttpServletRequest httpRequest) {
+    public Result<List<MyTeamResponse>> getMyTeams(HttpServletRequest httpRequest) {
         // 从请求头获取用户ID
         String userIdHeader = httpRequest.getHeader("X-User-Id");
         if (userIdHeader == null) {
@@ -189,7 +190,7 @@ public class TeamController {
         
         Long userId = Long.parseLong(userIdHeader);
         
-        List<TeamDetailResponse> teams = teamService.getUserTeams(userId);
+        List<MyTeamResponse> teams = teamService.getUserTeams(userId);
         return Result.success(teams);
     }
     
@@ -218,6 +219,103 @@ public class TeamController {
             teamService.getLeaderTeams(leaderId, status, page, limit);
         
         return Result.success(result);
+    }
+    
+    // ==================== 团长管理团队接口 ====================
+    
+    /**
+     * 团长提前结束拼团（已达起拼人数）
+     * 
+     * <p>当达到起拼人数后，团长可以选择提前结束拼团
+     * 
+     * @param teamId 团ID
+     * @param httpRequest HTTP请求
+     * @return 操作结果
+     */
+    @PostMapping("/team/{teamId}/finish")
+    @Operation(summary = "提前结束拼团", description = "团长权限，已达起拼人数时可提前结束")
+    public Result<Void> finishTeamEarly(
+        @Parameter(description = "团ID") @PathVariable Long teamId,
+        HttpServletRequest httpRequest) {
+        
+        // 从请求头获取用户ID
+        String userIdHeader = httpRequest.getHeader("X-User-Id");
+        if (userIdHeader == null) {
+            return Result.error(401, "未登录");
+        }
+        
+        Long userId = Long.parseLong(userIdHeader);
+        
+        log.info("团长{}请求提前结束拼团，teamId={}", userId, teamId);
+        
+        teamService.finishTeamEarly(teamId, userId);
+        return Result.success("拼团已成功结束");
+    }
+    
+    /**
+     * 团长取消拼团
+     * 
+     * <p>团长可以取消拼团，自动退款给所有成员
+     * 
+     * @param teamId 团ID
+     * @param request 包含取消原因的请求体
+     * @param httpRequest HTTP请求
+     * @return 操作结果
+     */
+    @PostMapping("/team/{teamId}/cancel")
+    @Operation(summary = "取消拼团", description = "团长权限，取消拼团并退款给所有成员")
+    public Result<Void> cancelTeam(
+        @Parameter(description = "团ID") @PathVariable Long teamId,
+        @RequestBody(required = false) java.util.Map<String, String> request,
+        HttpServletRequest httpRequest) {
+        
+        // 从请求头获取用户ID
+        String userIdHeader = httpRequest.getHeader("X-User-Id");
+        if (userIdHeader == null) {
+            return Result.error(401, "未登录");
+        }
+        
+        Long userId = Long.parseLong(userIdHeader);
+        String reason = request != null ? request.get("reason") : "团长取消拼团";
+        
+        log.info("团长{}请求取消拼团，teamId={}, reason={}", userId, teamId, reason);
+        
+        teamService.cancelTeam(teamId, userId, reason);
+        return Result.success("拼团已取消，已退款给所有成员");
+    }
+    
+    /**
+     * 团长移除团队成员
+     * 
+     * <p>团长可以移除团队中的成员（成团前），自动退款给该成员
+     * 
+     * @param teamId 团ID
+     * @param memberId 成员ID
+     * @param request 包含移除原因的请求体
+     * @param httpRequest HTTP请求
+     * @return 操作结果
+     */
+    @PostMapping("/team/{teamId}/member/{memberId}/remove")
+    @Operation(summary = "移除团队成员", description = "团长权限，移除成员并退款")
+    public Result<Void> removeMember(
+        @Parameter(description = "团ID") @PathVariable Long teamId,
+        @Parameter(description = "成员ID") @PathVariable Long memberId,
+        @RequestBody(required = false) java.util.Map<String, String> request,
+        HttpServletRequest httpRequest) {
+        
+        // 从请求头获取用户ID
+        String userIdHeader = httpRequest.getHeader("X-User-Id");
+        if (userIdHeader == null) {
+            return Result.error(401, "未登录");
+        }
+        
+        Long userId = Long.parseLong(userIdHeader);
+        String reason = request != null ? request.get("reason") : "团长移除成员";
+        
+        log.info("团长{}请求移除成员，teamId={}, memberId={}, reason={}", userId, teamId, memberId, reason);
+        
+        teamService.removeMember(teamId, memberId, userId, reason);
+        return Result.success("已移除成员，已退款给该成员");
     }
 }
 

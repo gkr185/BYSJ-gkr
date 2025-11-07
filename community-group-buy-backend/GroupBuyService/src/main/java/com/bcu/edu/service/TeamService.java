@@ -2,12 +2,14 @@ package com.bcu.edu.service;
 
 import com.bcu.edu.client.LeaderServiceClient;
 import com.bcu.edu.client.OrderServiceClient;
+import com.bcu.edu.client.PaymentServiceClient;
 import com.bcu.edu.client.ProductServiceClient;
 import com.bcu.edu.client.UserServiceClient;
 import com.bcu.edu.common.annotation.OperationLog;
 import com.bcu.edu.common.exception.BusinessException;
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.request.CreateOrderRequest;
+import com.bcu.edu.dto.request.CreatePaymentRequest;
 import com.bcu.edu.dto.request.JoinTeamRequest;
 import com.bcu.edu.dto.request.LaunchTeamRequest;
 import com.bcu.edu.dto.response.*;
@@ -21,6 +23,7 @@ import com.bcu.edu.repository.MemberRepository;
 import com.bcu.edu.repository.TeamRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,6 +53,10 @@ import java.util.stream.Collectors;
 public class TeamService {
     
     @Autowired
+    @Lazy  // ⭐使用@Lazy避免循环依赖
+    private TeamService self;  // ⭐自注入，用于解决事务边界问题
+    
+    @Autowired
     private TeamRepository teamRepository;
     
     @Autowired
@@ -70,6 +77,9 @@ public class TeamService {
     @Autowired
     private LeaderServiceClient leaderServiceClient;
     
+    @Autowired
+    private PaymentServiceClient paymentServiceClient;
+    
     /**
      * 团长发起拼团（⭐v3.0核心功能）
      * 
@@ -86,14 +96,12 @@ public class TeamService {
      * @param request 发起请求
      * @return 团详情
      */
-    @Transactional(rollbackFor = Exception.class)
     @OperationLog(value = "发起拼团", module = "拼团管理")
     public TeamDetailResponse launchTeam(LaunchTeamRequest request) {
-        // 1. 查询活动
+        // 1. 查询活动和验证用户（不需要事务）
         GroupBuy activity = activityRepository.findById(request.getActivityId())
             .orElseThrow(() -> new BusinessException("拼团活动不存在"));
         
-        // 检查活动状态
         if (activity.getStatus() != 1) {
             throw new BusinessException("拼团活动未开始或已结束");
         }
@@ -103,7 +111,6 @@ public class TeamService {
             throw new BusinessException("拼团活动未在活动时间范围内");
         }
         
-        // 2. Feign验证团长身份 ⭐
         Result<UserInfoDTO> userResult = userServiceClient.getUserInfo(request.getUserId());
         if (userResult.getCode() != 200 || userResult.getData() == null) {
             throw new BusinessException("获取用户信息失败");
@@ -116,13 +123,66 @@ public class TeamService {
         
         log.info("用户{}（role={}）发起拼团，社区ID={}", user.getUserId(), user.getRole(), user.getCommunityId());
         
-        // 3. 创建团实例（v3.0：自动关联团长社区）⭐
+        // 2. ⭐关键：通过self调用事务方法，确保事务在此方法结束时提交
+        LaunchTeamInternalResult internalResult = self.launchTeamInternal(request, activity, user);
+        
+        // 3. ⭐事务已提交，锁已释放，现在可以安全地调用 PaymentService
+        if (Boolean.TRUE.equals(request.getJoinImmediately()) && internalResult.getOrderId() != null) {
+            java.math.BigDecimal payAmount = activity.getGroupPrice().multiply(
+                java.math.BigDecimal.valueOf(request.getQuantity()));
+            
+            CreatePaymentRequest paymentReq = CreatePaymentRequest.builder()
+                .orderId(internalResult.getOrderId())
+                .payType(3)  // 3-余额支付
+                .amount(payAmount)
+                .userId(request.getUserId())
+                .build();
+            
+            Result<PaymentResponse> paymentResult = paymentServiceClient.createPayment(
+                request.getUserId(),
+                paymentReq
+            );
+            if (paymentResult.getCode() != 200) {
+                throw new BusinessException("支付失败：" + paymentResult.getMessage());
+            }
+            
+            PaymentResponse paymentResponse = paymentResult.getData();
+            if (paymentResponse.getPayStatus() != 1) {
+                throw new BusinessException("支付失败：" + 
+                    (paymentResponse.getErrorMessage() != null ? paymentResponse.getErrorMessage() : "支付未完成"));
+            }
+            
+            log.info("团长支付成功，payId={}, orderId={}", paymentResponse.getPayId(), internalResult.getOrderId());
+            // ⭐PaymentService 成功后会自动回调 paymentCallback 更新团状态
+        }
+        
+        // 4. 构建返回结果
+        return buildTeamDetailResponse(internalResult.getTeam(), activity, user, null);
+    }
+    
+    /**
+     * 创建团和成员记录（独立事务）
+     * 
+     * <p>⭐关键设计：使用独立事务 (REQUIRES_NEW)
+     * <p>确保在调用 PaymentService 之前，此方法的事务已经提交，锁已经释放
+     * <p>避免 PaymentService 回调时出现死锁
+     * 
+     * @param request 发起请求
+     * @param activity 活动信息
+     * @param user 用户信息
+     * @return 内部结果（包含团和订单ID）
+     */
+    @Transactional(rollbackFor = Exception.class)
+    protected LaunchTeamInternalResult launchTeamInternal(LaunchTeamRequest request, 
+                                                          GroupBuy activity, 
+                                                          UserInfoDTO user) {
+        // 1. 创建团实例
         GroupBuyTeam team = new GroupBuyTeam();
         team.setTeamNo(generateTeamNo());
         team.setActivityId(request.getActivityId());
         team.setLauncherId(request.getUserId());
-        team.setLeaderId(request.getUserId());  // v3.0: launcher_id = leader_id
-        team.setCommunityId(user.getCommunityId());  // v3.0: 自动关联社区 ⭐
+        team.setLeaderId(request.getUserId());
+        team.setCommunityId(user.getCommunityId());
         team.setRequiredNum(activity.getRequiredNum());
         team.setCurrentNum(0);
         team.setTeamStatus(TeamStatus.JOINING.getCode());
@@ -131,7 +191,9 @@ public class TeamService {
         
         log.info("团{}创建成功，teamNo={}, communityId={}", team.getTeamId(), team.getTeamNo(), team.getCommunityId());
         
-        // 4. 如果团长立即参与
+        Long orderId = null;
+        
+        // 2. 如果团长立即参与，创建订单和成员记录
         if (Boolean.TRUE.equals(request.getJoinImmediately())) {
             if (request.getAddressId() == null) {
                 throw new BusinessException("参与拼团需要提供收货地址");
@@ -159,24 +221,37 @@ public class TeamService {
                 throw new BusinessException("创建订单失败：" + orderResult.getMessage());
             }
             
-            Long orderId = orderResult.getData();
+            orderId = orderResult.getData();
             log.info("团长参与拼团，订单创建成功，orderId={}", orderId);
+            
+            // 计算支付金额
+            java.math.BigDecimal payAmount = activity.getGroupPrice().multiply(
+                java.math.BigDecimal.valueOf(request.getQuantity()));
             
             // 记录参团（发起人）
             GroupBuyMember member = new GroupBuyMember();
             member.setTeamId(team.getTeamId());
             member.setUserId(request.getUserId());
             member.setOrderId(orderId);
-            member.setIsLauncher(1);  // 发起人标识
-            member.setPayAmount(activity.getGroupPrice().multiply(java.math.BigDecimal.valueOf(request.getQuantity())));
+            member.setIsLauncher(1);
+            member.setPayAmount(payAmount);
             member.setStatus(MemberStatus.UNPAID.getCode());
             memberRepository.save(member);
             
-            log.info("团长参团记录创建成功，memberId={}", member.getMemberId());
+            log.info("团长参团记录创建成功，memberId={}, status=UNPAID", member.getMemberId());
         }
         
-        // 5. 构建返回结果
-        return buildTeamDetailResponse(team, activity, user, null);
+        return new LaunchTeamInternalResult(team, orderId);
+    }
+    
+    /**
+     * 内部结果DTO
+     */
+    @lombok.Data
+    @lombok.AllArgsConstructor
+    protected static class LaunchTeamInternalResult {
+        private GroupBuyTeam team;
+        private Long orderId;
     }
     
     /**
@@ -524,8 +599,8 @@ public class TeamService {
         
         log.info("查询团长{}的拼团记录，status={}, page={}, limit={}", leaderId, status, page, limit);
         
-        // 计算偏移量
-        int offset = (page - 1) * limit;
+        // 计算偏移量（page是0-indexed，所以直接用page*limit）
+        int offset = page * limit;
         
         // 查询团列表
         List<GroupBuyTeam> teams = teamRepository.findByLeaderIdWithFilter(leaderId, status, limit, offset);
@@ -595,7 +670,7 @@ public class TeamService {
      * @param userId 用户ID
      * @return 拼团记录列表
      */
-    public List<TeamDetailResponse> getUserTeams(Long userId) {
+    public List<MyTeamResponse> getUserTeams(Long userId) {
         log.info("查询用户{}的拼团记录", userId);
         
         // 查询用户的所有参团记录
@@ -605,7 +680,7 @@ public class TeamService {
             return List.of();
         }
         
-        // 构建团详情列表
+        // 构建我的拼团列表
         return members.stream()
             .map(member -> {
                 try {
@@ -643,13 +718,55 @@ public class TeamService {
                         log.warn("获取社区{}信息失败: {}", team.getCommunityId(), e.getMessage());
                     }
                     
-                    // 查询团的所有成员
+                    // 获取商品信息
+                    ProductDTO product = null;
+                    try {
+                        Result<ProductDTO> productResult = productServiceClient.getProduct(activity.getProductId());
+                        if (productResult != null && productResult.getCode() == 200) {
+                            product = productResult.getData();
+                        }
+                    } catch (Exception e) {
+                        log.warn("获取商品{}信息失败: {}", activity.getProductId(), e.getMessage());
+                    }
+                    
+                    // 查询团的所有成员（用于详情对话框）
                     List<GroupBuyMember> teamMembers = memberRepository.findByTeamIdOrderByJoinTimeAsc(team.getTeamId());
                     List<MemberInfoResponse> memberInfos = teamMembers.stream()
                         .map(this::convertToMemberInfo)
                         .collect(Collectors.toList());
                     
-                    return buildTeamDetailResponse(team, activity, leader, community, memberInfos);
+                    // 构建我的拼团响应
+                    return MyTeamResponse.builder()
+                        // 参团记录信息
+                        .memberId(member.getMemberId())
+                        .isLauncher(member.getIsLauncher())
+                        .payAmount(member.getPayAmount())
+                        .joinTime(member.getJoinTime())
+                        .orderId(member.getOrderId())
+                        // 团信息
+                        .teamId(team.getTeamId())
+                        .teamNo(team.getTeamNo())
+                        .activityId(team.getActivityId())
+                        .activityName(product != null ? product.getProductName() : "拼团活动-" + activity.getProductId())
+                        .productId(activity.getProductId())
+                        .productName(product != null ? product.getProductName() : "商品ID-" + activity.getProductId())
+                        .productCoverImg(product != null ? product.getCoverImg() : null)
+                        .productPrice(product != null ? product.getPrice() : null)
+                        .groupPrice(activity.getGroupPrice())
+                        .leaderId(team.getLeaderId())
+                        .leaderName(leader != null ? leader.getRealName() : null)
+                        .communityId(team.getCommunityId())
+                        .communityName(community != null ? community.getCommunityName() : null)
+                        .requiredNum(team.getRequiredNum())
+                        .currentNum(team.getCurrentNum())
+                        .teamStatus(team.getTeamStatus())
+                        .teamStatusDesc(TeamStatus.getByCode(team.getTeamStatus()).getDesc())
+                        .successTime(team.getSuccessTime())
+                        .expireTime(team.getExpireTime())
+                        .createTime(team.getCreateTime())
+                        .members(memberInfos)
+                        .shareLink("http://localhost:5173/team/" + team.getTeamId())
+                        .build();
                 } catch (Exception e) {
                     log.error("构建拼团记录失败，memberId={}: {}", member.getMemberId(), e.getMessage(), e);
                     return null;
@@ -663,19 +780,268 @@ public class TeamService {
      * 转换成员信息
      */
     private MemberInfoResponse convertToMemberInfo(GroupBuyMember member) {
-        // TODO: 获取用户详细信息
+        // 获取用户详细信息
+        String username = "用户" + member.getUserId();
+        String realName = null;
+        String avatar = null;
+        
+        try {
+            Result<UserInfoDTO> userResult = userServiceClient.getUserInfo(member.getUserId());
+            if (userResult != null && userResult.getCode() == 200 && userResult.getData() != null) {
+                UserInfoDTO user = userResult.getData();
+                username = user.getUsername() != null ? user.getUsername() : username;
+                realName = user.getRealName();
+                avatar = user.getAvatar();
+            }
+        } catch (Exception e) {
+            log.warn("获取用户{}信息失败: {}", member.getUserId(), e.getMessage());
+        }
+        
         return MemberInfoResponse.builder()
             .memberId(member.getMemberId())
             .userId(member.getUserId())
-            .username("用户" + member.getUserId())
-            .realName(null)
-            .avatar(null)
+            .username(username)
+            .realName(realName)
+            .avatar(avatar)
             .isLauncher(member.getIsLauncher())
             .payAmount(member.getPayAmount())
             .joinTime(member.getJoinTime())
             .status(member.getStatus())
             .statusDesc(MemberStatus.getByCode(member.getStatus()).getDesc())
             .build();
+    }
+    
+    // ==================== 团长管理团队方法 ====================
+    
+    /**
+     * 团长提前结束拼团（已达起拼人数）
+     * 
+     * <p>流程：
+     * <ol>
+     *   <li>校验团长权限</li>
+     *   <li>检查团状态为"拼团中"</li>
+     *   <li>检查是否达到起拼人数</li>
+     *   <li>调用成团逻辑</li>
+     * </ol>
+     * 
+     * @param teamId 团ID
+     * @param userId 用户ID（团长）
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @OperationLog(value = "提前结束拼团", module = "拼团管理")
+    public void finishTeamEarly(Long teamId, Long userId) {
+        log.info("提前结束拼团，teamId={}, userId={}", teamId, userId);
+        
+        // 1. 查询团信息（加行锁）
+        GroupBuyTeam team = teamRepository.findByIdForUpdate(teamId)
+            .orElseThrow(() -> new BusinessException("拼团不存在"));
+        
+        // 2. 校验团长权限
+        if (!team.getLeaderId().equals(userId)) {
+            throw new BusinessException("仅团长可以提前结束拼团");
+        }
+        
+        // 3. 检查团状态
+        if (team.getTeamStatus() != TeamStatus.JOINING.getCode()) {
+            throw new BusinessException("该拼团已结束，当前状态：" + TeamStatus.getByCode(team.getTeamStatus()).getDesc());
+        }
+        
+        // 4. 检查是否达到起拼人数
+        if (team.getCurrentNum() < team.getRequiredNum()) {
+            throw new BusinessException("未达到起拼人数，当前" + team.getCurrentNum() + "人，需要" + team.getRequiredNum() + "人");
+        }
+        
+        // 5. 调用成团逻辑
+        log.info("团长提前结束拼团，触发成团，teamId={}", teamId);
+        teamSuccess(teamId);
+    }
+    
+    /**
+     * 团长取消拼团
+     * 
+     * <p>流程：
+     * <ol>
+     *   <li>校验团长权限</li>
+     *   <li>检查团状态为"拼团中"</li>
+     *   <li>更新团状态为"已失败"</li>
+     *   <li>更新所有成员状态为"已取消"</li>
+     *   <li>批量退款给所有已支付成员</li>
+     *   <li>批量更新订单状态为"已退款"</li>
+     * </ol>
+     * 
+     * @param teamId 团ID
+     * @param userId 用户ID（团长）
+     * @param reason 取消原因
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @OperationLog(value = "取消拼团", module = "拼团管理")
+    public void cancelTeam(Long teamId, Long userId, String reason) {
+        log.info("团长取消拼团，teamId={}, userId={}, reason={}", teamId, userId, reason);
+        
+        // 1. 查询团信息（加行锁）
+        GroupBuyTeam team = teamRepository.findByIdForUpdate(teamId)
+            .orElseThrow(() -> new BusinessException("拼团不存在"));
+        
+        // 2. 校验团长权限
+        if (!team.getLeaderId().equals(userId)) {
+            throw new BusinessException("仅团长可以取消拼团");
+        }
+        
+        // 3. 检查团状态
+        if (team.getTeamStatus() != TeamStatus.JOINING.getCode()) {
+            throw new BusinessException("该拼团已结束，当前状态：" + TeamStatus.getByCode(team.getTeamStatus()).getDesc());
+        }
+        
+        // 4. 更新团状态为"已失败"
+        team.setTeamStatus(TeamStatus.FAILED.getCode());
+        teamRepository.save(team);
+        log.info("团状态已更新为失败，teamId={}", teamId);
+        
+        // 5. 查询所有成员
+        List<GroupBuyMember> members = memberRepository.findByTeamIdOrderByJoinTimeAsc(teamId);
+        
+        // 6. 批量退款和更新订单状态（在更新状态之前）
+        int refundCount = 0;
+        for (GroupBuyMember member : members) {
+            // 只退已支付或已成团状态的成员
+            if (member.getStatus() == MemberStatus.PAID.getCode() || 
+                member.getStatus() == MemberStatus.SUCCESS.getCode()) {
+                
+                try {
+                    // 退款到用户余额
+                    Result<Void> refundResult = userServiceClient.refundToBalance(
+                        member.getUserId(), member.getPayAmount());
+                    if (refundResult == null || refundResult.getCode() != 200) {
+                        log.error("退款到余额失败，orderId={}, userId={}", member.getOrderId(), member.getUserId());
+                    } else {
+                        log.info("退款到余额成功，userId={}, amount={}", 
+                            member.getUserId(), member.getPayAmount());
+                        
+                        // 更新订单状态为"已退款"
+                        orderServiceClient.updateOrderStatus(member.getOrderId(), 6);
+                        log.info("订单状态已更新为已退款，orderId={}", member.getOrderId());
+                        refundCount++;
+                    }
+                } catch (Exception e) {
+                    log.error("退款异常，orderId={}, userId={}: {}", 
+                        member.getOrderId(), member.getUserId(), e.getMessage(), e);
+                }
+            }
+        }
+        
+        // 7. 更新所有成员状态为"已取消"
+        members.forEach(member -> {
+            member.setStatus(MemberStatus.CANCELLED.getCode());
+        });
+        memberRepository.saveAll(members);
+        log.info("团成员状态已更新为已取消，共{}人", members.size());
+        
+        log.info("拼团已取消并退款，teamId={}, 退款成员数={}", teamId, refundCount);
+    }
+    
+    /**
+     * 团长移除团队成员
+     * 
+     * <p>流程：
+     * <ol>
+     *   <li>校验团长权限</li>
+     *   <li>检查团状态为"拼团中"</li>
+     *   <li>检查被移除成员不是团长本人</li>
+     *   <li>删除参团记录</li>
+     *   <li>更新团人数</li>
+     *   <li>退款给被移除成员</li>
+     *   <li>更新订单状态为"已退款"</li>
+     * </ol>
+     * 
+     * @param teamId 团ID
+     * @param memberId 成员ID
+     * @param userId 用户ID（团长）
+     * @param reason 移除原因
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @OperationLog(value = "移除团队成员", module = "拼团管理")
+    public void removeMember(Long teamId, Long memberId, Long userId, String reason) {
+        log.info("团长移除成员，teamId={}, memberId={}, userId={}, reason={}", 
+            teamId, memberId, userId, reason);
+        
+        // 1. 查询团信息（加行锁）
+        GroupBuyTeam team = teamRepository.findByIdForUpdate(teamId)
+            .orElseThrow(() -> new BusinessException("拼团不存在"));
+        
+        // 2. 校验团长权限
+        if (!team.getLeaderId().equals(userId)) {
+            throw new BusinessException("仅团长可以移除成员");
+        }
+        
+        // 3. 检查团状态
+        if (team.getTeamStatus() != TeamStatus.JOINING.getCode()) {
+            throw new BusinessException("该拼团已结束，当前状态：" + TeamStatus.getByCode(team.getTeamStatus()).getDesc());
+        }
+        
+        // 4. 查询被移除成员
+        GroupBuyMember member = memberRepository.findById(memberId)
+            .orElseThrow(() -> new BusinessException("成员不存在"));
+        
+        // 5. 检查成员是否属于该团
+        if (!member.getTeamId().equals(teamId)) {
+            throw new BusinessException("该成员不属于此团");
+        }
+        
+        // 6. 检查不能移除团长本人
+        if (member.getIsLauncher() == 1) {
+            throw new BusinessException("不能移除团长本人");
+        }
+        
+        // 7. 退款（如果成员已支付）⭐先退款再删除记录
+        boolean needDecrementCount = false;
+        if (member.getStatus() == MemberStatus.PAID.getCode() || 
+            member.getStatus() == MemberStatus.SUCCESS.getCode()) {
+            needDecrementCount = true;  // 已支付成员需要减少团人数
+            
+            try {
+                // 调用PaymentService进行退款，会自动：
+                // 1. 创建退款记录（payment_record表）
+                // 2. 调用UserService更新用户余额
+                // 3. 确保退款在支付管理中可见
+                com.bcu.edu.dto.request.RefundRequest refundRequest = com.bcu.edu.dto.request.RefundRequest.builder()
+                    .orderId(member.getOrderId())
+                    .reason("团长移除成员：" + reason)
+                    .build();
+                
+                Result<Void> refundResult = paymentServiceClient.refund(refundRequest);
+                if (refundResult == null || refundResult.getCode() != 200) {
+                    log.error("退款失败，orderId={}, userId={}, result={}", 
+                        member.getOrderId(), member.getUserId(), refundResult);
+                    throw new BusinessException("退款失败，请稍后重试");
+                }
+                
+                log.info("移除成员并退款成功，orderId={}, userId={}, amount={}", 
+                    member.getOrderId(), member.getUserId(), member.getPayAmount());
+            } catch (BusinessException e) {
+                throw e;
+            } catch (Exception e) {
+                log.error("退款异常，orderId={}, userId={}: {}", 
+                    member.getOrderId(), member.getUserId(), e.getMessage(), e);
+                throw new BusinessException("退款失败：" + e.getMessage());
+            }
+        }
+        
+        // 8. 删除参团记录
+        memberRepository.delete(member);
+        log.info("参团记录已删除，memberId={}, status={}", memberId, member.getStatus());
+        
+        // 9. 更新团人数（⭐只有已支付成员才减少团人数）
+        if (needDecrementCount && team.getCurrentNum() > 0) {
+            team.setCurrentNum(team.getCurrentNum() - 1);
+            teamRepository.save(team);
+            log.info("团人数已更新（移除已支付成员），teamId={}, currentNum={}", teamId, team.getCurrentNum());
+        } else if (!needDecrementCount) {
+            log.info("未支付成员无需减少团人数，memberId={}, status={}", memberId, member.getStatus());
+        } else {
+            log.warn("团人数已为0，无需减少，teamId={}", teamId);
+        }
+        
+        log.info("成员已移除，teamId={}, memberId={}, userId={}", teamId, memberId, member.getUserId());
     }
 }
 

@@ -207,6 +207,27 @@ export const reviewLeaderApplication = (storeId, reviewerId, approved, reviewCom
 }
 
 /**
+ * 【团长/管理员】更新团点信息
+ */
+export const updateLeaderStore = (storeId, data) => {
+  return request({
+    url: `/api/leader/${storeId}`,
+    method: 'PUT',
+    data
+  })
+}
+
+/**
+ * 【管理员】启用团长
+ */
+export const enableLeader = (storeId) => {
+  return request({
+    url: `/api/leader/${storeId}/enable`,
+    method: 'POST'
+  })
+}
+
+/**
  * 【管理员】停用团长
  */
 export const disableLeader = (storeId) => {

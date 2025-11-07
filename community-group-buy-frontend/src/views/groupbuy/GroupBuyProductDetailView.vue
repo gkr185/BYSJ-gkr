@@ -172,6 +172,90 @@
         <!-- 无活动 -->
         <el-empty v-else description="该商品暂无拼团活动" :image-size="200" />
       </div>
+
+      <!-- 地址选择对话框 -->
+      <el-dialog
+        v-model="addressDialogVisible"
+        title="选择收货地址"
+        width="600px"
+        :close-on-click-modal="false"
+      >
+        <div class="address-selection">
+          <el-empty v-if="addressList.length === 0" description="暂无收货地址">
+            <el-button type="primary" @click="handleGoToAddressManage">
+              <el-icon><Location /></el-icon>
+              添加收货地址
+            </el-button>
+          </el-empty>
+
+          <el-radio-group v-else v-model="selectedAddress" class="address-radio-group">
+            <el-radio
+              v-for="address in addressList"
+              :key="address.addressId"
+              :label="address.addressId"
+              class="address-radio-item"
+            >
+              <div class="address-card-mini">
+                <div class="address-header-mini">
+                  <span class="receiver-name">{{ address.receiverName || address.receiver }}</span>
+                  <span class="receiver-phone">{{ address.receiverPhone || address.phone }}</span>
+                  <el-tag v-if="address.isDefault" type="danger" size="small" effect="dark">
+                    默认
+                  </el-tag>
+                </div>
+                <div class="address-detail-mini">
+                  <el-icon><Location /></el-icon>
+                  <span>{{ address.province }} {{ address.city }} {{ address.district }} {{ address.detailAddress || address.detail }}</span>
+                </div>
+              </div>
+            </el-radio>
+          </el-radio-group>
+
+          <div v-if="addressList.length > 0" class="address-actions-row">
+            <el-button text type="primary" @click="handleGoToAddressManage">
+              <el-icon><Plus /></el-icon>
+              添加新地址
+            </el-button>
+          </div>
+
+          <!-- 拼团信息摘要 -->
+          <div v-if="selectedActivity" class="join-summary">
+            <div class="summary-title">
+              <el-icon><ShoppingCart /></el-icon>
+              拼团信息
+            </div>
+            <div class="summary-content">
+              <div class="summary-item">
+                <span class="label">拼团价格</span>
+                <span class="value price">¥{{ selectedActivity.groupPrice }}</span>
+              </div>
+              <div class="summary-item">
+                <span class="label">成团人数</span>
+                <span class="value">{{ selectedActivity.requiredNum }}人</span>
+              </div>
+              <div class="summary-item">
+                <span class="label">当前进度</span>
+                <span class="value">{{ selectedTeam?.currentNum || 0 }}/{{ selectedActivity.requiredNum }}人</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <template #footer>
+          <div class="dialog-footer">
+            <el-button @click="addressDialogVisible = false">取消</el-button>
+            <el-button
+              type="danger"
+              :loading="joiningTeam"
+              :disabled="!selectedAddress"
+              @click="handleConfirmJoin"
+            >
+              <el-icon v-if="!joiningTeam"><UserFilled /></el-icon>
+              {{ joiningTeam ? '参团中...' : '确认参团' }}
+            </el-button>
+          </div>
+        </template>
+      </el-dialog>
     </div>
   </MainLayout>
 </template>
@@ -181,11 +265,12 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
-  Picture, User, UserFilled, Clock, Timer, LocationFilled, Plus
+  Picture, User, UserFilled, Clock, Timer, LocationFilled, Plus, Location, PhoneFilled, ShoppingCart
 } from '@element-plus/icons-vue'
 import MainLayout from '@/components/common/MainLayout.vue'
 import { getProductDetail } from '@/api/product'
-import { getProductGroupBuyActivities } from '@/api/groupbuy'
+import { getProductGroupBuyActivities, joinTeam } from '@/api/groupbuy'
+import { getUserAddresses } from '@/api/user'
 import { getProductImageUrl } from '@/utils/image'
 import { useUserStore } from '@/stores/user'
 
@@ -278,33 +363,104 @@ const formatCountdown = (expireTime) => {
   return `${hours}小时${minutes}分钟`
 }
 
+// 地址选择对话框
+const addressDialogVisible = ref(false)
+const addressList = ref([])
+const selectedAddress = ref(null)
+const selectedTeam = ref(null)
+const selectedActivity = ref(null)
+const joiningTeam = ref(false)
+
 // 参与拼团
-const handleJoinTeam = (team, activity) => {
-  if (!userStore.isLoggedIn) {
+const handleJoinTeam = async (team, activity) => {
+  if (!userStore.isLogin) {
     ElMessage.warning('请先登录')
     router.push('/login')
     return
   }
   
-  ElMessageBox.confirm(
-    `确认参与拼团？拼团价：¥${activity.groupPrice}`,
-    '参与拼团',
-    {
-      confirmButtonText: '确认参团',
-      cancelButtonText: '取消',
-      type: 'warning'
+  // 保存选中的团和活动信息
+  selectedTeam.value = team
+  selectedActivity.value = activity
+  
+  // 加载用户地址列表
+  await loadUserAddresses()
+  
+  // 显示地址选择对话框
+  addressDialogVisible.value = true
+}
+
+// 加载用户地址列表
+const loadUserAddresses = async () => {
+  try {
+    const res = await getUserAddresses(userStore.userInfo.userId)
+    if (res.code === 200) {
+      addressList.value = res.data || []
+      
+      // 默认选中默认地址
+      const defaultAddr = addressList.value.find(addr => addr.isDefault)
+      if (defaultAddr) {
+        selectedAddress.value = defaultAddr.addressId
+      } else if (addressList.value.length > 0) {
+        selectedAddress.value = addressList.value[0].addressId
+      }
     }
-  ).then(() => {
-    // TODO: 调用参团API
-    ElMessage.success('参团成功，请前往订单页面支付')
-  }).catch(() => {
-    ElMessage.info('已取消')
-  })
+  } catch (error) {
+    console.error('❌ 加载地址列表失败:', error)
+  }
+}
+
+// 确认参团
+const handleConfirmJoin = async () => {
+  if (!selectedAddress.value) {
+    ElMessage.warning('请选择收货地址')
+    return
+  }
+  
+  joiningTeam.value = true
+  try {
+    const res = await joinTeam({
+      teamId: selectedTeam.value.teamId,
+      addressId: selectedAddress.value,
+      quantity: 1
+    })
+    
+    if (res.code === 200) {
+      const { orderId, payAmount, teamNo } = res.data
+      
+      ElMessage.success(`参团成功！团号：${teamNo}`)
+      
+      // 关闭对话框
+      addressDialogVisible.value = false
+      
+      // 跳转到支付页面
+      router.push({
+        path: '/payment',
+        query: {
+          orderId: orderId,
+          amount: payAmount,
+          type: 'groupbuy'
+        }
+      })
+    } else {
+      ElMessage.error(res.message || '参团失败')
+    }
+  } catch (error) {
+    console.error('❌ 参团失败:', error)
+    ElMessage.error(error.message || '参团失败，请稍后重试')
+  } finally {
+    joiningTeam.value = false
+  }
+}
+
+// 跳转到地址管理页面
+const handleGoToAddressManage = () => {
+  router.push('/user/address')
 }
 
 // 发起新团
 const handleLaunchTeam = (activity) => {
-  if (!userStore.isLoggedIn) {
+  if (!userStore.isLogin) {
     ElMessage.warning('请先登录')
     router.push('/login')
     return
@@ -681,6 +837,140 @@ watch(() => route.params.productId, (newId) => {
   margin-top: 12px;
   font-size: 14px;
   color: #999;
+}
+
+/* 地址选择对话框 */
+.address-selection {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.address-radio-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.address-radio-item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.address-radio-item :deep(.el-radio__label) {
+  width: 100%;
+  padding-left: 12px;
+}
+
+.address-card-mini {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+  transition: all 0.3s;
+}
+
+.address-card-mini:hover {
+  border-color: #f56c6c;
+  background: #fff;
+}
+
+.address-radio-item :deep(.el-radio__input.is-checked) + .el-radio__label .address-card-mini {
+  border-color: #f56c6c;
+  background: #fff5f5;
+}
+
+.address-header-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.receiver-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.receiver-phone {
+  font-size: 14px;
+  color: #666;
+}
+
+.address-detail-mini {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.address-detail-mini .el-icon {
+  margin-top: 3px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.address-actions-row {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed #e5e7eb;
+  text-align: center;
+}
+
+.join-summary {
+  margin-top: 20px;
+  padding: 16px;
+  background: linear-gradient(135deg, #fff5f5 0%, #fffbf5 100%);
+  border-radius: 8px;
+  border: 2px solid #ffccc7;
+}
+
+.summary-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.summary-item .label {
+  color: #666;
+}
+
+.summary-item .value {
+  color: #333;
+  font-weight: 600;
+}
+
+.summary-item .value.price {
+  color: #f56c6c;
+  font-size: 18px;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
 /* 响应式 */

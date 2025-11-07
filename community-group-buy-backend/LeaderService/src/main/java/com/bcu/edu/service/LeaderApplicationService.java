@@ -243,6 +243,31 @@ public class LeaderApplicationService {
         existing.setStoreName(updatedStore.getStoreName());
         existing.setAddress(updatedStore.getAddress());
         existing.setDescription(updatedStore.getDescription());
+        
+        // 允许更新所属社区
+        if (updatedStore.getCommunityId() != null && !updatedStore.getCommunityId().equals(existing.getCommunityId())) {
+            // 验证社区是否存在
+            Community community = communityRepository.findById(updatedStore.getCommunityId())
+                    .orElseThrow(() -> new IllegalArgumentException("社区不存在：" + updatedStore.getCommunityId()));
+            
+            existing.setCommunityId(community.getCommunityId());
+            existing.setCommunityName(community.getName());
+            log.info("团长{}更新所属社区：{} -> {}", existing.getLeaderId(), 
+                    existing.getCommunityName(), community.getName());
+        }
+        
+        // 允许更新经纬度
+        if (updatedStore.getLatitude() != null) {
+            existing.setLatitude(updatedStore.getLatitude());
+        }
+        if (updatedStore.getLongitude() != null) {
+            existing.setLongitude(updatedStore.getLongitude());
+        }
+        
+        // 允许更新佣金比例
+        if (updatedStore.getCommissionRate() != null) {
+            existing.setCommissionRate(updatedStore.getCommissionRate());
+        }
 
         log.info("团长{}更新团点信息", existing.getLeaderId());
         return leaderStoreRepository.save(existing);

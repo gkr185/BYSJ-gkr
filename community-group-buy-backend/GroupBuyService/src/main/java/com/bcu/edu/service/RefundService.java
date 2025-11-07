@@ -1,8 +1,9 @@
 package com.bcu.edu.service;
 
 import com.bcu.edu.client.OrderServiceClient;
-import com.bcu.edu.client.UserServiceClient;
+import com.bcu.edu.client.PaymentServiceClient;
 import com.bcu.edu.common.exception.BusinessException;
+import com.bcu.edu.common.result.Result;
 import com.bcu.edu.entity.GroupBuyMember;
 import com.bcu.edu.entity.GroupBuyTeam;
 import com.bcu.edu.enums.MemberStatus;
@@ -39,10 +40,10 @@ public class RefundService {
     private MemberRepository memberRepository;
     
     @Autowired
-    private UserServiceClient userServiceClient;
+    private OrderServiceClient orderServiceClient;
     
     @Autowired
-    private OrderServiceClient orderServiceClient;
+    private PaymentServiceClient paymentServiceClient;
     
     /**
      * 过期团退款（⭐定时任务核心方法）
@@ -85,19 +86,29 @@ public class RefundService {
         
         log.info("团{}有{}个成员需要退款", teamId, paidMembers.size());
         
-        // 5. 遍历退款
+        // 5. 遍历退款（⭐使用PaymentService记录退款）
         int successCount = 0;
         int failCount = 0;
         
         for (GroupBuyMember member : paidMembers) {
             try {
-                // Feign退款到余额
-                userServiceClient.refundToBalance(member.getUserId(), member.getPayAmount());
-                log.info("用户{}退款成功，金额={}", member.getUserId(), member.getPayAmount());
+                // 调用PaymentService进行退款，会自动：
+                // 1. 创建退款记录（payment_record表）
+                // 2. 调用UserService更新用户余额
+                // 3. 确保退款在支付管理中可见
+                com.bcu.edu.dto.request.RefundRequest refundRequest = com.bcu.edu.dto.request.RefundRequest.builder()
+                    .orderId(member.getOrderId())
+                    .reason("拼团超时自动退款")
+                    .build();
                 
-                // Feign更新订单状态
-                orderServiceClient.updateOrderStatus(member.getOrderId(), 6);  // 6-已退款
-                log.info("订单{}状态更新为已退款", member.getOrderId());
+                Result<Void> refundResult = paymentServiceClient.refund(refundRequest);
+                if (refundResult == null || refundResult.getCode() != 200) {
+                    log.error("退款失败，orderId={}, userId={}", member.getOrderId(), member.getUserId());
+                    throw new BusinessException("退款失败");
+                }
+                
+                log.info("用户{}退款成功，金额={}，订单={}", 
+                    member.getUserId(), member.getPayAmount(), member.getOrderId());
                 
                 // 更新参团状态
                 member.setStatus(MemberStatus.CANCELLED.getCode());
@@ -145,33 +156,74 @@ public class RefundService {
             throw new BusinessException("拼团已失败，无需退出");
         }
         
-        log.info("用户{}退出拼团，teamId={}, memberId={}", userId, teamId, member.getMemberId());
+        log.info("用户{}退出拼团，teamId={}, memberId={}, status={}", 
+            userId, teamId, member.getMemberId(), member.getStatus());
         
-        // 4. 删除参团记录
+        // 4. 检查成员支付状态，判断是否需要减少团人数
+        boolean needDecrementCount = (member.getStatus() == MemberStatus.PAID.getCode() || 
+                                      member.getStatus() == MemberStatus.SUCCESS.getCode());
+        
+        // 5. 退款（Feign）⭐只有已支付的成员才需要退款
+        if (needDecrementCount) {
+            try {
+                // 调用PaymentService进行退款，会自动：
+                // 1. 创建退款记录（payment_record表）
+                // 2. 调用UserService更新用户余额
+                // 3. 确保退款在支付管理中可见
+                com.bcu.edu.dto.request.RefundRequest refundRequest = com.bcu.edu.dto.request.RefundRequest.builder()
+                    .orderId(member.getOrderId())
+                    .reason("用户主动退出拼团")
+                    .build();
+                
+                Result<Void> refundResult = paymentServiceClient.refund(refundRequest);
+                if (refundResult == null || refundResult.getCode() != 200) {
+                    log.error("退款失败，userId={}, orderId={}, result={}", 
+                        member.getUserId(), member.getOrderId(), refundResult);
+                    throw new BusinessException("退款失败，请稍后重试");
+                }
+                log.info("用户{}退款成功，金额={}，订单={}", 
+                    member.getUserId(), member.getPayAmount(), member.getOrderId());
+            } catch (BusinessException e) {
+                throw e;
+            } catch (Exception e) {
+                log.error("退款失败，userId={}, amount={}", member.getUserId(), member.getPayAmount(), e);
+                throw new BusinessException("退款失败，请联系管理员");
+            }
+        } else {
+            log.info("未支付成员退出，无需退款，userId={}, status={}", userId, member.getStatus());
+        }
+        
+        // 6. 删除参团记录
         memberRepository.delete(member);
         
-        // 5. 更新团人数
-        if (team.getCurrentNum() > 0) {
+        // 7. 更新团人数（⭐只有已支付成员才减少团人数）
+        if (needDecrementCount && team.getCurrentNum() > 0) {
             team.setCurrentNum(team.getCurrentNum() - 1);
             teamRepository.save(team);
+            log.info("团人数已更新（移除已支付成员），teamId={}, currentNum={}", teamId, team.getCurrentNum());
+        } else if (!needDecrementCount) {
+            log.info("未支付成员退出，无需减少团人数，userId={}, status={}", userId, member.getStatus());
+        } else {
+            log.warn("团人数已为0，无需减少，teamId={}", teamId);
         }
         
-        // 6. 退款（Feign）
-        try {
-            userServiceClient.refundToBalance(member.getUserId(), member.getPayAmount());
-            log.info("用户{}退款成功，金额={}", member.getUserId(), member.getPayAmount());
-        } catch (Exception e) {
-            log.error("退款失败，userId={}, amount={}", member.getUserId(), member.getPayAmount(), e);
-            throw new BusinessException("退款失败，请联系管理员");
-        }
-        
-        // 7. 更新订单状态（Feign）
-        try {
-            orderServiceClient.updateOrderStatus(member.getOrderId(), 6);  // 6-已退款
-            log.info("订单{}状态更新为已退款", member.getOrderId());
-        } catch (Exception e) {
-            log.error("更新订单状态失败，orderId={}", member.getOrderId(), e);
-            // 不抛异常
+        // 8. 更新订单状态（Feign）⭐只有已支付订单才需要更新为已退款
+        if (needDecrementCount) {
+            try {
+                orderServiceClient.updateOrderStatus(member.getOrderId(), 6);  // 6-已退款
+                log.info("订单{}状态更新为已退款", member.getOrderId());
+            } catch (Exception e) {
+                log.error("更新订单状态失败，orderId={}", member.getOrderId(), e);
+                // 不抛异常
+            }
+        } else {
+            try {
+                orderServiceClient.updateOrderStatus(member.getOrderId(), 4);  // 4-已取消
+                log.info("订单{}状态更新为已取消（未支付）", member.getOrderId());
+            } catch (Exception e) {
+                log.error("更新订单状态失败，orderId={}", member.getOrderId(), e);
+                // 不抛异常
+            }
         }
     }
 }

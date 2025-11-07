@@ -1,0 +1,464 @@
+[2025-11-06 19:48:47.193] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - Starting PaymentServiceApplication using Java 17.0.6 with PID 27116 (E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-11-06 19:48:47.205] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-11-06 19:48:49.586] [INFO ] [payment-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-11-06 19:48:50.055] [INFO ] [payment-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 453 ms. Found 2 JPA repository interfaces.
+[2025-11-06 19:48:50.686] [INFO ] [payment-service] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=de73a78b-3d4d-3ab1-8b67-aa45abfccd0a
+[2025-11-06 19:48:51.324] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-06 19:48:51.329] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.332] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.349] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.353] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.356] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$787/0x0000000801165f00] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.362] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.374] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.384] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.388] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.390] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.400] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.416] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.420] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.422] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.427] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:51.430] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:48:52.002] [INFO ] [payment-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8066 (http)
+[2025-11-06 19:48:52.356] [INFO ] [payment-service] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 5067 ms
+[2025-11-06 19:48:53.304] [INFO ] [payment-service] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-11-06 19:48:53.412] [INFO ] [payment-service] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-11-06 19:48:53.502] [INFO ] [payment-service] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-11-06 19:48:53.970] [INFO ] [payment-service] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-11-06 19:48:54.033] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Starting...
+[2025-11-06 19:48:54.365] [INFO ] [payment-service] [main] [com.zaxxer.hikari.pool.HikariPool:?] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6686507b
+[2025-11-06 19:48:54.368] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Start completed.
+[2025-11-06 19:48:54.460] [WARN ] [payment-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-11-06 19:48:56.037] [INFO ] [payment-service] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-11-06 19:48:56.129] [INFO ] [payment-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-06 19:48:56.169] [WARN ] [payment-service] [main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext:?] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'feignController': Lookup method resolution failed
+[2025-11-06 19:48:56.170] [INFO ] [payment-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-06 19:48:56.176] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-06 19:48:56.187] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.
+[2025-11-06 19:48:56.220] [INFO ] [payment-service] [main] [o.s.b.a.logging.ConditionEvaluationReportLogger:?] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2025-11-06 19:48:56.257] [ERROR] [payment-service] [main] [org.springframework.boot.SpringApplication:?] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'feignController': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:497)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:367)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1294)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.bcu.edu.PaymentServiceApplication.main(PaymentServiceApplication.java:35)
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.bcu.edu.controller.FeignController] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483)
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:475)
+	... 19 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/bcu/edu/dto/request/RefundRequest
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3402)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2504)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465)
+	... 21 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.bcu.edu.dto.request.RefundRequest
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	... 25 common frames omitted
+[2025-11-06 19:52:33.307] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - Starting PaymentServiceApplication using Java 17.0.6 with PID 6072 (E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-11-06 19:52:33.311] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-11-06 19:52:35.033] [INFO ] [payment-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-11-06 19:52:35.289] [INFO ] [payment-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 247 ms. Found 2 JPA repository interfaces.
+[2025-11-06 19:52:35.752] [INFO ] [payment-service] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=de73a78b-3d4d-3ab1-8b67-aa45abfccd0a
+[2025-11-06 19:52:36.231] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-06 19:52:36.235] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.240] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.256] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.260] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.262] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$787/0x00000008011649f0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.266] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.277] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.288] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.292] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.297] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.308] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.326] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.328] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.330] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.334] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.336] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 19:52:36.769] [INFO ] [payment-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8066 (http)
+[2025-11-06 19:52:36.937] [INFO ] [payment-service] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 3561 ms
+[2025-11-06 19:52:37.474] [INFO ] [payment-service] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-11-06 19:52:37.575] [INFO ] [payment-service] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-11-06 19:52:37.633] [INFO ] [payment-service] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-11-06 19:52:38.034] [INFO ] [payment-service] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-11-06 19:52:38.093] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Starting...
+[2025-11-06 19:52:38.353] [INFO ] [payment-service] [main] [com.zaxxer.hikari.pool.HikariPool:?] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a11efe6
+[2025-11-06 19:52:38.356] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Start completed.
+[2025-11-06 19:52:38.421] [WARN ] [payment-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-11-06 19:52:39.769] [INFO ] [payment-service] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-11-06 19:52:39.831] [INFO ] [payment-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-06 19:52:40.576] [WARN ] [payment-service] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-11-06 19:52:41.374] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 19:52:41.415] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'order-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 19:52:41.431] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'groupbuy-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 19:52:41.469] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 19:52:42.472] [INFO ] [payment-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-11-06 19:52:43.234] [WARN ] [payment-service] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-11-06 19:52:43.247] [INFO ] [payment-service] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 2 endpoint(s) beneath base path '/actuator'
+[2025-11-06 19:52:43.349] [INFO ] [payment-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8066 (http) with context path ''
+[2025-11-06 19:52:43.351] [INFO ] [payment-service] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='payment-service-8066', name='payment-service', tags=[], address='192.168.245.1', meta={secure=false}, port=8066, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://192.168.245.1:8066/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-11-06 19:52:43.727] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - Started PaymentServiceApplication in 11.753 seconds (process running for 12.635)
+[2025-11-06 19:52:43.793] [INFO ] [payment-service] [http-nio-8066-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-11-06 19:52:43.795] [INFO ] [payment-service] [http-nio-8066-exec-1] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 2 ms
+[2025-11-06 19:54:12.979] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:20.220] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:24.643] [INFO ] [payment-service] [http-nio-8066-exec-4] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:26.600] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:27.212] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:27.812] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:28.527] [INFO ] [payment-service] [http-nio-8066-exec-8] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:34.742] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:54:37.485] [INFO ] [payment-service] [http-nio-8066-exec-1] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:55:58.986] [INFO ] [payment-service] [http-nio-8066-exec-1] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 19:56:01.229] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:00:07.181] [INFO ] [payment-service] [http-nio-8066-exec-9] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:00:20.747] [INFO ] [payment-service] [http-nio-8066-exec-1] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:02:04.118] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.controller.PaymentController:?] - 用户发起充值: userId=3, amount=10
+[2025-11-06 20:02:04.130] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.service.PaymentService:?] - 开始余额充值: userId=3, amount=10
+[2025-11-06 20:02:04.415] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.service.PaymentService:?] - 充值记录已创建: payId=7
+[2025-11-06 20:02:04.545] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.service.PaymentService:?] - 余额充值成功: payId=7, userId=3, amount=10
+[2025-11-06 20:02:04.986] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:09:25.873] [ERROR] [payment-service] [http-nio-8066-exec-1] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/payment/admin/records.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-06 20:09:35.488] [ERROR] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/payment/admin/records.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-06 20:09:48.348] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=1
+[2025-11-06 20:11:32.531] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=1
+[2025-11-06 20:11:43.615] [INFO ] [payment-service] [http-nio-8066-exec-9] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=1
+[2025-11-06 20:11:46.766] [INFO ] [payment-service] [http-nio-8066-exec-1] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=1
+[2025-11-06 20:12:03.065] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=1
+[2025-11-06 20:19:17.845] [ERROR] [payment-service] [http-nio-8066-exec-9] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/payment/admin/records.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-06 20:19:25.323] [ERROR] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/payment/admin/records.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-06 20:19:33.389] [ERROR] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/payment/admin/records.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-06 20:19:45.431] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: payment-service-8066
+[2025-11-06 20:19:45.438] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-06 20:19:45.440] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-06 20:19:45.446] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.
+[2025-11-06 20:19:54.231] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - Starting PaymentServiceApplication using Java 17.0.6 with PID 31208 (E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-11-06 20:19:54.234] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-11-06 20:19:55.408] [INFO ] [payment-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-11-06 20:19:55.570] [INFO ] [payment-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 154 ms. Found 2 JPA repository interfaces.
+[2025-11-06 20:19:55.830] [INFO ] [payment-service] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=a9246f94-a812-33c9-a2f7-bd36df0628af
+[2025-11-06 20:19:56.166] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-06 20:19:56.169] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.171] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.184] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.187] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.188] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$787/0x000000080118d570] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.192] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.199] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.205] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.207] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.209] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.216] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.222] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.225] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.226] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.228] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.229] [WARN ] [payment-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-06 20:19:56.525] [INFO ] [payment-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8066 (http)
+[2025-11-06 20:19:56.624] [INFO ] [payment-service] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2343 ms
+[2025-11-06 20:19:56.958] [INFO ] [payment-service] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-11-06 20:19:57.027] [INFO ] [payment-service] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-11-06 20:19:57.065] [INFO ] [payment-service] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-11-06 20:19:57.315] [INFO ] [payment-service] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-11-06 20:19:57.350] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Starting...
+[2025-11-06 20:19:57.502] [INFO ] [payment-service] [main] [com.zaxxer.hikari.pool.HikariPool:?] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7533923b
+[2025-11-06 20:19:57.506] [INFO ] [payment-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Start completed.
+[2025-11-06 20:19:57.558] [WARN ] [payment-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-11-06 20:19:58.538] [INFO ] [payment-service] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-11-06 20:19:58.591] [INFO ] [payment-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-06 20:19:58.878] [INFO ] [payment-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-11-06 20:19:59.517] [WARN ] [payment-service] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-11-06 20:20:00.384] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 20:20:00.439] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'order-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 20:20:00.462] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'groupbuy-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 20:20:00.523] [INFO ] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-06 20:20:01.998] [WARN ] [payment-service] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-11-06 20:20:02.016] [INFO ] [payment-service] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 2 endpoint(s) beneath base path '/actuator'
+[2025-11-06 20:20:02.115] [INFO ] [payment-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8066 (http) with context path ''
+[2025-11-06 20:20:02.117] [INFO ] [payment-service] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='payment-service-8066', name='payment-service', tags=[], address='192.168.245.1', meta={secure=false}, port=8066, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://192.168.245.1:8066/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-11-06 20:20:02.471] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:?] - Started PaymentServiceApplication in 9.305 seconds (process running for 10.166)
+[2025-11-06 20:20:02.987] [INFO ] [payment-service] [RMI TCP Connection(2)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-11-06 20:20:02.991] [INFO ] [payment-service] [RMI TCP Connection(2)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 4 ms
+[2025-11-06 20:20:11.406] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.controller.AdminPaymentController:?] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-06 20:20:11.417] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.service.PaymentService:?] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-06 20:20:11.628] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.controller.AdminPaymentController:?] - 查询成功: 总记录数=5, 当前页记录数=5
+[2025-11-06 20:20:15.354] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.controller.AdminPaymentController:?] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-06 20:20:15.355] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.service.PaymentService:?] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-06 20:20:15.364] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.controller.AdminPaymentController:?] - 查询成功: 总记录数=5, 当前页记录数=5
+[2025-11-06 20:20:43.897] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:20:44.695] [INFO ] [payment-service] [http-nio-8066-exec-8] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:20:45.560] [INFO ] [payment-service] [http-nio-8066-exec-9] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:20:45.808] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:20:46.393] [INFO ] [payment-service] [http-nio-8066-exec-1] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
+[2025-11-06 20:20:50.445] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.controller.AdminPaymentController:?] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-06 20:20:50.445] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.service.PaymentService:?] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-06 20:20:50.449] [INFO ] [payment-service] [http-nio-8066-exec-3] [com.bcu.edu.controller.AdminPaymentController:?] - 查询成功: 总记录数=5, 当前页记录数=5
+[2025-11-06 22:08:12.753] [INFO ] [payment-service] [http-nio-8066-exec-8] [com.bcu.edu.controller.AdminPaymentController:?] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-06 22:08:12.754] [INFO ] [payment-service] [http-nio-8066-exec-8] [com.bcu.edu.service.PaymentService:?] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-06 22:08:12.790] [INFO ] [payment-service] [http-nio-8066-exec-8] [com.bcu.edu.controller.AdminPaymentController:?] - 查询成功: 总记录数=5, 当前页记录数=5
+[2025-11-06 22:08:24.388] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.AdminPaymentController:?] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-06 22:08:24.388] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:?] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-06 22:08:24.392] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.AdminPaymentController:?] - 查询成功: 总记录数=5, 当前页记录数=5
+[2025-11-06 22:25:24.366] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: payment-service-8066
+[2025-11-06 22:25:24.376] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-06 22:25:24.381] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-06 22:25:24.384] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.

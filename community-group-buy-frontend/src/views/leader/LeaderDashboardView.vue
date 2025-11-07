@@ -134,6 +134,10 @@
             </div>
           </template>
           <div class="actions-grid">
+            <div class="action-item" @click="handleViewGroupBuy">
+              <el-icon class="action-icon"><Grid /></el-icon>
+              <div class="action-text">拼团活动</div>
+            </div>
             <div class="action-item" @click="handleViewCommunity">
               <el-icon class="action-icon"><OfficeBuilding /></el-icon>
               <div class="action-text">社区详情</div>
@@ -306,6 +310,7 @@ import {
   TrendCharts,
   Money,
   Operation,
+  Grid,
   OfficeBuilding,
   DocumentCopy,
   Goods,
@@ -523,6 +528,10 @@ const handleSaveStoreInfo = async () => {
 }
 
 // 快捷操作
+const handleViewGroupBuy = () => {
+  router.push('/leader/groupbuy')
+}
+
 const handleViewCommunity = async () => {
   if (!storeInfo.value.communityId) {
     ElMessage.warning('社区信息不存在')

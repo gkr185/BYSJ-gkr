@@ -79,8 +79,11 @@ public class GroupBuyTeam {
     
     /**
      * 当前人数
+     * 
+     * <p>约束：不能小于0
      */
     @Column(name = "current_num", nullable = false)
+    @jakarta.validation.constraints.Min(value = 0, message = "当前人数不能为负数")
     private Integer currentNum = 0;
     
     /**

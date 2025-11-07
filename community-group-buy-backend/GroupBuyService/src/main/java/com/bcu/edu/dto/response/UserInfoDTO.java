@@ -26,6 +26,11 @@ public class UserInfoDTO {
     private String realName;
     
     /**
+     * 头像URL
+     */
+    private String avatar;
+    
+    /**
      * 角色（1-普通用户/2-团长/3-管理员）
      */
     private Integer role;

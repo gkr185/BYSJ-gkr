@@ -29,7 +29,13 @@ const router = createRouter({
       meta: { title: '注册' }
     },
 
-    // === 商品详情 ===
+    // === 商品相关 ===
+    {
+      path: '/products',
+      name: 'productList',
+      component: () => import('../views/product/ProductListView.vue'),
+      meta: { title: '商品列表' }
+    },
     {
       path: '/products/:id',
       name: 'productDetail',
@@ -43,6 +49,14 @@ const router = createRouter({
       name: 'groupBuyProductDetail',
       component: () => import('../views/groupbuy/GroupBuyProductDetailView.vue'),
       meta: { title: '拼团详情' }
+    },
+
+    // === 支付相关 ===
+    {
+      path: '/payment',
+      name: 'payment',
+      component: () => import('../views/payment/PaymentView.vue'),
+      meta: { title: '订单支付', requireAuth: true }
     },
 
     // === 用户中心 ===
@@ -76,6 +90,18 @@ const router = createRouter({
       component: () => import('../views/user/FeedbackView.vue'),
       meta: { title: '意见反馈', requireAuth: true }
     },
+    {
+      path: '/user/orders',
+      name: 'myOrders',
+      component: () => import('../views/user/MyOrdersView.vue'),
+      meta: { title: '我的订单', requireAuth: true }
+    },
+    {
+      path: '/user/groups',
+      name: 'myGroups',
+      component: () => import('../views/user/MyGroupsView.vue'),
+      meta: { title: '我的拼团', requireAuth: true }
+    },
 
     // === 团长相关 ===
     {
@@ -89,6 +115,24 @@ const router = createRouter({
       name: 'leaderDashboard',
       component: () => import('../views/leader/LeaderDashboardView.vue'),
       meta: { title: '团长工作台', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/groupbuy',
+      name: 'leaderGroupBuy',
+      component: () => import('../views/leader/LeaderGroupBuyManageView.vue'),
+      meta: { title: '拼团活动管理', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/activity/create',
+      name: 'leaderActivityCreate',
+      component: () => import('../views/leader/LeaderActivityCreateView.vue'),
+      meta: { title: '创建拼团活动', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/team/:teamId',
+      name: 'teamDetail',
+      component: () => import('../views/leader/TeamDetailView.vue'),
+      meta: { title: '拼团详情', requireAuth: true, requiresLeader: true }
     },
 
     // === 404 页面（必须放在最后） ===

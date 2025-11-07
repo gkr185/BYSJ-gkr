@@ -18,8 +18,9 @@ import java.math.BigDecimal;
 public class UserServiceClientFallback implements UserServiceClient {
 
     @Override
-    public Result<Void> deduct(Long userId, BigDecimal amount) {
-        log.error("UserService服务调用失败(扣款)，进入降级: userId={}, amount={}", userId, amount);
+    public Result<Void> deduct(Long userId, BigDecimal amount, String sagaId) {
+        log.error("UserService服务调用失败(扣款)，进入降级: userId={}, amount={}, sagaId={}", 
+            userId, amount, sagaId);
         return Result.error("用户服务暂时不可用，请稍后重试");
     }
 
@@ -27,6 +28,12 @@ public class UserServiceClientFallback implements UserServiceClient {
     public Result<Void> recharge(Long userId, BigDecimal amount) {
         log.error("UserService服务调用失败(充值)，进入降级: userId={}, amount={}", userId, amount);
         return Result.error("用户服务暂时不可用，请稍后重试");
+    }
+    
+    @Override
+    public Result<Void> refundToBalance(Long userId, BigDecimal amount) {
+        log.error("UserService服务调用失败(退款)，进入降级: userId={}, amount={}", userId, amount);
+        return Result.error("退款服务暂时不可用，请稍后重试");
     }
 }
 

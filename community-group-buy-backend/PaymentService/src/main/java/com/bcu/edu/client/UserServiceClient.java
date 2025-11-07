@@ -24,14 +24,16 @@ public interface UserServiceClient {
      * 
      * @param userId 用户ID
      * @param amount 扣款金额
+     * @param sagaId Saga事务ID（用于分布式事务追踪）
      * @return 成功/失败
      */
     @PostMapping("/feign/account/deduct")
     Result<Void> deduct(@RequestParam("userId") Long userId, 
-                        @RequestParam("amount") BigDecimal amount);
+                        @RequestParam("amount") BigDecimal amount,
+                        @RequestParam("sagaId") String sagaId);
 
     /**
-     * 余额充值（充值或退款时调用）
+     * 余额充值（充值时调用）
      * 
      * @param userId 用户ID
      * @param amount 充值金额
@@ -40,5 +42,16 @@ public interface UserServiceClient {
     @PostMapping("/feign/account/recharge")
     Result<Void> recharge(@RequestParam("userId") Long userId, 
                           @RequestParam("amount") BigDecimal amount);
+    
+    /**
+     * 退款到用户余额（退款时调用）⭐推荐使用此接口进行退款
+     * 
+     * @param userId 用户ID
+     * @param amount 退款金额
+     * @return 成功/失败
+     */
+    @PostMapping("/api/account/feign/refund")
+    Result<Void> refundToBalance(@RequestParam("userId") Long userId, 
+                                  @RequestParam("amount") BigDecimal amount);
 }
 

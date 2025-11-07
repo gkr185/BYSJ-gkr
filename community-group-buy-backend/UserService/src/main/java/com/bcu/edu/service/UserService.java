@@ -56,7 +56,9 @@ public class UserService {
         user.setPassword(SecurityUtil.sha256(request.getPassword())); // SHA256加密
         user.setPhone(request.getPhone()); // 不加密
         user.setRealName(request.getRealName());
-        user.setWxOpenid(request.getWxOpenid());
+        // 修复：空字符串转换为 null，避免唯一约束冲突
+        String wxOpenid = request.getWxOpenid();
+        user.setWxOpenid(wxOpenid != null && !wxOpenid.trim().isEmpty() ? wxOpenid.trim() : null);
         user.setRole(request.getRole());
         user.setStatus(SysUser.Status.ENABLED.getCode());
 
@@ -150,8 +152,10 @@ public class UserService {
         if (request.getAvatar() != null) {
             user.setAvatar(request.getAvatar());
         }
+        // 修复：空字符串转换为 null，避免唯一约束冲突
         if (request.getWxOpenid() != null) {
-            user.setWxOpenid(request.getWxOpenid());
+            String wxOpenid = request.getWxOpenid().trim();
+            user.setWxOpenid(wxOpenid.isEmpty() ? null : wxOpenid);
         }
         // 更新所属社区
         if (request.getCommunityId() != null) {

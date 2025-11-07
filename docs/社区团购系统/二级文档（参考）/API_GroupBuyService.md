@@ -4,9 +4,9 @@
 **服务端口**: 8063  
 **Base URL**: `http://localhost:8063`  
 **通过网关访问**: `http://localhost:9000`  
-**版本**: v1.0.1  
+**版本**: v1.0.2  
 **文档日期**: 2025-10-31  
-**最后更新**: 2025-11-01 18:30
+**最后更新**: 2025-11-07 20:30
 
 ---
 
@@ -63,8 +63,9 @@
 |------|--------|---------|
 | 拼团活动管理（管理端） | 6个 | `/api/groupbuy/activity`, `/api/groupbuy/product` |
 | 团管理（核心⭐） | 6个 | `/api/groupbuy/team` |
+| 团长管理团队（v3.1新增） | 3个 | `/api/groupbuy/team` |
 | 支付回调（内部） | 1个 | `/api/groupbuy/payment` |
-| **总计** | **13个** | - |
+| **总计** | **16个** | - |
 
 ---
 
@@ -418,17 +419,30 @@ Content-Type: application/json
 3. 创建团实例（launcher_id = leader_id = userId）
 4. 自动关联社区（community_id = 团长社区）⭐v3.0
 5. 生成团号（T + yyyyMMdd + 6位随机数）
-6. 如果joinImmediately=true：
+6. 如果joinImmediately=true：⭐优化v3.2
    - Feign调用OrderService创建订单
    - 记录参团（is_launcher=1, status=0待支付）
+   - **⭐调用PaymentService创建支付并自动完成（余额支付）**
+   - **⭐更新参团状态为已支付（status=1）**
+   - **⭐更新团的current_num（+1）**
+   - **⭐检查是否成团（current_num >= required_num）**
 
 **错误响应**:
 ```json
+// 非团长
 {
   "code": 403,
   "message": "仅团长可发起拼团，当前角色：1",
   "data": null,
   "timestamp": "2025-10-31T20:00:00"
+}
+
+// 支付失败（余额不足）⭐v3.2新增
+{
+  "code": 500,
+  "message": "支付失败：余额不足",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
 }
 ```
 
@@ -632,6 +646,229 @@ POST /api/groupbuy/team/quit?teamId=1
   "message": "拼团已成功，无法退出",
   "data": null,
   "timestamp": "2025-10-31T20:15:00"
+}
+```
+
+---
+
+### 6.5 团长提前结束拼团（⭐v3.1新增）
+
+**接口**: `POST /api/groupbuy/team/{teamId}/finish`  
+**权限**: 团长（role=2）  
+**鉴权**: 需要Token
+
+**说明**: 当达到起拼人数后，团长可以选择提前结束拼团
+
+**请求示例**:
+```bash
+POST /api/groupbuy/team/1/finish
+Authorization: Bearer {leader_token}
+```
+
+**路径参数**:
+
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| teamId | Long | ✅ | 团ID |
+
+**响应示例**:
+```json
+{
+  "code": 200,
+  "message": "拼团已成功结束",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+```
+
+**业务流程**:
+1. 校验团长权限（只有团长可操作）
+2. 查询团（加行锁）
+3. 检查团状态为"拼团中"
+4. 检查是否达到起拼人数（current_num >= required_num）
+5. 调用成团逻辑（teamSuccess）
+6. 批量更新成员状态为"已成团"
+7. Feign批量更新订单状态为"待发货"
+
+**错误响应**:
+```json
+// 非团长操作
+{
+  "code": 403,
+  "message": "仅团长可以提前结束拼团",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+
+// 未达起拼人数
+{
+  "code": 409,
+  "message": "未达到起拼人数，当前2人，需要3人",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+
+// 团已结束
+{
+  "code": 409,
+  "message": "该拼团已结束，当前状态：已成团",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+```
+
+---
+
+### 6.6 团长取消拼团（⭐v3.1新增）
+
+**接口**: `POST /api/groupbuy/team/{teamId}/cancel`  
+**权限**: 团长（role=2）  
+**鉴权**: 需要Token
+
+**说明**: 团长可以取消拼团，自动退款给所有成员
+
+**请求示例**:
+```bash
+POST /api/groupbuy/team/1/cancel
+Authorization: Bearer {leader_token}
+Content-Type: application/json
+
+{
+  "reason": "商品库存不足，取消拼团"
+}
+```
+
+**路径参数**:
+
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| teamId | Long | ✅ | 团ID |
+
+**请求体参数**:
+
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| reason | String | ❌ | 取消原因 |
+
+**响应示例**:
+```json
+{
+  "code": 200,
+  "message": "拼团已取消，已退款给所有成员",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+```
+
+**业务流程**:
+1. 校验团长权限（只有团长可操作）
+2. 查询团（加行锁）
+3. 检查团状态为"拼团中"
+4. 更新团状态为"已失败"
+5. 查询所有成员
+6. 更新所有成员状态为"已取消"
+7. 批量退款给所有已支付成员（Feign调用OrderService）
+8. 批量更新订单状态为"已退款"
+
+**错误响应**:
+```json
+// 非团长操作
+{
+  "code": 403,
+  "message": "仅团长可以取消拼团",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+
+// 团已结束
+{
+  "code": 409,
+  "message": "该拼团已结束，当前状态：已成团",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+```
+
+---
+
+### 6.7 团长移除团队成员（⭐v3.1新增）
+
+**接口**: `POST /api/groupbuy/team/{teamId}/member/{memberId}/remove`  
+**权限**: 团长（role=2）  
+**鉴权**: 需要Token
+
+**说明**: 团长可以移除团队中的成员（成团前），自动退款给该成员
+
+**请求示例**:
+```bash
+POST /api/groupbuy/team/1/member/5/remove
+Authorization: Bearer {leader_token}
+Content-Type: application/json
+
+{
+  "reason": "用户要求退出"
+}
+```
+
+**路径参数**:
+
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| teamId | Long | ✅ | 团ID |
+| memberId | Long | ✅ | 成员ID |
+
+**请求体参数**:
+
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| reason | String | ❌ | 移除原因 |
+
+**响应示例**:
+```json
+{
+  "code": 200,
+  "message": "已移除成员，已退款给该成员",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+```
+
+**业务流程**:
+1. 校验团长权限（只有团长可操作）
+2. 查询团（加行锁）
+3. 检查团状态为"拼团中"
+4. 查询被移除成员
+5. 检查成员是否属于该团
+6. 检查不能移除团长本人
+7. 删除参团记录
+8. 更新团人数（current_num--）
+9. 退款给被移除成员（Feign调用OrderService）
+10. 更新订单状态为"已退款"
+
+**错误响应**:
+```json
+// 非团长操作
+{
+  "code": 403,
+  "message": "仅团长可以移除成员",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+
+// 尝试移除团长本人
+{
+  "code": 409,
+  "message": "不能移除团长本人",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
+}
+
+// 团已结束
+{
+  "code": 409,
+  "message": "该拼团已结束，当前状态：已成团",
+  "data": null,
+  "timestamp": "2025-11-07T20:00:00"
 }
 ```
 
@@ -940,6 +1177,281 @@ GET /api/groupbuy/product/1/activities?communityId=1
 1. **优先级1**: 本社区的团排在前面⭐
 2. **优先级2**: 其他社区的团排在后面
 3. **优先级3**: 同一优先级内按创建时间倒序
+
+---
+
+### 7.4 查询我的拼团记录（⭐用户端核心接口）
+
+**接口**: `GET /api/groupbuy/teams/my`  
+**权限**: 需要登录  
+**鉴权**: 需要JWT Token  
+**版本**: v1.0.2 更新（返回MyTeamResponse）
+
+**功能**: 查询当前用户参与的所有拼团记录，包含参团信息和团详情
+
+**特性**:
+- ✅ 返回用户的所有参团记录（包括发起的和参与的）
+- ✅ 按参团时间倒序排列（最新的在前）
+- ✅ 包含完整的团信息、商品信息、成员列表
+- ✅ 自动调用UserService获取成员头像和用户名
+- ✅ 支持状态筛选（前端实现）
+
+**请求示例**:
+```bash
+GET /api/groupbuy/teams/my
+Authorization: Bearer {your_jwt_token}
+```
+
+**响应示例**:
+```json
+{
+  "code": 200,
+  "message": "操作成功",
+  "data": [
+    {
+      "memberId": 1,
+      "isLauncher": 1,
+      "payAmount": 19.90,
+      "joinTime": "2025-11-07T14:00:00",
+      "orderId": 8001,
+      "teamId": 1,
+      "teamNo": "T20251107001",
+      "activityId": 1,
+      "activityName": "有机蔬菜拼团",
+      "productId": 101,
+      "productName": "有机蔬菜",
+      "productCoverImg": "http://localhost:8062/uploads/product/veg001.jpg",
+      "productPrice": 28.00,
+      "groupPrice": 19.90,
+      "leaderId": 3,
+      "leaderName": "张团长",
+      "communityId": 1,
+      "communityName": "阳光小区",
+      "requiredNum": 3,
+      "currentNum": 2,
+      "teamStatus": 0,
+      "teamStatusDesc": "拼团中",
+      "successTime": null,
+      "expireTime": "2025-11-08T14:00:00",
+      "createTime": "2025-11-07T14:00:00",
+      "members": [
+        {
+          "memberId": 1,
+          "userId": 3,
+          "username": "leader123",
+          "realName": "张团长",
+          "avatar": "http://localhost:8061/uploads/user/avatar001.jpg",
+          "isLauncher": 1,
+          "payAmount": 19.90,
+          "joinTime": "2025-11-07T14:00:00",
+          "status": 1,
+          "statusDesc": "已支付"
+        },
+        {
+          "memberId": 2,
+          "userId": 4,
+          "username": "user001",
+          "realName": "李四",
+          "avatar": "http://localhost:8061/uploads/user/avatar002.jpg",
+          "isLauncher": 0,
+          "payAmount": 19.90,
+          "joinTime": "2025-11-07T14:05:00",
+          "status": 1,
+          "statusDesc": "已支付"
+        }
+      ],
+      "shareLink": "http://localhost:5173/team/1"
+    },
+    {
+      "memberId": 3,
+      "isLauncher": 0,
+      "payAmount": 29.90,
+      "joinTime": "2025-11-06T10:00:00",
+      "orderId": 8002,
+      "teamId": 5,
+      "teamNo": "T20251106001",
+      "activityId": 2,
+      "activityName": "水果拼团",
+      "productId": 102,
+      "productName": "进口水果",
+      "productCoverImg": "http://localhost:8062/uploads/product/fruit001.jpg",
+      "productPrice": 38.00,
+      "groupPrice": 29.90,
+      "leaderId": 2,
+      "leaderName": "王团长",
+      "communityId": 2,
+      "communityName": "幸福小区",
+      "requiredNum": 3,
+      "currentNum": 3,
+      "teamStatus": 1,
+      "teamStatusDesc": "已成团",
+      "successTime": "2025-11-06T10:30:00",
+      "expireTime": "2025-11-07T10:00:00",
+      "createTime": "2025-11-06T10:00:00",
+      "members": [
+        {
+          "memberId": 4,
+          "userId": 2,
+          "username": "leader456",
+          "realName": "王团长",
+          "avatar": "http://localhost:8061/uploads/user/avatar003.jpg",
+          "isLauncher": 1,
+          "payAmount": 29.90,
+          "joinTime": "2025-11-06T10:00:00",
+          "status": 2,
+          "statusDesc": "已成团"
+        },
+        {
+          "memberId": 3,
+          "userId": 4,
+          "username": "user001",
+          "realName": "李四",
+          "avatar": "http://localhost:8061/uploads/user/avatar002.jpg",
+          "isLauncher": 0,
+          "payAmount": 29.90,
+          "joinTime": "2025-11-06T10:00:00",
+          "status": 2,
+          "statusDesc": "已成团"
+        },
+        {
+          "memberId": 5,
+          "userId": 5,
+          "username": "user002",
+          "realName": "王五",
+          "avatar": "http://localhost:8061/uploads/user/avatar004.jpg",
+          "isLauncher": 0,
+          "payAmount": 29.90,
+          "joinTime": "2025-11-06T10:15:00",
+          "status": 2,
+          "statusDesc": "已成团"
+        }
+      ],
+      "shareLink": "http://localhost:5173/team/5"
+    }
+  ],
+  "timestamp": "2025-11-07T21:30:00"
+}
+```
+
+**字段说明**:
+
+**参团记录字段**（MyTeamResponse）:
+
+| 字段 | 类型 | 说明 |
+|-----|------|------|
+| memberId | Long | 参团记录ID |
+| isLauncher | Integer | 是否发起人（0-否/1-是） |
+| payAmount | BigDecimal | 用户支付金额 |
+| joinTime | LocalDateTime | 用户参团时间 |
+| orderId | Long | 订单ID |
+
+**团信息字段**:
+
+| 字段 | 类型 | 说明 |
+|-----|------|------|
+| teamId | Long | 团ID |
+| teamNo | String | 团号 |
+| activityId | Long | 活动ID |
+| activityName | String | 活动名称 |
+| productId | Long | 商品ID |
+| productName | String | 商品名称 |
+| productCoverImg | String | 商品封面图 |
+| productPrice | BigDecimal | 商品原价 |
+| groupPrice | BigDecimal | 拼团价 |
+| leaderId | Long | 团长ID |
+| leaderName | String | 团长姓名 |
+| communityId | Long | 社区ID |
+| communityName | String | 社区名称 |
+| requiredNum | Integer | 成团人数 |
+| currentNum | Integer | 当前人数 |
+| teamStatus | Integer | 团状态（0-拼团中/1-已成团/2-已失败） |
+| teamStatusDesc | String | 团状态描述 |
+| successTime | LocalDateTime | 成团时间 |
+| expireTime | LocalDateTime | 过期时间 |
+| createTime | LocalDateTime | 创建时间 |
+| members | Array | 团队成员列表 |
+| shareLink | String | 分享链接 |
+
+**成员信息字段**（MemberInfoResponse）:
+
+| 字段 | 类型 | 说明 |
+|-----|------|------|
+| memberId | Long | 参团记录ID |
+| userId | Long | 用户ID |
+| username | String | 用户名（从UserService获取） |
+| realName | String | 真实姓名（从UserService获取） |
+| avatar | String | 头像URL（从UserService获取） |
+| isLauncher | Integer | 是否发起人（0-否/1-是） |
+| payAmount | BigDecimal | 支付金额 |
+| joinTime | LocalDateTime | 参团时间 |
+| status | Integer | 参团状态（0-待支付/1-已支付/2-已成团/3-已取消） |
+| statusDesc | String | 参团状态描述 |
+
+**团状态说明**:
+
+| 状态码 | 状态描述 | 说明 |
+|-------|---------|------|
+| 0 | 拼团中 | 团正在招募成员，未达成团人数 |
+| 1 | 已成团 | 已达成团人数，拼团成功 |
+| 2 | 已失败 | 超时未成团或其他原因导致失败 |
+
+**参团状态说明**:
+
+| 状态码 | 状态描述 | 说明 |
+|-------|---------|------|
+| 0 | 待支付 | 用户已参团但未支付 |
+| 1 | 已支付 | 用户已支付，等待成团 |
+| 2 | 已成团 | 拼团成功，订单进入待发货 |
+| 3 | 已取消 | 用户主动退出或拼团失败退款 |
+
+**业务逻辑**:
+
+1. 从请求头获取用户ID（X-User-Id）
+2. 查询用户的所有参团记录（group_buy_member表）
+3. 按参团时间倒序排列
+4. 对每条记录：
+   - 查询团信息（group_buy_team表）
+   - 查询活动信息（group_buy_activity表）
+   - 调用ProductService获取商品信息（包含商品图片）
+   - 调用UserService获取团长信息
+   - 调用LeaderService获取社区信息
+   - 查询团的所有成员
+   - 调用UserService获取每个成员的详细信息（头像、用户名）⭐
+5. 构建MyTeamResponse响应
+
+**技术亮点**:
+
+- ✅ **跨服务调用**: 调用UserService、ProductService、LeaderService获取完整信息
+- ✅ **异常容错**: UserService调用失败时使用默认值（"用户{userId}"）
+- ✅ **性能优化**: 批量查询成员，减少数据库访问
+- ✅ **数据完整性**: 包含参团记录、团信息、商品信息、成员详情
+
+**使用场景**:
+
+- 用户端"我的拼团"页面
+- 查看参与的所有拼团记录
+- 查看拼团进度和状态
+- 邀请好友参团
+- 退出拼团
+
+**错误响应**:
+
+```json
+{
+  "code": 401,
+  "message": "未登录",
+  "data": null,
+  "timestamp": "2025-11-07T21:30:00"
+}
+```
+
+**注意事项**:
+
+1. 需要JWT Token认证
+2. 返回的是用户的参团记录，不是团列表
+3. 每条记录包含用户的参团信息（memberId、isLauncher、payAmount、joinTime、orderId）
+4. members数组包含该团的所有成员详细信息
+5. 头像、用户名等信息通过UserService实时获取，确保数据最新
 
 ---
 

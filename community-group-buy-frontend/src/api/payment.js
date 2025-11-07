@@ -1,17 +1,19 @@
-import request from '@/utils/request'
+import request from '../utils/request'
 
 /**
- * 支付相关API
- * 对应后端 PaymentService (端口8066)
+ * 支付服务 API
+ * 版本: v1.0.0
+ * 对应后端: PaymentService
  */
+
+// ==================== 支付接口 ====================
 
 /**
  * 创建支付
- * @param {Object} data - 支付请求参数
- * @param {Number} data.orderId - 订单ID
- * @param {Number} data.payType - 支付方式（1-微信；2-支付宝；3-余额）
- * @param {Number} data.amount - 支付金额
- * @returns {Promise}
+ * @param {object} data - 支付数据
+ * @param {number} data.orderId - 订单ID
+ * @param {number} data.payType - 支付方式（3-余额支付）
+ * @param {number} data.amount - 支付金额
  */
 export const createPayment = (data) => {
   return request({
@@ -22,11 +24,48 @@ export const createPayment = (data) => {
 }
 
 /**
- * 余额充值
- * @param {Object} data - 充值请求参数
- * @param {Number} data.amount - 充值金额
- * @param {Number} data.payType - 支付方式（3-余额）
- * @returns {Promise}
+ * 查询支付记录
+ * @param {number} payId - 支付ID
+ */
+export const getPaymentDetail = (payId) => {
+  return request({
+    url: `/api/payment/${payId}`,
+    method: 'GET'
+  })
+}
+
+/**
+ * 根据订单ID查询支付记录
+ * @param {number} orderId - 订单ID
+ */
+export const getPaymentByOrderId = (orderId) => {
+  return request({
+    url: `/api/payment/order/${orderId}`,
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取用户的支付记录列表（交易记录）
+ * @param {object} params - 查询参数
+ * @param {number} params.page - 页码
+ * @param {number} params.size - 每页数量
+ * @param {string} params.type - 交易类型（可选）
+ * @returns {Promise} 支付记录列表
+ */
+export const getPaymentRecords = (params) => {
+  return request({
+    url: '/api/payment/records',
+    method: 'GET',
+    params
+  })
+}
+
+/**
+ * 账户充值
+ * @param {object} data - 充值数据
+ * @param {number} data.amount - 充值金额
+ * @param {number} data.payType - 支付方式（3-余额支付，1-微信，2-支付宝）
  */
 export const recharge = (data) => {
   return request({
@@ -37,92 +76,69 @@ export const recharge = (data) => {
 }
 
 /**
- * 查询支付记录
- * @param {Number} payId - 支付记录ID
- * @returns {Promise}
+ * 退款
+ * @param {object} data - 退款数据
+ * @param {number} data.orderId - 订单ID
+ * @param {number} data.amount - 退款金额
+ * @param {string} data.reason - 退款原因
  */
-export const getPaymentRecord = (payId) => {
+export const refund = (data) => {
   return request({
-    url: `/api/payment/record/${payId}`,
-    method: 'GET'
+    url: '/api/payment/refund',
+    method: 'POST',
+    data
   })
 }
 
-/**
- * 查询订单支付记录
- * @param {Number} orderId - 订单ID
- * @returns {Promise}
- */
-export const getPaymentByOrderId = (orderId) => {
-  return request({
-    url: `/api/payment/order/${orderId}`,
-    method: 'GET'
-  })
-}
+// ==================== 支付常量 ====================
 
 /**
- * 查询所有支付记录
- * @returns {Promise}
- */
-export const getPaymentRecords = () => {
-  return request({
-    url: '/api/payment/records',
-    method: 'GET'
-  })
-}
-
-/**
- * 查询充值记录
- * @returns {Promise}
- */
-export const getRechargeRecords = () => {
-  return request({
-    url: '/api/payment/recharge/records',
-    method: 'GET'
-  })
-}
-
-/**
- * 支付类型枚举
+ * 支付类型
  */
 export const PAY_TYPE = {
-  WECHAT: 1,
-  ALIPAY: 2,
-  BALANCE: 3
+  WECHAT: 1,      // 微信支付
+  ALIPAY: 2,      // 支付宝支付
+  BALANCE: 3      // 余额支付
 }
 
 /**
- * 支付状态枚举
+ * 支付类型文本
+ */
+export const PAY_TYPE_TEXT = {
+  [PAY_TYPE.WECHAT]: '微信支付',
+  [PAY_TYPE.ALIPAY]: '支付宝支付',
+  [PAY_TYPE.BALANCE]: '余额支付'
+}
+
+/**
+ * 支付状态
  */
 export const PAY_STATUS = {
-  FAILED: 0,
-  SUCCESS: 1
+  UNPAID: 0,      // 待支付
+  PAID: 1,        // 已支付
+  REFUNDING: 2,   // 退款中
+  REFUNDED: 3,    // 已退款
+  FAILED: 4       // 支付失败
 }
 
 /**
- * 获取支付类型文本
- * @param {Number} type - 支付类型
- * @returns {String}
+ * 支付状态文本
  */
-export const getPayTypeText = (type) => {
-  const map = {
-    1: '微信支付',
-    2: '支付宝支付',
-    3: '余额支付'
-  }
-  return map[type] || '未知'
+export const PAY_STATUS_TEXT = {
+  [PAY_STATUS.UNPAID]: '待支付',
+  [PAY_STATUS.PAID]: '已支付',
+  [PAY_STATUS.REFUNDING]: '退款中',
+  [PAY_STATUS.REFUNDED]: '已退款',
+  [PAY_STATUS.FAILED]: '支付失败'
 }
 
 /**
- * 获取支付状态文本
- * @param {Number} status - 支付状态
- * @returns {String}
+ * 支付状态标签类型
  */
-export const getPayStatusText = (status) => {
-  const map = {
-    0: '失败',
-    1: '成功'
-  }
-  return map[status] || '未知'
+export const PAY_STATUS_TAG_TYPE = {
+  [PAY_STATUS.UNPAID]: 'warning',
+  [PAY_STATUS.PAID]: 'success',
+  [PAY_STATUS.REFUNDING]: 'info',
+  [PAY_STATUS.REFUNDED]: 'info',
+  [PAY_STATUS.FAILED]: 'danger'
 }
-
