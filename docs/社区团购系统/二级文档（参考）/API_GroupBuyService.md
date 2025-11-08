@@ -960,7 +960,7 @@ Content-Type: application/json
 
 ---
 
-### 7.2 获取活动的团列表（⭐社区优先排序）
+### 7.2 获取活动的团列表（⭐社区优先排序+状态筛选）
 
 **接口**: `GET /api/groupbuy/activity/{activityId}/teams`  
 **权限**: 无  
@@ -970,19 +970,32 @@ Content-Type: application/json
 - ✅ v3.0社区优先推荐
 - ✅ 优先显示本社区的团
 - ✅ SQL ORDER BY CASE实现
-- ✅ 只返回拼团中的团（team_status=0）
-- ✅ 只返回未过期的团（expire_time > now）
+- ✅ ⭐支持状态筛选（管理端可查看所有状态）
+- ✅ ⭐支持查看已过期团（管理端）
+- ✅ 默认只返回拼团中且未过期的团（C端）
 
 **请求示例**:
 ```bash
+# C端：查询拼团中且未过期的团（社区优先）
 GET /api/groupbuy/activity/1/teams?communityId=10
+
+# 管理端：查询所有拼团中的团（包括已过期）
+GET /api/groupbuy/activity/1/teams?status=0&includeExpired=true
+
+# 管理端：查询已成团的记录
+GET /api/groupbuy/activity/1/teams?status=1&includeExpired=true
+
+# 管理端：查询所有状态的团（不传status参数默认显示拼团中）
+GET /api/groupbuy/activity/1/teams?includeExpired=true
 ```
 
 **请求参数**:
 
-| 参数 | 类型 | 必填 | 说明 |
-|-----|------|------|------|
-| communityId | Long | ❌ | 用户的社区ID（传入后优先显示本社区团） |
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|-----|------|------|--------|------|
+| communityId | Long | ❌ | null | 用户的社区ID（传入后优先显示本社区团） |
+| status | Integer | ❌ | null | 团状态（0-拼团中, 1-已成团, 2-已失败，null-默认只显示拼团中）⭐新增 |
+| includeExpired | Boolean | ❌ | false | 是否包含已过期的团（true-包含，false-只显示未过期）⭐新增 |
 
 **SQL实现**（⭐技术亮点）:
 ```sql

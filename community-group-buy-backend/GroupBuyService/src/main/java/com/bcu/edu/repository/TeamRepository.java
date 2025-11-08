@@ -91,6 +91,41 @@ public interface TeamRepository extends JpaRepository<GroupBuyTeam, Long> {
     );
     
     /**
+     * 查询活动的团列表（支持状态筛选和过期筛选）⭐管理端使用
+     * 
+     * <p>排序规则：
+     * <ol>
+     *   <li>优先显示本社区的团（community_id匹配）</li>
+     *   <li>然后显示其他社区的团</li>
+     *   <li>同一优先级内按创建时间倒序</li>
+     * </ol>
+     * 
+     * @param activityId 活动ID
+     * @param communityId 用户的社区ID（为null时传0）
+     * @param status 团状态（null表示不限制状态）
+     * @param includeExpired 是否包含已过期的团
+     * @param limit 返回数量限制
+     * @return 团列表
+     */
+    @Query(value = """
+        SELECT * FROM group_buy_team t
+        WHERE t.activity_id = :activityId
+          AND (:status IS NULL OR t.team_status = :status)
+          AND (:includeExpired = true OR t.expire_time > NOW())
+        ORDER BY 
+          CASE WHEN t.community_id = :communityId THEN 0 ELSE 1 END ASC,
+          t.create_time DESC
+        LIMIT :limit
+        """, nativeQuery = true)
+    List<GroupBuyTeam> findByActivityIdWithFilters(
+        @Param("activityId") Long activityId,
+        @Param("communityId") Long communityId,
+        @Param("status") Integer status,
+        @Param("includeExpired") boolean includeExpired,
+        @Param("limit") int limit
+    );
+    
+    /**
      * 查询用户发起的团（按创建时间倒序）
      */
     List<GroupBuyTeam> findByLauncherIdOrderByCreateTimeDesc(Long launcherId);

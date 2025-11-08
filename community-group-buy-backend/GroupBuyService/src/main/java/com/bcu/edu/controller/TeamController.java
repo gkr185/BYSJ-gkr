@@ -134,22 +134,33 @@ public class TeamController {
     }
     
     /**
-     * 获取活动的团列表（⭐社区优先排序）
+     * 获取活动的团列表（⭐社区优先排序，支持状态筛选）
      * 
      * <p>v3.0特性：
      * <ul>
      *   <li>优先显示本社区的团</li>
      *   <li>然后显示其他社区的团</li>
      *   <li>SQL ORDER BY CASE实现</li>
+     *   <li>⭐管理端支持状态筛选和查看已过期团</li>
      * </ul>
+     * 
+     * @param activityId 活动ID
+     * @param communityId 用户社区ID（可选，用于社区优先排序）
+     * @param status 团状态（0-拼团中, 1-已成团, 2-已失败，null-不限制，默认只显示拼团中）
+     * @param includeExpired 是否包含已过期的团（true-包含，false-只显示未过期，默认false）
+     * @return 团列表
      */
     @GetMapping("/activity/{activityId}/teams")
-    @Operation(summary = "获取活动团列表", description = "v3.0：社区优先排序")
+    @Operation(summary = "获取活动团列表", description = "v3.0：社区优先排序，支持状态筛选")
     public Result<List<TeamDetailResponse>> getActivityTeams(
         @Parameter(description = "活动ID") @PathVariable Long activityId,
-        @Parameter(description = "用户社区ID（可选）") @RequestParam(required = false) Long communityId) {
+        @Parameter(description = "用户社区ID（可选）") @RequestParam(required = false) Long communityId,
+        @Parameter(description = "团状态（0-拼团中, 1-已成团, 2-已失败，null-默认只显示拼团中）") 
+        @RequestParam(required = false) Integer status,
+        @Parameter(description = "是否包含已过期的团（默认false）") 
+        @RequestParam(defaultValue = "false") Boolean includeExpired) {
         
-        List<TeamDetailResponse> teams = teamService.getActivityTeams(activityId, communityId);
+        List<TeamDetailResponse> teams = teamService.getActivityTeams(activityId, communityId, status, includeExpired);
         return Result.success(teams);
     }
     

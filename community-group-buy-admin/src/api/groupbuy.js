@@ -83,8 +83,13 @@ export const getTeamDetail = (teamId) => {
 
 /**
  * 获取活动的团列表
+ * @param {number} activityId - 活动ID
+ * @param {object} params - 查询参数
+ * @param {number} params.communityId - 社区ID（可选）
+ * @param {number} params.status - 团状态（0-拼团中, 1-已成团, 2-已失败，null-默认拼团中）
+ * @param {boolean} params.includeExpired - 是否包含已过期的团（默认false）
  */
-export const getActivityTeams = (activityId, params) => {
+export const getActivityTeams = (activityId, params = {}) => {
   return request({
     url: `/api/groupbuy/activity/${activityId}/teams`,
     method: 'GET',

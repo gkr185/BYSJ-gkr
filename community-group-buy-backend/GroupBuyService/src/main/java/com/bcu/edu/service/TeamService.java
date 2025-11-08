@@ -507,15 +507,39 @@ public class TeamService {
     }
     
     /**
-     * 获取活动的团列表（社区优先排序）⭐v3.0
+     * 获取活动的团列表（社区优先排序，支持状态筛选）⭐v3.0优化
+     * 
+     * @param activityId 活动ID
+     * @param communityId 用户社区ID（可选）
+     * @param status 团状态（null表示默认只显示拼团中）
+     * @param includeExpired 是否包含已过期的团（默认false）
+     * @return 团列表
      */
-    public List<TeamDetailResponse> getActivityTeams(Long activityId, Long communityId) {
-        // 使用Repository的社区优先排序查询 ⭐
-        List<GroupBuyTeam> teams = teamRepository.findByActivityIdWithCommunityPriority(
-            activityId,
-            communityId != null ? communityId : 0L,  // null时传0
-            20  // 最多20个团
-        );
+    public List<TeamDetailResponse> getActivityTeams(Long activityId, Long communityId, 
+                                                     Integer status, Boolean includeExpired) {
+        List<GroupBuyTeam> teams;
+        
+        // 如果没有指定status且includeExpired=false，使用原有的优化查询（C端用）
+        // 否则使用新的筛选查询（管理端用）
+        if (status == null && !Boolean.TRUE.equals(includeExpired)) {
+            // C端：默认只显示拼团中且未过期的团
+            teams = teamRepository.findByActivityIdWithCommunityPriority(
+                activityId,
+                communityId != null ? communityId : 0L,
+                20
+            );
+        } else {
+            // 管理端：支持状态筛选和查看已过期团
+            // 如果status为null，默认显示拼团中(0)的团
+            Integer queryStatus = status != null ? status : 0;
+            teams = teamRepository.findByActivityIdWithFilters(
+                activityId,
+                communityId != null ? communityId : 0L,
+                status,  // null表示不限制状态
+                Boolean.TRUE.equals(includeExpired),
+                50  // 管理端可以显示更多
+            );
+        }
         
         GroupBuy activity = activityRepository.findById(activityId)
             .orElseThrow(() -> new BusinessException("活动不存在"));
@@ -523,6 +547,16 @@ public class TeamService {
         return teams.stream()
             .map(team -> buildTeamDetailResponse(team, activity, null, null))
             .collect(Collectors.toList());
+    }
+    
+    /**
+     * 获取活动的团列表（旧版本，保持向后兼容）
+     * 
+     * @deprecated 请使用 {@link #getActivityTeams(Long, Long, Integer, Boolean)}
+     */
+    @Deprecated
+    public List<TeamDetailResponse> getActivityTeams(Long activityId, Long communityId) {
+        return getActivityTeams(activityId, communityId, null, false);
     }
     
     /**
