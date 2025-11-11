@@ -178,10 +178,10 @@ public class FeignController {
 
     /**
      * 判断是否拼团订单（⭐⭐⭐关键接口）
-     * 
+     *
      * <p>调用方: PaymentService.handleOrderPaymentSuccess()
      * <p>场景: 支付成功后判断是否需要回调GroupBuyService
-     * 
+     *
      * @param orderId 订单ID
      * @return true-拼团订单；false-普通订单
      */
@@ -197,6 +197,30 @@ public class FeignController {
         } catch (Exception e) {
             log.error("判断订单类型失败", e);
             return Result.error("判断订单类型失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 获取订单商品总数量
+     *
+     * <p>调用方: GroupBuyService.getTeamDetail()
+     * <p>场景: 拼团详情页显示每个成员购买的商品数量
+     *
+     * @param orderId 订单ID
+     * @return 商品总数量
+     */
+    @GetMapping("/getProductQuantity/{orderId}")
+    @Operation(summary = "获取订单商品总数量", description = "供GroupBuyService调用，获取订单中商品的总数量")
+    public Result<Integer> getProductQuantity(@PathVariable("orderId") Long orderId) {
+        log.info("Feign调用: 获取订单商品总数量, orderId={}", orderId);
+
+        try {
+            Integer quantity = orderService.getProductQuantity(orderId);
+            log.info("获取成功: orderId={}, quantity={}", orderId, quantity);
+            return Result.success(quantity);
+        } catch (Exception e) {
+            log.error("获取商品数量失败", e);
+            return Result.error("获取商品数量失败: " + e.getMessage());
         }
     }
 }

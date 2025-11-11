@@ -61,5 +61,11 @@ public class OrderVO {
      * 支付时间
      */
     private LocalDateTime payTime;
+
+    /**
+     * 订单类型
+     * 0-普通订单；1-拼团订单
+     */
+    private Integer orderType;
 }
 

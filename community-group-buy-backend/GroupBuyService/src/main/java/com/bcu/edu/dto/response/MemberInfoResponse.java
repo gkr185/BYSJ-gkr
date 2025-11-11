@@ -68,5 +68,10 @@ public class MemberInfoResponse {
      * 参团状态描述
      */
     private String statusDesc;
+
+    /**
+     * 购买商品数量
+     */
+    private Integer productQuantity;
 }
 

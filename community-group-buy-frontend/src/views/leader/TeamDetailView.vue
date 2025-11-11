@@ -196,13 +196,17 @@
                 </div>
 
                 <div class="member-status">
-                  <el-tag 
+                  <el-tag
                     :type="getMemberStatusType(member.status)"
                     effect="plain"
                   >
                     {{ member.statusDesc }}
                   </el-tag>
                   <div class="member-amount">¥{{ member.payAmount }}</div>
+                  <div class="member-quantity" v-if="member.productQuantity > 0">
+                    <el-icon><ShoppingCart /></el-icon>
+                    <span>{{ member.productQuantity }}件商品</span>
+                  </div>
                 </div>
 
                 <!-- 团长操作按钮 -->
@@ -338,7 +342,7 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   ArrowLeft, UserFilled, Loading, CircleCheck, CircleClose, Clock,
   ShoppingBag, Picture, InfoFilled, User, Star, Delete, Share,
-  Close, Plus
+  Close, Plus, ShoppingCart
 } from '@element-plus/icons-vue'
 import { 
   getTeamDetail, 
@@ -999,6 +1003,18 @@ onMounted(() => {
             font-size: 16px;
             font-weight: 600;
             color: #f56c6c;
+          }
+
+          .member-quantity {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13px;
+            color: #909399;
+
+            .el-icon {
+              font-size: 14px;
+            }
           }
         }
 

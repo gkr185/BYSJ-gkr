@@ -74,16 +74,30 @@ public interface OrderServiceClient {
     
     /**
      * 取消订单（补偿机制）
-     * 
+     *
      * <p>应用场景：
      * <ul>
      *   <li>参团失败时取消订单</li>
      * </ul>
-     * 
+     *
      * @param orderId 订单ID
      * @return Result<Void>
      */
     @PostMapping("/api/order/feign/cancel/{orderId}")
     Result<Void> cancelOrder(@PathVariable("orderId") Long orderId);
+
+    /**
+     * 获取订单商品总数量
+     *
+     * <p>应用场景：
+     * <ul>
+     *   <li>拼团详情页显示每个成员购买的商品数量</li>
+     * </ul>
+     *
+     * @param orderId 订单ID
+     * @return Result<Integer> 商品总数量
+     */
+    @GetMapping("/api/order/feign/getProductQuantity/{orderId}")
+    Result<Integer> getProductQuantity(@PathVariable("orderId") Long orderId);
 }
 

@@ -101,3 +101,19 @@ export const getCartCount = (userId) => {
   })
 }
 
+/**
+ * 购物车结算（批量创建订单）
+ * @param {Object} data - 结算数据
+ * @param {Array<Number>} data.cartIds - 购物车ID数组
+ * @param {Number} data.addressId - 收货地址ID
+ * @param {Number} data.leaderId - 团长ID
+ * @returns {Promise<Array<Number>>} 创建的订单ID数组
+ */
+export const checkoutCart = (data) => {
+  return request({
+    url: '/api/cart/checkout',
+    method: 'POST',
+    data
+  })
+}
+

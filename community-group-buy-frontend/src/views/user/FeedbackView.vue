@@ -4,7 +4,7 @@
       <div class="page-header">
         <el-button :icon="ArrowLeft" @click="$router.back()">返回</el-button>
         <h2 class="page-title">
-          <el-icon><ChatDotRound /></el-icon>
+          <el-icon><Message /></el-icon>
           意见反馈
         </h2>
         <el-button type="primary" :icon="Plus" @click="showSubmitDialog = true">
@@ -237,7 +237,7 @@ import { useUserStore } from '@/stores/user'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   ArrowLeft,
-  ChatDotRound,
+  Message,
   Plus,
   More,
   View,

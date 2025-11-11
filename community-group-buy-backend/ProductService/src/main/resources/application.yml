@@ -29,6 +29,9 @@ spring:
         instance-id: ${spring.application.name}:${server.port}
         health-check-interval: 10s
         health-check-path: /actuator/health
+  output:
+    ansi:
+      enabled: always  # 强制启用ANSI颜色输出
 
 # Swagger配置
 springdoc:
@@ -42,11 +45,5 @@ file:
   upload:
     path: E:/E/BYSJ/community-group-buy-backend/uploads/product/
 
-# 日志配置
-logging:
-  file:
-    name: logs/${spring.application.name}/${spring.application.name}.log
-  level:
-    root: INFO
-    com.bcu.edu: DEBUG
+# 日志配置（已移至logback-spring.xml）
 

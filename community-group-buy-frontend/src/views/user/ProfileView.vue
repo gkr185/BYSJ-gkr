@@ -193,7 +193,7 @@
 
             <div class="menu-item" @click="$router.push('/user/feedback')">
               <div class="menu-item-icon">
-                <el-icon><ChatDotRound /></el-icon>
+                <el-icon><Message /></el-icon>
               </div>
               <div class="menu-item-content">
                 <div class="menu-item-title">意见反馈</div>
@@ -236,7 +236,7 @@ import {
   Star,
   ShoppingBag,
   Setting,
-  ChatDotRound,
+  Message,
   SwitchButton,
   DataBoard
 } from '@element-plus/icons-vue'

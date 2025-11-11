@@ -1,5 +1,6 @@
 <template>
-  <div class="leader-groupbuy-manage">
+  <MainLayout>
+    <div class="leader-groupbuy-manage">
     <div class="page-header">
       <div class="header-content">
         <h1 class="page-title">
@@ -30,7 +31,7 @@
 
     <!-- Tab切换 -->
     <el-card class="tab-card" shadow="never">
-      <el-tabs v-model="activeTab" @tab-change="handleTabChange">
+      <el-tabs v-model="activeTab" @tab-change="handleMainTabChange">
         <el-tab-pane label="活动管理" name="activities">
           <template #label>
             <span class="tab-label">
@@ -251,7 +252,7 @@
       </div>
     </div>
 
-    <!-- 团队管理区域 -->
+    <!-- 团购管理区域 -->
     <div v-if="activeTab === 'teams'" class="teams-section">
       <!-- 统计卡片 -->
       <div class="stats-cards">
@@ -304,29 +305,46 @@
         </el-card>
       </div>
 
-    <!-- 筛选器 -->
-    <el-card class="filter-card" shadow="never">
-      <el-form :inline="true" :model="queryForm" class="filter-form">
-        <el-form-item label="团状态">
-          <el-select v-model="queryForm.status" placeholder="全部状态" clearable @change="handleQuery">
-            <el-option label="全部状态" :value="null" />
-            <el-option label="拼团中" :value="0" />
-            <el-option label="已成团" :value="1" />
-            <el-option label="已失败" :value="2" />
-          </el-select>
-        </el-form-item>
-        
-        <el-form-item>
-          <el-button type="primary" @click="handleQuery">
-            <el-icon><Search /></el-icon>
-            查询
-          </el-button>
-          <el-button @click="handleReset">
-            <el-icon><RefreshLeft /></el-icon>
-            重置
-          </el-button>
-        </el-form-item>
-      </el-form>
+    <!-- TAB切换筛选 -->
+    <el-card class="filter-tabs-card" shadow="never">
+      <el-tabs v-model="activeStatusTab" @tab-change="handleStatusTabChange">
+        <el-tab-pane label="拼团中" name="0">
+          <template #label>
+            <span class="tab-label">
+              <el-icon><Loading /></el-icon>
+              拼团中
+              <el-badge v-if="stats.ongoing > 0" :value="stats.ongoing" type="danger" class="tab-badge" />
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane label="已成团" name="1">
+          <template #label>
+            <span class="tab-label">
+              <el-icon><CircleCheck /></el-icon>
+              已成团
+              <el-badge v-if="stats.success > 0" :value="stats.success" type="success" class="tab-badge" />
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane label="已失败" name="2">
+          <template #label>
+            <span class="tab-label">
+              <el-icon><CircleClose /></el-icon>
+              已失败
+              <el-badge v-if="stats.failed > 0" :value="stats.failed" type="warning" class="tab-badge" />
+            </span>
+          </template>
+        </el-tab-pane>
+        <el-tab-pane label="全部" name="all">
+          <template #label>
+            <span class="tab-label">
+              <el-icon><DataLine /></el-icon>
+              全部
+              <el-badge v-if="stats.total > 0" :value="stats.total" class="tab-badge" />
+            </span>
+          </template>
+        </el-tab-pane>
+      </el-tabs>
     </el-card>
 
     <!-- 团列表 -->
@@ -612,6 +630,20 @@
 
           <el-divider content-position="left">发起设置</el-divider>
 
+          <el-form-item label="团购持续时间" prop="durationHours">
+            <el-input-number
+              v-model="createForm.durationHours"
+              :min="1"
+              :max="168"
+              controls-position="right"
+              style="width: 200px;"
+            />
+            <span style="margin-left: 12px; color: #999;">小时</span>
+            <div class="form-tip">
+              设置团购的持续时间，过期后自动结束拼团（1-168小时）
+            </div>
+          </el-form-item>
+
           <el-form-item label="是否立即参与" prop="joinImmediately">
             <el-switch 
               v-model="createForm.joinImmediately"
@@ -687,6 +719,18 @@
             </el-form-item>
           </template>
 
+          <el-divider content-position="left">确认信息</el-divider>
+
+          <div class="confirmation-info">
+            <div class="confirm-item">
+              <span class="confirm-label">团购持续时间：</span>
+              <span class="confirm-value">{{ createForm.durationHours }}小时</span>
+            </div>
+            <div class="confirm-tip">
+              团购将在发起后{{ createForm.durationHours }}小时自动结束
+            </div>
+          </div>
+
           <el-alert
             title="温馨提示"
             type="warning"
@@ -695,7 +739,7 @@
             style="margin-top: 20px;"
           >
             <ul style="margin: 0; padding-left: 20px;">
-              <li>发起团队后，团队将在24小时内有效</li>
+              <li>发起团队后，团队将在{{ createForm.durationHours }}小时内有效</li>
               <li>如果选择"立即参与"，系统将自动从您的账户余额扣款完成支付</li>
               <li>支付成功后您将成为该团的第一个成员，团的当前人数会更新</li>
               <li>建议使用团点地址作为收货地址，方便集中配送和用户自提</li>
@@ -1130,14 +1174,16 @@
         </div>
       </div>
     </el-dialog>
-  </div>
+    </div>
+  </MainLayout>
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, watch } from 'vue'
+import { ref, reactive, computed, onMounted, watch, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import MainLayout from '@/components/common/MainLayout.vue'
 import {
   Grid, Plus, Loading, CircleCheck, CircleClose, DataLine,
   Search, RefreshLeft, Location, Clock, Timer, View, Share,
@@ -1180,7 +1226,7 @@ const loading = ref(false)
 const teams = ref([])
 const total = ref(0)
 const queryForm = reactive({
-  status: null,
+  status: 0,  // 默认显示拼团中
   page: 0,  // ⭐后端使用 0-indexed（第一页是 0）
   limit: 12
 })
@@ -1194,7 +1240,10 @@ const activitiesQuery = reactive({
   limit: 10
 })
 
-// 统计数据
+// TAB状态切换
+const activeStatusTab = ref('0') // 默认显示拼团中
+
+// 统计数据 - 全局统计，切换标签时不重新计算
 const stats = reactive({
   ongoing: 0,
   success: 0,
@@ -1219,7 +1268,8 @@ const createForm = reactive({
   activityId: null,
   joinImmediately: false,
   addressId: null,
-  quantity: 1
+  quantity: 1,
+  durationHours: 24
 })
 
 const createFormRef = ref(null)
@@ -1230,6 +1280,10 @@ const createRules = {
   quantity: [
     { required: true, message: '请输入购买数量', trigger: 'blur' },
     { type: 'number', min: 1, message: '数量至少为1', trigger: 'blur' }
+  ],
+  durationHours: [
+    { required: true, message: '请输入团购持续时间', trigger: 'blur' },
+    { type: 'number', min: 1, max: 168, message: '持续时间应在1-168小时之间', trigger: 'blur' }
   ]
 }
 
@@ -1326,9 +1380,9 @@ const loadTeams = async () => {
     if (res.code === 200) {
       teams.value = res.data?.list || []
       total.value = res.data?.total || 0
-      
-      // 更新统计
-      updateStats()
+
+      // 注意：不再在这里更新全局统计，避免切换标签时数据变化
+      // 全局统计在页面初始化时计算一次即可
     }
   } catch (error) {
     console.error('加载团列表失败:', error)
@@ -1338,11 +1392,64 @@ const loadTeams = async () => {
   }
 }
 
+// 全局统计计算 - 获取所有团队数据进行统计
+const loadGlobalStats = async () => {
+  try {
+    const res = await getLeaderTeams({
+      leaderId: userStore.userInfo?.userId,
+      page: 0,
+      limit: 1000  // 获取所有团队数据进行统计
+    })
+
+    if (res.code === 200) {
+      const allTeams = res.data?.list || []
+
+      // 基于所有团队数据计算全局统计
+      stats.ongoing = allTeams.filter(t => t.teamStatus === 0).length
+      stats.success = allTeams.filter(t => t.teamStatus === 1).length
+      stats.failed = allTeams.filter(t => t.teamStatus === 2).length
+      stats.total = allTeams.length
+
+      console.log('✅ 全局统计更新:', stats)
+    }
+  } catch (error) {
+    console.error('❌ 加载全局统计失败:', error)
+    // 失败时保持现有数据不变
+  }
+}
+
+// 不再使用的旧方法，保留用于兼容
 const updateStats = () => {
-  stats.ongoing = teams.value.filter(t => t.teamStatus === 0).length
-  stats.success = teams.value.filter(t => t.teamStatus === 1).length
-  stats.failed = teams.value.filter(t => t.teamStatus === 2).length
-  stats.total = teams.value.length
+  // 这个方法不再更新全局统计，只用于调试
+  console.log('updateStats called, but global stats should not change on tab switch')
+}
+
+// 主TAB切换（活动管理/我的团队）- 只切换显示，不重新计算统计
+const handleMainTabChange = (tabName) => {
+  if (tabName === 'activities') {
+    loadMyActivities()
+  } else if (tabName === 'teams') {
+    loadTeams()
+  }
+  // 注意：不再重新计算全局统计数据，避免切换标签时数据变化
+}
+
+// 状态筛选TAB切换
+const handleStatusTabChange = (tabName) => {
+  // 根据TAB切换设置查询参数
+  if (tabName === 'all') {
+    queryForm.status = null
+  } else {
+    // 确保tabName是有效的数字字符串
+    const numValue = Number(tabName)
+    if (isNaN(numValue)) {
+      console.error('Invalid tabName, cannot convert to number:', tabName)
+      return
+    }
+    queryForm.status = numValue
+  }
+  queryForm.page = 0  // ⭐重置为第一页（0-indexed）
+  loadTeams()
 }
 
 const handleQuery = () => {
@@ -1351,7 +1458,8 @@ const handleQuery = () => {
 }
 
 const handleReset = () => {
-  queryForm.status = null
+  activeStatusTab.value = '0' // 重置为默认TAB（拼团中）
+  queryForm.status = 0
   handleQuery()
 }
 
@@ -1379,7 +1487,8 @@ const resetCreateForm = () => {
     activityId: null,
     joinImmediately: false,
     addressId: null,
-    quantity: 1
+    quantity: 1,
+    durationHours: 24
   })
   products.value = []
   activities.value = []
@@ -1548,7 +1657,8 @@ const handleSubmitCreate = async () => {
       activityId: createForm.activityId,
       joinImmediately: createForm.joinImmediately,
       addressId: createForm.addressId,
-      quantity: createForm.quantity
+      quantity: createForm.quantity,
+      durationHours: createForm.durationHours
     }
     
     const res = await launchTeam(data)
@@ -1565,13 +1675,15 @@ const handleSubmitCreate = async () => {
             type: 'success'
           }
         ).then(() => {
-          // 刷新列表
+          // 刷新列表和全局统计
           loadTeams()
+          loadGlobalStats() // 更新统计数据
         })
       } else {
         ElMessage.success('发起成功！')
-        // 刷新列表
+        // 刷新列表和全局统计
         loadTeams()
+        loadGlobalStats() // 更新统计数据
         
         // 显示分享提示
         if (res.data?.shareLink) {
@@ -1678,14 +1790,6 @@ const formatExpireTime = (expireTime) => {
   }
 }
 
-// Tab切换
-const handleTabChange = (tab) => {
-  if (tab === 'activities') {
-    loadMyActivities()
-  } else {
-    loadTeams()
-  }
-}
 
 // 活动管理相关方法
 const loadMyActivities = async () => {
@@ -1712,8 +1816,8 @@ const loadMyActivities = async () => {
         }
       }
       
-      // ⭐使用真实API获取团队统计
-      await loadTeamStats()
+      // 注意：活动管理标签不重新计算全局统计，避免数据变化
+      // 全局统计在页面初始化时已计算
       
       // 计算活动统计（进行中的活动数量）
       activityStats.active = myActivities.value.filter(a => a.status === 1).length
@@ -1961,6 +2065,8 @@ const deleteActivity = (activity) => {
       if (res.code === 200) {
         ElMessage.success('删除成功')
         loadMyActivities()
+        // 删除活动可能影响团队统计，需要刷新全局统计
+        loadGlobalStats()
       }
     } catch (error) {
       console.error('删除失败:', error)
@@ -2037,6 +2143,8 @@ const handleSubmitActivity = async () => {
       ElMessage.success(isEditingActivity.value ? '修改成功' : '创建成功')
       activityDialogVisible.value = false
       loadMyActivities()
+      // 活动变更可能影响团队统计
+      loadGlobalStats()
     }
   } catch (error) {
     console.error('操作失败:', error)
@@ -2046,15 +2154,43 @@ const handleSubmitActivity = async () => {
   }
 }
 
-// 生命周期
-onMounted(() => {
+// 加载页面数据
+const loadPageData = async () => {
+  // 确保用户信息已加载
+  if (!userStore.isLogin || !userStore.userInfo?.userId) {
+    console.log('用户信息未准备好，跳过数据加载')
+    return
+  }
+
   // 加载团长信息
-  loadLeaderInfo()
-  
+  await loadLeaderInfo()
+
+  // 先计算一次全局统计数据（基于所有团队数据）
+  await loadGlobalStats()
+
+  // 设置默认查询状态为拼团中
+  activeStatusTab.value = '0'
+  queryForm.status = 0
+
+  // 等待DOM更新完成
+  await nextTick()
+
   if (activeTab.value === 'activities') {
     loadMyActivities()
   } else {
     loadTeams()
+  }
+}
+
+// 生命周期
+onMounted(() => {
+  loadPageData()
+})
+
+// 监听用户登录状态变化
+watch(() => userStore.isLogin, (isLogin) => {
+  if (isLogin) {
+    loadPageData()
   }
 })
 </script>
@@ -2725,27 +2861,59 @@ onMounted(() => {
     }
   }
 
-  .filter-card {
+  .filter-tabs-card {
     margin-bottom: 28px;
     border-radius: 12px;
     border: none;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 
-    .filter-form {
+    :deep(.el-tabs) {
+      --el-tabs-header-height: 50px;
+    }
+
+    :deep(.el-tabs__header) {
       margin: 0;
-      
-      :deep(.el-form-item) {
-        margin-bottom: 0;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    :deep(.el-tabs__nav-wrap::after) {
+      display: none;
+    }
+
+    :deep(.el-tabs__item) {
+      height: 50px;
+      line-height: 48px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: var(--el-color-primary);
+        background-color: rgba(64, 158, 255, 0.05);
       }
 
-      :deep(.el-button) {
-        font-weight: 500;
-        transition: all 0.3s ease;
-
-        &:hover {
-          transform: translateY(-2px);
-        }
+      &.is-active {
+        color: var(--el-color-primary);
+        font-weight: 600;
+        background-color: rgba(64, 158, 255, 0.1);
+        border-bottom: 3px solid var(--el-color-primary);
       }
+    }
+
+    .tab-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .el-icon {
+        font-size: 16px;
+      }
+    }
+
+    .tab-badge {
+      margin-left: 4px;
+      font-size: 12px;
     }
   }
 
@@ -3349,6 +3517,36 @@ onMounted(() => {
       font-size: 12px;
       color: #909399;
       margin-top: 4px;
+    }
+
+    .confirmation-info {
+      background: #f5f7fa;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #e4e7ed;
+
+      .confirm-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .confirm-label {
+          font-weight: 600;
+          color: #303133;
+          margin-right: 8px;
+        }
+
+        .confirm-value {
+          color: #409eff;
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+
+      .confirm-tip {
+        font-size: 12px;
+        color: #909399;
+      }
     }
   }
 

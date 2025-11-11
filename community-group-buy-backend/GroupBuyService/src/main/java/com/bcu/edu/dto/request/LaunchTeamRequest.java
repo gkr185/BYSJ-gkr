@@ -39,5 +39,10 @@ public class LaunchTeamRequest {
      * 购买数量（如果参与则必填，默认1）
      */
     private Integer quantity = 1;
+
+    /**
+     * 团购持续时间（小时，默认24小时）
+     */
+    private Integer durationHours = 24;
 }
 

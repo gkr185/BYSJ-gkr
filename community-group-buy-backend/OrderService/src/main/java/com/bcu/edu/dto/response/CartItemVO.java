@@ -35,9 +35,14 @@ public class CartItemVO {
     private String productImg;
 
     /**
-     * 商品价格（原价/拼团价）
+     * 商品价格（拼团价/原价）
      */
     private BigDecimal price;
+
+    /**
+     * 拼团价格（仅拼团商品显示）
+     */
+    private BigDecimal groupPrice;
 
     /**
      * 数量

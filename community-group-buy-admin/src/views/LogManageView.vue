@@ -96,8 +96,8 @@
           :total="total"
           :page-sizes="[10, 20, 50, 100]"
           layout="total, sizes, prev, pager, next, jumper"
-          @current-change="handleQuery"
-          @size-change="handleQuery"
+          @current-change="handlePageChange"
+          @size-change="handleSizeChange"
         />
       </div>
     </el-card>
@@ -205,20 +205,31 @@ const loadLogs = async () => {
     }
 
     const res = await getOperationLogs(params)
-    
+
     // 处理响应数据
     if (res.data) {
-      // 兼容 MyBatis PageHelper 格式
+      // 按照API文档格式处理分页数据
       if (res.data.list && Array.isArray(res.data.list)) {
         logList.value = res.data.list
         total.value = res.data.total || 0
+        // 同步后端返回的分页信息
+        if (res.data.pageNum) {
+          queryForm.page = res.data.pageNum
+        }
+        if (res.data.pageSize) {
+          queryForm.size = res.data.pageSize
+        }
       } else if (Array.isArray(res.data)) {
+        // 兼容直接返回数组的情况
         logList.value = res.data
         total.value = res.data.length
       } else {
         logList.value = []
         total.value = 0
       }
+    } else {
+      logList.value = []
+      total.value = 0
     }
   } catch (error) {
     console.error('加载日志失败:', error)
@@ -233,6 +244,19 @@ const loadLogs = async () => {
 // 查询按钮
 const handleQuery = () => {
   queryForm.page = 1 // 重置到第一页
+  loadLogs()
+}
+
+// 分页页码变化
+const handlePageChange = (page) => {
+  queryForm.page = page
+  loadLogs()
+}
+
+// 分页大小变化
+const handleSizeChange = (size) => {
+  queryForm.size = size
+  queryForm.page = 1 // 切换页面大小时重置到第一页
   loadLogs()
 }
 

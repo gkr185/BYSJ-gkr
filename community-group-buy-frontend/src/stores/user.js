@@ -1,8 +1,11 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { login as loginApi, getUserInfo as getUserInfoApi } from '../api/user'
+import { useCartStore } from './cart'
 
 export const useUserStore = defineStore('user', () => {
+  const cartStore = useCartStore()
+
   // 状态
   const token = ref(localStorage.getItem('user_token') || '')
   
@@ -51,11 +54,14 @@ export const useUserStore = defineStore('user', () => {
         token.value = res.data.token
         userInfo.value = res.data.userInfo
         // isLogin 是 computed，会自动更新
-        
+
         // 保存到localStorage
         localStorage.setItem('user_token', res.data.token)
         localStorage.setItem('user_info', JSON.stringify(res.data.userInfo))
-        
+
+        // 登录成功后加载用户的购物车数据
+        cartStore.loadCart()
+
         return res.data
       } else {
         throw new Error(res.message || '登录失败')
@@ -70,10 +76,13 @@ export const useUserStore = defineStore('user', () => {
    * 登出
    */
   const logout = () => {
+    // 先清空用户的购物车数据
+    cartStore.clearUserCart()
+
     token.value = ''
     userInfo.value = null
     // isLogin 是 computed，会自动更新
-    
+
     localStorage.removeItem('user_token')
     localStorage.removeItem('user_info')
   }

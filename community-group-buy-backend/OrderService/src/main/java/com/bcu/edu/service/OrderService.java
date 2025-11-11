@@ -242,6 +242,10 @@ public class OrderService {
             List<OrderItem> items = orderItemRepository.findByOrderId(order.getOrderId());
             vo.setItems(items.stream().map(this::convertToItemVO).collect(Collectors.toList()));
 
+            // 判断订单类型：如果有商品关联了活动，则为拼团订单
+            boolean isGroupBuy = items.stream().anyMatch(item -> item.getActivityId() != null);
+            vo.setOrderType(isGroupBuy ? 1 : 0);
+
             return vo;
         }).collect(Collectors.toList());
 
@@ -432,6 +436,27 @@ public class OrderService {
 
         log.info("判断结果: orderId={}, isGroupBuy={}", orderId, isGroupBuy);
         return isGroupBuy;
+    }
+
+    /**
+     * 获取订单商品总数量
+     *
+     * @param orderId 订单ID
+     * @return 商品总数量
+     */
+    public Integer getProductQuantity(Long orderId) {
+        log.info("获取订单商品总数量: orderId={}", orderId);
+
+        // 查询订单的所有商品项
+        List<OrderItem> items = orderItemRepository.findByOrderId(orderId);
+
+        // 计算总数量
+        Integer totalQuantity = items.stream()
+                .mapToInt(OrderItem::getQuantity)
+                .sum();
+
+        log.info("订单{}商品总数量: {}", orderId, totalQuantity);
+        return totalQuantity;
     }
 
     /**

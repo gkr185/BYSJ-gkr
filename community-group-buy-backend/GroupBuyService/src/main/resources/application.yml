@@ -38,6 +38,9 @@ spring:
         health-check-interval: 10s
         heartbeat:
           enabled: true
+  output:
+    ansi:
+      enabled: always  # 强制启用ANSI颜色输出
 
 # SpringDoc配置
 springdoc:
@@ -76,15 +79,4 @@ management:
     health:
       show-details: when-authorized
 
-# 日志配置
-logging:
-  level:
-    root: INFO
-    com.bcu.edu: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.springframework.cloud.consul: INFO
-    org.springframework.cloud.openfeign: DEBUG
-  pattern:
-    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n'
-
+# 日志配置（已移至logback-spring.xml）

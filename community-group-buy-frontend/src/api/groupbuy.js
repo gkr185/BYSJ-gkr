@@ -104,6 +104,7 @@ export const deleteActivity = (activityId) => {
  * @param {boolean} data.joinImmediately - 是否立即参与（可选，默认false）
  * @param {number} data.addressId - 收货地址ID（joinImmediately=true时必填）
  * @param {number} data.quantity - 购买数量（可选，默认1）
+ * @param {number} data.durationHours - 团购持续时间（小时，可选，默认24）
  */
 export const launchTeam = (data) => {
   return request({

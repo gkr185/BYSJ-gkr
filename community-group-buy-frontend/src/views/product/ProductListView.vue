@@ -338,12 +338,15 @@ import {
 } from '@element-plus/icons-vue'
 import Header from '@/components/common/Header.vue'
 import { getCategoryTree, getProductList, searchProducts } from '@/api/product'
+import { addToCart as addToCartApi } from '@/api/cart'
 import { useCartStore } from '@/stores/cart'
+import { useUserStore } from '@/stores/user'
 
 // ==================== 数据定义 ====================
 const route = useRoute()
 const router = useRouter()
 const cartStore = useCartStore()
+const userStore = useUserStore()
 
 // 分类相关
 const categoryTree = ref([])
@@ -582,23 +585,44 @@ const handleSizeChange = (size) => {
 }
 
 // 加入购物车
-const handleAddToCart = (product) => {
+const handleAddToCart = async (product) => {
   if (product.stock === 0) {
     ElMessage.warning('商品已售罄')
     return
   }
-  
-  cartStore.addToCart({
-    productId: product.productId,
-    productName: product.productName,
-    price: product.price,
-    groupPrice: product.groupPrice,
-    coverImg: product.coverImg,
-    quantity: 1,
-    stock: product.stock
-  })
-  
-  ElMessage.success('已加入购物车')
+
+  try {
+    // 检查用户是否登录
+    if (!userStore.isLogin || !userStore.userInfo?.userId) {
+      ElMessage.warning('请先登录')
+      router.push('/login')
+      return
+    }
+
+    // 调用后端API添加购物车
+    await addToCartApi({
+      userId: userStore.userInfo.userId,
+      productId: product.productId,
+      quantity: 1,
+      activityId: null // 商品列表页不处理拼团
+    })
+
+    // 同时更新本地cart store
+    cartStore.addToCart({
+      productId: product.productId,
+      productName: product.productName,
+      price: product.price,
+      groupPrice: product.groupPrice,
+      coverImg: product.coverImg,
+      quantity: 1,
+      stock: product.stock
+    })
+
+    ElMessage.success('已加入购物车')
+  } catch (error) {
+    console.error('添加购物车失败:', error)
+    ElMessage.error('添加购物车失败，请重试')
+  }
 }
 
 // 跳转到商品详情

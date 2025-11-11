@@ -215,8 +215,8 @@ const handleUserCommand = (command) => {
 
 // 用户切换成功
 const handleUserSwitched = () => {
-  // 刷新购物车
-  cartStore.loadCart()
+  // 切换用户的购物车数据
+  cartStore.switchUser()
   // 刷新当前页面
   router.go(0)
 }

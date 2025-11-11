@@ -66,6 +66,8 @@ import { useRouter } from 'vue-router'
 import { ShoppingCart, Picture } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { useCartStore } from '@/stores/cart'
+import { useUserStore } from '@/stores/user'
+import { addToCart as addToCartApi } from '@/api/cart'
 import { getProductImageUrl } from '@/utils/image'
 
 const props = defineProps({
@@ -77,6 +79,7 @@ const props = defineProps({
 
 const router = useRouter()
 const cartStore = useCartStore()
+const userStore = useUserStore()
 
 // 计算商品图片URL
 const productImageUrl = computed(() => {
@@ -87,14 +90,36 @@ const goToDetail = () => {
   router.push(`/products/${props.product.productId}`)
 }
 
-const handleAddToCart = () => {
+const handleAddToCart = async () => {
   if (props.product.stock === 0) {
     ElMessage.warning('商品已售罄')
     return
   }
-  
-  cartStore.addItem(props.product, 1)
-  ElMessage.success('已添加到购物车')
+
+  try {
+    // 检查用户是否登录
+    if (!userStore.isLogin || !userStore.userInfo?.userId) {
+      ElMessage.warning('请先登录')
+      router.push('/login')
+      return
+    }
+
+    // 调用后端API添加购物车
+    await addToCartApi({
+      userId: userStore.userInfo.userId,
+      productId: props.product.productId,
+      quantity: 1,
+      activityId: null // 商品卡片不支持拼团
+    })
+
+    // 同时更新本地cart store
+    cartStore.addToCart(props.product, 1)
+
+    ElMessage.success('已添加到购物车')
+  } catch (error) {
+    console.error('添加购物车失败:', error)
+    ElMessage.error('添加购物车失败，请重试')
+  }
 }
 </script>
 

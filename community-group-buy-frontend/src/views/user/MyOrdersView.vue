@@ -421,9 +421,20 @@ const handleCancelOrder = async (orderId) => {
 
 // 支付订单
 const handlePayOrder = (orderId) => {
+  // 找到对应的订单数据
+  const order = orders.value.find(o => o.orderId === orderId)
+  if (!order) {
+    ElMessage.error('订单数据不存在')
+    return
+  }
+
   router.push({
     path: '/payment',
-    query: { orderId }
+    query: {
+      orderId,
+      amount: order.payAmount,
+      type: order.orderType === 1 ? 'groupbuy' : 'normal' // 1-拼团订单
+    }
   })
 }
 

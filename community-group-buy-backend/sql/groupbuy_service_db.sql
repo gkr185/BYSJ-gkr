@@ -54,6 +54,7 @@ CREATE TABLE `group_buy_member`  (
   `user_id` bigint NOT NULL COMMENT '参团用户ID（跨库关联）',
   `order_id` bigint NULL DEFAULT NULL COMMENT '关联订单ID（跨库关联）',
   `is_launcher` tinyint NOT NULL DEFAULT 0 COMMENT '是否发起人（0否/1是）',
+  `product_quantity` int NOT NULL DEFAULT 1 COMMENT '购买商品数量',
   `pay_amount` decimal(10, 2) NOT NULL COMMENT '支付金额',
   `join_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '参团时间',
   `status` tinyint NOT NULL DEFAULT 0 COMMENT '状态（0待支付/1已支付/2已成团/3已取消）',

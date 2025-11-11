@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -328,6 +329,31 @@ public class GroupBuyService {
                 .build();
         } catch (Exception e) {
             log.error("构建团{}信息失败: {}", team.getTeamId(), e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * 验证拼团活动是否存在（供Feign调用）
+     */
+    public Boolean activityExists(Long activityId) {
+        try {
+            return activityRepository.existsById(activityId);
+        } catch (Exception e) {
+            log.error("验证拼团活动存在性失败: activityId={}", activityId, e);
+            return false;
+        }
+    }
+
+    /**
+     * 获取拼团活动价格（供Feign调用）
+     */
+    public BigDecimal getActivityPrice(Long activityId) {
+        try {
+            GroupBuy activity = activityRepository.findById(activityId).orElse(null);
+            return activity != null ? activity.getGroupPrice() : null;
+        } catch (Exception e) {
+            log.error("获取拼团活动价格失败: activityId={}", activityId, e);
             return null;
         }
     }

@@ -492,16 +492,20 @@
                 <div class="member-name">{{ member.realName || member.username }}</div>
                 <div class="member-username">@{{ member.username }}</div>
                 
-                <div class="member-meta">
-                  <div class="meta-item">
-                    <el-icon><Clock /></el-icon>
-                    <span>{{ formatRelativeTime(member.joinTime) }}</span>
-                  </div>
-                  <div class="meta-item">
-                    <el-icon><Wallet /></el-icon>
-                    <span>¥{{ member.payAmount }}</span>
-                  </div>
-                </div>
+        <div class="member-meta">
+          <div class="meta-item">
+            <el-icon><Clock /></el-icon>
+            <span>{{ formatRelativeTime(member.joinTime) }}</span>
+          </div>
+          <div class="meta-item">
+            <el-icon><Wallet /></el-icon>
+            <span>¥{{ member.payAmount }}</span>
+          </div>
+          <div class="meta-item" v-if="member.productQuantity && member.productQuantity > 0">
+            <el-icon><ShoppingCart /></el-icon>
+            <span>{{ member.productQuantity }}件商品</span>
+          </div>
+        </div>
                 
                 <div class="member-status">
                   <el-tag 
@@ -524,10 +528,10 @@
 <script setup>
 import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { 
+import {
   Plus, RefreshRight, Search, View, Edit, Delete,
   TrendCharts, SuccessFilled, CircleCheck, UserFilled,
-  Goods, User, Calendar, Clock, Picture, Star, Wallet, InfoFilled
+  Goods, User, Calendar, Clock, Picture, Star, Wallet, InfoFilled, ShoppingCart
 } from '@element-plus/icons-vue'
 import {
   getActivityList,

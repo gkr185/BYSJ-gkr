@@ -66,6 +66,12 @@ public class GroupBuyMember {
      */
     @Column(name = "is_launcher", nullable = false)
     private Integer isLauncher = 0;
+
+    /**
+     * 购买商品数量
+     */
+    @Column(name = "product_quantity", nullable = false)
+    private Integer productQuantity = 1;
     
     /**
      * 支付金额

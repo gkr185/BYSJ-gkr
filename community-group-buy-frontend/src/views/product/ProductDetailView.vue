@@ -278,6 +278,7 @@ import MainLayout from '@/components/common/MainLayout.vue'
 import ProductCard from '@/components/common/ProductCard.vue'
 import { getProductDetail, getRecommendProducts, getCategoryDetail } from '@/api/product'
 import { getProductGroupBuyActivities } from '@/api/groupbuy'
+import { addToCart as addToCartApi } from '@/api/cart'
 import { getProductImageUrl } from '@/utils/image'
 import { useCartStore } from '@/stores/cart'
 import { useUserStore } from '@/stores/user'
@@ -427,11 +428,33 @@ const fetchRecommendProducts = async (categoryId) => {
 }
 
 // 加入购物车
-const handleAddToCart = () => {
+const handleAddToCart = async () => {
   if (!product.value) return
-  
-  cartStore.addItem(product.value, quantity.value)
-  ElMessage.success(`已添加 ${quantity.value} 件商品到购物车`)
+
+  try {
+    // 检查用户是否登录
+    if (!userStore.isLogin || !userStore.userInfo?.userId) {
+      ElMessage.warning('请先登录')
+      router.push('/login')
+      return
+    }
+
+    // 调用后端API添加购物车
+    await addToCartApi({
+      userId: userStore.userInfo.userId,
+      productId: product.value.productId,
+      quantity: quantity.value,
+      activityId: null // 商品详情页暂不支持拼团选择
+    })
+
+    // 同时更新本地cart store
+    cartStore.addToCart(product.value, quantity.value)
+
+    ElMessage.success(`已添加 ${quantity.value} 件商品到购物车`)
+  } catch (error) {
+    console.error('添加购物车失败:', error)
+    ElMessage.error('添加购物车失败，请重试')
+  }
 }
 
 // 立即购买
@@ -454,16 +477,19 @@ const goToGroupBuyDetail = () => {
 
 // 快速参团
 const handleQuickJoin = (team) => {
-  if (!userStore.isLoggedIn) {
+  if (!userStore.isLogin) {
     ElMessage.warning('请先登录')
     router.push('/login')
     return
   }
-  
-  // 跳转到拼团详情页并定位到该团
+
+  // 直接跳转到订单确认页面
   router.push({
-    path: `/groupbuy/product/${route.params.id}`,
-    query: { teamId: team.teamId }
+    name: 'confirmGroupBuyOrder',
+    query: {
+      productId: route.params.id,
+      teamId: team.teamId
+    }
   })
 }
 

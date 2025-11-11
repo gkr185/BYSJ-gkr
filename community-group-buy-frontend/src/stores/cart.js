@@ -1,16 +1,25 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { useUserStore } from './user'
 
 export const useCartStore = defineStore('cart', () => {
+  const userStore = useUserStore()
+
   // 购物车商品列表
   const items = ref([])
-  
+
   // 从localStorage加载购物车
   const loadCart = () => {
     try {
-      const savedCart = localStorage.getItem('shopping_cart')
+      // 为不同用户分别存储购物车数据
+      const userId = userStore.userInfo?.userId
+      const cartKey = userId ? `shopping_cart_${userId}` : 'shopping_cart_guest'
+
+      const savedCart = localStorage.getItem(cartKey)
       if (savedCart) {
         items.value = JSON.parse(savedCart)
+      } else {
+        items.value = []
       }
     } catch (error) {
       console.error('Failed to load cart:', error)
@@ -21,7 +30,9 @@ export const useCartStore = defineStore('cart', () => {
   // 保存购物车到localStorage
   const saveCart = () => {
     try {
-      localStorage.setItem('shopping_cart', JSON.stringify(items.value))
+      const userId = userStore.userInfo?.userId
+      const cartKey = userId ? `shopping_cart_${userId}` : 'shopping_cart_guest'
+      localStorage.setItem(cartKey, JSON.stringify(items.value))
     } catch (error) {
       console.error('Failed to save cart:', error)
     }
@@ -61,7 +72,7 @@ export const useCartStore = defineStore('cart', () => {
   })
   
   // 添加商品到购物车
-  const addItem = (product, quantity = 1) => {
+  const addToCart = (product, quantity = 1) => {
     const existingItem = items.value.find(item => item.productId === product.productId)
     
     if (existingItem) {
@@ -140,7 +151,21 @@ export const useCartStore = defineStore('cart', () => {
   const getSelectedItems = () => {
     return items.value.filter(item => item.checked)
   }
-  
+
+  // 切换用户时重新加载购物车
+  const switchUser = () => {
+    // 保存当前购物车
+    saveCart()
+    // 重新加载新用户的购物车
+    loadCart()
+  }
+
+  // 清空当前用户的购物车
+  const clearUserCart = () => {
+    items.value = []
+    saveCart()
+  }
+
   // 初始化时加载购物车
   loadCart()
   
@@ -151,7 +176,7 @@ export const useCartStore = defineStore('cart', () => {
     selectedTotalPrice,
     selectedCount,
     isAllSelected,
-    addItem,
+    addToCart,
     updateQuantity,
     removeItem,
     toggleItemCheck,
@@ -159,7 +184,9 @@ export const useCartStore = defineStore('cart', () => {
     clearCart,
     removeSelectedItems,
     getSelectedItems,
-    loadCart
+    loadCart,
+    switchUser,
+    clearUserCart
   }
 })
 

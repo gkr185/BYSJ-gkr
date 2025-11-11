@@ -50,7 +50,32 @@ const router = createRouter({
       component: () => import('../views/groupbuy/GroupBuyProductDetailView.vue'),
       meta: { title: '拼团详情' }
     },
-
+    // === 购物车相关 ===
+    {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('../views/cart/CartView.vue'),
+      meta: { title: '购物车', requireAuth: true }
+    },
+    // === 订单相关 ===
+    {
+      path: '/order/confirm',
+      name: 'confirmGroupBuyOrder',
+      component: () => import('../views/order/ConfirmGroupBuyOrderView.vue'),
+      meta: { title: '确认拼团订单', requireAuth: true }
+    },
+    {
+      path: '/order/confirm/direct',
+      name: 'confirmDirectOrder',
+      component: () => import('../views/order/ConfirmDirectOrderView.vue'),
+      meta: { title: '确认订单', requireAuth: true }
+    },
+    {
+      path: '/order/confirm/groupbuy',
+      name: 'confirmCartGroupBuyOrder',
+      component: () => import('../views/order/ConfirmGroupBuyOrderView.vue'),
+      meta: { title: '确认拼团订单', requireAuth: true }
+    },
     // === 支付相关 ===
     {
       path: '/payment',

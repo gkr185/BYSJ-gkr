@@ -186,7 +186,7 @@ public class TeamService {
         team.setRequiredNum(activity.getRequiredNum());
         team.setCurrentNum(0);
         team.setTeamStatus(TeamStatus.JOINING.getCode());
-        team.setExpireTime(LocalDateTime.now().plusHours(24));
+        team.setExpireTime(LocalDateTime.now().plusHours(request.getDurationHours()));
         teamRepository.save(team);
         
         log.info("团{}创建成功，teamNo={}, communityId={}", team.getTeamId(), team.getTeamNo(), team.getCommunityId());
@@ -234,6 +234,7 @@ public class TeamService {
             member.setUserId(request.getUserId());
             member.setOrderId(orderId);
             member.setIsLauncher(1);
+            member.setProductQuantity(request.getQuantity());
             member.setPayAmount(payAmount);
             member.setStatus(MemberStatus.UNPAID.getCode());
             memberRepository.save(member);
@@ -334,6 +335,7 @@ public class TeamService {
         member.setUserId(request.getUserId());
         member.setOrderId(orderId);
         member.setIsLauncher(0);
+        member.setProductQuantity(request.getQuantity());
         member.setPayAmount(activity.getGroupPrice().multiply(java.math.BigDecimal.valueOf(request.getQuantity())));
         member.setStatus(MemberStatus.UNPAID.getCode());
         memberRepository.save(member);
@@ -818,7 +820,7 @@ public class TeamService {
         String username = "用户" + member.getUserId();
         String realName = null;
         String avatar = null;
-        
+
         try {
             Result<UserInfoDTO> userResult = userServiceClient.getUserInfo(member.getUserId());
             if (userResult != null && userResult.getCode() == 200 && userResult.getData() != null) {
@@ -830,7 +832,10 @@ public class TeamService {
         } catch (Exception e) {
             log.warn("获取用户{}信息失败: {}", member.getUserId(), e.getMessage());
         }
-        
+
+        // 获取商品数量（直接从数据库字段获取）
+        Integer productQuantity = member.getProductQuantity() != null ? member.getProductQuantity() : 0;
+
         return MemberInfoResponse.builder()
             .memberId(member.getMemberId())
             .userId(member.getUserId())
@@ -842,6 +847,7 @@ public class TeamService {
             .joinTime(member.getJoinTime())
             .status(member.getStatus())
             .statusDesc(MemberStatus.getByCode(member.getStatus()).getDesc())
+            .productQuantity(productQuantity)
             .build();
     }
     

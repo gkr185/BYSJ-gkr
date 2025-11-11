@@ -2,6 +2,7 @@ package com.bcu.edu.controller;
 
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.dto.StockRequest;
+import com.bcu.edu.dto.response.ProductDTO;
 import com.bcu.edu.entity.Product;
 import com.bcu.edu.service.ProductManagementService;
 import com.bcu.edu.service.StockService;
@@ -24,27 +25,47 @@ import java.util.stream.Collectors;
  */
 @Tag(name = "商品Feign接口", description = "商品服务内部接口（供其他微服务调用）")
 @RestController
-@RequestMapping("/feign/product")
+@RequestMapping("/api/product/feign")
 @RequiredArgsConstructor
 public class FeignController {
     
     private final StockService stockService;
     private final ProductManagementService productService;
-    
-    @Operation(summary = "扣减库存")
-    @PostMapping("/{productId}/stock/deduct")
-    public Result<Boolean> deductStock(
-            @PathVariable Long productId,
-            @Valid @RequestBody StockRequest request) {
-        return Result.success(stockService.deductStock(productId, request.getQuantity()));
+
+    @Operation(summary = "获取商品详情")
+    @GetMapping("/{productId}")
+    public Result<ProductDTO> getProduct(@PathVariable Long productId) {
+        Product product = productService.getProductById(productId);
+        if (product == null) {
+            return Result.error("商品不存在");
+        }
+
+        ProductDTO dto = new ProductDTO();
+        dto.setProductId(product.getProductId());
+        dto.setProductName(product.getProductName());
+        dto.setCoverImg(product.getCoverImg());
+        dto.setPrice(product.getPrice());
+        dto.setGroupPrice(product.getGroupPrice());
+        dto.setStock(product.getStock());
+        dto.setStatus(product.getStatus());
+
+        return Result.success(dto);
     }
-    
+
+    @Operation(summary = "扣减库存")
+    @PostMapping("/deductStock")
+    public Result<Void> deductStock(@RequestParam("productId") Long productId,
+                                   @RequestParam("quantity") Integer quantity) {
+        stockService.deductStock(productId, quantity);
+        return Result.success("库存扣减成功");
+    }
+
     @Operation(summary = "恢复库存")
-    @PostMapping("/{productId}/stock/restore")
-    public Result<Boolean> restoreStock(
-            @PathVariable Long productId,
-            @Valid @RequestBody StockRequest request) {
-        return Result.success(stockService.restoreStock(productId, request.getQuantity()));
+    @PostMapping("/restoreStock")
+    public Result<Void> restoreStock(@RequestParam("productId") Long productId,
+                                    @RequestParam("quantity") Integer quantity) {
+        stockService.restoreStock(productId, quantity);
+        return Result.success("库存恢复成功");
     }
     
     @Operation(summary = "检查商品是否可售")
@@ -66,8 +87,22 @@ public class FeignController {
     
     @Operation(summary = "获取商品信息（快照用）")
     @GetMapping("/{productId}/info")
-    public Result<Product> getProductInfo(@PathVariable Long productId) {
-        return Result.success(productService.getProductById(productId));
+    public Result<ProductDTO> getProductInfo(@PathVariable Long productId) {
+        Product product = productService.getProductById(productId);
+        if (product == null) {
+            return Result.error("商品不存在");
+        }
+
+        ProductDTO dto = new ProductDTO();
+        dto.setProductId(product.getProductId());
+        dto.setProductName(product.getProductName());
+        dto.setCoverImg(product.getCoverImg());
+        dto.setPrice(product.getPrice());
+        dto.setGroupPrice(product.getGroupPrice());
+        dto.setStock(product.getStock());
+        dto.setStatus(product.getStatus());
+
+        return Result.success(dto);
     }
     
     @Operation(summary = "批量获取商品信息")

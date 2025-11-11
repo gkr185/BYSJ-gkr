@@ -49,5 +49,12 @@ public class OrderServiceClientFallback implements OrderServiceClient {
         // 订单会在30分钟后自动过期
         return Result.error(ResultCode.SERVICE_UNAVAILABLE);
     }
+
+    @Override
+    public Result<Integer> getProductQuantity(Long orderId) {
+        log.error("OrderService获取商品数量失败，orderId={}", orderId);
+        // 降级时返回默认值1，避免前端显示问题
+        return Result.success(1);
+    }
 }
 

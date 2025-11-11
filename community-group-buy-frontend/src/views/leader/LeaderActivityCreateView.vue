@@ -1,5 +1,6 @@
 <template>
-  <div class="activity-create-page">
+  <MainLayout>
+    <div class="activity-create-page">
     <div class="page-container">
       <!-- 页面头部 -->
       <div class="page-header">
@@ -422,7 +423,8 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  </MainLayout>
 </template>
 
 <script setup>
@@ -430,6 +432,7 @@ import { ref, reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import MainLayout from '@/components/common/MainLayout.vue'
 import {
   ArrowLeft, Plus, ShoppingBag, Setting, CircleCheck, Search,
   Picture, Money, User, Clock, Right, ArrowRight, PriceTag, Warning
