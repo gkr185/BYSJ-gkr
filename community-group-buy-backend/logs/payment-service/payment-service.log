@@ -138,3 +138,13 @@
 [2025-11-13 20:45:21.579] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.service.PaymentService:218] - 检测到拼团订单，调用GroupBuyService支付回调: orderId=35
 [2025-11-13 20:45:21.595] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.service.PaymentService:222] - GroupBuyService支付回调成功: orderId=35
 [2025-11-13 20:45:21.595] [INFO ] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.service.PaymentService:232] - 支付成功后处理完成: orderId=35, payId=32
+[2025-11-13 20:45:42.366] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.controller.PaymentController:68] - 用户发起支付: userId=4, orderId=36, payType=3, amount=12.28
+[2025-11-13 20:45:42.367] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:89] - 开始创建支付: userId=4, orderId=36, payType=3, amount=12.28
+[2025-11-13 20:45:42.370] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:107] - 支付记录已创建: payId=33
+[2025-11-13 20:45:42.370] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:146] - 开始余额支付: userId=4, amount=12.28
+[2025-11-13 20:45:42.379] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:159] - 余额支付成功: payId=33, userId=4, sagaId=PAY_36
+[2025-11-13 20:45:42.379] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:197] - 开始处理支付成功后逻辑: orderId=36, payId=33
+[2025-11-13 20:45:42.395] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:206] - 订单支付状态已更新: orderId=36
+[2025-11-13 20:45:42.401] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:218] - 检测到拼团订单，调用GroupBuyService支付回调: orderId=36
+[2025-11-13 20:45:42.445] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:222] - GroupBuyService支付回调成功: orderId=36
+[2025-11-13 20:45:42.445] [INFO ] [payment-service] [http-nio-8066-exec-6] [com.bcu.edu.service.PaymentService:232] - 支付成功后处理完成: orderId=36, payId=33

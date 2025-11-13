@@ -1048,3 +1048,16 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 [2025-11-13 20:56:18.953] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
 [2025-11-13 20:56:18.971] [INFO ] [leader-service] [http-nio-8068-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
 [2025-11-13 20:56:18.988] [INFO ] [leader-service] [http-nio-8068-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.682] [INFO ] [leader-service] [http-nio-8068-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.709] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.730] [INFO ] [leader-service] [http-nio-8068-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.752] [INFO ] [leader-service] [http-nio-8068-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.775] [INFO ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.796] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.823] [INFO ] [leader-service] [http-nio-8068-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.838] [INFO ] [leader-service] [http-nio-8068-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.858] [INFO ] [leader-service] [http-nio-8068-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:38:59.877] [INFO ] [leader-service] [http-nio-8068-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] 查询社区：communityId=5
+[2025-11-13 21:39:07.150] [INFO ] [leader-service] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 用户3查询自己的团长信息
+[2025-11-13 21:39:07.475] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommissionController:?] - 团长3查询佣金统计
+[2025-11-13 21:39:07.476] [INFO ] [leader-service] [http-nio-8068-exec-3] [com.bcu.edu.controller.CommissionController:?] - 团长3查询佣金记录: status=null, page=0, limit=10

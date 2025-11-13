@@ -526,3 +526,33 @@
 [2025-11-13 20:45:42.436] [INFO ] [groupbuy-service] [http-nio-8063-exec-9] [com.bcu.edu.service.TeamService:463] - 批量更新订单状态成功，orderIds=[35, 36]
 [2025-11-13 20:45:42.436] [INFO ] [groupbuy-service] [http-nio-8063-exec-9] [com.bcu.edu.service.TeamService:474] - 成团通知发送（TODO）
 [2025-11-13 20:45:44.030] [INFO ] [groupbuy-service] [http-nio-8063-exec-10] [com.bcu.edu.service.TeamService:710] - 查询用户4的拼团记录
+[2025-11-13 20:56:18.780] [INFO ] [groupbuy-service] [http-nio-8063-exec-6] [com.bcu.edu.controller.TeamController:227] - 查询团长3的拼团记录，status=null, page=0, limit=10
+[2025-11-13 20:56:18.780] [INFO ] [groupbuy-service] [http-nio-8063-exec-6] [com.bcu.edu.service.TeamService:636] - 查询团长3的拼团记录，status=null, page=0, limit=10
+[2025-11-13 20:56:18.784] [INFO ] [groupbuy-service] [http-nio-8063-exec-6] [com.bcu.edu.service.TeamService:647] - 团长3共有17个拼团记录，本页返回10个
+[2025-11-13 20:56:20.349] [INFO ] [groupbuy-service] [http-nio-8063-exec-5] [com.bcu.edu.controller.FeignController:94] - Feign调用: 获取团订单ID列表, teamId=28
+[2025-11-13 20:56:20.349] [INFO ] [groupbuy-service] [http-nio-8063-exec-5] [com.bcu.edu.service.GroupBuyService:373] - 获取团订单ID列表: teamId=28
+[2025-11-13 20:56:20.350] [INFO ] [groupbuy-service] [http-nio-8063-exec-5] [com.bcu.edu.service.GroupBuyService:377] - 团28的订单ID列表: [35, 36]
+[2025-11-13 20:56:20.351] [INFO ] [groupbuy-service] [http-nio-8063-exec-5] [com.bcu.edu.controller.FeignController:98] - 获取结果: teamId=28, orderIds=[35, 36]
+[2025-11-13 20:56:28.725] [INFO ] [groupbuy-service] [http-nio-8063-exec-7] [com.bcu.edu.controller.FeignController:94] - Feign调用: 获取团订单ID列表, teamId=16
+[2025-11-13 20:56:28.725] [INFO ] [groupbuy-service] [http-nio-8063-exec-7] [com.bcu.edu.service.GroupBuyService:373] - 获取团订单ID列表: teamId=16
+[2025-11-13 20:56:28.726] [INFO ] [groupbuy-service] [http-nio-8063-exec-7] [com.bcu.edu.service.GroupBuyService:377] - 团16的订单ID列表: []
+[2025-11-13 20:56:28.726] [INFO ] [groupbuy-service] [http-nio-8063-exec-7] [com.bcu.edu.controller.FeignController:98] - 获取结果: teamId=16, orderIds=[]
+[2025-11-13 20:56:30.717] [INFO ] [groupbuy-service] [http-nio-8063-exec-8] [com.bcu.edu.controller.FeignController:94] - Feign调用: 获取团订单ID列表, teamId=15
+[2025-11-13 20:56:30.717] [INFO ] [groupbuy-service] [http-nio-8063-exec-8] [com.bcu.edu.service.GroupBuyService:373] - 获取团订单ID列表: teamId=15
+[2025-11-13 20:56:30.718] [INFO ] [groupbuy-service] [http-nio-8063-exec-8] [com.bcu.edu.service.GroupBuyService:377] - 团15的订单ID列表: [18]
+[2025-11-13 20:56:30.718] [INFO ] [groupbuy-service] [http-nio-8063-exec-8] [com.bcu.edu.controller.FeignController:98] - 获取结果: teamId=15, orderIds=[18]
+[2025-11-13 21:00:00.010] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:54] - ====================================
+[2025-11-13 21:00:00.010] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:55] - 开始检查过期团，当前时间：2025-11-13T21:00:00.010786
+[2025-11-13 21:00:00.010] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:56] - ====================================
+[2025-11-13 21:00:00.032] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:63] - 未发现过期团，任务结束
+[2025-11-13 21:38:59.664] [INFO ] [groupbuy-service] [http-nio-8063-exec-1] [com.bcu.edu.controller.TeamController:227] - 查询团长3的拼团记录，status=null, page=0, limit=10
+[2025-11-13 21:38:59.664] [INFO ] [groupbuy-service] [http-nio-8063-exec-1] [com.bcu.edu.service.TeamService:636] - 查询团长3的拼团记录，status=null, page=0, limit=10
+[2025-11-13 21:38:59.669] [INFO ] [groupbuy-service] [http-nio-8063-exec-1] [com.bcu.edu.service.TeamService:647] - 团长3共有17个拼团记录，本页返回10个
+[2025-11-13 22:00:00.014] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:54] - ====================================
+[2025-11-13 22:00:00.014] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:55] - 开始检查过期团，当前时间：2025-11-13T22:00:00.014133400
+[2025-11-13 22:00:00.014] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:56] - ====================================
+[2025-11-13 22:00:00.017] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:63] - 未发现过期团，任务结束
+[2025-11-13 23:00:00.009] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:54] - ====================================
+[2025-11-13 23:00:00.011] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:55] - 开始检查过期团，当前时间：2025-11-13T23:00:00.009226300
+[2025-11-13 23:00:00.011] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:56] - ====================================
+[2025-11-13 23:00:00.027] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:63] - 未发现过期团，任务结束

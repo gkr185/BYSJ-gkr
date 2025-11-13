@@ -1625,3 +1625,58 @@
 [2025-11-13 20:46:15.491] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.service.UserService:?] - 用户登录成功: userId=3, username=22
 [2025-11-13 20:46:15.496] [WARN ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=认证管理, operation=用户登录, user=33
 [2025-11-13 20:46:16.459] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=22, result=SUCCESS
+[2025-11-13 20:56:18.735] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询团长订单统计, user=22, result=SUCCESS
+[2025-11-13 20:56:18.789] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.821] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.823] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.833] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.843] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.846] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.854] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.863] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.867] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.874] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.884] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.887] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.894] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.905] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.907] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.915] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.925] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=6
+[2025-11-13 20:56:18.929] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.935] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.949] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.960] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 20:56:18.966] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.977] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:18.984] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 20:56:20.367] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询团订单, user=22, result=SUCCESS
+[2025-11-13 20:56:28.736] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询团订单, user=22, result=SUCCESS
+[2025-11-13 20:56:30.732] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询团订单, user=22, result=SUCCESS
+[2025-11-13 20:56:37.087] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=22, result=SUCCESS
+[2025-11-13 21:38:59.675] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.684] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询团长订单统计, user=22, result=SUCCESS
+[2025-11-13 21:38:59.692] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.694] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.706] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.715] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.719] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.727] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.737] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.742] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.749] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.760] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.763] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.772] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.782] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.785] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.793] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.806] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=6
+[2025-11-13 21:38:59.810] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.818] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.834] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.846] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-13 21:38:59.854] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.864] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:38:59.872] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-13 21:39:16.623] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=22, result=SUCCESS

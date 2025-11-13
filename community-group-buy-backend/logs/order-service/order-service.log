@@ -6056,3 +6056,177 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer fou
 [2025-11-13 20:56:30.714] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 查询团订单: teamId=15
 [2025-11-13 20:56:30.724] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 团15查询到1个订单
 [2025-11-13 20:56:37.074] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.OrderController:?] - 查询订单详情: orderId=35
+[2025-11-13 21:00:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:00:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:00:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T20:30:00.009143
+[2025-11-13 21:00:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:00:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:05:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:05:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:05:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T20:35:00.012683600
+[2025-11-13 21:05:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:05:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:10:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:10:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:10:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T20:40:00.011918400
+[2025-11-13 21:10:00.020] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:10:00.020] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:15:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:15:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:15:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T20:45:00.004344600
+[2025-11-13 21:15:00.005] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:15:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:20:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:20:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:20:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T20:50:00.007431400
+[2025-11-13 21:20:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:20:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:25:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:25:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:25:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T20:55:00.006890100
+[2025-11-13 21:25:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:25:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:30:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:30:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:30:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:00:00.004095700
+[2025-11-13 21:30:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:30:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:35:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:35:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:35:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:05:00.007435200
+[2025-11-13 21:35:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:35:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:38:59.663] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.controller.OrderController:?] - 查询团长订单统计: leaderId=3
+[2025-11-13 21:38:59.663] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.OrderService:?] - 查询团长订单统计: leaderId=3
+[2025-11-13 21:38:59.671] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.OrderService:?] - 团长3订单统计: 总数=30, 今日=6, 待发货=1, 配送中=2
+[2025-11-13 21:39:16.596] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.OrderController:?] - 查询我的订单: userId=3, page=0, size=10
+[2025-11-13 21:40:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:40:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:40:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:10:00.004170600
+[2025-11-13 21:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:45:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:45:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:45:00.008] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:15:00.008205500
+[2025-11-13 21:45:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:45:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:50:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:50:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:50:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:20:00.014515200
+[2025-11-13 21:50:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:50:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 21:55:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 21:55:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 21:55:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:25:00.004577600
+[2025-11-13 21:55:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 21:55:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:00:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:00:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:00:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:30:00.014741400
+[2025-11-13 22:00:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:00:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:05:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:05:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:05:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:35:00.009487200
+[2025-11-13 22:05:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:05:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:10:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:10:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:10:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:40:00.014610500
+[2025-11-13 22:10:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:10:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:15:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:15:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:15:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:45:00.012762500
+[2025-11-13 22:15:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:15:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:20:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:20:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:20:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:50:00.011652800
+[2025-11-13 22:20:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:20:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:25:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:25:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:25:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T21:55:00.001402900
+[2025-11-13 22:25:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:25:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:30:00.005] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:30:00.005] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:30:00.005] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:00:00.005765600
+[2025-11-13 22:30:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:30:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:35:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:35:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:35:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:05:00.001796300
+[2025-11-13 22:35:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:35:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:10:00.006502800
+[2025-11-13 22:40:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:40:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:45:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:45:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:45:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:15:00.010172
+[2025-11-13 22:45:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:45:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:50:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:50:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:50:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:20:00.000576600
+[2025-11-13 22:50:00.003] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:50:00.003] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 22:55:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 22:55:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 22:55:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:25:00.007731900
+[2025-11-13 22:55:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 22:55:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:00:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:00:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:00:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:30:00.007044900
+[2025-11-13 23:00:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:00:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:05:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:05:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:05:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:35:00.009923800
+[2025-11-13 23:05:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:05:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:10:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:10:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:10:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:40:00.007318100
+[2025-11-13 23:10:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:10:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:15:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:15:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:15:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:45:00.009637200
+[2025-11-13 23:15:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:15:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:20:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:20:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:20:00.014] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:50:00.014792300
+[2025-11-13 23:20:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:20:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:25:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:25:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:25:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T22:55:00.001480800
+[2025-11-13 23:25:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:25:00.004] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:30:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:30:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:30:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T23:00:00.000278300
+[2025-11-13 23:30:00.002] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:30:00.002] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:35:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:35:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:35:00.007] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T23:05:00.007934600
+[2025-11-13 23:35:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:35:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:40:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:40:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:40:00.000] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T23:10:00.000036
+[2025-11-13 23:40:00.002] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:40:00.003] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-13 23:45:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-13 23:45:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-13 23:45:00.013] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-13T23:15:00.013006300
+[2025-11-13 23:45:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-13 23:45:00.016] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束

@@ -1,0 +1,91 @@
+# DeliveryService 配置文件
+server:
+  port: 8067
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: delivery-service
+  main:
+    allow-bean-definition-overriding: true
+  
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/delivery_service_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    
+  # JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+  
+  # Consul配置
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        port: ${server.port}
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+        prefer-ip-address: true
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+
+# 高德地图API配置
+gaode:
+  api:
+    key: ${GAODE_API_KEY:your_api_key_here}
+    base-url: https://restapi.amap.com/v3
+    timeout: 5000
+    retry-count: 3
+
+# 仓库配置
+warehouse:
+  default:
+    name: "中心仓库"
+    address: "北京市朝阳区示例地址"
+    longitude: 116.397128
+    latitude: 39.916527
+
+# 算法配置
+delivery:
+  route:
+    max-waypoints: 30  # 最大支持配送点数量
+    default-strategy: shortest-time  # 默认路径策略：shortest-time, shortest-distance, avoid-congestion
+    enable-dijkstra-fallback: true  # 高德API失败时启用Dijkstra降级
+    cache-enabled: false  # 路径结果缓存（待实现）
+
+# 日志配置
+logging:
+  level:
+    com.bcu.edu: DEBUG
+    org.springframework.web: INFO
+    org.springframework.cloud: INFO
+  pattern:
+    console: "%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# 监控配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# OpenAPI文档配置
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

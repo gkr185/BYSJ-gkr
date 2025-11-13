@@ -11,13 +11,14 @@
 
     <modules>
         <module>common</module>
-        <module>gateway-service</module>
         <module>UserService</module>
-        <module>LeaderService</module>
         <module>ProductService</module>
         <module>GroupBuyService</module>
         <module>OrderService</module>
         <module>PaymentService</module>
+        <module>LeaderService</module>
+        <module>DeliveryService</module>
+        <module>gateway-service</module>
     </modules>
 
     <groupId>bcu.edu</groupId>
