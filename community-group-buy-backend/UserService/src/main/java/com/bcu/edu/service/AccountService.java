@@ -193,5 +193,33 @@ public class AccountService {
         
         return account.getBalance().compareTo(amount) >= 0;
     }
+
+    /**
+     * 增加余额（供LeaderService佣金结算调用）
+     * @param userId 用户ID（团长ID）
+     * @param amount 增加金额（佣金金额）
+     * @param remark 备注（结算批次号）
+     */
+    @Transactional
+    public void addBalanceForCommission(Long userId, BigDecimal amount, String remark) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new BusinessException(ResultCode.VALIDATE_FAILED.getCode(), "增加金额必须大于0");
+        }
+
+        UserAccount account = accountRepository.findByUserId(userId)
+                .orElseGet(() -> {
+                    // 账户不存在，自动创建（兼容旧数据）
+                    log.warn("用户账户不存在，自动创建: userId={}", userId);
+                    UserAccount newAccount = new UserAccount();
+                    newAccount.setUserId(userId);
+                    return accountRepository.save(newAccount);
+                });
+
+        account.addBalance(amount);
+        account = accountRepository.save(account);
+
+        log.info("佣金结算-余额增加成功: userId={}, amount={}, newBalance={}, remark={}", 
+            userId, amount, account.getBalance(), remark);
+    }
 }
 

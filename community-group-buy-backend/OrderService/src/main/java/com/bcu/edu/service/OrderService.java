@@ -1,5 +1,6 @@
 package com.bcu.edu.service;
 
+import com.bcu.edu.client.GroupBuyServiceClient;
 import com.bcu.edu.client.LeaderServiceClient;
 import com.bcu.edu.client.ProductServiceClient;
 import com.bcu.edu.client.UserServiceClient;
@@ -27,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -55,6 +57,9 @@ public class OrderService {
 
     @Autowired
     private LeaderServiceClient leaderServiceClient;
+
+    @Autowired
+    private GroupBuyServiceClient groupBuyServiceClient;
 
     /**
      * 创建订单（供GroupBuyService调用）⭐核心方法
@@ -400,6 +405,17 @@ public class OrderService {
         List<OrderItem> items = orderItemRepository.findByOrderId(order.getOrderId());
         vo.setItems(items.stream().map(this::convertToItemVO).collect(Collectors.toList()));
 
+        // 填充扁平化字段（用于列表展示）
+        if (!items.isEmpty()) {
+            OrderItem firstItem = items.get(0);
+            vo.setProductName(firstItem.getProductName());
+            vo.setProductImg(firstItem.getProductImg());
+            vo.setQuantity(firstItem.getQuantity());
+        }
+
+        // 填充用户名（简化显示）
+        vo.setUserName("用户#" + order.getUserId());
+
         return vo;
     }
 
@@ -466,6 +482,120 @@ public class OrderService {
         OrderItemVO vo = new OrderItemVO();
         BeanUtils.copyProperties(item, vo);
         return vo;
+    }
+
+    // ========== 团长订单查询接口 ==========
+
+    /**
+     * 查询团长订单列表（分页）
+     * 
+     * @param leaderId 团长ID
+     * @param page 页码
+     * @param size 每页数量
+     * @param orderStatus 订单状态（可选）
+     * @return 分页结果
+     */
+    public PageResult<OrderVO> getLeaderOrders(Long leaderId, Integer page, Integer size, Integer orderStatus) {
+        log.info("查询团长订单: leaderId={}, page={}, size={}, status={}", leaderId, page, size, orderStatus);
+        
+        Pageable pageable = PageRequest.of(page, size);
+        Page<OrderMain> orderPage;
+        
+        if (orderStatus != null) {
+            // 按状态筛选
+            orderPage = orderMainRepository.findByLeaderIdAndOrderStatusOrderByCreateTimeDesc(
+                leaderId, orderStatus, pageable);
+        } else {
+            // 查询全部
+            orderPage = orderMainRepository.findByLeaderIdOrderByCreateTimeDesc(leaderId, pageable);
+        }
+        
+        // 转换为VO
+        List<OrderVO> orderVOs = orderPage.getContent().stream()
+            .map(this::convertToOrderVO)
+            .collect(Collectors.toList());
+        
+        return new PageResult<>(orderPage.getTotalElements(), orderVOs);
+    }
+
+    /**
+     * 查询团长订单统计
+     * 
+     * @param leaderId 团长ID
+     * @return 统计数据
+     */
+    public java.util.Map<String, Object> getLeaderOrdersSummary(Long leaderId) {
+        log.info("查询团长订单统计: leaderId={}", leaderId);
+        
+        // 统计订单总数
+        long totalCount = orderMainRepository.countByLeaderId(leaderId);
+        
+        // 统计今日订单数量
+        LocalDateTime todayStart = LocalDateTime.now()
+            .withHour(0).withMinute(0).withSecond(0);
+        long todayCount = orderMainRepository
+            .countByLeaderIdAndCreateTimeGreaterThanEqual(leaderId, todayStart);
+        
+        // 统计待发货订单数（订单状态 1-待发货）
+        long pendingCount = orderMainRepository
+            .countByLeaderIdAndOrderStatus(leaderId, 1);
+        
+        // 统计配送中订单数（订单状态 2-配送中）
+        long deliveringCount = orderMainRepository
+            .countByLeaderIdAndOrderStatus(leaderId, 2);
+        
+        java.util.Map<String, Object> summary = new java.util.HashMap<>();
+        summary.put("totalCount", totalCount);
+        summary.put("todayCount", todayCount);
+        summary.put("pendingCount", pendingCount);
+        summary.put("deliveringCount", deliveringCount);
+        
+        log.info("团长{}订单统计: 总数={}, 今日={}, 待发货={}, 配送中={}", 
+            leaderId, totalCount, todayCount, pendingCount, deliveringCount);
+        
+        return summary;
+    }
+
+    /**
+     * 查询团订单列表（⭐核心方法）
+     * 
+     * <p>通过参团记录表建立团-订单关联关系，解决按团精确展示订单的问题
+     * 
+     * @param teamId 团ID
+     * @return 订单列表
+     */
+    public List<OrderVO> getTeamOrders(Long teamId) {
+        log.info("查询团订单: teamId={}", teamId);
+        
+        try {
+            // 通过Feign调用GroupBuyService获取团的订单ID列表
+            Result<List<Long>> result = groupBuyServiceClient.getTeamOrderIds(teamId);
+            if (!result.isSuccess() || result.getData() == null) {
+                log.warn("获取团订单ID列表失败: teamId={}, result={}", teamId, result);
+                return new ArrayList<>();
+            }
+            
+            List<Long> orderIds = result.getData();
+            if (orderIds.isEmpty()) {
+                log.info("团{}暂无订单", teamId);
+                return new ArrayList<>();
+            }
+            
+            // 根据订单ID列表查询订单详情
+            List<OrderMain> orders = orderMainRepository.findByOrderIdIn(orderIds);
+            
+            // 转换为VO
+            List<OrderVO> orderVOs = orders.stream()
+                .map(this::convertToOrderVO)
+                .collect(Collectors.toList());
+            
+            log.info("团{}查询到{}个订单", teamId, orderVOs.size());
+            return orderVOs;
+            
+        } catch (Exception e) {
+            log.error("查询团订单失败: teamId={}", teamId, e);
+            return new ArrayList<>();
+        }
     }
 }
 

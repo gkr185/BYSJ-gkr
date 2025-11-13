@@ -48,5 +48,20 @@ public interface UserServiceClient {
      */
     @GetMapping("/user/{userId}")
     Result<Object> getUserById(@PathVariable("userId") Long userId);
+
+    /**
+     * 增加用户余额（佣金结算）
+     * 
+     * @param userId 用户ID（团长ID）
+     * @param amount 增加金额（佣金金额）
+     * @param remark 备注（结算批次号）
+     * @return 操作结果
+     */
+    @PostMapping("/account/addBalance")
+    Result<Void> addBalanceForCommission(
+            @RequestParam("userId") Long userId,
+            @RequestParam("amount") java.math.BigDecimal amount,
+            @RequestParam(value = "remark", required = false) String remark
+    );
 }
 

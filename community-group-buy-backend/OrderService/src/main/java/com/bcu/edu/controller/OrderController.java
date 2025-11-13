@@ -87,5 +87,54 @@ public class OrderController {
         orderService.updateOrderStatus(orderId, 3);
         return Result.success("确认收货成功");
     }
+
+    // ========== 团长订单查询接口 ==========
+
+    /**
+     * 【团长】查询我的订单列表
+     */
+    @GetMapping("/leader/my")
+    @Operation(summary = "查询团长订单", description = "团长查询自己负责的所有订单")
+    @OperationLog(value = "查询团长订单", module = "订单管理")
+    public Result<PageResult<OrderVO>> getLeaderOrders(
+        @RequestParam Long leaderId,
+        @RequestParam(defaultValue = "0") Integer page,
+        @RequestParam(defaultValue = "10") Integer size,
+        @RequestParam(required = false) Integer orderStatus
+    ) {
+        log.info("查询团长订单: leaderId={}, page={}, size={}, status={}", 
+                 leaderId, page, size, orderStatus);
+        
+        PageResult<OrderVO> result = orderService.getLeaderOrders(leaderId, page, size, orderStatus);
+        return Result.success(result);
+    }
+
+    /**
+     * 【团长】查询订单统计
+     */
+    @GetMapping("/leader/summary")
+    @Operation(summary = "查询团长订单统计", description = "统计团长订单数量和金额")
+    @OperationLog(value = "查询团长订单统计", module = "订单管理")
+    public Result<java.util.Map<String, Object>> getLeaderOrdersSummary(
+        @RequestParam Long leaderId
+    ) {
+        log.info("查询团长订单统计: leaderId={}", leaderId);
+        
+        java.util.Map<String, Object> summary = orderService.getLeaderOrdersSummary(leaderId);
+        return Result.success(summary);
+    }
+
+    /**
+     * 【团长】查询团订单列表（⭐核心接口）
+     */
+    @GetMapping("/leader/team/{teamId}/orders")
+    @Operation(summary = "查询团订单", description = "查询指定团的所有订单")
+    @OperationLog(value = "查询团订单", module = "订单管理")
+    public Result<java.util.List<OrderVO>> getTeamOrders(@PathVariable Long teamId) {
+        log.info("查询团订单: teamId={}", teamId);
+        
+        java.util.List<OrderVO> orders = orderService.getTeamOrders(teamId);
+        return Result.success(orders);
+    }
 }
 

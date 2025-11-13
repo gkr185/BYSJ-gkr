@@ -96,5 +96,20 @@ public interface MemberRepository extends JpaRepository<GroupBuyMember, Long> {
      */
     @Query("SELECT COUNT(m) FROM GroupBuyMember m WHERE m.teamId = :teamId")
     Integer countByTeamId(@Param("teamId") Long teamId);
+    
+    /**
+     * 查询团的订单ID列表（⭐团长订单管理核心方法）
+     * 
+     * <p>应用场景：
+     * <ul>
+     *   <li>团长查看某个团的所有订单</li>
+     *   <li>通过参团记录表建立团-订单关联关系</li>
+     * </ul>
+     * 
+     * @param teamId 团ID
+     * @return 订单ID列表（过滤空值）
+     */
+    @Query("SELECT m.orderId FROM GroupBuyMember m WHERE m.teamId = :teamId AND m.orderId IS NOT NULL")
+    List<Long> findOrderIdsByTeamId(@Param("teamId") Long teamId);
 }
 

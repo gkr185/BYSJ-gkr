@@ -27,4 +27,10 @@ public interface GroupBuyServiceClient {
      */
     @GetMapping("/api/groupbuy/feign/activityPrice/{activityId}")
     Result<BigDecimal> getActivityPrice(@PathVariable("activityId") Long activityId);
+
+    /**
+     * 获取团的订单ID列表
+     */
+    @GetMapping("/api/groupbuy/feign/teamOrderIds/{teamId}")
+    Result<java.util.List<Long>> getTeamOrderIds(@PathVariable("teamId") Long teamId);
 }

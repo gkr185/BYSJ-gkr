@@ -117,5 +117,40 @@ public interface OrderMainRepository extends JpaRepository<OrderMain, Long> {
      */
     @Query("SELECT o FROM OrderMain o WHERE o.orderSn LIKE %:keyword% ORDER BY o.createTime DESC")
     Page<OrderMain> searchByOrderSn(@Param("keyword") String keyword, Pageable pageable);
+
+    /**
+     * 按状态查询团长订单（分页）
+     */
+    Page<OrderMain> findByLeaderIdAndOrderStatusOrderByCreateTimeDesc(
+        Long leaderId, Integer orderStatus, Pageable pageable);
+
+    /**
+     * 统计团长指定状态的订单数量
+     */
+    long countByLeaderIdAndOrderStatus(Long leaderId, Integer orderStatus);
+
+    /**
+     * 统计团长今日订单数量
+     */
+    @Query("SELECT COUNT(o) FROM OrderMain o WHERE o.leaderId = :leaderId " +
+           "AND o.createTime >= :startTime")
+    long countByLeaderIdAndCreateTimeGreaterThanEqual(
+        @Param("leaderId") Long leaderId, 
+        @Param("startTime") LocalDateTime startTime);
+
+    /**
+     * 根据订单ID列表查询订单（⭐团长订单管理核心方法）
+     * 
+     * <p>应用场景：
+     * <ul>
+     *   <li>团长查看某个团的所有订单</li>
+     *   <li>通过参团记录表获取的订单ID列表查询完整订单信息</li>
+     * </ul>
+     * 
+     * @param orderIds 订单ID列表
+     * @return 订单列表（按创建时间倒序）
+     */
+    @Query("SELECT o FROM OrderMain o WHERE o.orderId IN :orderIds ORDER BY o.createTime DESC")
+    List<OrderMain> findByOrderIdIn(@Param("orderIds") List<Long> orderIds);
 }
 

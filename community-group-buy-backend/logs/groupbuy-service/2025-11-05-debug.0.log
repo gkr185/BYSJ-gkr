@@ -1,8 +1,0 @@
-[2025-11-05 00:00:00.023] [DEBUG] [groupbuy-service] [scheduling-1] [org.hibernate.SQL:135] - 
-    select
-        gbt1_0.team_id 
-    from
-        group_buy_team gbt1_0 
-    where
-        gbt1_0.team_status=0 
-        and gbt1_0.expire_time<?

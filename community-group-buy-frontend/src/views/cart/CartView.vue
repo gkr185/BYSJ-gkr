@@ -406,6 +406,9 @@ const handleRemoveItem = async (cartId) => {
     if (selectedIndex > -1) {
       selectedCartIds.value.splice(selectedIndex, 1)
     }
+    
+    // 同步更新 cartStore 状态，确保导航栏角标更新
+    cartStore.loadCart()
 
     ElMessage.success('商品已删除')
   } catch (error) {
@@ -477,6 +480,9 @@ const handleBatchRemove = async () => {
       !selectedCartIds.value.includes(item.cartId)
     )
     selectedCartIds.value = []
+    
+    // 同步更新 cartStore 状态，确保导航栏角标更新
+    cartStore.loadCart()
 
     ElMessage.success('批量删除成功')
   } catch (error) {
@@ -505,6 +511,9 @@ const handleClearCart = async () => {
 
     cartItems.value = []
     selectedCartIds.value = []
+    
+    // 同步更新 cartStore 状态，确保导航栏角标归零
+    cartStore.clearCart()
 
     ElMessage.success('购物车已清空')
   } catch (error) {

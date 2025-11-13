@@ -1,6 +1,6 @@
 # OrderService API文档
 
-**版本**: v1.0.0  
+**版本**: v1.1.0 ⭐ **新增团长订单接口**  
 **服务端口**: `8065`  
 **基础路径**: `http://localhost:8065`  
 **通过网关访问**: `http://localhost:9000`  
@@ -14,8 +14,9 @@
 |------|--------|---------|------|
 | **Feign内部接口** | 5个 | `/api/order/feign` | 🔴 供GroupBuyService调用 |
 | 用户端订单接口 | 4个 | `/api/order` | 订单查询、取消、确认收货 |
+| **团长端订单接口** | **2个** | `/api/order/leader` | 🟡 供团长查询订单 ⭐ 新增 |
 | **管理端订单接口** | **11个** | `/api/order/admin` | 🟢 供管理员使用 |
-| **总计** | **20个** | - | - |
+| **总计** | **22个** | - | - |
 
 ---
 
@@ -579,9 +580,139 @@ Authorization: Bearer {JWT_TOKEN}
 
 ---
 
-## 3. 管理端订单接口（供管理员调用）
+## 3. 团长端订单接口（供团长查询） ⭐ **新增（2025-11-13）**
 
-### 3.1 获取订单列表（分页）⭐⭐⭐⭐⭐
+### 3.1 查询团长订单列表 ⭐⭐⭐⭐⭐
+
+```http
+GET /api/order/leader/my?leaderId=1&page=0&size=10&orderStatus=1
+Authorization: Bearer {JWT_TOKEN}
+```
+
+**功能**: 团长查询自己负责的所有订单
+
+**认证**: 需要JWT Token
+
+**URL参数**:
+
+| 参数 | 类型 | 必填 | 默认值 | 说明 |
+|-----|------|------|--------|------|
+| leaderId | Long | 是 | - | 团长ID |
+| page | Integer | 否 | 0 | 页码（从0开始） |
+| size | Integer | 否 | 10 | 每页数量 |
+| orderStatus | Integer | 否 | null | 订单状态筛选（可选） |
+
+**订单状态说明**:
+
+| 状态码 | 状态名称 | 说明 |
+|--------|---------|------|
+| 0 | 待支付 | 订单创建，等待支付 |
+| 1 | 待发货 | 已支付，等待团长发货 |
+| 2 | 配送中 | 团长已发货，正在配送 |
+| 3 | 已送达 | 用户已确认收货 |
+| 4 | 已取消 | 用户或系统取消订单 |
+| 5 | 退款中 | 正在处理退款 |
+| 6 | 已退款 | 退款完成 |
+
+**响应示例**:
+
+```json
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "pageNum": 1,
+    "pageSize": 10,
+    "total": 25,
+    "list": [
+      {
+        "orderId": 1001,
+        "orderSn": "20251113142530123456",
+        "userId": 4,
+        "leaderId": 1,
+        "totalAmount": 42.00,
+        "payAmount": 42.00,
+        "orderStatus": 1,
+        "orderStatusText": "待发货",
+        "payStatus": 1,
+        "createTime": "2025-11-13T14:25:30",
+        "items": [
+          {
+            "productId": 1,
+            "productName": "牙膏",
+            "productImg": "http://...",
+            "quantity": 3,
+            "price": 14.00,
+            "subtotal": 42.00
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**业务逻辑**:
+1. 根据leaderId查询该团长负责的所有订单
+2. 支持按orderStatus筛选（待发货/配送中/已送达）
+3. 支持分页查询
+4. 返回订单列表（包含订单明细）
+
+**使用场景**:
+- 团长查看所有需要发货的订单
+- 团长查看配送中的订单
+- 团长统计订单数量
+
+---
+
+### 3.2 查询团长订单统计
+
+```http
+GET /api/order/leader/summary?leaderId={leaderId}
+Authorization: Bearer {JWT_TOKEN}
+```
+
+**功能**: 统计团长订单数量和金额
+
+**认证**: 需要JWT Token
+
+**查询参数**:
+
+| 参数 | 类型 | 必填 | 说明 |
+|-----|------|------|------|
+| leaderId | Long | 是 | 团长ID |
+
+**响应示例**:
+
+```json
+{
+  "code": 200,
+  "message": "success",
+  "data": {
+    "totalCount": 156,
+    "todayCount": 8,
+    "pendingCount": 12,
+    "deliveringCount": 5
+  },
+  "timestamp": "2025-11-13T15:00:00"
+}
+```
+
+**业务逻辑**:
+1. 统计团长的订单总数
+2. 统计今日订单数量（当天0点到现在）
+3. 统计待发货订单数
+4. 统计配送中订单数
+
+**使用场景**:
+- 团长工作台首页显示统计卡片
+- 快速了解订单处理情况
+
+---
+
+## 4. 管理端订单接口（供管理员调用）
+
+### 4.1 获取订单列表（分页）⭐⭐⭐⭐⭐
 
 ```http
 GET /api/order/admin/list?page=0&size=10&status=1&payStatus=1
@@ -1390,46 +1521,55 @@ order:
 
 ## 14. 更新日志
 
-### v1.1.0 (2025-11-01)
+### v1.1.0 (2025-11-13) ⭐⭐⭐⭐⭐
 
 **新增功能**:
-- ✅ 新增管理端订单接口（11个）
-  - 订单列表查询（支持状态过滤）
-  - 订单统计（各状态数量、销售额）
-  - 订单状态管理（单个/批量）
-  - 订单搜索功能
-  - 订单导出功能（CSV）
-  - 按用户/团长查询订单
-- ✅ 新增`OrderStatisticsVO`数据模型
-- ✅ 新增`AdminController`管理端控制器
-- ✅ 增强`OrderMainRepository`（9个新查询方法）
-- ✅ 增强`PageResult`（新增简化构造函数）
+- ✅ **新增团长端订单接口（2个）**
+  - `GET /api/order/leader/my` - 查询团长订单列表 ⭐⭐⭐⭐⭐
+  - `GET /api/order/leader/summary` - 查询团长订单统计 ⭐⭐⭐⭐
+- ✅ 支持按订单状态筛选（待发货/配送中/已送达）
+- ✅ 支持分页查询
+- ✅ 统计今日订单、待发货、配送中订单数
 
-**技术改进**:
-- Repository查询优化，支持多条件组合查询
-- 统计功能支持今日数据和总数据
-- 导出功能基础实现（CSV格式）
+**实现细节**:
+- 新增Repository方法（3个）：
+  - `findByLeaderIdAndOrderStatusOrderByCreateTimeDesc()` - 按状态查询
+  - `countByLeaderIdAndOrderStatus()` - 统计指定状态订单数
+  - `countByLeaderIdAndCreateTimeGreaterThanEqual()` - 统计今日订单数
+- 新增Service方法（2个）：
+  - `OrderService.getLeaderOrders()` - 查询团长订单列表
+  - `OrderService.getLeaderOrdersSummary()` - 查询团长订单统计
+- 新增Controller接口（2个）：
+  - `OrderController.getLeaderOrders()` - 团长订单列表接口
+  - `OrderController.getLeaderOrdersSummary()` - 团长订单统计接口
 
-**文档更新**:
-- 更新接口概览（9个→20个接口）
-- 新增管理端接口详细文档
-- 新增FAQ（Q6-Q8）
-- 新增更新日志章节
+**业务价值**:
+- 团长可查看自己负责的所有订单 ✅
+- 团长可按状态筛选订单（待发货/配送中） ✅
+- 团长可查看订单统计数据 ✅
+- 支持团长工作台功能完整闭环 ✅
+
+**使用场景**:
+- 团长工作台首页显示订单统计卡片
+- 团长查看待发货订单列表
+- 团长查看配送中订单列表
+- 团长统计订单处理情况
+
+---
 
 ### v1.0.0 (2025-11-01)
 
 **初始版本**:
 - ✅ Feign内部接口（5个）
 - ✅ 用户端订单接口（4个）
-- ✅ 订单CRUD基础功能
-- ✅ 订单状态管理
-- ✅ 订单超时取消定时任务
-- ✅ 快照设计实现
-- ✅ 完整API文档
+- ✅ 管理端订单接口（11个）
+- ✅ 订单超时自动取消定时任务
+- ✅ 完整的订单CRUD功能
 
 ---
 
 **当前版本**: ✅ OrderService v1.1.0  
 **状态**: 已完成并部署  
-**最后更新**: 2025-11-01
+**最后更新**: 2025-11-13  
+**Swagger文档**: http://localhost:8065/swagger-ui.html
 

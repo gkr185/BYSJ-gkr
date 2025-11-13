@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * GroupBuyService Feign内部接口Controller（供其他微服务调用）
@@ -75,6 +76,30 @@ public class FeignController {
         } catch (Exception e) {
             log.error("获取拼团活动价格失败", e);
             return Result.error("获取拼团活动价格失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 获取团的订单ID列表（⭐团长订单管理核心接口）
+     *
+     * <p>调用方: OrderService.getTeamOrders()
+     * <p>场景: 团长查看某个团的所有订单，通过参团记录表建立关联
+     *
+     * @param teamId 团ID
+     * @return 订单ID列表
+     */
+    @GetMapping("/teamOrderIds/{teamId}")
+    @Operation(summary = "获取团的订单ID列表", description = "供OrderService调用，获取团的所有订单ID")
+    public Result<List<Long>> getTeamOrderIds(@PathVariable("teamId") Long teamId) {
+        log.info("Feign调用: 获取团订单ID列表, teamId={}", teamId);
+
+        try {
+            List<Long> orderIds = groupBuyService.getTeamOrderIds(teamId);
+            log.info("获取结果: teamId={}, orderIds={}", teamId, orderIds);
+            return Result.success(orderIds);
+        } catch (Exception e) {
+            log.error("获取团订单ID列表失败", e);
+            return Result.error("获取团订单ID列表失败: " + e.getMessage());
         }
     }
 }

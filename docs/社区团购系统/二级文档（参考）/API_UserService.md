@@ -1760,7 +1760,90 @@ public PaymentRecord recharge(Long userId, BigDecimal amount) {
 
 ---
 
-### 11.10 Feign接口设计原则
+### 11.10 增加余额（供LeaderService佣金结算调用） ⭐ **新增（2025-11-13）**
+
+**接口**: `POST /feign/account/addBalance`  
+**调用方**: LeaderService（佣金结算服务）  
+**描述**: 佣金结算时增加团长余额
+
+#### 请求参数
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| userId | Long | 是 | 用户ID（团长ID） |
+| amount | BigDecimal | 是 | 增加金额（佣金金额） |
+| remark | String | 否 | 备注（结算批次号） |
+
+#### 请求示例
+
+```http
+POST /feign/account/addBalance?userId=3&amount=150.50&remark=佣金结算-批次:20251113
+```
+
+#### 响应示例
+
+```json
+{
+  "code": 200,
+  "message": "余额增加成功",
+  "data": null,
+  "timestamp": "2025-11-13T16:20:00"
+}
+```
+
+#### 业务逻辑
+
+1. 验证金额必须大于0
+2. 查询用户账户（不存在则自动创建）
+3. 调用`UserAccount.addBalance()`增加余额
+4. 保存账户信息
+5. 记录日志：`佣金结算-余额增加成功: userId=3, amount=150.50, newBalance=1650.50, remark=佣金结算-批次:20251113`
+
+#### LeaderService调用示例
+
+```java
+// LeaderService - CommissionService.java
+@Autowired
+private UserServiceClient userServiceClient;
+
+public void settleCommissions(String settlementBatch) {
+    // ... 查询待结算佣金 ...
+    
+    for (Long leaderId : leaderIds) {
+        BigDecimal totalCommission = calculateTotalCommission(leaderId);
+        
+        // 调用UserService增加余额
+        String remark = "佣金结算-批次:" + settlementBatch;
+        Result<Void> result = userServiceClient.addBalanceForCommission(
+            leaderId, totalCommission, remark);
+        
+        if (result.getCode() == 200) {
+            // 更新佣金记录状态为已结算
+            updateCommissionStatus(leaderId, settlementBatch);
+        } else {
+            throw new BusinessException("增加团长余额失败：" + result.getMessage());
+        }
+    }
+}
+```
+
+**使用场景**:
+- 每月1号凌晨2点自动结算佣金
+- 管理员手动触发佣金结算
+- 团长佣金从"待结算"变为"已结算"时调用
+
+**特殊处理**:
+- 账户不存在时自动创建（兼容旧数据）
+- 支持事务回滚（结算失败时不增加余额）
+
+**安全说明**:
+- Feign接口仅供LeaderService调用
+- 不对外暴露（不在Gateway路由中）
+- 信任调用方已验证佣金金额合法性
+
+---
+
+### 11.11 Feign接口设计原则
 
 1. **路径规范**: 使用`/api/{service}/feign/`或`/feign/`前缀
 2. **认证**: 不需要JWT Token（内部服务调用）
@@ -1772,6 +1855,29 @@ public PaymentRecord recharge(Long userId, BigDecimal amount) {
 ---
 
 ## 11. 更新日志
+
+### v1.4.0 (2025-11-13) ⭐⭐⭐⭐⭐
+
+**新增功能**:
+- ✅ **新增LeaderService专用Feign接口（佣金结算）**
+  - `/feign/account/addBalance` - 增加余额接口 ⭐⭐⭐⭐⭐
+- ✅ 完善佣金结算闭环功能
+- ✅ 支持账户不存在时自动创建
+- ✅ 添加佣金结算调用示例
+
+**实现细节**:
+- 新增`AccountService.addBalanceForCommission()`方法
+- 新增`FeignController.addBalanceForCommission()`接口
+- LeaderService已解除TODO，完成余额增加调用
+- 支持事务回滚和异常处理
+
+**业务价值**:
+- 团长佣金结算自动化 ✅
+- 每月1号凌晨2点自动结算 ✅
+- 管理员可手动触发结算 ✅
+- 佣金实时到账到余额 ✅
+
+---
 
 ### v1.3.0 (2025-11-01) ⭐⭐⭐
 

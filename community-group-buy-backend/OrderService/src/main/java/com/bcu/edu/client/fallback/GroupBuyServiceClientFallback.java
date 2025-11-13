@@ -34,6 +34,12 @@ public class GroupBuyServiceClientFallback implements FallbackFactory<GroupBuySe
                 log.warn("降级处理: getActivityPrice, activityId={}", activityId);
                 return Result.error("拼团服务暂不可用");
             }
+
+            @Override
+            public Result<java.util.List<Long>> getTeamOrderIds(Long teamId) {
+                log.warn("降级处理: getTeamOrderIds, teamId={}", teamId);
+                return Result.error("拼团服务暂不可用");
+            }
         };
     }
 }

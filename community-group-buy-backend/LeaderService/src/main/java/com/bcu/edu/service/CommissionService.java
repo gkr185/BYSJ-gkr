@@ -134,11 +134,16 @@ public class CommissionService {
 
             try {
                 // 调用UserService为团长增加余额
-                // TODO: 实际实现时需要调用UserService的增加余额接口
-                // Result<Void> result = userServiceClient.addBalance(leaderId, totalCommission, settlementBatch);
-                // if (!result.isSuccess()) {
-                //     throw new IllegalStateException("增加团长余额失败：" + result.getMessage());
-                // }
+                String remark = "佣金结算-批次:" + settlementBatch;
+                Result<Void> result = userServiceClient.addBalanceForCommission(
+                    leaderId, totalCommission, remark);
+                
+                if (result == null || result.getCode() != 200) {
+                    String errorMsg = result != null ? result.getMessage() : "调用失败";
+                    throw new IllegalStateException("增加团长余额失败：" + errorMsg);
+                }
+                
+                log.info("团长{}余额增加成功：{}元", leaderId, totalCommission);
 
                 // 更新佣金记录状态
                 for (CommissionRecord record : leaderRecords) {

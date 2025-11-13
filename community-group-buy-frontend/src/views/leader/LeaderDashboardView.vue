@@ -138,13 +138,17 @@
               <el-icon class="action-icon"><Grid /></el-icon>
               <div class="action-text">拼团活动</div>
             </div>
-            <div class="action-item" @click="handleViewCommunity">
-              <el-icon class="action-icon"><OfficeBuilding /></el-icon>
-              <div class="action-text">社区详情</div>
+            <div class="action-item" @click="handleViewCommission">
+              <el-icon class="action-icon"><Coin /></el-icon>
+              <div class="action-text">佣金管理</div>
             </div>
             <div class="action-item" @click="handleViewOrders">
               <el-icon class="action-icon"><DocumentCopy /></el-icon>
               <div class="action-text">我的订单</div>
+            </div>
+            <div class="action-item" @click="handleViewCommunity">
+              <el-icon class="action-icon"><OfficeBuilding /></el-icon>
+              <div class="action-text">社区详情</div>
             </div>
             <div class="action-item" @click="handleViewProducts">
               <el-icon class="action-icon"><Goods /></el-icon>
@@ -314,7 +318,8 @@ import {
   OfficeBuilding,
   DocumentCopy,
   Goods,
-  DataAnalysis
+  DataAnalysis,
+  Coin
 } from '@element-plus/icons-vue'
 import MainLayout from '@/components/common/MainLayout.vue'
 import {
@@ -564,8 +569,11 @@ const handleViewCommunity = async () => {
 }
 
 const handleViewOrders = () => {
-  ElMessage.info('订单管理功能开发中，敬请期待')
-  // TODO: 跳转到订单管理页面
+  router.push('/leader/orders')
+}
+
+const handleViewCommission = () => {
+  router.push('/leader/commission')
 }
 
 const handleViewProducts = () => {

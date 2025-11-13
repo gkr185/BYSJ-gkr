@@ -26,6 +26,21 @@ public class OrderVO {
     private String orderSn;
 
     /**
+     * 用户ID
+     */
+    private Long userId;
+
+    /**
+     * 团长ID
+     */
+    private Long leaderId;
+
+    /**
+     * 订单总金额
+     */
+    private BigDecimal totalAmount;
+
+    /**
      * 实付金额
      */
     private BigDecimal payAmount;
@@ -51,6 +66,26 @@ public class OrderVO {
      * 订单商品列表（简化版）
      */
     private List<OrderItemVO> items;
+
+    /**
+     * 用户名（用于团长端显示）
+     */
+    private String userName;
+
+    /**
+     * 主商品名称（列表展示用，取第一个商品）
+     */
+    private String productName;
+
+    /**
+     * 主商品图片（列表展示用，取第一个商品）
+     */
+    private String productImg;
+
+    /**
+     * 主商品数量（列表展示用，取第一个商品）
+     */
+    private Integer quantity;
 
     /**
      * 创建时间

@@ -226,5 +226,21 @@ public class FeignController {
         accountService.recharge(userId, amount);
         return Result.success("充值成功");
     }
+
+    /**
+     * 增加余额（供LeaderService佣金结算调用）
+     * ⭐ LeaderService 调用此接口进行佣金结算到余额
+     */
+    @PostMapping("/feign/account/addBalance")
+    @Operation(summary = "增加余额", description = "供LeaderService佣金结算调用")
+    public Result<Void> addBalanceForCommission(
+            @RequestParam Long userId,
+            @RequestParam BigDecimal amount,
+            @RequestParam(required = false) String remark) {
+        log.info("[Feign] LeaderService 调用佣金结算增加余额：userId={}, amount={}, remark={}", 
+            userId, amount, remark);
+        accountService.addBalanceForCommission(userId, amount, remark);
+        return Result.success("余额增加成功");
+    }
 }
 

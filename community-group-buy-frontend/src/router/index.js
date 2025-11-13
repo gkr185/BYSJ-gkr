@@ -159,6 +159,24 @@ const router = createRouter({
       component: () => import('../views/leader/TeamDetailView.vue'),
       meta: { title: '拼团详情', requireAuth: true, requiresLeader: true }
     },
+    {
+      path: '/leader/commission',
+      name: 'leaderCommission',
+      component: () => import('../views/leader/LeaderCommissionView.vue'),
+      meta: { title: '佣金管理', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/orders',
+      name: 'leaderOrders',
+      component: () => import('../views/leader/LeaderOrdersView.vue'),
+      meta: { title: '我的订单', requireAuth: true, requiresLeader: true }
+    },
+    {
+      path: '/leader/order-detail/:orderId',
+      name: 'leaderOrderDetail',
+      component: () => import('../views/leader/LeaderOrderDetailView.vue'),
+      meta: { title: '订单详情', requireAuth: true, requiresLeader: true }
+    },
 
     // === 404 页面（必须放在最后） ===
     {

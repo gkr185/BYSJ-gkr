@@ -47,6 +47,9 @@ public class GroupBuyService {
     private TeamRepository teamRepository;
     
     @Autowired
+    private com.bcu.edu.repository.MemberRepository memberRepository;
+    
+    @Autowired
     private ProductServiceClient productServiceClient;
     
     @Autowired
@@ -355,6 +358,27 @@ public class GroupBuyService {
         } catch (Exception e) {
             log.error("获取拼团活动价格失败: activityId={}", activityId, e);
             return null;
+        }
+    }
+
+    /**
+     * 获取团的订单ID列表（供Feign调用）⭐核心方法
+     * 
+     * <p>通过参团记录表查询团的所有订单ID，用于团长订单管理
+     * 
+     * @param teamId 团ID
+     * @return 订单ID列表
+     */
+    public List<Long> getTeamOrderIds(Long teamId) {
+        log.info("获取团订单ID列表: teamId={}", teamId);
+        
+        try {
+            List<Long> orderIds = memberRepository.findOrderIdsByTeamId(teamId);
+            log.info("团{}的订单ID列表: {}", teamId, orderIds);
+            return orderIds;
+        } catch (Exception e) {
+            log.error("获取团订单ID列表失败: teamId={}", teamId, e);
+            return new java.util.ArrayList<>();
         }
     }
 }

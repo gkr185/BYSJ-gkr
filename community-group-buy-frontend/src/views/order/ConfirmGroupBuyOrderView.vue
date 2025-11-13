@@ -27,7 +27,7 @@
               </template>
 
               <!-- 单个商品拼团 -->
-              <div v-if="!isCartGroupBuy" class="single-product">
+              <div v-if="!isCartGroupBuy && product" class="single-product">
                 <div class="product-main">
                   <el-image
                     :src="productImageUrl"
