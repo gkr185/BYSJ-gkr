@@ -10645,3 +10645,4170 @@
     where
         cr1_0.leader_id=? 
         and cr1_0.status=1
+[2025-11-13 18:39:56.707] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 18:39:56.738] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 18:39:56.738] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 18:39:56.740] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:09:03.417] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.450] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.473] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.495] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.515] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.530] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.545] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.564] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.578] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:03.592] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:09:06.255] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:09:06.583] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:09:06.583] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:09:06.584] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:09:08.979] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:27:10.803] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:13.061] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:13.664] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:14.807] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:17.259] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:17.275] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:21.335] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:22.260] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:23.651] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:24.649] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:27:25.700] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:37:24.200] [DEBUG] [leader-service] [main] [com.bcu.edu.LeaderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-13 20:37:44.235] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:37:47.898] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:47.974] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.004] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.034] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.060] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.079] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.102] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.126] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.144] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:48.163] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:53.661] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:37:53.975] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:37:53.978] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:37:53.989] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:37:56.280] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:37:56.354] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.383] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.413] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.443] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.470] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.491] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.518] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.541] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.558] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.576] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.602] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.627] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.650] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.668] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:37:56.689] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:03.269] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:38:05.034] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.034] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.055] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.081] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.106] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.131] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.154] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.169] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.191] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.211] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.226] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.243] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.265] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.292] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.311] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.328] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:05.346] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:14.263] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:16.047] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:23.259] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:38:28.538] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.565] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.590] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.614] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.638] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.662] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.682] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.705] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:38:28.729] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:39:12.822] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:39:12.867] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:39:12.868] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:39:13.145] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:39:18.932] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:39:18.965] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:39:18.968] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:39:18.968] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:43:59.465] [DEBUG] [leader-service] [main] [com.bcu.edu.LeaderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-13 20:44:43.942] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:44:43.997] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:44:44.004] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:44:44.008] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:44:52.214] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.249] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.273] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.296] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.319] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.343] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.360] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.382] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.404] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:52.424] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:44:59.082] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:44:59.407] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:44:59.407] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:44:59.409] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:45:10.392] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:45:10.720] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:45:10.720] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:45:10.721] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:45:12.561] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:45:12.712] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.734] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.755] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.776] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.799] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.821] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.836] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.855] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.873] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.888] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.903] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.925] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.946] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.964] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.978] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:12.992] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:21.491] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:45:23.099] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.099] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.118] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.144] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.166] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.190] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.211] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.234] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.251] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.269] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.289] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.305] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.322] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.343] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.366] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.383] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.398] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:23.415] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:35.626] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:36.992] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:39.742] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:45:44.049] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.072] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.096] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.119] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.142] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.166] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.188] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.207] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.229] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:45:44.251] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:46:11.441] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.order_id=? 
+    limit
+        ?
+[2025-11-13 20:46:11.444] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:46:11.460] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        commission_record
+        (commission_amount, commission_rate, created_at, leader_id, leader_name, order_amount, order_id, remark, settled_at, settlement_batch, status) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:46:34.503] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:46:34.540] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:46:34.542] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:46:34.828] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:46:37.948] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:46:37.982] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:46:37.982] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:46:37.985] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:46:42.048] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:46:42.601] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:46:43.804] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:46:56.227] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:46:58.003] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:46:58.606] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:47:15.179] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:47:15.179] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc
+[2025-11-13 20:47:15.180] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:51:44.306] [DEBUG] [leader-service] [main] [com.bcu.edu.LeaderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-13 20:52:17.114] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:52:17.114] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:52:17.129] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:52:20.765] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.status=0 
+    order by
+        cr1_0.created_at
+[2025-11-13 20:52:26.541] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:52:27.805] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:52:28.403] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:52:30.014] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:52:30.107] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:52:30.110] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:52:30.341] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:52:30.344] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(cr1_0.commission_id) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=?
+[2025-11-13 20:52:34.254] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:52:34.280] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:52:34.281] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:52:34.282] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:52:34.283] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        count(cr1_0.commission_id) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=?
+[2025-11-13 20:53:25.907] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:53:26.123] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:53:26.126] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:53:26.235] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:54:39.991] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gls1_0.store_id,
+        gls1_0.address,
+        gls1_0.city,
+        gls1_0.commission_rate,
+        gls1_0.community_id,
+        gls1_0.community_name,
+        gls1_0.created_at,
+        gls1_0.description,
+        gls1_0.detail_address,
+        gls1_0.district,
+        gls1_0.latitude,
+        gls1_0.leader_id,
+        gls1_0.leader_name,
+        gls1_0.leader_phone,
+        gls1_0.longitude,
+        gls1_0.max_delivery_range,
+        gls1_0.province,
+        gls1_0.review_comment,
+        gls1_0.reviewed_at,
+        gls1_0.reviewer_id,
+        gls1_0.status,
+        gls1_0.store_name,
+        gls1_0.total_commission,
+        gls1_0.updated_at 
+    from
+        group_leader_store gls1_0 
+    where
+        gls1_0.leader_id=?
+[2025-11-13 20:54:40.315] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=0
+[2025-11-13 20:54:40.316] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        cr1_0.commission_id,
+        cr1_0.commission_amount,
+        cr1_0.commission_rate,
+        cr1_0.created_at,
+        cr1_0.leader_id,
+        cr1_0.leader_name,
+        cr1_0.order_amount,
+        cr1_0.order_id,
+        cr1_0.remark,
+        cr1_0.settled_at,
+        cr1_0.settlement_batch,
+        cr1_0.status 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+    order by
+        cr1_0.created_at desc 
+    limit
+        ?, ?
+[2025-11-13 20:54:40.318] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(cr1_0.commission_amount) 
+    from
+        commission_record cr1_0 
+    where
+        cr1_0.leader_id=? 
+        and cr1_0.status=1
+[2025-11-13 20:56:18.809] [DEBUG] [leader-service] [http-nio-8068-exec-1] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.837] [DEBUG] [leader-service] [http-nio-8068-exec-2] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.858] [DEBUG] [leader-service] [http-nio-8068-exec-4] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.878] [DEBUG] [leader-service] [http-nio-8068-exec-5] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.899] [DEBUG] [leader-service] [http-nio-8068-exec-3] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.920] [DEBUG] [leader-service] [http-nio-8068-exec-7] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.940] [DEBUG] [leader-service] [http-nio-8068-exec-8] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.954] [DEBUG] [leader-service] [http-nio-8068-exec-6] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.972] [DEBUG] [leader-service] [http-nio-8068-exec-9] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?
+[2025-11-13 20:56:18.988] [DEBUG] [leader-service] [http-nio-8068-exec-10] [org.hibernate.SQL:135] - 
+    select
+        c1_0.community_id,
+        c1_0.address,
+        c1_0.city,
+        c1_0.created_at,
+        c1_0.description,
+        c1_0.district,
+        c1_0.latitude,
+        c1_0.longitude,
+        c1_0.community_name,
+        c1_0.province,
+        c1_0.service_radius,
+        c1_0.status,
+        c1_0.updated_at 
+    from
+        community c1_0 
+    where
+        c1_0.community_id=?

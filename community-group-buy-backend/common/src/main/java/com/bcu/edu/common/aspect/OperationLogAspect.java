@@ -227,6 +227,11 @@ public class OperationLogAspect {
             return false;
         }
         
+        // 过滤掉ServletRequest相关类
+        if (className.contains("ServletRequest") || className.contains("RequestFacade")) {
+            return false;
+        }
+        
         return true;
     }
 

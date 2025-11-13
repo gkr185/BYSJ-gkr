@@ -20972,3 +20972,5160 @@
         om1_0.order_status=0 
         and om1_0.pay_status=0 
         and om1_0.create_time<?
+[2025-11-13 18:45:00.011] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 18:50:00.014] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 18:55:00.004] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:00:00.002] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:05:00.002] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:10:00.003] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:15:00.009] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:20:00.008] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:25:00.005] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:30:00.016] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:35:00.005] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:40:00.013] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:45:00.001] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:50:00.002] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 19:55:00.015] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:00:00.014] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:05:00.015] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:09:03.333] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:09:03.333] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:09:03.336] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=?
+[2025-11-13 20:09:03.337] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.create_time>=?
+[2025-11-13 20:09:03.338] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:09:03.341] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:09:03.349] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团长订单统计
+[2025-11-13 20:10:00.009] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:15:00.005] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:20:00.015] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:25:00.007] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:30:00.001] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:35:00.013] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:37:32.425] [DEBUG] [order-service] [main] [com.bcu.edu.OrderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-13 20:37:34.615] [DEBUG] [order-service] [main] [com.bcu.edu.filter.UserContextFilter:240] - Filter 'userContextFilter' configured for use
+[2025-11-13 20:37:47.476] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:37:47.478] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:37:47.567] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=?
+[2025-11-13 20:37:47.587] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.create_time>=?
+[2025-11-13 20:37:47.592] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:37:47.594] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:37:47.764] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团长订单统计
+[2025-11-13 20:38:03.226] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:03.315] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_main
+        (create_time, delivery_id, discount_amount, dispatch_group, leader_id, order_sn, order_status, pay_amount, pay_status, pay_time, receive_address_id, total_amount, update_time, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:38:03.327] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_item
+        (activity_id, order_id, price, product_id, product_img, product_name, quantity, total_price) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:38:03.337] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=创建订单
+[2025-11-13 20:38:03.432] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:03.450] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:38:03.462] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新支付状态
+[2025-11-13 20:38:03.469] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:38:03.477] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:03.482] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:23.245] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:23.263] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_main
+        (create_time, delivery_id, discount_amount, dispatch_group, leader_id, order_sn, order_status, pay_amount, pay_status, pay_time, receive_address_id, total_amount, update_time, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:38:23.266] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_item
+        (activity_id, order_id, price, product_id, product_img, product_name, quantity, total_price) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:38:23.273] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=创建订单
+[2025-11-13 20:38:23.627] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:38:23.627] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:38:23.629] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:38:23.633] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:23.644] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单详情
+[2025-11-13 20:38:26.867] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:26.869] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:38:26.874] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新支付状态
+[2025-11-13 20:38:26.875] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:38:26.881] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:26.883] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:26.906] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:38:26.913] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id in (?, ?)
+[2025-11-13 20:38:26.920] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=批量更新订单状态
+[2025-11-13 20:38:26.921] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:38:26.922] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:38:33.345] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:38:33.346] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:38:33.352] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:33.359] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:38:33.363] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.367] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.369] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.371] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.372] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.374] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.375] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.378] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.380] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.381] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:33.407] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:38:43.565] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:43.565] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:43.565] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:43.565] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:43.568] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:43.571] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        order_main om1_0
+[2025-11-13 20:38:43.572] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:38:43.577] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.577] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.578] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.579] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.581] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.581] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.583] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.583] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.585] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.587] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.587] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.590] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:43.592] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.592] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=?
+[2025-11-13 20:38:43.593] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.595] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.598] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=? 
+        and om1_0.pay_status=1
+[2025-11-13 20:38:43.598] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.600] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.pay_status=1
+[2025-11-13 20:38:43.600] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:43.610] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单统计
+[2025-11-13 20:38:43.610] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:38:48.382] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:48.382] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:48.385] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:38:48.388] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:38:48.401] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:38:48.413] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:48.413] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:48.413] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:48.413] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:48.414] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:48.415] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        order_main om1_0
+[2025-11-13 20:38:48.417] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:38:48.417] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.419] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.420] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.421] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.421] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.422] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.422] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.422] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.423] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.424] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.424] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.426] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:48.426] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.427] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=?
+[2025-11-13 20:38:48.428] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.428] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=? 
+        and om1_0.pay_status=1
+[2025-11-13 20:38:48.429] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.430] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.pay_status=1
+[2025-11-13 20:38:48.430] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.433] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:48.438] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单统计
+[2025-11-13 20:38:48.441] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:38:50.651] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:50.651] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:50.654] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:38:50.657] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:38:50.667] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:38:50.679] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:50.679] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:38:50.679] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:50.679] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:38:50.680] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        order_main om1_0
+[2025-11-13 20:38:50.680] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:50.683] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.684] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:38:50.686] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.686] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.686] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.686] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.687] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.687] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.688] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.689] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.689] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.691] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:38:50.691] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.692] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=?
+[2025-11-13 20:38:50.692] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.693] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=? 
+        and om1_0.pay_status=1
+[2025-11-13 20:38:50.693] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.694] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.pay_status=1
+[2025-11-13 20:38:50.695] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.697] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.700] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:50.703] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单统计
+[2025-11-13 20:38:50.711] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:38:57.704] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:38:57.704] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:38:57.708] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:57.712] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:38:57.714] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.718] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.720] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.724] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.726] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.728] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.732] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.735] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.738] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.742] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:38:57.760] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:39:02.122] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:39:02.122] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:39:02.124] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:39:02.154] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:39:02.155] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:39:02.166] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=确认收货
+[2025-11-13 20:39:02.181] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:39:02.181] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:39:02.183] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:39:02.185] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:39:02.187] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.188] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.190] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.193] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.194] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.196] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.198] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.199] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.202] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.203] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:02.213] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:39:07.605] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:39:07.606] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:39:07.610] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:39:07.616] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:39:07.618] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.622] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.625] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.628] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.632] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.636] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.638] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.643] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.646] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.650] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:39:07.670] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:40:00.027] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:44:16.178] [DEBUG] [order-service] [main] [com.bcu.edu.OrderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-13 20:44:18.279] [DEBUG] [order-service] [main] [com.bcu.edu.filter.UserContextFilter:240] - Filter 'userContextFilter' configured for use
+[2025-11-13 20:44:33.932] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:44:33.932] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:44:34.020] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:44:34.050] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:44:34.065] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.069] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.072] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.074] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.078] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.080] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.082] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.085] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.086] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.090] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:34.275] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:44:37.943] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:44:37.944] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:44:37.961] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:44:38.004] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:44:38.023] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:44:38.034] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:44:38.034] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:44:38.038] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:44:38.038] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:44:38.038] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:44:38.041] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:44:38.044] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        order_main om1_0
+[2025-11-13 20:44:38.044] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.046] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.047] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.049] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.049] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.050] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.050] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.051] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.052] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.054] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.055] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.056] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:44:38.056] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.060] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.061] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=?
+[2025-11-13 20:44:38.062] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.066] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.068] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:38.070] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=? 
+        and om1_0.pay_status=1
+[2025-11-13 20:44:38.073] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.pay_status=1
+[2025-11-13 20:44:38.079] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:44:38.084] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单统计
+[2025-11-13 20:44:52.132] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:44:52.132] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:44:52.135] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=?
+[2025-11-13 20:44:52.138] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.create_time>=?
+[2025-11-13 20:44:52.140] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:44:52.141] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:44:52.150] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团长订单统计
+[2025-11-13 20:44:53.398] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:44:53.398] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:44:53.422] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id in (?, ?) 
+    order by
+        om1_0.create_time desc
+[2025-11-13 20:44:53.426] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:53.427] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:44:53.437] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团订单
+[2025-11-13 20:45:00.036] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:45:21.454] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:21.502] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_main
+        (create_time, delivery_id, discount_amount, dispatch_group, leader_id, order_sn, order_status, pay_amount, pay_status, pay_time, receive_address_id, total_amount, update_time, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:45:21.510] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_item
+        (activity_id, order_id, price, product_id, product_img, product_name, quantity, total_price) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:45:21.518] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=创建订单
+[2025-11-13 20:45:21.547] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:21.549] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:45:21.555] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新支付状态
+[2025-11-13 20:45:21.555] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:45:21.565] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:21.574] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:39.730] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:39.747] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_main
+        (create_time, delivery_id, discount_amount, dispatch_group, leader_id, order_sn, order_status, pay_amount, pay_status, pay_time, receive_address_id, total_amount, update_time, user_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:45:39.748] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        order_item
+        (activity_id, order_id, price, product_id, product_img, product_name, quantity, total_price) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-13 20:45:39.753] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=创建订单
+[2025-11-13 20:45:40.092] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:45:40.092] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:45:40.093] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:45:40.097] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:40.107] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单详情
+[2025-11-13 20:45:42.380] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:42.384] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:45:42.389] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新支付状态
+[2025-11-13 20:45:42.390] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:45:42.397] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:42.398] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:42.416] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: null, X-Username: null, X-User-Role: null
+[2025-11-13 20:45:42.420] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id in (?, ?)
+[2025-11-13 20:45:42.427] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=批量更新订单状态
+[2025-11-13 20:45:42.429] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:45:42.430] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:45:54.315] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:45:54.315] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:45:54.317] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:54.321] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:45:54.323] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.325] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.326] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.328] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.330] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.332] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.333] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.334] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.335] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.337] [DEBUG] [order-service] [http-nio-8065-exec-5] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:54.346] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:45:58.855] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:45:58.855] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:45:58.858] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:58.860] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:45:58.863] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.864] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.867] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.869] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.869] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.872] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.873] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.875] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.876] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.877] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:45:58.888] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:46:02.057] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:46:02.057] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:46:02.060] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:46:02.062] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:46:02.073] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:46:02.084] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:46:02.084] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:46:02.084] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:46:02.084] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:46:02.085] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:46:02.086] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        order_main om1_0
+[2025-11-13 20:46:02.088] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:46:02.088] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.090] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.090] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.091] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.091] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.092] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.092] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.092] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.093] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.094] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.095] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:02.095] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.096] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=?
+[2025-11-13 20:46:02.096] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.096] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=? 
+        and om1_0.pay_status=1
+[2025-11-13 20:46:02.098] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.098] [DEBUG] [order-service] [http-nio-8065-exec-10] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.pay_status=1
+[2025-11-13 20:46:02.098] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.100] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.102] [DEBUG] [order-service] [http-nio-8065-exec-9] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:02.108] [DEBUG] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单统计
+[2025-11-13 20:46:02.112] [DEBUG] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:46:04.717] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:46:04.717] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:46:04.720] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:46:04.722] [DEBUG] [order-service] [http-nio-8065-exec-1] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:46:04.732] [DEBUG] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:46:04.742] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:46:04.742] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 1, X-Username: 1, X-User-Role: 3
+[2025-11-13 20:46:04.743] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:46:04.743] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 1
+[2025-11-13 20:46:04.744] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        order_main om1_0
+[2025-11-13 20:46:04.744] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:46:04.747] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0
+[2025-11-13 20:46:04.747] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.748] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.749] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.750] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.750] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.753] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.753] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.755] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.755] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.756] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.758] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.760] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=?
+[2025-11-13 20:46:04.760] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.762] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=?
+[2025-11-13 20:46:04.762] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.763] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.create_time>=? 
+        and om1_0.pay_status=1
+[2025-11-13 20:46:04.763] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.764] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        coalesce(sum(om1_0.pay_amount), 0) 
+    from
+        order_main om1_0 
+    where
+        om1_0.pay_status=1
+[2025-11-13 20:46:04.765] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.766] [DEBUG] [order-service] [http-nio-8065-exec-3] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:04.773] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单统计
+[2025-11-13 20:46:04.776] [DEBUG] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单列表
+[2025-11-13 20:46:08.889] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:46:08.889] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:46:08.892] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:46:08.898] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:46:08.900] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.905] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.908] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.911] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.914] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.918] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.920] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.923] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.926] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.945] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:08.961] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:46:11.424] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:46:11.424] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:46:11.426] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:46:11.491] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=更新订单状态
+[2025-11-13 20:46:11.492] [DEBUG] [order-service] [http-nio-8065-exec-6] [org.hibernate.SQL:135] - 
+    update
+        order_main 
+    set
+        delivery_id=?,
+        discount_amount=?,
+        dispatch_group=?,
+        leader_id=?,
+        order_sn=?,
+        order_status=?,
+        pay_amount=?,
+        pay_status=?,
+        pay_time=?,
+        receive_address_id=?,
+        total_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        order_id=?
+[2025-11-13 20:46:11.502] [DEBUG] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=确认收货
+[2025-11-13 20:46:11.517] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 4, X-Username: 33, X-User-Role: 1
+[2025-11-13 20:46:11.517] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 4
+[2025-11-13 20:46:11.519] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:46:11.523] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:46:11.525] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.527] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.528] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.529] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.531] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.534] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.536] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.537] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.538] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.540] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:11.548] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:46:16.382] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:46:16.382] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:46:16.385] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=? 
+    order by
+        om1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:46:16.389] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.user_id=?
+[2025-11-13 20:46:16.393] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.396] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.399] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.403] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.407] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.410] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.414] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.416] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.420] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.423] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:46:16.460] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询我的订单
+[2025-11-13 20:50:00.017] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:55:00.002] [DEBUG] [order-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_status=0 
+        and om1_0.pay_status=0 
+        and om1_0.create_time<?
+[2025-11-13 20:56:18.717] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:56:18.718] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:56:18.719] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=?
+[2025-11-13 20:56:18.721] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.create_time>=?
+[2025-11-13 20:56:18.722] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:56:18.723] [DEBUG] [order-service] [http-nio-8065-exec-2] [org.hibernate.SQL:135] - 
+    select
+        count(om1_0.order_id) 
+    from
+        order_main om1_0 
+    where
+        om1_0.leader_id=? 
+        and om1_0.order_status=?
+[2025-11-13 20:56:18.734] [DEBUG] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团长订单统计
+[2025-11-13 20:56:20.344] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:56:20.344] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:56:20.354] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id in (?, ?) 
+    order by
+        om1_0.create_time desc
+[2025-11-13 20:56:20.355] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:56:20.357] [DEBUG] [order-service] [http-nio-8065-exec-4] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:56:20.367] [DEBUG] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团订单
+[2025-11-13 20:56:28.722] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:56:28.722] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:56:28.736] [DEBUG] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团订单
+[2025-11-13 20:56:30.713] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:56:30.713] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:56:30.720] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id in (?) 
+    order by
+        om1_0.create_time desc
+[2025-11-13 20:56:30.723] [DEBUG] [order-service] [http-nio-8065-exec-7] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:56:30.732] [DEBUG] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询团订单
+[2025-11-13 20:56:37.073] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:37] - UserContextFilter - X-User-Id: 3, X-Username: 22, X-User-Role: 2
+[2025-11-13 20:56:37.074] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.filter.UserContextFilter:45] - 设置userId到request attribute: 3
+[2025-11-13 20:56:37.075] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        om1_0.order_id,
+        om1_0.create_time,
+        om1_0.delivery_id,
+        om1_0.discount_amount,
+        om1_0.dispatch_group,
+        om1_0.leader_id,
+        om1_0.order_sn,
+        om1_0.order_status,
+        om1_0.pay_amount,
+        om1_0.pay_status,
+        om1_0.pay_time,
+        om1_0.receive_address_id,
+        om1_0.total_amount,
+        om1_0.update_time,
+        om1_0.user_id 
+    from
+        order_main om1_0 
+    where
+        om1_0.order_id=?
+[2025-11-13 20:56:37.078] [DEBUG] [order-service] [http-nio-8065-exec-8] [org.hibernate.SQL:135] - 
+    select
+        oi1_0.item_id,
+        oi1_0.activity_id,
+        oi1_0.order_id,
+        oi1_0.price,
+        oi1_0.product_id,
+        oi1_0.product_img,
+        oi1_0.product_name,
+        oi1_0.quantity,
+        oi1_0.total_price 
+    from
+        order_item oi1_0 
+    where
+        oi1_0.order_id=?
+[2025-11-13 20:56:37.086] [DEBUG] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=订单管理, operation=查询订单详情

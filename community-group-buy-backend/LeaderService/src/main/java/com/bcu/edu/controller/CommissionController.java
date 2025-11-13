@@ -1,5 +1,6 @@
 package com.bcu.edu.controller;
 
+import com.bcu.edu.common.result.PageResult;
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.entity.CommissionRecord;
 import com.bcu.edu.service.CommissionService;
@@ -34,16 +35,19 @@ public class CommissionController {
     /**
      * 【团长】查询我的佣金记录
      * 
-     * GET /api/commission/my?leaderId=1
+     * GET /api/commission/my?leaderId=1&status=0&page=0&limit=10
      */
     @GetMapping("/my")
-    @Operation(summary = "查询我的佣金记录", description = "团长查询自己的所有佣金记录")
-    public Result<List<CommissionRecord>> getMyCommissions(
-            @Parameter(description = "团长ID") @RequestParam Long leaderId
+    @Operation(summary = "查询我的佣金记录", description = "团长分页查询自己的佣金记录")
+    public Result<PageResult<CommissionRecord>> getMyCommissions(
+            @Parameter(description = "团长ID") @RequestParam Long leaderId,
+            @Parameter(description = "结算状态") @RequestParam(required = false) Integer status,
+            @Parameter(description = "页码") @RequestParam(defaultValue = "0") Integer page,
+            @Parameter(description = "每页数量") @RequestParam(defaultValue = "10") Integer limit
     ) {
-        log.info("团长{}查询佣金记录", leaderId);
-        List<CommissionRecord> records = commissionService.getCommissionsByLeader(leaderId);
-        return Result.success(records);
+        log.info("团长{}查询佣金记录: status={}, page={}, limit={}", leaderId, status, page, limit);
+        PageResult<CommissionRecord> result = commissionService.getCommissionsByLeaderPage(leaderId, status, page, limit);
+        return Result.success(result);
     }
 
     /**

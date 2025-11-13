@@ -162,11 +162,58 @@ public class OrderService {
         OrderMain order = orderMainRepository.findById(orderId)
             .orElseThrow(() -> new BusinessException("订单不存在"));
 
+        // 保存旧状态用于判断是否需要生成佣金
+        Integer oldStatus = order.getOrderStatus();
+        
         order.setOrderStatus(newStatus);
         order.setUpdateTime(LocalDateTime.now());
 
         orderMainRepository.save(order);
         log.info("订单状态已更新: orderId={}, status={}", orderId, newStatus);
+
+        // ⭐ 确认收货时生成佣金记录
+        if (newStatus == 3 && !oldStatus.equals(3)) {
+            generateCommissionForOrder(order);
+        }
+    }
+
+    /**
+     * 为订单生成佣金记录（⭐核心业务逻辑）
+     */
+    private void generateCommissionForOrder(OrderMain order) {
+        try {
+            // 参数验证
+            if (order.getLeaderId() == null) {
+                log.warn("订单leaderId为空，跳过佣金生成: orderId={}", order.getOrderId());
+                return;
+            }
+            
+            if (order.getPayAmount() == null || order.getPayAmount().compareTo(BigDecimal.ZERO) <= 0) {
+                log.warn("订单支付金额无效，跳过佣金生成: orderId={}, payAmount={}", 
+                        order.getOrderId(), order.getPayAmount());
+                return;
+            }
+
+            log.info("开始生成佣金记录: orderId={}, leaderId={}, payAmount={}", 
+                    order.getOrderId(), order.getLeaderId(), order.getPayAmount());
+
+            // 调用LeaderService生成佣金记录
+            Result<Object> result = leaderServiceClient.generateCommission(
+                order.getLeaderId(), 
+                order.getOrderId(), 
+                order.getPayAmount()
+            );
+
+            if (result.isSuccess()) {
+                log.info("佣金记录生成成功: orderId={}, leaderId={}", 
+                        order.getOrderId(), order.getLeaderId());
+            } else {
+                log.error("佣金记录生成失败: orderId={}, error={}", 
+                        order.getOrderId(), result.getMessage());
+            }
+        } catch (Exception e) {
+            log.error("佣金记录生成异常: orderId={}", order.getOrderId(), e);
+        }
     }
 
     /**

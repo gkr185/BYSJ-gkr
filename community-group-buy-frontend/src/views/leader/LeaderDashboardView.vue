@@ -149,11 +149,7 @@
             <div class="action-item" @click="handleViewCommunity">
               <el-icon class="action-icon"><OfficeBuilding /></el-icon>
               <div class="action-text">社区详情</div>
-            </div>
-            <div class="action-item" @click="handleViewProducts">
-              <el-icon class="action-icon"><Goods /></el-icon>
-              <div class="action-text">商品管理</div>
-            </div>
+            </div>    
             <div class="action-item" @click="handleViewStatistics">
               <el-icon class="action-icon"><DataAnalysis /></el-icon>
               <div class="action-text">数据统计</div>
@@ -238,8 +234,15 @@
             </el-table-column>
           </el-table>
 
+          <!-- 空数据提示 -->
+          <el-empty 
+            v-if="!tableLoading && commissionRecords.length === 0" 
+            description="暂无佣金记录"
+            :image-size="120"
+          />
+
           <!-- 分页 -->
-          <div class="pagination-container">
+          <div v-if="commissionRecords.length > 0" class="pagination-container">
             <el-pagination
               :current-page="pagination.page"
               :page-size="pagination.limit"
@@ -462,13 +465,16 @@ const loadCommissionSummary = async () => {
 
 // 加载佣金记录
 const loadCommissionRecords = async () => {
-  if (!storeInfo.value.leaderId) return
+  if (!storeInfo.value.leaderId) {
+    console.warn('leaderId不存在，跳过佣金记录加载')
+    return
+  }
 
   tableLoading.value = true
   try {
     const params = {
       leaderId: storeInfo.value.leaderId,
-      page: pagination.page,
+      page: pagination.page - 1,  // 后端从0开始
       limit: pagination.limit
     }
     
@@ -476,10 +482,20 @@ const loadCommissionRecords = async () => {
       params.status = commissionStatusFilter.value
     }
 
+    console.log('正在加载佣金记录，参数:', params)
     const res = await getMyCommissionRecords(params)
+    console.log('佣金记录API响应:', res)
+    
     if (res.code === 200 && res.data) {
       commissionRecords.value = res.data.list || []
       pagination.total = res.data.total || 0
+      console.log('佣金记录加载成功:', {
+        recordsCount: commissionRecords.value.length,
+        total: pagination.total
+      })
+    } else {
+      console.error('佣金记录API返回错误:', res)
+      ElMessage.error(res.message || '加载佣金记录失败')
     }
   } catch (error) {
     console.error('加载佣金记录失败:', error)

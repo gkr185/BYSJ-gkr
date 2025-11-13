@@ -9544,3 +9544,2965 @@
         product p1_0 
     where
         p1_0.product_id=?
+[2025-11-13 18:39:01.738] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.764] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.789] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.812] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.827] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.847] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.867] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.881] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.895] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:01.918] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.393] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.422] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.448] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.472] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.489] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.510] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.531] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.548] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.565] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 18:39:17.590] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.438] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.463] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.487] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.507] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.521] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.538] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.556] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.569] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.584] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:09:03.605] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:47.957] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:47.991] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.020] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.049] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.068] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.092] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.114] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.134] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.151] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:48.179] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.371] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.400] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.432] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.459] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.478] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.505] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.530] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.547] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.565] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.591] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.617] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.640] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.657] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.678] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:56.696] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:37:57.064] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:37:59.914] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:03.204] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:03.541] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.044] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.044] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.070] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.096] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.122] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.145] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.161] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.181] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.201] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.217] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.233] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.258] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.282] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.302] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.319] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.335] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:05.354] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:08.271] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:08.271] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:08.271] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.status=? 
+    order by
+        pc1_0.sort
+[2025-11-13 20:38:11.969] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.status=? 
+    order by
+        pc1_0.sort
+[2025-11-13 20:38:11.969] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:11.969] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:14.149] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:14.242] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.category_id=?
+[2025-11-13 20:38:14.474] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.category_id=? 
+        and p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:38:15.720] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:23.241] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.543] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.570] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.594] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.619] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.642] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.665] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.686] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.709] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:38:28.734] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.238] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.263] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.286] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.310] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.333] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.350] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.371] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.394] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.412] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:44:52.431] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.726] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.747] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.766] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.790] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.812] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.828] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.847] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.865] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.880] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.894] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.917] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.937] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.955] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.970] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.984] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:12.996] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:13.037] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:17.758] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:21.448] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:21.610] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.109] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.109] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.132] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.157] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.179] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.202] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.225] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.242] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.259] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.279] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.296] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.313] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.335] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.356] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.375] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.389] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.406] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:23.421] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:34.119] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:34.119] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.status=? 
+    order by
+        pc1_0.sort
+[2025-11-13 20:45:34.120] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:35.283] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:35.329] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.category_id=?
+[2025-11-13 20:45:35.610] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.category_id=? 
+        and p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-13 20:45:36.650] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:39.725] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.053] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.076] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.100] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.124] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.146] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.170] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.192] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.211] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.234] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:45:44.255] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.829] [DEBUG] [product-service] [http-nio-8062-exec-5] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.850] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.871] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.891] [DEBUG] [product-service] [http-nio-8062-exec-4] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.911] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.932] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.946] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.963] [DEBUG] [product-service] [http-nio-8062-exec-6] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.980] [DEBUG] [product-service] [http-nio-8062-exec-7] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?
+[2025-11-13 20:56:18.995] [DEBUG] [product-service] [http-nio-8062-exec-8] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.product_id=?

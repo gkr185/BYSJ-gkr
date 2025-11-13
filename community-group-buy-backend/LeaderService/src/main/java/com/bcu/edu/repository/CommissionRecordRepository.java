@@ -1,6 +1,8 @@
 package com.bcu.edu.repository;
 
 import com.bcu.edu.entity.CommissionRecord;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -79,5 +81,15 @@ public interface CommissionRecordRepository extends JpaRepository<CommissionReco
      * 检查订单是否已生成佣金记录
      */
     boolean existsByOrderId(Long orderId);
+
+    /**
+     * 分页查询团长的佣金记录
+     */
+    Page<CommissionRecord> findByLeaderIdOrderByCreatedAtDesc(Long leaderId, Pageable pageable);
+
+    /**
+     * 分页查询团长的指定状态佣金记录
+     */
+    Page<CommissionRecord> findByLeaderIdAndStatusOrderByCreatedAtDesc(Long leaderId, Integer status, Pageable pageable);
 }
 

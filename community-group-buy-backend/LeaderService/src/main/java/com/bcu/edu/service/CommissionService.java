@@ -1,6 +1,7 @@
 package com.bcu.edu.service;
 
 import com.bcu.edu.client.UserServiceClient;
+import com.bcu.edu.common.result.PageResult;
 import com.bcu.edu.common.result.Result;
 import com.bcu.edu.entity.CommissionRecord;
 import com.bcu.edu.entity.GroupLeaderStore;
@@ -8,6 +9,9 @@ import com.bcu.edu.repository.CommissionRecordRepository;
 import com.bcu.edu.repository.GroupLeaderStoreRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +20,8 @@ import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * 佣金服务
@@ -190,6 +196,27 @@ public class CommissionService {
      */
     public List<CommissionRecord> getCommissionsByLeader(Long leaderId) {
         return commissionRecordRepository.findByLeaderIdOrderByCreatedAtDesc(leaderId);
+    }
+
+    /**
+     * 分页查询团长的佣金记录
+     */
+    public PageResult<CommissionRecord> getCommissionsByLeaderPage(Long leaderId, Integer status, Integer page, Integer limit) {
+        Pageable pageable = PageRequest.of(page, limit);
+        Page<CommissionRecord> recordPage;
+        
+        if (status != null) {
+            recordPage = commissionRecordRepository.findByLeaderIdAndStatusOrderByCreatedAtDesc(leaderId, status, pageable);
+        } else {
+            recordPage = commissionRecordRepository.findByLeaderIdOrderByCreatedAtDesc(leaderId, pageable);
+        }
+        
+        return new PageResult<>(
+            recordPage.getNumber(),
+            recordPage.getSize(),
+            recordPage.getTotalElements(),
+            recordPage.getContent()
+        );
     }
 
     /**
