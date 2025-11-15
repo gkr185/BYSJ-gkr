@@ -600,3 +600,7 @@
 [2025-11-15 11:20:40.401] [INFO ] [groupbuy-service] [main] [com.bcu.edu.GroupBuyServiceApplication:56] - Started GroupBuyServiceApplication in 13.858 seconds (process running for 14.733)
 [2025-11-15 11:20:40.891] [INFO ] [groupbuy-service] [RMI TCP Connection(6)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:532] - Initializing Servlet 'dispatcherServlet'
 [2025-11-15 11:20:40.897] [INFO ] [groupbuy-service] [RMI TCP Connection(6)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:554] - Completed initialization in 6 ms
+[2025-11-15 12:00:00.041] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:54] - ====================================
+[2025-11-15 12:00:00.042] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:55] - 开始检查过期团，当前时间：2025-11-15T12:00:00.041656
+[2025-11-15 12:00:00.042] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:56] - ====================================
+[2025-11-15 12:00:00.280] [INFO ] [groupbuy-service] [scheduling-1] [com.bcu.edu.task.TeamExpireTask:63] - 未发现过期团，任务结束

@@ -12680,3 +12680,117 @@
 [2025-11-15 11:20:54.193] [DEBUG] [product-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
 [2025-11-15 11:20:54.202] [DEBUG] [product-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
 [2025-11-15 11:21:00.262] [DEBUG] [product-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:53:59.436] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 11:53:59.436] [DEBUG] [product-service] [http-nio-8062-exec-1] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.status=? 
+    order by
+        pc1_0.sort
+[2025-11-15 11:53:59.436] [DEBUG] [product-service] [http-nio-8062-exec-9] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 12:03:22.924] [DEBUG] [product-service] [http-nio-8062-exec-3] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 12:03:22.926] [DEBUG] [product-service] [http-nio-8062-exec-10] [org.hibernate.SQL:135] - 
+    select
+        p1_0.product_id,
+        p1_0.category_id,
+        p1_0.cover_img,
+        p1_0.create_time,
+        p1_0.detail,
+        p1_0.group_price,
+        p1_0.price,
+        p1_0.product_name,
+        p1_0.status,
+        p1_0.stock,
+        p1_0.update_time 
+    from
+        product p1_0 
+    where
+        p1_0.status=? 
+    order by
+        p1_0.create_time desc,
+        p1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 12:03:22.926] [DEBUG] [product-service] [http-nio-8062-exec-2] [org.hibernate.SQL:135] - 
+    select
+        pc1_0.category_id,
+        pc1_0.category_name,
+        pc1_0.parent_id,
+        pc1_0.sort,
+        pc1_0.status 
+    from
+        product_category pc1_0 
+    where
+        pc1_0.status=? 
+    order by
+        pc1_0.sort

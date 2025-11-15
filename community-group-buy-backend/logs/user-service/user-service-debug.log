@@ -38347,3 +38347,94 @@
         sys_user su1_0 
     where
         su1_0.role=?
+[2025-11-15 12:03:07.883] [DEBUG] [user-service] [main] [com.bcu.edu.UserServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 12:03:10.192] [DEBUG] [user-service] [main] [com.bcu.edu.config.JwtAuthenticationFilter:240] - Filter 'jwtFilter' configured for use
+[2025-11-15 12:03:22.934] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 12:03:23.068] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 12:03:23.133] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 12:03:23.137] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 12:03:23.462] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 12:03:23.464] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 12:03:25.076] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 12:03:25.119] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 12:19:56.961] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 12:19:56.965] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 12:26:20.351] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 12:26:20.352] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 12:41:04.520] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 12:41:04.521] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

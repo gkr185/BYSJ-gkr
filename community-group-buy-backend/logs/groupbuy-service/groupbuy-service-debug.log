@@ -17065,3 +17065,11 @@
 [2025-11-15 11:20:37.654] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
 [2025-11-15 11:20:37.685] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
 [2025-11-15 11:20:37.745] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 12:00:00.250] [DEBUG] [groupbuy-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        gbt1_0.team_id 
+    from
+        group_buy_team gbt1_0 
+    where
+        gbt1_0.team_status=0 
+        and gbt1_0.expire_time<?

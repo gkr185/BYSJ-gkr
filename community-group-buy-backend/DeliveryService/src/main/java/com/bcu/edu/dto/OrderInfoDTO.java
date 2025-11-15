@@ -1,5 +1,6 @@
 package com.bcu.edu.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
  * @since 2025-11-15
  */
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderInfoDTO {
 
     /**
@@ -47,6 +49,16 @@ public class OrderInfoDTO {
      * 支付状态
      */
     private Integer payStatus;
+
+    /**
+     * 商品总金额
+     */
+    private BigDecimal totalAmount;
+
+    /**
+     * 优惠金额
+     */
+    private BigDecimal discountAmount;
 
     /**
      * 实付金额

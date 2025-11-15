@@ -191,3 +191,6 @@
 [2025-11-15 11:21:00.424] [INFO ] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:56] - Started PaymentServiceApplication in 12.058 seconds (process running for 13.202)
 [2025-11-15 11:21:00.913] [INFO ] [payment-service] [RMI TCP Connection(3)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:532] - Initializing Servlet 'dispatcherServlet'
 [2025-11-15 11:21:00.920] [INFO ] [payment-service] [RMI TCP Connection(3)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:554] - Completed initialization in 7 ms
+[2025-11-15 12:42:33.144] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.AdminPaymentController:81] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-15 12:42:33.149] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:455] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-15 12:42:33.325] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.AdminPaymentController:96] - 查询成功: 总记录数=56, 当前页记录数=20

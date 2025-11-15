@@ -1,29 +1,9 @@
 import request from '../utils/request'
 
-/**
- * 获取未配送订单列表（用于配送订单页面）
- */
-export const getPendingDeliveryOrders = (params) => {
-  return request({
-    url: '/api/order/admin/status/2', // 待发货状态
-    method: 'GET',
-    params
-  })
-}
+// ==================== 批量发货接口 ====================
 
 /**
- * 获取配送单列表（管理员）
- */
-export const getDeliveryList = (params) => {
-  return request({
-    url: '/api/delivery/admin/list',
-    method: 'GET',
-    params
-  })
-}
-
-/**
- * 批量发货
+ * 批量发货（核心接口）
  */
 export const batchShipOrders = (data) => {
   return request({
@@ -33,19 +13,21 @@ export const batchShipOrders = (data) => {
   })
 }
 
+// ==================== 配送单管理接口 ====================
+
 /**
- * 创建配送单
+ * 查询配送单列表（分页）
  */
-export const createDelivery = (data) => {
+export const getDeliveryList = (params) => {
   return request({
-    url: '/api/delivery',
-    method: 'POST',
-    data
+    url: '/api/delivery/list',
+    method: 'GET',
+    params
   })
 }
 
 /**
- * 获取配送单详情
+ * 查询配送单详情
  */
 export const getDeliveryDetail = (deliveryId) => {
   return request({
@@ -55,53 +37,12 @@ export const getDeliveryDetail = (deliveryId) => {
 }
 
 /**
- * 根据分单组查询配送单
+ * 重新规划路径
  */
-export const getDeliveryByDispatchGroup = (dispatchGroup) => {
+export const replanRoute = (deliveryId) => {
   return request({
-    url: `/api/delivery/dispatch-group/${dispatchGroup}`,
-    method: 'GET'
-  })
-}
-
-/**
- * 查询团长配送单列表
- */
-export const getLeaderDeliveries = (leaderId) => {
-  return request({
-    url: `/api/delivery/leader/${leaderId}`,
-    method: 'GET'
-  })
-}
-
-/**
- * 查询团长指定状态的配送单
- */
-export const getLeaderDeliveriesByStatus = (leaderId, status) => {
-  return request({
-    url: `/api/delivery/leader/${leaderId}/status/${status}`,
-    method: 'GET'
-  })
-}
-
-/**
- * 更新配送状态
- */
-export const updateDeliveryStatus = (deliveryId, status) => {
-  return request({
-    url: `/api/delivery/${deliveryId}/status`,
-    method: 'PUT',
-    params: { status }
-  })
-}
-
-/**
- * 开始配送
- */
-export const startDelivery = (deliveryId) => {
-  return request({
-    url: `/api/delivery/${deliveryId}/start`,
-    method: 'PUT'
+    url: `/api/delivery/${deliveryId}/replan`,
+    method: 'POST'
   })
 }
 
@@ -111,64 +52,44 @@ export const startDelivery = (deliveryId) => {
 export const completeDelivery = (deliveryId) => {
   return request({
     url: `/api/delivery/${deliveryId}/complete`,
-    method: 'PUT'
-  })
-}
-
-/**
- * 删除配送单
- */
-export const deleteDelivery = (deliveryId) => {
-  return request({
-    url: `/api/delivery/${deliveryId}`,
-    method: 'DELETE'
-  })
-}
-
-/**
- * 获取配送统计信息
- */
-export const getDeliveryStatistics = (params) => {
-  return request({
-    url: '/api/delivery/statistics',
-    method: 'GET',
-    params
-  })
-}
-
-/**
- * 规划配送路径
- */
-export const planDeliveryRoute = (data) => {
-  return request({
-    url: '/api/delivery/route/plan',
-    method: 'POST',
-    data
-  })
-}
-
-/**
- * 获取算法引擎状态
- */
-export const getRouteStatus = () => {
-  return request({
-    url: '/api/delivery/route/status',
-    method: 'GET'
-  })
-}
-
-/**
- * 测试算法引擎
- */
-export const testAlgorithm = (algorithm) => {
-  return request({
-    url: `/api/delivery/route/test/${algorithm}`,
     method: 'POST'
   })
 }
 
 /**
- * 获取默认仓库
+ * 取消配送
+ */
+export const cancelDelivery = (deliveryId) => {
+  return request({
+    url: `/api/delivery/${deliveryId}/cancel`,
+    method: 'POST'
+  })
+}
+
+// ==================== 仓库管理接口 ====================
+
+/**
+ * 查询仓库列表
+ */
+export const getWarehouseList = () => {
+  return request({
+    url: '/api/delivery/warehouse/list',
+    method: 'GET'
+  })
+}
+
+/**
+ * 查询启用的仓库列表
+ */
+export const getActiveWarehouses = () => {
+  return request({
+    url: '/api/delivery/warehouse/active',
+    method: 'GET'
+  })
+}
+
+/**
+ * 查询默认仓库
  */
 export const getDefaultWarehouse = () => {
   return request({
@@ -178,17 +99,7 @@ export const getDefaultWarehouse = () => {
 }
 
 /**
- * 获取启用的仓库列表
- */
-export const getEnabledWarehouses = () => {
-  return request({
-    url: '/api/delivery/warehouse/enabled',
-    method: 'GET'
-  })
-}
-
-/**
- * 获取仓库详情
+ * 查询仓库详情
  */
 export const getWarehouseDetail = (id) => {
   return request({
@@ -234,57 +145,67 @@ export const deleteWarehouse = (id) => {
  */
 export const setDefaultWarehouse = (id) => {
   return request({
-    url: `/api/delivery/warehouse/${id}/default`,
+    url: `/api/delivery/warehouse/${id}/setDefault`,
     method: 'PUT'
   })
 }
 
-/**
- * 切换仓库状态
- */
-export const toggleWarehouseStatus = (id) => {
-  return request({
-    url: `/api/delivery/warehouse/${id}/toggle-status`,
-    method: 'PUT'
-  })
-}
+// ==================== 配送统计接口 ====================
 
 /**
- * 获取仓库统计
+ * 配送总览统计
  */
-export const getWarehouseStatistics = () => {
+export const getStatisticsOverview = () => {
   return request({
-    url: '/api/delivery/warehouse/statistics',
+    url: '/api/delivery/statistics/overview',
     method: 'GET'
   })
 }
 
 /**
- * 健康检查
+ * 距离统计
  */
-export const getDeliveryHealth = () => {
+export const getDistanceStatistics = (params) => {
   return request({
-    url: '/api/delivery/monitor/health',
-    method: 'GET'
+    url: '/api/delivery/statistics/distance',
+    method: 'GET',
+    params
   })
 }
 
 /**
- * 服务状态检查
+ * 效率统计
  */
-export const getDeliveryStatus = () => {
+export const getEfficiencyStatistics = (params) => {
   return request({
-    url: '/api/delivery/monitor/status',
-    method: 'GET'
+    url: '/api/delivery/statistics/efficiency',
+    method: 'GET',
+    params
   })
 }
 
 /**
- * 版本信息
+ * 团长配送统计
  */
-export const getDeliveryVersion = () => {
+export const getLeaderStatistics = () => {
   return request({
-    url: '/api/delivery/monitor/version',
+    url: '/api/delivery/statistics/leader',
     method: 'GET'
+  })
+}
+
+// ==================== 订单管理接口（配送用）====================
+
+/**
+ * 查询待发货订单列表（管理端）
+ */
+export const getPendingDeliveryOrders = (params) => {
+  return request({
+    url: '/api/order/admin/list',
+    method: 'GET',
+    params: {
+      ...params,
+      status: 1 // 待发货
+    }
   })
 }

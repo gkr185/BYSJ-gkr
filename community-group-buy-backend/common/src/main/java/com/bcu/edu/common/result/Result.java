@@ -1,6 +1,7 @@
 package com.bcu.edu.common.result;
 
 import com.bcu.edu.common.enums.ResultCode;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;

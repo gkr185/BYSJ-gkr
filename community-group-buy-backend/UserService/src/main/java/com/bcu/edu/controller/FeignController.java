@@ -1,11 +1,13 @@
 package com.bcu.edu.controller;
 
 import com.bcu.edu.common.result.Result;
+import com.bcu.edu.dto.AddressDTO;
 import com.bcu.edu.dto.response.AddressResponse;
 import com.bcu.edu.dto.response.UserInfoResponse;
 import com.bcu.edu.entity.UserAddress;
 import com.bcu.edu.repository.UserAddressRepository;
 import com.bcu.edu.service.AccountService;
+import com.bcu.edu.service.AddressService;
 import com.bcu.edu.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -29,6 +31,7 @@ public class FeignController {
 
     private final UserService userService;
     private final AccountService accountService;
+    private final AddressService addressService;
     private final UserAddressRepository addressRepository;
 
     // ========== 用户信息查询接口 ==========

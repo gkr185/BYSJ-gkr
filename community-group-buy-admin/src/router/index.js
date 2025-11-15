@@ -13,6 +13,9 @@ import CategoryManageView from '../views/CategoryManageView.vue'
 import GroupBuyManageView from '../views/GroupBuyManageView.vue'
 import OrderManageView from '../views/OrderManageView.vue'
 import PaymentManageView from '../views/PaymentManageView.vue'
+import OrderShipView from '../views/delivery/OrderShipView.vue'
+import DeliveryListView from '../views/delivery/DeliveryListView.vue'
+import WarehouseManageView from '../views/delivery/WarehouseManageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -98,6 +101,24 @@ const router = createRouter({
           name: 'payments',
           component: PaymentManageView,
           meta: { title: '支付管理' }
+        },
+        {
+          path: '/delivery/ship',
+          name: 'orderShip',
+          component: OrderShipView,
+          meta: { title: '订单发货' }
+        },
+        {
+          path: '/delivery/list',
+          name: 'deliveryList',
+          component: DeliveryListView,
+          meta: { title: '配送单管理' }
+        },
+        {
+          path: '/delivery/warehouse',
+          name: 'warehouseManage',
+          component: WarehouseManageView,
+          meta: { title: '仓库管理' }
         }
       ]
     }

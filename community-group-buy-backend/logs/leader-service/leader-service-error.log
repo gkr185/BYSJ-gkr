@@ -1,5 +1,5 @@
-[2025-11-13 20:39:02.137] [ERROR] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
-org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/leader/feign/commission/generate.
+[2025-11-15 12:22:36.420] [ERROR] [leader-service] [http-nio-8068-exec-7] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/leader/feign/store/batch.
 	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
 	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)

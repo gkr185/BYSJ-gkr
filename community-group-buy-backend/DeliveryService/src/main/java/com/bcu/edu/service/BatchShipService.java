@@ -103,9 +103,9 @@ public class BatchShipService {
         // 7. 按路径序列重新排序途经点
         List<WaypointInfo> sortedWaypoints = reorderWaypoints(waypoints, routeResult.getPathSequence());
 
-        // 8. 创建配送单
+        // 8. 创建配送单（传入orders用于提取leaderId）
         DeliveryEntity delivery = createDelivery(
-                request, dispatchGroup, startWarehouse, routeResult, sortedWaypoints
+                request, dispatchGroup, startWarehouse, routeResult, sortedWaypoints, orders
         );
 
         // 9. 批量更新订单状态为"配送中"（Feign调用OrderService）
@@ -213,12 +213,12 @@ public class BatchShipService {
             throw new BusinessException("查询团长团点失败：" + result.getMessage());
         }
 
-        List<LeaderStoreDTO> leaderStores = result.getData();
+        List<com.bcu.edu.entity.GroupLeaderStore> leaderStores = result.getData();
 
         // 3. 构建途经点信息
         List<WaypointInfo> waypoints = new ArrayList<>();
         int sequence = 0;
-        for (LeaderStoreDTO store : leaderStores) {
+        for (com.bcu.edu.entity.GroupLeaderStore store : leaderStores) {
             // 验证坐标不为空
             if (store.getLongitude() == null || store.getLatitude() == null) {
                 log.warn("团长团点缺少坐标，storeId={}, 跳过", store.getStoreId());
@@ -228,7 +228,12 @@ public class BatchShipService {
             WaypointInfo waypoint = new WaypointInfo();
             waypoint.setSequence(sequence++);
             waypoint.setOrderId(null); // 团长团点模式，途经点不关联具体订单
-            waypoint.setAddress(store.getFullAddress());
+            // 拼接完整地址
+            String fullAddress = (store.getProvince() != null ? store.getProvince() : "") +
+                                 (store.getCity() != null ? store.getCity() : "") +
+                                 (store.getDistrict() != null ? store.getDistrict() : "") +
+                                 (store.getDetailAddress() != null ? store.getDetailAddress() : "");
+            waypoint.setAddress(fullAddress);
             waypoint.setLongitude(store.getLongitude());
             waypoint.setLatitude(store.getLatitude());
             waypoint.setReceiverName(store.getLeaderName());
@@ -332,7 +337,8 @@ public class BatchShipService {
                                            String dispatchGroup,
                                            WarehouseConfig startWarehouse,
                                            RouteResult routeResult,
-                                           List<WaypointInfo> waypoints) {
+                                           List<WaypointInfo> waypoints,
+                                           List<OrderInfoDTO> orders) {
         DeliveryEntity delivery = new DeliveryEntity();
 
         // 基本信息
@@ -343,10 +349,14 @@ public class BatchShipService {
         delivery.setWaypointCount(waypoints.size());
         delivery.setCreatedBy(request.getCreatedBy());
 
-        // 如果是团长团点模式，设置第一个团长ID（可选）
-        if (request.getDeliveryMode() == 1 && !waypoints.isEmpty()) {
-            // 从第一个途经点提取团长ID
-            delivery.setLeaderId(null); // 团长团点模式可能有多个团长，这里先不设置
+        // 设置负责团长ID（从订单中提取第一个团长ID）⭐⭐⭐
+        // 所有订单都有团长（拼团订单或普通订单自动分配），配送单也必须有负责团长
+        if (!orders.isEmpty()) {
+            Long leaderId = orders.get(0).getLeaderId();
+            delivery.setLeaderId(leaderId);
+            log.info("设置配送单负责团长: leaderId={}", leaderId);
+        } else {
+            throw new BusinessException("订单列表为空，无法确定负责团长");
         }
 
         // 订单ID列表（JSON）

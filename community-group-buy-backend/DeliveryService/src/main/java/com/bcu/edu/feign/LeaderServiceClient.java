@@ -1,7 +1,7 @@
 package com.bcu.edu.feign;
 
 import com.bcu.edu.common.result.Result;
-import com.bcu.edu.dto.LeaderStoreDTO;
+import com.bcu.edu.entity.GroupLeaderStore;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,13 +22,13 @@ public interface LeaderServiceClient {
     /**
      * 获取团长团点信息（包含坐标）
      */
-    @GetMapping("/api/leader/feign/store/{leaderId}")
-    Result<LeaderStoreDTO> getLeaderStore(@PathVariable Long leaderId);
+    @GetMapping("/feign/leader/store/{leaderId}")
+    Result<GroupLeaderStore> getLeaderStore(@PathVariable Long leaderId);
 
     /**
      * 批量获取团长团点信息
      */
-    @PostMapping("/api/leader/feign/store/batch")
-    Result<List<LeaderStoreDTO>> batchGetLeaderStores(@RequestBody List<Long> leaderIds);
+    @PostMapping("/feign/leader/store/batch")
+    Result<List<GroupLeaderStore>> batchGetLeaderStores(@RequestBody List<Long> leaderIds);
 }
 

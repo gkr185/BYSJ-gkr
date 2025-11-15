@@ -59,6 +59,24 @@
             <el-icon><CreditCard /></el-icon>
             <span>支付管理</span>
           </el-menu-item>
+          <el-sub-menu index="/delivery">
+            <template #title>
+              <el-icon><Van /></el-icon>
+              <span>配送管理</span>
+            </template>
+            <el-menu-item index="/delivery/ship">
+              <el-icon><Box /></el-icon>
+              <span>订单发货</span>
+            </el-menu-item>
+            <el-menu-item index="/delivery/list">
+              <el-icon><MapLocation /></el-icon>
+              <span>配送单管理</span>
+            </el-menu-item>
+            <el-menu-item index="/delivery/warehouse">
+              <el-icon><House /></el-icon>
+              <span>仓库管理</span>
+            </el-menu-item>
+          </el-sub-menu>
           <el-menu-item index="/feedback">
             <el-icon><ChatDotRound /></el-icon>
             <span>反馈管理</span>
@@ -83,7 +101,7 @@ import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
 import { ElMessageBox } from 'element-plus'
-import { User, ChatDotRound, Document, OfficeBuilding, Stamp, Avatar, Coin, ShoppingBag, List, TrophyBase, ShoppingCart, CreditCard } from '@element-plus/icons-vue'
+import { User, ChatDotRound, Document, OfficeBuilding, Stamp, Avatar, Coin, ShoppingBag, List, TrophyBase, ShoppingCart, CreditCard, Van, Box, MapLocation, House } from '@element-plus/icons-vue'
 
 const route = useRoute()
 const router = useRouter()
