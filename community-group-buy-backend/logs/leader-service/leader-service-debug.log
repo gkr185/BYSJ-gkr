@@ -15070,3 +15070,4 @@
     where
         cr1_0.leader_id=? 
         and cr1_0.status=1
+[2025-11-15 11:20:35.238] [DEBUG] [leader-service] [main] [com.bcu.edu.LeaderServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4

@@ -693,7 +693,7 @@ public class OrderService {
         List<OrderMain> orders = orderMainRepository.findAllById(orderIds);
         
         for (OrderMain order : orders) {
-            order.setOrderStatus(OrderStatus.SHIPPING.getCode()); // 2-配送中
+            order.setOrderStatus(OrderStatus.IN_DELIVERY.getCode()); // 2-配送中
             order.setDeliveryId(deliveryId);
             order.setDispatchGroup(dispatchGroup);
         }

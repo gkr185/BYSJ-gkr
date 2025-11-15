@@ -17059,3 +17059,9 @@
 [2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\PaymentServiceClient.class]
 [2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\ProductServiceClient.class]
 [2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\UserServiceClient.class]
+[2025-11-15 11:20:36.207] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:37.563] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:37.588] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:37.654] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:37.685] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:37.745] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.

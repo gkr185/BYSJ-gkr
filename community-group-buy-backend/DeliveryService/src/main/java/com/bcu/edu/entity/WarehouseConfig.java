@@ -75,14 +75,14 @@ public class WarehouseConfig {
      * 是否默认仓库
      * 0-否；1-是（系统只能有一个默认仓库）
      */
-    @Column(name = "is_default", nullable = false)
+    @Column(name = "is_default", nullable = false, columnDefinition = "TINYINT")
     private Integer isDefault = 0;
 
     /**
      * 状态
      * 0-禁用；1-启用
      */
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = false, columnDefinition = "TINYINT")
     private Integer status = 1;
 
     /**

@@ -12676,3 +12676,7 @@
         product p1_0 
     where
         p1_0.product_id=?
+[2025-11-15 11:20:53.415] [DEBUG] [product-service] [main] [com.bcu.edu.ProductServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 11:20:54.193] [DEBUG] [product-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
+[2025-11-15 11:20:54.202] [DEBUG] [product-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
+[2025-11-15 11:21:00.262] [DEBUG] [product-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.

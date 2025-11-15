@@ -160,3 +160,12 @@
         wx_transaction_id=? 
     where
         pay_id=?
+[2025-11-15 11:20:50.079] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 11:20:50.962] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes\com\bcu\edu\client\GroupBuyServiceClient.class]
+[2025-11-15 11:20:50.962] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes\com\bcu\edu\client\OrderServiceClient.class]
+[2025-11-15 11:20:50.962] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes\com\bcu\edu\client\UserServiceClient.class]
+[2025-11-15 11:20:50.963] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
+[2025-11-15 11:20:56.112] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:57.818] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:57.840] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 11:20:57.896] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.

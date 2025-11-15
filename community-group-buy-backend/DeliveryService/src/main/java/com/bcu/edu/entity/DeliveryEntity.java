@@ -72,7 +72,7 @@ public class DeliveryEntity {
      * 发货方式
      * 1-团长团点模式；2-用户地址模式
      */
-    @Column(name = "delivery_mode", nullable = false)
+    @Column(name = "delivery_mode", nullable = false, columnDefinition = "TINYINT")
     private Integer deliveryMode = 1;
 
     /**
@@ -92,7 +92,7 @@ public class DeliveryEntity {
     /**
      * 途经点数量
      */
-    @Column(name = "waypoint_count", nullable = false)
+    @Column(name = "waypoint_count", nullable = false, columnDefinition = "INT")
     private Integer waypointCount = 0;
 
     /**
@@ -125,14 +125,14 @@ public class DeliveryEntity {
     /**
      * 预估配送时间（分钟）
      */
-    @Column(name = "estimated_duration")
+    @Column(name = "estimated_duration", columnDefinition = "INT")
     private Integer estimatedDuration;
 
     /**
      * 配送状态
      * 0-待分配；1-配送中；2-已完成
      */
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = false, columnDefinition = "TINYINT")
     private Integer status = 0;
 
     /**
@@ -140,7 +140,7 @@ public class DeliveryEntity {
      * 0-最短时间；1-最短距离；2-避开拥堵
      * 默认：1-最短距离
      */
-    @Column(name = "route_strategy")
+    @Column(name = "route_strategy", columnDefinition = "TINYINT")
     private Integer routeStrategy = 1;
 
     /**

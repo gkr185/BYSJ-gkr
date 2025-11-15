@@ -26,6 +26,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    # 只扫描DeliveryService的实体类，排除Common模块的SysOperationLog
+    # SysOperationLog只在UserService中使用
+    packagesToScan: com.bcu.edu.entity
   
   # Consul配置
   cloud:
