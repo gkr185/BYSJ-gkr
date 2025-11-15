@@ -644,5 +644,86 @@ public class OrderService {
             return new ArrayList<>();
         }
     }
+
+    /**
+     * 批量查询订单（⭐新增方法 - 供DeliveryService调用）
+     * 
+     * @param orderIds 订单ID列表
+     * @return 订单详情列表
+     */
+    public List<OrderDetailVO> batchQueryOrders(List<Long> orderIds) {
+        log.info("批量查询订单: orderIds={}", orderIds);
+        
+        List<OrderMain> orders = orderMainRepository.findAllById(orderIds);
+        
+        return orders.stream()
+                .map(order -> {
+                    OrderDetailVO vo = new OrderDetailVO();
+                    BeanUtils.copyProperties(order, vo);
+                    
+                    // 查询订单明细
+                    List<OrderItem> items = orderItemRepository.findByOrderId(order.getOrderId());
+                    List<OrderItemVO> itemVOs = items.stream()
+                            .map(item -> {
+                                OrderItemVO itemVO = new OrderItemVO();
+                                BeanUtils.copyProperties(item, itemVO);
+                                return itemVO;
+                            })
+                            .collect(Collectors.toList());
+                    vo.setItems(itemVOs);
+                    
+                    return vo;
+                })
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 批量更新订单状态为"配送中"（⭐新增方法 - 供DeliveryService调用）
+     * 
+     * @param orderIds 订单ID列表
+     * @param deliveryId 配送单ID
+     * @param dispatchGroup 分单组标识
+     * @return 更新数量
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public Integer batchUpdateToShipping(List<Long> orderIds, Long deliveryId, String dispatchGroup) {
+        log.info("批量更新订单为配送中: orderIds={}, deliveryId={}, dispatchGroup={}", 
+                orderIds, deliveryId, dispatchGroup);
+        
+        List<OrderMain> orders = orderMainRepository.findAllById(orderIds);
+        
+        for (OrderMain order : orders) {
+            order.setOrderStatus(OrderStatus.SHIPPING.getCode()); // 2-配送中
+            order.setDeliveryId(deliveryId);
+            order.setDispatchGroup(dispatchGroup);
+        }
+        
+        orderMainRepository.saveAll(orders);
+        
+        log.info("批量更新成功: 共{}条订单", orders.size());
+        return orders.size();
+    }
+
+    /**
+     * 批量更新订单状态为"已送达"（⭐新增方法 - 供DeliveryService调用）
+     * 
+     * @param orderIds 订单ID列表
+     * @return 更新数量
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public Integer batchUpdateToDelivered(List<Long> orderIds) {
+        log.info("批量更新订单为已送达: orderIds={}", orderIds);
+        
+        List<OrderMain> orders = orderMainRepository.findAllById(orderIds);
+        
+        for (OrderMain order : orders) {
+            order.setOrderStatus(OrderStatus.DELIVERED.getCode()); // 3-已送达
+        }
+        
+        orderMainRepository.saveAll(orders);
+        
+        log.info("批量更新成功: 共{}条订单", orders.size());
+        return orders.size();
+    }
 }
 

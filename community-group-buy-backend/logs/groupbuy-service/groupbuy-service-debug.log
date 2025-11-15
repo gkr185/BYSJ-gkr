@@ -17052,3 +17052,10 @@
     where
         gbt1_0.team_status=0 
         and gbt1_0.expire_time<?
+[2025-11-15 11:20:28.248] [DEBUG] [groupbuy-service] [main] [com.bcu.edu.GroupBuyServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 11:20:29.207] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
+[2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\LeaderServiceClient.class]
+[2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\OrderServiceClient.class]
+[2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\PaymentServiceClient.class]
+[2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\ProductServiceClient.class]
+[2025-11-15 11:20:29.209] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\UserServiceClient.class]

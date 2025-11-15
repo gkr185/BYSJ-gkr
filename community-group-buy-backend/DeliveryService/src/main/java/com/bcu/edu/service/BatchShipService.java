@@ -1,288 +1,438 @@
 package com.bcu.edu.service;
 
-import com.bcu.edu.common.annotation.OperationLog;
-import com.bcu.edu.dto.BatchShipRequest;
-import com.bcu.edu.dto.BatchShipResult;
-import com.bcu.edu.dto.CreateDeliveryRequest;
-import com.bcu.edu.dto.OrderInfoDTO;
-import com.bcu.edu.entity.Delivery;
+import com.bcu.edu.common.exception.BusinessException;
+import com.bcu.edu.dto.*;
+import com.bcu.edu.entity.DeliveryEntity;
+import com.bcu.edu.entity.WarehouseConfig;
+import com.bcu.edu.feign.LeaderServiceClient;
+import com.bcu.edu.feign.OrderServiceClient;
+import com.bcu.edu.feign.UserServiceClient;
+import com.bcu.edu.repository.DeliveryRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
- * 批量发货服务
+ * 批量发货服务（核心业务逻辑）
  * 
- * <p>核心业务功能：
+ * <p>功能：
  * <ul>
- *   <li>批量发货订单处理</li>
- *   <li>分单组生成</li>
+ *   <li>批量发货处理</li>
+ *   <li>订单验证与分组</li>
+ *   <li>途经点提取（两种模式）</li>
+ *   <li>路径规划调用</li>
  *   <li>配送单创建</li>
  *   <li>订单状态批量更新</li>
  * </ul>
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @Slf4j
 @Service
-@Transactional
+@RequiredArgsConstructor
 public class BatchShipService {
 
-    @Autowired
-    private DeliveryService deliveryService;
-
-    @Autowired
-    private com.bcu.edu.client.OrderServiceClient orderServiceClient;
-
-    private static final AtomicInteger BATCH_SEQUENCE = new AtomicInteger(1);
+    private final DeliveryRepository deliveryRepository;
+    private final WarehouseService warehouseService;
+    private final RouteService routeService;
+    private final OrderServiceClient orderServiceClient;
+    private final UserServiceClient userServiceClient;
+    private final LeaderServiceClient leaderServiceClient;
+    private final ObjectMapper objectMapper;
 
     /**
-     * 批量发货处理
+     * 批量发货（核心方法）⭐⭐⭐⭐⭐
      * 
-     * <p>业务流程：
-     * <ol>
-     *   <li>生成分单组标识</li>
-     *   <li>验证订单状态（待发货）</li>
-     *   <li>批量更新订单状态为配送中</li>
-     *   <li>创建配送单并生成路径</li>
-     * </ol>
+     * @param request 批量发货请求
+     * @return 批量发货响应
      */
-    @OperationLog(value = "批量发货处理", module = "批量发货")
-    public BatchShipResult batchShipOrders(BatchShipRequest request) {
-        log.info("开始批量发货，订单数量: {}, 操作员: {}", 
-                request.getOrderIds().size(), request.getOperatorName());
-        
-        try {
-            // 1. 生成分单组
-            String dispatchGroup = generateDispatchGroup();
-            
-            // 2. 验证和更新订单状态
-            BatchOrderUpdateResult updateResult = updateOrderStatuses(request.getOrderIds(), dispatchGroup);
-            
-            if (updateResult.getSuccessCount() == 0) {
-                return BatchShipResult.error("所有订单更新失败，无法继续发货操作");
-            }
-            
-            // 3. 创建配送单
-            Delivery delivery = createDeliveryForBatch(request, dispatchGroup);
-            
-            // 4. 构建返回结果
-            BatchShipResult result;
-            if (updateResult.getFailedOrderIds().isEmpty()) {
-                result = BatchShipResult.success(dispatchGroup, request.getOrderIds().size());
-            } else {
-                result = BatchShipResult.partialSuccess(
-                        dispatchGroup,
-                        request.getOrderIds().size(),
-                        updateResult.getSuccessCount(),
-                        updateResult.getFailedOrderIds(),
-                        updateResult.getFailureReasons()
-                );
-            }
-            
-            result.setDelivery(delivery);
-            
-            log.info("批量发货完成，分单组: {}, 成功: {}/{}", 
-                    dispatchGroup, updateResult.getSuccessCount(), request.getOrderIds().size());
-            
-            return result;
-            
-        } catch (Exception e) {
-            log.error("批量发货失败", e);
-            return BatchShipResult.error("批量发货失败: " + e.getMessage());
+    @Transactional(rollbackFor = Exception.class)
+    public BatchShipResponse batchShip(BatchShipRequest request) {
+        log.info("开始批量发货，订单数量={}, 发货方式={}, 仓库ID={}", 
+                request.getOrderIds().size(), request.getDeliveryMode(), request.getWarehouseId());
+
+        // 1. 验证订单状态（必须为"待发货"）
+        List<OrderInfoDTO> orders = validateOrders(request.getOrderIds());
+
+        // 2. 生成分单组标识
+        String dispatchGroup = generateDispatchGroup();
+
+        // 3. 获取起点仓库坐标
+        WarehouseConfig startWarehouse = warehouseService.getWarehouseById(request.getWarehouseId());
+        RouteRequest.Coordinate start = new RouteRequest.Coordinate(
+                startWarehouse.getLongitude(),
+                startWarehouse.getLatitude(),
+                startWarehouse.getId(),
+                startWarehouse.getWarehouseName()
+        );
+
+        // 4. 提取途经点（根据发货方式）
+        List<WaypointInfo> waypoints = extractWaypoints(orders, request.getDeliveryMode());
+
+        // 5. 构建路径规划请求
+        RouteRequest routeRequest = new RouteRequest();
+        routeRequest.setStart(start);
+        routeRequest.setWaypoints(routeService.extractCoordinates(waypoints));
+        routeRequest.setStrategy(request.getRouteStrategy());
+
+        // 如果有终点仓库
+        if (request.getEndWarehouseId() != null) {
+            WarehouseConfig endWarehouse = warehouseService.getWarehouseById(request.getEndWarehouseId());
+            RouteRequest.Coordinate end = new RouteRequest.Coordinate(
+                    endWarehouse.getLongitude(),
+                    endWarehouse.getLatitude(),
+                    endWarehouse.getId(),
+                    endWarehouse.getWarehouseName()
+            );
+            routeRequest.setEnd(end);
         }
+
+        // 6. 调用路径规划算法
+        RouteResult routeResult = routeService.planRoute(routeRequest);
+
+        // 7. 按路径序列重新排序途经点
+        List<WaypointInfo> sortedWaypoints = reorderWaypoints(waypoints, routeResult.getPathSequence());
+
+        // 8. 创建配送单
+        DeliveryEntity delivery = createDelivery(
+                request, dispatchGroup, startWarehouse, routeResult, sortedWaypoints
+        );
+
+        // 9. 批量更新订单状态为"配送中"（Feign调用OrderService）
+        updateOrdersToShipping(request.getOrderIds(), delivery.getDeliveryId(), dispatchGroup);
+
+        // 10. 构建响应
+        BatchShipResponse response = buildResponse(delivery, sortedWaypoints, routeResult);
+
+        log.info("批量发货成功，deliveryId={}, 订单数量={}, 总距离={}米",
+                delivery.getDeliveryId(), request.getOrderIds().size(), delivery.getDistance());
+
+        return response;
+    }
+
+    /**
+     * 验证订单状态
+     * 
+     * @param orderIds 订单ID列表
+     * @return 订单信息列表
+     */
+    private List<OrderInfoDTO> validateOrders(List<Long> orderIds) {
+        // Feign调用OrderService批量查询订单
+        var result = orderServiceClient.batchQueryOrders(orderIds);
+        if (result.getCode() != 200) {
+            throw new BusinessException("查询订单失败：" + result.getMessage());
+        }
+
+        List<OrderInfoDTO> orders = result.getData();
+
+        // 校验订单状态（必须为1-待发货）
+        List<Long> invalidOrders = orders.stream()
+                .filter(order -> order.getOrderStatus() != 1)
+                .map(OrderInfoDTO::getOrderId)
+                .collect(Collectors.toList());
+
+        if (!invalidOrders.isEmpty()) {
+            throw new BusinessException("以下订单状态不是待发货，无法发货：" + invalidOrders);
+        }
+
+        // 校验订单支付状态（必须已支付）
+        List<Long> unpaidOrders = orders.stream()
+                .filter(order -> order.getPayStatus() != 1)
+                .map(OrderInfoDTO::getOrderId)
+                .collect(Collectors.toList());
+
+        if (!unpaidOrders.isEmpty()) {
+            throw new BusinessException("以下订单未支付，无法发货：" + unpaidOrders);
+        }
+
+        log.info("订单验证通过，待发货订单数量={}", orders.size());
+        return orders;
     }
 
     /**
      * 生成分单组标识
-     * 
-     * <p>格式：DG + YYYYMMDD + 序号
-     * <p>例如：DG20251113001
+     * 格式：SHIP + yyyyMMddHHmmss + 3位随机数
      */
     private String generateDispatchGroup() {
-        String dateStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-        int sequence = BATCH_SEQUENCE.getAndIncrement();
-        return String.format("DG%s%03d", dateStr, sequence % 1000);
+        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        int random = new Random().nextInt(900) + 100; // 100-999
+        return "SHIP" + timestamp + random;
     }
 
     /**
-     * 批量更新订单状态
+     * 提取途经点（根据发货方式）⭐⭐⭐⭐⭐
      * 
-     * <p>将订单状态从"待发货"更新为"配送中"，并设置分单组
+     * @param orders 订单列表
+     * @param deliveryMode 发货方式（1-团长团点；2-用户地址）
+     * @return 途经点信息列表
      */
-    private BatchOrderUpdateResult updateOrderStatuses(List<Long> orderIds, String dispatchGroup) {
-        log.info("批量更新订单状态，订单数量: {}, 分单组: {}", orderIds.size(), dispatchGroup);
-        
-        BatchOrderUpdateResult result = new BatchOrderUpdateResult();
-        result.setSuccessCount(0);
-        result.setFailedOrderIds(new ArrayList<>());
-        result.setFailureReasons(new ArrayList<>());
-        
-        try {
-            // 调用OrderService的批量更新接口
-            com.bcu.edu.client.OrderServiceClient.BatchShipUpdateRequest request = 
-                    new com.bcu.edu.client.OrderServiceClient.BatchShipUpdateRequest();
-            request.setOrderIds(orderIds);
-            request.setDispatchGroup(dispatchGroup);
-            request.setOperatorName("DeliveryService");
-            
-            com.bcu.edu.common.result.Result<com.bcu.edu.client.OrderServiceClient.BatchUpdateResult> updateResult = 
-                    orderServiceClient.batchUpdateToShipping(request);
-            
-            if (updateResult.isSuccess() && updateResult.getData() != null) {
-                com.bcu.edu.client.OrderServiceClient.BatchUpdateResult data = updateResult.getData();
-                result.setSuccessCount(data.getSuccessCount());
-                result.setFailedOrderIds(data.getFailedOrderIds() != null ? data.getFailedOrderIds() : new ArrayList<>());
-                
-                // 生成失败原因
-                if (!result.getFailedOrderIds().isEmpty()) {
-                    List<String> reasons = new ArrayList<>();
-                    for (Long orderId : result.getFailedOrderIds()) {
-                        reasons.add("订单" + orderId + "状态更新失败");
-                    }
-                    result.setFailureReasons(reasons);
-                }
-            } else {
-                log.warn("批量更新订单状态失败: {}", updateResult.getMessage());
-                // 全部失败
-                result.setSuccessCount(0);
-                result.setFailedOrderIds(orderIds);
-                List<String> reasons = new ArrayList<>();
-                for (Long orderId : orderIds) {
-                    reasons.add("订单" + orderId + "更新失败: " + updateResult.getMessage());
-                }
-                result.setFailureReasons(reasons);
-            }
-            
-        } catch (Exception e) {
-            log.error("批量更新订单状态异常", e);
-            // 全部失败
-            result.setSuccessCount(0);
-            result.setFailedOrderIds(orderIds);
-            List<String> reasons = new ArrayList<>();
-            for (Long orderId : orderIds) {
-                reasons.add("订单" + orderId + "更新异常: " + e.getMessage());
-            }
-            result.setFailureReasons(reasons);
+    private List<WaypointInfo> extractWaypoints(List<OrderInfoDTO> orders, Integer deliveryMode) {
+        log.info("开始提取途经点，发货方式={}", deliveryMode);
+
+        List<WaypointInfo> waypoints = new ArrayList<>();
+
+        if (deliveryMode == 1) {
+            // 方式1：团长团点模式
+            waypoints = extractLeaderStoreWaypoints(orders);
+        } else if (deliveryMode == 2) {
+            // 方式2：用户地址模式
+            waypoints = extractUserAddressWaypoints(orders);
+        } else {
+            throw new BusinessException("不支持的发货方式：" + deliveryMode);
         }
-        
-        log.info("订单状态更新完成，成功: {}, 失败: {}", 
-                result.getSuccessCount(), result.getFailedOrderIds().size());
-        
-        return result;
-    }
 
-
-    /**
-     * 为批量发货创建配送单
-     */
-    private Delivery createDeliveryForBatch(BatchShipRequest request, String dispatchGroup) {
-        log.info("为批量发货创建配送单，分单组: {}", dispatchGroup);
-        
-        // 从订单信息推断团长ID（临时实现）
-        Long leaderId = inferLeaderIdFromOrders(request.getOrderIds());
-        
-        CreateDeliveryRequest deliveryRequest = new CreateDeliveryRequest();
-        deliveryRequest.setDispatchGroup(dispatchGroup);
-        deliveryRequest.setLeaderId(leaderId);
-        deliveryRequest.setRouteStrategy(request.getRouteStrategy());
-        deliveryRequest.setWarehouseId(request.getWarehouseId());
-        deliveryRequest.setGenerateRoute(true);
-        deliveryRequest.setRemark("批量发货创建 - " + request.getRemark());
-        
-        return deliveryService.createDelivery(deliveryRequest);
+        log.info("途经点提取完成，数量={}", waypoints.size());
+        return waypoints;
     }
 
     /**
-     * 从订单列表推断团长ID
+     * 提取团长团点途经点
      */
-    private Long inferLeaderIdFromOrders(List<Long> orderIds) {
-        try {
-            com.bcu.edu.common.result.Result<List<OrderInfoDTO>> result = 
-                    orderServiceClient.getOrdersByIds(orderIds);
-            
-            if (result.isSuccess() && result.getData() != null && !result.getData().isEmpty()) {
-                Long leaderId = result.getData().get(0).getLeaderId();
-                log.info("从订单中获取团长ID: {}", leaderId);
-                return leaderId;
-            } else {
-                log.warn("获取订单团长信息失败: {}", result.getMessage());
+    private List<WaypointInfo> extractLeaderStoreWaypoints(List<OrderInfoDTO> orders) {
+        // 1. 提取所有团长ID（去重）
+        List<Long> leaderIds = orders.stream()
+                .map(OrderInfoDTO::getLeaderId)
+                .distinct()
+                .collect(Collectors.toList());
+
+        log.info("团长团点模式，去重后团长数量={}", leaderIds.size());
+
+        // 2. Feign调用LeaderService批量查询团长团点信息
+        var result = leaderServiceClient.batchGetLeaderStores(leaderIds);
+        if (result.getCode() != 200) {
+            throw new BusinessException("查询团长团点失败：" + result.getMessage());
+        }
+
+        List<LeaderStoreDTO> leaderStores = result.getData();
+
+        // 3. 构建途经点信息
+        List<WaypointInfo> waypoints = new ArrayList<>();
+        int sequence = 0;
+        for (LeaderStoreDTO store : leaderStores) {
+            // 验证坐标不为空
+            if (store.getLongitude() == null || store.getLatitude() == null) {
+                log.warn("团长团点缺少坐标，storeId={}, 跳过", store.getStoreId());
+                continue;
             }
-        } catch (Exception e) {
-            log.warn("查询订单团长信息异常", e);
+
+            WaypointInfo waypoint = new WaypointInfo();
+            waypoint.setSequence(sequence++);
+            waypoint.setOrderId(null); // 团长团点模式，途经点不关联具体订单
+            waypoint.setAddress(store.getFullAddress());
+            waypoint.setLongitude(store.getLongitude());
+            waypoint.setLatitude(store.getLatitude());
+            waypoint.setReceiverName(store.getLeaderName());
+            waypoint.setReceiverPhone(store.getLeaderPhone());
+            waypoint.setType("leader_store");
+
+            waypoints.add(waypoint);
         }
-        
-        // 降级返回默认团长ID
-        log.warn("使用默认团长ID，请检查OrderService连接");
-        return 1001L;
+
+        return waypoints;
     }
 
     /**
-     * 重新发货（针对失败的订单）
+     * 提取用户地址途经点
      */
-    @OperationLog(value = "重新发货", module = "批量发货")
-    public BatchShipResult retryFailedOrders(List<Long> failedOrderIds, String originalDispatchGroup, 
-                                           BatchShipRequest originalRequest) {
-        log.info("重新发货失败订单，数量: {}, 原分单组: {}", failedOrderIds.size(), originalDispatchGroup);
-        
-        BatchShipRequest retryRequest = new BatchShipRequest();
-        retryRequest.setOrderIds(failedOrderIds);
-        retryRequest.setWarehouseId(originalRequest.getWarehouseId());
-        retryRequest.setRouteStrategy(originalRequest.getRouteStrategy());
-        retryRequest.setRemark("重新发货 - " + originalRequest.getRemark());
-        retryRequest.setOperatorId(originalRequest.getOperatorId());
-        retryRequest.setOperatorName(originalRequest.getOperatorName());
-        
-        return batchShipOrders(retryRequest);
+    private List<WaypointInfo> extractUserAddressWaypoints(List<OrderInfoDTO> orders) {
+        // 1. 提取所有收货地址ID
+        List<Long> addressIds = orders.stream()
+                .map(OrderInfoDTO::getReceiveAddressId)
+                .distinct()
+                .collect(Collectors.toList());
+
+        log.info("用户地址模式，去重后地址数量={}", addressIds.size());
+
+        // 2. Feign调用UserService批量查询地址信息
+        var result = userServiceClient.batchGetAddresses(addressIds);
+        if (result.getCode() != 200) {
+            throw new BusinessException("查询用户地址失败：" + result.getMessage());
+        }
+
+        List<AddressDTO> addresses = result.getData();
+
+        // 3. 构建地址ID到地址信息的映射
+        Map<Long, AddressDTO> addressMap = addresses.stream()
+                .collect(Collectors.toMap(AddressDTO::getAddressId, addr -> addr));
+
+        // 4. 构建途经点信息（保留订单顺序）
+        List<WaypointInfo> waypoints = new ArrayList<>();
+        int sequence = 0;
+        for (OrderInfoDTO order : orders) {
+            AddressDTO address = addressMap.get(order.getReceiveAddressId());
+            if (address == null) {
+                log.warn("订单收货地址不存在，orderId={}, 跳过", order.getOrderId());
+                continue;
+            }
+
+            // 验证坐标不为空
+            if (address.getLongitude() == null || address.getLatitude() == null) {
+                log.warn("收货地址缺少坐标，addressId={}, 跳过", address.getAddressId());
+                continue;
+            }
+
+            WaypointInfo waypoint = new WaypointInfo();
+            waypoint.setSequence(sequence++);
+            waypoint.setOrderId(order.getOrderId());
+            waypoint.setAddress(address.getFullAddress());
+            waypoint.setLongitude(address.getLongitude());
+            waypoint.setLatitude(address.getLatitude());
+            waypoint.setReceiverName(address.getReceiver());
+            waypoint.setReceiverPhone(address.getPhone());
+            waypoint.setType("user_address");
+
+            waypoints.add(waypoint);
+        }
+
+        return waypoints;
     }
 
     /**
-     * 取消批量发货
+     * 按路径序列重新排序途经点
+     * 
+     * @param waypoints 原始途经点列表
+     * @param pathSequence 路径序列（索引从1开始，索引0是起点）
+     * @return 排序后的途经点列表
      */
-    @OperationLog(value = "取消发货", module = "批量发货")
-    public void cancelBatchShip(String dispatchGroup, String reason) {
-        log.info("取消批量发货，分单组: {}, 原因: {}", dispatchGroup, reason);
-        
+    private List<WaypointInfo> reorderWaypoints(List<WaypointInfo> waypoints, List<Integer> pathSequence) {
+        List<WaypointInfo> sorted = new ArrayList<>();
+
+        // pathSequence: [0, 3, 1, 2, 4]
+        // 索引0是起点，索引1-n是途经点，索引n+1是终点（如果有）
+        for (int i = 1; i < pathSequence.size(); i++) {
+            int waypointIndex = pathSequence.get(i) - 1; // 减1转换为waypoints索引
+            
+            // 跳过终点（终点不在waypoints中）
+            if (waypointIndex >= waypoints.size()) {
+                break;
+            }
+
+            WaypointInfo waypoint = waypoints.get(waypointIndex);
+            waypoint.setSequence(i - 1); // 重新设置序号
+            sorted.add(waypoint);
+        }
+
+        return sorted;
+    }
+
+    /**
+     * 创建配送单
+     */
+    private DeliveryEntity createDelivery(BatchShipRequest request,
+                                           String dispatchGroup,
+                                           WarehouseConfig startWarehouse,
+                                           RouteResult routeResult,
+                                           List<WaypointInfo> waypoints) {
+        DeliveryEntity delivery = new DeliveryEntity();
+
+        // 基本信息
+        delivery.setDispatchGroup(dispatchGroup);
+        delivery.setDeliveryMode(request.getDeliveryMode());
+        delivery.setWarehouseId(request.getWarehouseId());
+        delivery.setEndWarehouseId(request.getEndWarehouseId());
+        delivery.setWaypointCount(waypoints.size());
+        delivery.setCreatedBy(request.getCreatedBy());
+
+        // 如果是团长团点模式，设置第一个团长ID（可选）
+        if (request.getDeliveryMode() == 1 && !waypoints.isEmpty()) {
+            // 从第一个途经点提取团长ID
+            delivery.setLeaderId(null); // 团长团点模式可能有多个团长，这里先不设置
+        }
+
+        // 订单ID列表（JSON）
         try {
-            // 1. 恢复订单状态
-            // TODO: 调用OrderService恢复订单状态
-            
-            // 2. 删除配送单
-            Delivery delivery = deliveryService.getDeliveryByDispatchGroup(dispatchGroup);
-            deliveryService.deleteDelivery(delivery.getDeliveryId());
-            
-            log.info("批量发货取消成功");
-            
-        } catch (Exception e) {
-            log.error("取消批量发货失败", e);
-            throw new RuntimeException("取消批量发货失败: " + e.getMessage());
+            delivery.setOrderIds(objectMapper.writeValueAsString(request.getOrderIds()));
+        } catch (JsonProcessingException e) {
+            throw new BusinessException("订单ID列表序列化失败");
         }
+
+        // 途经点数据（JSON）
+        try {
+            delivery.setWaypointsData(objectMapper.writeValueAsString(waypoints));
+        } catch (JsonProcessingException e) {
+            throw new BusinessException("途经点数据序列化失败");
+        }
+
+        // 路径规划结果
+        delivery.setOptimalRoute(routeResult.getOptimalRoute());
+        delivery.setDistance(routeResult.getTotalDistance());
+        delivery.setEstimatedDuration(routeResult.getEstimatedDuration());
+        delivery.setAlgorithmUsed(routeResult.getAlgorithmUsed());
+        delivery.setRouteStrategy(request.getRouteStrategy());
+
+        // 生成地图展示数据
+        String mapDisplayData = routeService.generateMapDisplayData(routeResult, waypoints);
+        delivery.setRouteDisplayData(mapDisplayData);
+
+        // 配送状态
+        delivery.setStatus(1); // 1-配送中
+        delivery.setStartTime(LocalDateTime.now());
+
+        // 保存配送单
+        DeliveryEntity saved = deliveryRepository.save(delivery);
+        log.info("配送单创建成功，deliveryId={}, dispatchGroup={}", 
+                saved.getDeliveryId(), dispatchGroup);
+
+        return saved;
     }
 
     /**
-     * 批量订单更新结果
+     * 批量更新订单状态为"配送中"
      */
-    private static class BatchOrderUpdateResult {
-        private Integer successCount;
-        private List<Long> failedOrderIds;
-        private List<String> failureReasons;
+    private void updateOrdersToShipping(List<Long> orderIds, Long deliveryId, String dispatchGroup) {
+        log.info("开始批量更新订单状态，orderIds={}, deliveryId={}", orderIds, deliveryId);
 
-        // Getters and Setters
-        public Integer getSuccessCount() { return successCount; }
-        public void setSuccessCount(Integer successCount) { this.successCount = successCount; }
+        // Feign调用OrderService批量更新
+        var result = orderServiceClient.batchUpdateToShipping(orderIds, deliveryId, dispatchGroup);
 
-        public List<Long> getFailedOrderIds() { return failedOrderIds; }
-        public void setFailedOrderIds(List<Long> failedOrderIds) { this.failedOrderIds = failedOrderIds; }
+        if (result.getCode() != 200) {
+            throw new BusinessException("更新订单状态失败：" + result.getMessage());
+        }
 
-        public List<String> getFailureReasons() { return failureReasons; }
-        public void setFailureReasons(List<String> failureReasons) { this.failureReasons = failureReasons; }
+        log.info("订单状态更新成功，更新数量={}", result.getData());
+    }
+
+    /**
+     * 构建批量发货响应
+     */
+    private BatchShipResponse buildResponse(DeliveryEntity delivery,
+                                              List<WaypointInfo> waypoints,
+                                              RouteResult routeResult) {
+        BatchShipResponse response = new BatchShipResponse();
+
+        response.setDeliveryId(delivery.getDeliveryId());
+        response.setDispatchGroup(delivery.getDispatchGroup());
+        
+        // 解析订单ID列表
+        try {
+            List<Long> orderIds = objectMapper.readValue(
+                    delivery.getOrderIds(),
+                    new com.fasterxml.jackson.core.type.TypeReference<List<Long>>() {}
+            );
+            response.setOrderIds(orderIds);
+        } catch (JsonProcessingException e) {
+            log.error("解析订单ID列表失败", e);
+        }
+
+        response.setDeliveryMode(delivery.getDeliveryMode());
+        response.setWaypointCount(waypoints.size());
+        response.setTotalDistance(delivery.getDistance());
+        response.setEstimatedDuration(delivery.getEstimatedDuration());
+        response.setWaypoints(waypoints);
+        response.setAlgorithmUsed(delivery.getAlgorithmUsed());
+        response.setMessage("批量发货成功，已生成配送单");
+
+        return response;
     }
 }
+

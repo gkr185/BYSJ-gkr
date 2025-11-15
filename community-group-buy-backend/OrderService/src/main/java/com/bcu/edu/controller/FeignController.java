@@ -223,5 +223,82 @@ public class FeignController {
             return Result.error("获取商品数量失败: " + e.getMessage());
         }
     }
+
+    /**
+     * 批量查询订单（⭐新增接口 - 供DeliveryService调用）
+     *
+     * <p>调用方: DeliveryService.batchShip()
+     * <p>场景: 批量发货时查询订单信息
+     *
+     * @param orderIds 订单ID列表
+     * @return 订单信息列表
+     */
+    @PostMapping("/batchQuery")
+    @Operation(summary = "批量查询订单", description = "供DeliveryService调用，批量获取订单信息")
+    public Result<List<OrderDetailVO>> batchQueryOrders(@RequestBody List<Long> orderIds) {
+        log.info("Feign调用: 批量查询订单, orderIds={}", orderIds);
+
+        try {
+            List<OrderDetailVO> orders = orderService.batchQueryOrders(orderIds);
+            log.info("批量查询成功: 共{}条订单", orders.size());
+            return Result.success(orders);
+        } catch (Exception e) {
+            log.error("批量查询订单失败", e);
+            return Result.error("批量查询订单失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 批量更新订单状态为"配送中"（⭐新增接口 - 供DeliveryService调用）
+     *
+     * <p>调用方: DeliveryService.batchShip()
+     * <p>场景: 批量发货时更新订单状态
+     *
+     * @param orderIds 订单ID列表
+     * @param deliveryId 配送单ID
+     * @param dispatchGroup 分单组标识
+     * @return 更新数量
+     */
+    @PostMapping("/batchUpdateToShipping")
+    @Operation(summary = "批量更新订单为配送中", description = "供DeliveryService调用，批量发货时更新订单状态")
+    public Result<Integer> batchUpdateToShipping(@RequestParam("orderIds") List<Long> orderIds,
+                                                   @RequestParam("deliveryId") Long deliveryId,
+                                                   @RequestParam("dispatchGroup") String dispatchGroup) {
+        log.info("Feign调用: 批量更新订单为配送中, orderIds={}, deliveryId={}, dispatchGroup={}", 
+                orderIds, deliveryId, dispatchGroup);
+
+        try {
+            Integer count = orderService.batchUpdateToShipping(orderIds, deliveryId, dispatchGroup);
+            log.info("批量更新成功: 共{}条订单", count);
+            return Result.success(count);
+        } catch (Exception e) {
+            log.error("批量更新订单状态失败", e);
+            return Result.error("批量更新订单状态失败: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 批量更新订单状态为"已送达"（⭐新增接口 - 供DeliveryService调用）
+     *
+     * <p>调用方: DeliveryService.completeDelivery()
+     * <p>场景: 配送完成时更新订单状态
+     *
+     * @param orderIds 订单ID列表
+     * @return 更新数量
+     */
+    @PostMapping("/batchUpdateToDelivered")
+    @Operation(summary = "批量更新订单为已送达", description = "供DeliveryService调用，配送完成时更新订单状态")
+    public Result<Integer> batchUpdateToDelivered(@RequestParam("orderIds") List<Long> orderIds) {
+        log.info("Feign调用: 批量更新订单为已送达, orderIds={}", orderIds);
+
+        try {
+            Integer count = orderService.batchUpdateToDelivered(orderIds);
+            log.info("批量更新成功: 共{}条订单", count);
+            return Result.success(count);
+        } catch (Exception e) {
+            log.error("批量更新订单状态失败", e);
+            return Result.error("批量更新订单状态失败: " + e.getMessage());
+        }
+    }
 }
 

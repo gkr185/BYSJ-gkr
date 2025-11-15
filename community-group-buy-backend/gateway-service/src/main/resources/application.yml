@@ -102,14 +102,14 @@ spring:
           filters:
             - RewritePath=/leader/api-docs/(?<segment>.*), /api-docs/$\{segment}
         
-        # ==================== DeliveryService 路由（待开发）====================
+        # ==================== DeliveryService 路由 ✅ 已完成 ====================
         - id: delivery-service
-          uri: lb://DeliveryService
+          uri: lb://delivery-service
           predicates:
             - Path=/api/delivery/**
         
         - id: delivery-service-swagger
-          uri: lb://DeliveryService
+          uri: lb://delivery-service
           predicates:
             - Path=/delivery/api-docs/**
           filters:

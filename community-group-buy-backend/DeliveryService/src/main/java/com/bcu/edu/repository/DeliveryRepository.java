@@ -1,6 +1,8 @@
 package com.bcu.edu.repository;
 
-import com.bcu.edu.entity.Delivery;
+import com.bcu.edu.entity.DeliveryEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,91 +13,83 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * 配送单数据访问层
+ * 配送单Repository
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @Repository
-public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
+public interface DeliveryRepository extends JpaRepository<DeliveryEntity, Long> {
 
     /**
      * 根据分单组查询配送单
      */
-    Optional<Delivery> findByDispatchGroup(String dispatchGroup);
-
-    /**
-     * 根据团长ID查询配送单列表
-     */
-    List<Delivery> findByLeaderIdOrderByCreateTimeDesc(Long leaderId);
+    Optional<DeliveryEntity> findByDispatchGroup(String dispatchGroup);
 
     /**
      * 根据状态查询配送单列表
      */
-    List<Delivery> findByStatusOrderByCreateTimeDesc(Integer status);
+    List<DeliveryEntity> findByStatus(Integer status);
 
     /**
-     * 根据团长ID和状态查询配送单列表
+     * 根据团长ID查询配送单列表
      */
-    List<Delivery> findByLeaderIdAndStatusOrderByCreateTimeDesc(Long leaderId, Integer status);
+    List<DeliveryEntity> findByLeaderId(Long leaderId);
+
+    /**
+     * 根据状态分页查询配送单
+     */
+    Page<DeliveryEntity> findByStatus(Integer status, Pageable pageable);
+
+    /**
+     * 根据创建人查询配送单列表
+     */
+    List<DeliveryEntity> findByCreatedBy(Long createdBy);
+
+    /**
+     * 根据仓库ID查询配送单列表
+     */
+    List<DeliveryEntity> findByWarehouseId(Long warehouseId);
 
     /**
      * 查询指定时间范围内的配送单
      */
-    @Query("SELECT d FROM Delivery d WHERE d.createTime BETWEEN :startTime AND :endTime ORDER BY d.createTime DESC")
-    List<Delivery> findByCreateTimeBetween(@Param("startTime") LocalDateTime startTime, 
-                                          @Param("endTime") LocalDateTime endTime);
+    @Query("SELECT d FROM DeliveryEntity d WHERE d.createTime BETWEEN :startTime AND :endTime")
+    List<DeliveryEntity> findByCreateTimeBetween(
+            @Param("startTime") LocalDateTime startTime,
+            @Param("endTime") LocalDateTime endTime
+    );
 
     /**
-     * 查询团长指定时间范围内的配送单
+     * 统计配送单总数
      */
-    @Query("SELECT d FROM Delivery d WHERE d.leaderId = :leaderId AND d.createTime BETWEEN :startTime AND :endTime ORDER BY d.createTime DESC")
-    List<Delivery> findByLeaderIdAndCreateTimeBetween(@Param("leaderId") Long leaderId,
-                                                     @Param("startTime") LocalDateTime startTime, 
-                                                     @Param("endTime") LocalDateTime endTime);
-
-    /**
-     * 统计团长的配送单数量
-     */
-    @Query("SELECT COUNT(d) FROM Delivery d WHERE d.leaderId = :leaderId")
-    Long countByLeaderId(@Param("leaderId") Long leaderId);
-
-    /**
-     * 统计指定状态的配送单数量
-     */
-    @Query("SELECT COUNT(d) FROM Delivery d WHERE d.status = :status")
+    @Query("SELECT COUNT(d) FROM DeliveryEntity d WHERE d.status = :status")
     Long countByStatus(@Param("status") Integer status);
 
     /**
-     * 查询进行中的配送单（状态为配送中）
+     * 统计指定时间范围内的配送单数量
      */
-    @Query("SELECT d FROM Delivery d WHERE d.status = 1 ORDER BY d.startTime ASC")
-    List<Delivery> findDelivering();
+    @Query("SELECT COUNT(d) FROM DeliveryEntity d WHERE d.createTime BETWEEN :startTime AND :endTime")
+    Long countByCreateTimeBetween(
+            @Param("startTime") LocalDateTime startTime,
+            @Param("endTime") LocalDateTime endTime
+    );
 
     /**
-     * 查询超时未完成的配送单
+     * 查询所有已完成配送单的总距离
      */
-    @Query("SELECT d FROM Delivery d WHERE d.status = 1 AND d.startTime IS NOT NULL AND d.startTime < :timeoutTime")
-    List<Delivery> findTimeoutDeliveries(@Param("timeoutTime") LocalDateTime timeoutTime);
+    @Query("SELECT SUM(d.distance) FROM DeliveryEntity d WHERE d.status = 2")
+    Double sumDistanceByCompleted();
 
     /**
-     * 根据算法类型统计配送单数量
+     * 按团长统计配送单数量
      */
-    @Query("SELECT COUNT(d) FROM Delivery d WHERE d.algorithmUsed = :algorithm")
-    Long countByAlgorithmUsed(@Param("algorithm") String algorithm);
+    @Query("SELECT d.leaderId, COUNT(d) FROM DeliveryEntity d WHERE d.leaderId IS NOT NULL GROUP BY d.leaderId")
+    List<Object[]> countGroupByLeaderId();
 
     /**
-     * 查询指定日期的配送统计
+     * 查询最近的配送单（分页）
      */
-    @Query("SELECT " +
-           "COUNT(d) as totalCount, " +
-           "AVG(d.distance) as avgDistance, " +
-           "AVG(d.estimatedDuration) as avgDuration " +
-           "FROM Delivery d WHERE DATE(d.createTime) = DATE(:date)")
-    Object[] getDeliveryStatsByDate(@Param("date") LocalDateTime date);
-
-    /**
-     * 检查分单组是否已存在
-     */
-    boolean existsByDispatchGroup(String dispatchGroup);
+    Page<DeliveryEntity> findAllByOrderByCreateTimeDesc(Pageable pageable);
 }
+

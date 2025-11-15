@@ -12,24 +12,21 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 
  * <p>服务功能：
  * <ul>
- *   <li>智能路径规划：基于Dijkstra算法和高德地图API的双引擎路径优化</li>
+ *   <li>智能路径规划：基于Dijkstra算法的最短路径优化</li>
  *   <li>配送单管理：创建配送单、状态更新、配送监控</li>
  *   <li>批量发货：与管理端集成的批量发货处理</li>
- *   <li>配送监控：团长配送任务监控和地图可视化</li>
+ *   <li>配送统计：配送数据分析和效率统计</li>
  * </ul>
  * 
  * <p>端口: 8067
  * <p>数据库: delivery_service_db
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(clients = {
-    com.bcu.edu.client.OrderServiceClient.class,
-    com.bcu.edu.client.UserServiceClient.class
-})
+@EnableFeignClients(basePackages = "com.bcu.edu.feign")
 @EnableJpaAuditing
 @EnableScheduling
 public class DeliveryServiceApplication {
@@ -40,7 +37,7 @@ public class DeliveryServiceApplication {
         System.out.println("DeliveryService 启动成功！");
         System.out.println("端口: 8067");
         System.out.println("Swagger: http://localhost:8067/swagger-ui.html");
-        System.out.println("双引擎路径规划：Dijkstra + 高德API");
+        System.out.println("Dijkstra算法路径规划已就绪");
         System.out.println("========================================");
     }
 }

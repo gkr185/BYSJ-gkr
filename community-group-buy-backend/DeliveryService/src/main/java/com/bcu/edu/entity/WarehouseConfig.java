@@ -1,11 +1,9 @@
 package com.bcu.edu.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.Comment;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,135 +12,109 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
- * 仓库配置实体
+ * 仓库配置实体类（严格匹配delivery_service_db.warehouse_config表）
  * 
- * <p>用于配置配送路径的起点信息
+ * <p>表名: warehouse_config
+ * <p>说明: 管理配送仓库信息，支持多仓库配送和默认仓库机制
+ * 
+ * <p>关键字段：
+ * <ul>
+ *   <li>is_default: 0-否；1-是（系统只能有一个默认仓库）</li>
+ *   <li>status: 0-禁用；1-启用</li>
+ *   <li>longitude/latitude: 仓库经纬度（路径规划起点）</li>
+ * </ul>
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
 @Entity
-@Table(name = "warehouse_config")
+@Table(name = "warehouse_config", indexes = {
+        @Index(name = "uk_warehouse_name", columnList = "warehouse_name", unique = true),
+        @Index(name = "idx_is_default", columnList = "is_default"),
+        @Index(name = "idx_status", columnList = "status")
+})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-@Schema(description = "仓库配置")
 public class WarehouseConfig {
 
+    /**
+     * 仓库ID（主键）
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    @Comment("仓库ID")
-    @Schema(description = "仓库ID", example = "1")
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "warehouse_name", nullable = false, length = 100)
-    @Comment("仓库名称")
-    @Schema(description = "仓库名称", example = "中心仓库", required = true)
+    /**
+     * 仓库名称（唯一）
+     */
+    @Column(name = "warehouse_name", nullable = false, unique = true, length = 100)
     private String warehouseName;
 
+    /**
+     * 仓库地址
+     */
     @Column(name = "address", nullable = false, length = 255)
-    @Comment("仓库地址")
-    @Schema(description = "仓库地址", example = "北京市朝阳区示例地址123号", required = true)
     private String address;
 
+    /**
+     * 仓库经度（路径规划起点）
+     */
     @Column(name = "longitude", nullable = false, precision = 10, scale = 6)
-    @Comment("经度")
-    @Schema(description = "经度", example = "116.397128", required = true)
     private BigDecimal longitude;
 
+    /**
+     * 仓库纬度（路径规划起点）
+     */
     @Column(name = "latitude", nullable = false, precision = 10, scale = 6)
-    @Comment("纬度")
-    @Schema(description = "纬度", example = "39.916527", required = true)
     private BigDecimal latitude;
 
+    /**
+     * 是否默认仓库
+     * 0-否；1-是（系统只能有一个默认仓库）
+     */
     @Column(name = "is_default", nullable = false)
-    @Comment("是否默认仓库（0-否；1-是）")
-    @Schema(description = "是否默认仓库", example = "1", required = true)
-    private Integer isDefault;
+    private Integer isDefault = 0;
 
+    /**
+     * 状态
+     * 0-禁用；1-启用
+     */
     @Column(name = "status", nullable = false)
-    @Comment("状态（0-禁用；1-启用）")
-    @Schema(description = "状态", example = "1", required = true)
-    private Integer status;
+    private Integer status = 1;
 
+    /**
+     * 联系人
+     */
     @Column(name = "contact_person", length = 50)
-    @Comment("联系人")
-    @Schema(description = "联系人", example = "张三")
     private String contactPerson;
 
+    /**
+     * 联系电话
+     */
     @Column(name = "contact_phone", length = 20)
-    @Comment("联系电话")
-    @Schema(description = "联系电话", example = "13800138000")
     private String contactPhone;
 
+    /**
+     * 描述
+     */
     @Column(name = "description", length = 500)
-    @Comment("描述")
-    @Schema(description = "描述", example = "主要配送仓库，负责市区配送业务")
     private String description;
 
+    /**
+     * 创建时间
+     */
     @CreatedDate
     @Column(name = "create_time", nullable = false, updatable = false)
-    @Comment("创建时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @Schema(description = "创建时间", example = "2025-11-13 09:00:00")
     private LocalDateTime createTime;
 
+    /**
+     * 更新时间
+     */
     @LastModifiedDate
     @Column(name = "update_time")
-    @Comment("更新时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @Schema(description = "更新时间", example = "2025-11-13 09:30:00")
     private LocalDateTime updateTime;
-
-    // 便利方法
-
-    /**
-     * 是否为默认仓库
-     */
-    public boolean isDefaultWarehouse() {
-        return Integer.valueOf(1).equals(this.isDefault);
-    }
-
-    /**
-     * 设置为默认仓库
-     */
-    public void setAsDefault() {
-        this.isDefault = 1;
-    }
-
-    /**
-     * 取消默认仓库
-     */
-    public void unsetDefault() {
-        this.isDefault = 0;
-    }
-
-    /**
-     * 是否启用
-     */
-    public boolean isEnabled() {
-        return Integer.valueOf(1).equals(this.status);
-    }
-
-    /**
-     * 启用仓库
-     */
-    public void enable() {
-        this.status = 1;
-    }
-
-    /**
-     * 禁用仓库
-     */
-    public void disable() {
-        this.status = 0;
-    }
-
-    /**
-     * 获取坐标字符串（格式：经度,纬度）
-     */
-    public String getCoordinateString() {
-        return longitude + "," + latitude;
-    }
 }
+

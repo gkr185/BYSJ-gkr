@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * 仓库配置数据访问层
+ * 仓库配置Repository
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @Repository
 public interface WarehouseConfigRepository extends JpaRepository<WarehouseConfig, Long> {
@@ -22,53 +22,46 @@ public interface WarehouseConfigRepository extends JpaRepository<WarehouseConfig
     /**
      * 查询默认仓库
      */
-    @Query("SELECT w FROM WarehouseConfig w WHERE w.isDefault = 1 AND w.status = 1")
-    Optional<WarehouseConfig> findDefaultWarehouse();
+    Optional<WarehouseConfig> findByIsDefault(Integer isDefault);
 
     /**
      * 查询所有启用的仓库
      */
-    @Query("SELECT w FROM WarehouseConfig w WHERE w.status = 1 ORDER BY w.isDefault DESC, w.createTime ASC")
-    List<WarehouseConfig> findEnabledWarehouses();
+    List<WarehouseConfig> findByStatus(Integer status);
 
     /**
-     * 根据名称查询仓库
+     * 根据仓库名称查询
      */
     Optional<WarehouseConfig> findByWarehouseName(String warehouseName);
 
     /**
-     * 检查仓库名称是否已存在（排除指定ID）
-     */
-    @Query("SELECT COUNT(w) FROM WarehouseConfig w WHERE w.warehouseName = :name AND w.id != :excludeId")
-    Long countByWarehouseNameAndIdNot(@Param("name") String warehouseName, @Param("excludeId") Long excludeId);
-
-    /**
-     * 检查仓库名称是否已存在
+     * 检查仓库名称是否存在
      */
     boolean existsByWarehouseName(String warehouseName);
 
     /**
-     * 清除所有默认仓库标记
+     * 检查是否存在默认仓库
      */
-    @Modifying
-    @Query("UPDATE WarehouseConfig w SET w.isDefault = 0")
-    void clearAllDefaultFlags();
+    @Query("SELECT COUNT(w) > 0 FROM WarehouseConfig w WHERE w.isDefault = 1")
+    boolean existsDefaultWarehouse();
 
     /**
-     * 设置指定仓库为默认仓库
+     * 取消所有默认仓库（设置新默认仓库前调用）
      */
     @Modifying
-    @Query("UPDATE WarehouseConfig w SET w.isDefault = CASE WHEN w.id = :id THEN 1 ELSE 0 END")
+    @Query("UPDATE WarehouseConfig w SET w.isDefault = 0 WHERE w.isDefault = 1")
+    void clearAllDefaultWarehouse();
+
+    /**
+     * 设置默认仓库
+     */
+    @Modifying
+    @Query("UPDATE WarehouseConfig w SET w.isDefault = 1 WHERE w.id = :id")
     void setDefaultWarehouse(@Param("id") Long id);
 
     /**
      * 统计启用的仓库数量
      */
-    @Query("SELECT COUNT(w) FROM WarehouseConfig w WHERE w.status = 1")
-    Long countEnabledWarehouses();
-
-    /**
-     * 根据状态查询仓库列表
-     */
-    List<WarehouseConfig> findByStatusOrderByCreateTimeDesc(Integer status);
+    Long countByStatus(Integer status);
 }
+

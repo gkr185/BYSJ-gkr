@@ -11,7 +11,7 @@
  Target Server Version : 80036 (8.0.36)
  File Encoding         : 65001
 
- Date: 13/11/2025 22:12:20
+ Date: 15/11/2025 10:41:52
 */
 
 SET NAMES utf8mb4;
@@ -35,17 +35,27 @@ CREATE TABLE `delivery`  (
   `actual_start_time` datetime NULL DEFAULT NULL COMMENT '实际开始配送时间',
   `route_display_data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '前端地图展示数据',
   `algorithm_used` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT 'dijkstra' COMMENT '使用的算法（dijkstra/gaode）',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `delivery_mode` tinyint NOT NULL DEFAULT 1 COMMENT '发货方式: 1-团长团点 2-用户地址',
+  `warehouse_id` bigint NULL DEFAULT NULL COMMENT '起点仓库ID',
+  `end_warehouse_id` bigint NULL DEFAULT NULL COMMENT '终点仓库ID（可选）',
+  `waypoint_count` int NOT NULL DEFAULT 0 COMMENT '途经点数量',
+  `order_ids` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '关联订单ID列表（JSON数组）',
+  `waypoints_data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '途经点详细信息（JSON数组）',
+  `created_by` bigint NULL DEFAULT NULL COMMENT '创建人ID（管理员）',
   PRIMARY KEY (`delivery_id`) USING BTREE,
   INDEX `idx_leader_id`(`leader_id` ASC) USING BTREE,
   INDEX `idx_dispatch_group`(`dispatch_group` ASC) USING BTREE,
   INDEX `idx_status`(`status` ASC) USING BTREE,
   INDEX `idx_algorithm_used`(`algorithm_used` ASC) USING BTREE,
   INDEX `idx_route_strategy`(`route_strategy` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '配送单表 - 支持Dijkstra算法和高德地图API双引擎路径规划' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '配送单表 - 支持Dijkstra算法和高德地图API双引擎路径规划' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of delivery
 -- ----------------------------
+INSERT INTO `delivery` VALUES (8, 2, 'DG20251114007', NULL, NULL, '116.397617,39.909095;116.313174,39.983697;116.240159,40.046474;116.813180,40.162197', 70737.05, 0, 0, 142, NULL, '{\"algorithm\":\"dijkstra\",\"routeType\":\"straightLine\",\"coordinates\":[\"116.397617,39.909095\",\"116.313174,39.983697\",\"116.240159,40.046474\",\"116.813180,40.162197\"],\"waypoints\":4}', 'dijkstra', '2025-11-14 22:09:56', '2025-11-14 22:14:53', 1, NULL, NULL, 0, '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for warehouse_config
@@ -73,6 +83,6 @@ CREATE TABLE `warehouse_config`  (
 -- ----------------------------
 -- Records of warehouse_config
 -- ----------------------------
-INSERT INTO `warehouse_config` VALUES (1, '中心仓库', '北京市朝阳区示例地址123号', 116.397128, 39.916527, 1, 1, NULL, NULL, '系统默认仓库，用于配送路径规划起点', '2025-11-13 22:11:09', NULL);
+INSERT INTO `warehouse_config` VALUES (1, '中心仓库', '北京市东城区东华门街道天安门', 116.397617, 39.909095, 1, 1, '管理员', '18519249185', '系统默认仓库，用于配送路径规划起点', '2025-11-13 22:11:09', '2025-11-14 18:50:12');
 
 SET FOREIGN_KEY_CHECKS = 1;

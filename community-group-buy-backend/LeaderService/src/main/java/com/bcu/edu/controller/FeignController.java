@@ -186,5 +186,45 @@ public class FeignController {
         BigDecimal pendingCommission = commissionService.getPendingCommissionByLeader(leaderId);
         return Result.success(pendingCommission);
     }
+
+    // ========== 团长团点相关接口（⭐新增 - 供DeliveryService调用）==========
+
+    /**
+     * 获取团长团点信息（包含坐标）
+     * 供DeliveryService调用（批量发货时获取团长团点坐标）
+     * 
+     * GET /api/leader/feign/store/{leaderId}
+     */
+    @GetMapping("/leader/store/{leaderId}")
+    @Operation(summary = "获取团长团点信息", description = "根据团长ID查询团点信息（含坐标）")
+    public Result<GroupLeaderStore> getLeaderStore(
+            @Parameter(description = "团长ID（用户ID）") @PathVariable Long leaderId
+    ) {
+        log.info("[Feign] DeliveryService调用: 获取团长团点信息，leaderId={}", leaderId);
+
+        return leaderApplicationService.getLeaderByUserId(leaderId)
+                .map(Result::success)
+                .orElse(Result.error("团长团点不存在"));
+    }
+
+    /**
+     * 批量获取团长团点信息（⭐新增接口 - 供DeliveryService调用）
+     * 
+     * POST /api/leader/feign/store/batch
+     */
+    @PostMapping("/leader/store/batch")
+    @Operation(summary = "批量获取团长团点信息", description = "批量查询团长团点信息（含坐标）")
+    public Result<List<GroupLeaderStore>> batchGetLeaderStores(@RequestBody List<Long> leaderIds) {
+        log.info("[Feign] DeliveryService调用: 批量获取团长团点信息，leaderIds={}", leaderIds);
+
+        try {
+            List<GroupLeaderStore> stores = leaderApplicationService.batchGetLeaderStores(leaderIds);
+            log.info("批量获取团长团点成功: 共{}个团点", stores.size());
+            return Result.success(stores);
+        } catch (Exception e) {
+            log.error("批量获取团长团点失败", e);
+            return Result.error("批量获取团长团点失败: " + e.getMessage());
+        }
+    }
 }
 

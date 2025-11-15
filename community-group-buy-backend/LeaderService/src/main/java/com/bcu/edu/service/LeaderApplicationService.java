@@ -286,5 +286,20 @@ public class LeaderApplicationService {
 
         log.info("团点{}已停用", storeId);
     }
+
+    /**
+     * 批量获取团长团点信息（⭐新增方法 - 供DeliveryService调用）
+     * 
+     * @param leaderIds 团长ID列表
+     * @return 团长团点列表
+     */
+    public List<GroupLeaderStore> batchGetLeaderStores(List<Long> leaderIds) {
+        log.info("批量获取团长团点: leaderIds={}", leaderIds);
+        
+        List<GroupLeaderStore> stores = leaderStoreRepository.findByLeaderIdIn(leaderIds);
+        
+        log.info("批量获取成功: 共{}个团点", stores.size());
+        return stores;
+    }
 }
 

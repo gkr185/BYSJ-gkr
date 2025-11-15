@@ -1,257 +1,133 @@
 package com.bcu.edu.service;
 
+import com.bcu.edu.algorithm.DijkstraAlgorithm;
 import com.bcu.edu.dto.RouteRequest;
 import com.bcu.edu.dto.RouteResult;
-import com.bcu.edu.service.algorithm.DijkstraRouteService;
-import com.bcu.edu.service.algorithm.GaodeRouteService;
+import com.bcu.edu.dto.WaypointInfo;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 路径规划服务
  * 
- * <p>集成双引擎路径规划，智能选择最优算法
+ * <p>功能：
+ * <ul>
+ *   <li>调用Dijkstra算法计算最优路径</li>
+ *   <li>生成地图展示数据</li>
+ *   <li>路径优化与调整</li>
+ * </ul>
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class RouteService {
 
-    @Value("${delivery.route.max-waypoints:30}")
-    private int maxWaypoints;
-
-    @Value("${delivery.route.enable-dijkstra-fallback:true}")
-    private boolean enableDijkstraFallback;
-
-    @Value("${delivery.route.default-strategy:shortest-time}")
-    private String defaultStrategy;
-
-    @Autowired
-    private GaodeRouteService gaodeRouteService;
-
-    @Autowired
-    private DijkstraRouteService dijkstraRouteService;
+    private final DijkstraAlgorithm dijkstraAlgorithm;
 
     /**
-     * 计算最优路径（主入口）
-     * 
-     * <p>策略：
-     * <ol>
-     *   <li>优先使用高德地图API（如果可用且未强制使用Dijkstra）</li>
-     *   <li>高德API失败时，自动降级到Dijkstra算法（如果启用降级）</li>
-     *   <li>返回最终的路径规划结果</li>
-     * </ol>
+     * 最大途经点数量限制
      */
-    public RouteResult planOptimalRoute(RouteRequest request) {
-        long startTime = System.currentTimeMillis();
-        
-        try {
-            log.info("开始双引擎路径规划，分单组: {}, 配送点: {}, 策略: {}", 
-                    request.getDispatchGroup(), request.getWaypointCount(), request.getRouteStrategy());
-            
-            // 1. 参数验证
-            validateRequest(request);
-            
-            // 2. 设置默认策略
-            if (request.getRouteStrategy() == null || request.getRouteStrategy().trim().isEmpty()) {
-                request.setRouteStrategy(defaultStrategy);
-            }
-            
-            // 3. 选择算法引擎
-            RouteResult result = selectAndExecuteAlgorithm(request);
-            
-            // 4. 记录执行结果
-            logExecutionResult(result, System.currentTimeMillis() - startTime);
-            
-            return result;
-            
-        } catch (IllegalArgumentException e) {
-            log.warn("路径规划参数错误: {}", e.getMessage());
-            return RouteResult.error("validation", e.getMessage());
-        } catch (Exception e) {
-            log.error("路径规划失败", e);
-            return RouteResult.error("system", "系统错误: " + e.getMessage());
-        }
+    private static final int MAX_WAYPOINTS = 30;
+
+    /**
+     * 规划路径（使用Dijkstra算法）
+     * 
+     * @param request 路径规划请求
+     * @return 路径规划结果
+     */
+    public RouteResult planRoute(RouteRequest request) {
+        log.info("开始路径规划，起点={}, 途经点数量={}, 有终点={}", 
+                request.getStart(), 
+                request.getWaypoints().size(),
+                request.getEnd() != null);
+
+        // 1. 校验途经点数量
+        validateWaypointCount(request.getWaypoints().size());
+
+        // 2. 调用Dijkstra算法
+        RouteResult result = dijkstraAlgorithm.calculateRoute(request);
+
+        log.info("路径规划完成，总距离={}米，预估时间={}分钟", 
+                result.getTotalDistance(), result.getEstimatedDuration());
+
+        return result;
     }
 
     /**
-     * 验证请求参数
+     * 校验途经点数量
      */
-    private void validateRequest(RouteRequest request) {
-        if (request == null) {
-            throw new IllegalArgumentException("路径规划请求不能为空");
+    private void validateWaypointCount(int count) {
+        if (count == 0) {
+            throw new IllegalArgumentException("途经点列表不能为空");
         }
-        
-        if (request.getOrigin() == null) {
-            throw new IllegalArgumentException("起点坐标不能为空");
-        }
-        
-        if (request.getWaypoints() == null || request.getWaypoints().isEmpty()) {
-            throw new IllegalArgumentException("配送点列表不能为空");
-        }
-        
-        if (request.isExceedMaxWaypoints(maxWaypoints)) {
+        if (count > MAX_WAYPOINTS) {
             throw new IllegalArgumentException(
-                String.format("配送点数量(%d)超过最大限制(%d)", request.getWaypointCount(), maxWaypoints));
-        }
-        
-        // 验证坐标完整性
-        request.validate(maxWaypoints);
-    }
-
-    /**
-     * 选择并执行算法引擎
-     */
-    private RouteResult selectAndExecuteAlgorithm(RouteRequest request) {
-        // 强制使用Dijkstra算法
-        if (Boolean.FALSE.equals(request.getForceGaodeApi()) && enableDijkstraFallback) {
-            log.info("强制使用Dijkstra算法进行路径规划");
-            return dijkstraRouteService.calculateOptimalRoute(request);
-        }
-        
-        // 优先尝试高德API
-        if (gaodeRouteService.isApiAvailable()) {
-            log.info("使用高德地图API进行路径规划");
-            RouteResult gaodeResult = gaodeRouteService.calculateOptimalRoute(request);
-            
-            if (gaodeResult.getSuccess()) {
-                return gaodeResult;
-            } else {
-                log.warn("高德API路径规划失败: {}", gaodeResult.getMessage());
-            }
-        } else {
-            log.warn("高德地图API不可用，可能是API Key未配置或网络问题");
-        }
-        
-        // 降级到Dijkstra算法
-        if (enableDijkstraFallback && Boolean.TRUE.equals(request.getEnableDijkstraFallback())) {
-            log.info("降级使用Dijkstra算法进行路径规划");
-            return dijkstraRouteService.calculateOptimalRoute(request);
-        }
-        
-        // 所有引擎都不可用
-        return RouteResult.error("unavailable", "所有路径规划引擎都不可用");
-    }
-
-    /**
-     * 记录执行结果
-     */
-    private void logExecutionResult(RouteResult result, long totalTime) {
-        if (result.getSuccess()) {
-            log.info("路径规划成功 - 算法: {}, 总距离: {}米, 预估时间: {}分钟, 总耗时: {}ms",
-                    result.getAlgorithmUsed(),
-                    result.getTotalDistance(),
-                    result.getEstimatedDuration(),
-                    totalTime);
-        } else {
-            log.error("路径规划失败 - 算法: {}, 错误: {}, 总耗时: {}ms",
-                    result.getAlgorithmUsed(),
-                    result.getMessage(),
-                    totalTime);
+                    String.format("途经点数量不能超过%d个，当前%d个，建议分批发货", 
+                            MAX_WAYPOINTS, count)
+            );
         }
     }
 
     /**
-     * 获取算法引擎状态
-     */
-    public AlgorithmStatus getAlgorithmStatus() {
-        AlgorithmStatus status = new AlgorithmStatus();
-        status.setGaodeApiAvailable(gaodeRouteService.isApiAvailable());
-        status.setDijkstraEnabled(enableDijkstraFallback);
-        status.setMaxWaypoints(maxWaypoints);
-        status.setDefaultStrategy(defaultStrategy);
-        return status;
-    }
-
-    /**
-     * 算法状态信息
-     */
-    public static class AlgorithmStatus {
-        private Boolean gaodeApiAvailable;
-        private Boolean dijkstraEnabled;
-        private Integer maxWaypoints;
-        private String defaultStrategy;
-
-        // Getters and Setters
-        public Boolean getGaodeApiAvailable() {
-            return gaodeApiAvailable;
-        }
-
-        public void setGaodeApiAvailable(Boolean gaodeApiAvailable) {
-            this.gaodeApiAvailable = gaodeApiAvailable;
-        }
-
-        public Boolean getDijkstraEnabled() {
-            return dijkstraEnabled;
-        }
-
-        public void setDijkstraEnabled(Boolean dijkstraEnabled) {
-            this.dijkstraEnabled = dijkstraEnabled;
-        }
-
-        public Integer getMaxWaypoints() {
-            return maxWaypoints;
-        }
-
-        public void setMaxWaypoints(Integer maxWaypoints) {
-            this.maxWaypoints = maxWaypoints;
-        }
-
-        public String getDefaultStrategy() {
-            return defaultStrategy;
-        }
-
-        public void setDefaultStrategy(String defaultStrategy) {
-            this.defaultStrategy = defaultStrategy;
-        }
-    }
-
-    /**
-     * 测试路径规划算法
+     * 根据路径结果生成地图展示数据
      * 
-     * <p>用于验证算法可用性和性能
+     * @param result 路径结果
+     * @param waypoints 途经点信息列表
+     * @return 地图展示数据（JSON字符串）
      */
-    public RouteResult testAlgorithm(String algorithm) {
-        // 构建测试请求
-        RouteRequest testRequest = new RouteRequest();
-        testRequest.setDispatchGroup("TEST_GROUP");
-        testRequest.setLeaderId(1L);
+    public String generateMapDisplayData(RouteResult result, List<WaypointInfo> waypoints) {
+        // 构建地图展示数据（JSON格式）
+        StringBuilder json = new StringBuilder();
+        json.append("{");
         
-        // 测试坐标（北京市中心区域）
-        testRequest.setOrigin(new com.bcu.edu.dto.GeoPoint(
-                new java.math.BigDecimal("39.916527"), 
-                new java.math.BigDecimal("116.397128"))); // 天安门
+        // 路径序列
+        json.append("\"pathSequence\":").append(result.getPathSequence()).append(",");
         
-        java.util.List<com.bcu.edu.dto.GeoPoint> waypoints = new java.util.ArrayList<>();
-        waypoints.add(new com.bcu.edu.dto.GeoPoint(
-                new java.math.BigDecimal("39.925963"), 
-                new java.math.BigDecimal("116.404"))); // 故宫
-        waypoints.add(new com.bcu.edu.dto.GeoPoint(
-                new java.math.BigDecimal("39.913818"), 
-                new java.math.BigDecimal("116.363618"))); // 西单
+        // 总距离
+        json.append("\"totalDistance\":").append(result.getTotalDistance()).append(",");
         
-        testRequest.setWaypoints(waypoints);
-        testRequest.setRouteStrategy("shortest-time");
+        // 预估时间
+        json.append("\"estimatedDuration\":").append(result.getEstimatedDuration()).append(",");
         
-        // 根据指定算法执行测试
-        switch (algorithm.toLowerCase()) {
-            case "gaode":
-                testRequest.setForceGaodeApi(true);
-                testRequest.setEnableDijkstraFallback(false);
-                break;
-            case "dijkstra":
-                testRequest.setForceGaodeApi(false);
-                testRequest.setEnableDijkstraFallback(true);
-                break;
-            default:
-                testRequest.setForceGaodeApi(null);
-                testRequest.setEnableDijkstraFallback(true);
+        // 途经点标记
+        json.append("\"waypoints\":[");
+        for (int i = 0; i < waypoints.size(); i++) {
+            WaypointInfo wp = waypoints.get(i);
+            if (i > 0) json.append(",");
+            json.append("{")
+                    .append("\"sequence\":").append(wp.getSequence()).append(",")
+                    .append("\"orderId\":").append(wp.getOrderId()).append(",")
+                    .append("\"address\":\"").append(wp.getAddress()).append("\",")
+                    .append("\"longitude\":").append(wp.getLongitude()).append(",")
+                    .append("\"latitude\":").append(wp.getLatitude())
+                    .append("}");
         }
-        
-        return planOptimalRoute(testRequest);
+        json.append("]}");
+
+        return json.toString();
+    }
+
+    /**
+     * 提取途经点坐标列表
+     * 
+     * @param waypoints 途经点信息列表
+     * @return 坐标列表
+     */
+    public List<RouteRequest.Coordinate> extractCoordinates(List<WaypointInfo> waypoints) {
+        return waypoints.stream()
+                .map(wp -> new RouteRequest.Coordinate(
+                        wp.getLongitude(),
+                        wp.getLatitude(),
+                        wp.getOrderId(),
+                        wp.getAddress()
+                ))
+                .toList();
     }
 }
+

@@ -1,195 +1,133 @@
 package com.bcu.edu.controller;
 
+import com.bcu.edu.common.annotation.OperationLog;
+import com.bcu.edu.common.result.PageResult;
 import com.bcu.edu.common.result.Result;
-import com.bcu.edu.dto.CreateDeliveryRequest;
-import com.bcu.edu.entity.Delivery;
-import com.bcu.edu.enums.DeliveryStatus;
+import com.bcu.edu.dto.BatchShipRequest;
+import com.bcu.edu.dto.BatchShipResponse;
+import com.bcu.edu.dto.DeliveryDetailDTO;
+import com.bcu.edu.dto.RouteResult;
+import com.bcu.edu.entity.DeliveryEntity;
+import com.bcu.edu.service.BatchShipService;
 import com.bcu.edu.service.DeliveryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-import java.time.LocalDateTime;
-import java.util.List;
-
 /**
- * 配送单管理控制器
+ * 配送管理Controller
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @Slf4j
 @RestController
 @RequestMapping("/api/delivery")
-@Tag(name = "配送单管理", description = "配送单创建、查询、状态更新等操作")
-@Validated
+@RequiredArgsConstructor
+@Tag(name = "配送管理", description = "配送单管理、批量发货、路径规划")
 public class DeliveryController {
 
-    @Autowired
-    private DeliveryService deliveryService;
+    private final DeliveryService deliveryService;
+    private final BatchShipService batchShipService;
 
     /**
-     * 创建配送单
+     * 批量发货（核心接口）⭐⭐⭐⭐⭐
      */
-    @PostMapping
-    @Operation(summary = "创建配送单", description = "根据分单组创建配送单并生成配送路径")
-    public Result<Delivery> createDelivery(@Valid @RequestBody CreateDeliveryRequest request) {
-        log.info("创建配送单请求: {}", request.getDispatchGroup());
+    @PostMapping("/batch/ship")
+    @OperationLog(value = "批量发货", module = "配送管理")
+    @Operation(summary = "批量发货", description = "管理员批量发货，生成配送单并更新订单状态")
+    public Result<BatchShipResponse> batchShip(@Valid @RequestBody BatchShipRequest request) {
+        log.info("接收批量发货请求，订单数量={}", request.getOrderIds().size());
         
-        Delivery delivery = deliveryService.createDelivery(request);
-        return Result.success("配送单创建成功", delivery);
+        BatchShipResponse response = batchShipService.batchShip(request);
+        
+        return Result.success("批量发货成功", response);
     }
 
     /**
-     * 根据ID查询配送单
+     * 查询配送单列表（分页）
      */
-    @GetMapping("/{deliveryId}")
-    @Operation(summary = "查询配送单详情", description = "根据配送单ID查询详细信息")
-    public Result<Delivery> getDelivery(
-            @Parameter(description = "配送单ID", required = true)
-            @PathVariable @NotNull Long deliveryId) {
+    @GetMapping("/list")
+    @Operation(summary = "查询配送单列表", description = "分页查询配送单，支持按状态筛选")
+    public Result<PageResult<DeliveryEntity>> listDeliveries(
+            @Parameter(description = "配送状态（0-待分配；1-配送中；2-已完成）")
+            @RequestParam(required = false) Integer status,
+            @Parameter(description = "页码（从0开始）")
+            @RequestParam(defaultValue = "0") Integer page,
+            @Parameter(description = "每页大小")
+            @RequestParam(defaultValue = "10") Integer size) {
         
-        Delivery delivery = deliveryService.getDeliveryById(deliveryId);
-        return Result.success(delivery);
+        Pageable pageable = PageRequest.of(page, size);
+        Page<DeliveryEntity> deliveryPage = deliveryService.listDeliveries(status, pageable);
+
+        PageResult<DeliveryEntity> pageResult = new PageResult<>(
+                deliveryPage.getTotalElements(),
+                deliveryPage.getContent()
+        );
+
+        return Result.success(pageResult);
     }
 
     /**
-     * 根据分单组查询配送单
+     * 查询配送单详情
      */
-    @GetMapping("/dispatch-group/{dispatchGroup}")
-    @Operation(summary = "根据分单组查询配送单", description = "根据分单组标识查询对应的配送单")
-    public Result<Delivery> getDeliveryByDispatchGroup(
-            @Parameter(description = "分单组标识", required = true)
-            @PathVariable String dispatchGroup) {
+    @GetMapping("/{id}")
+    @Operation(summary = "查询配送单详情", description = "查询配送单完整信息，包含订单列表和路径信息")
+    public Result<DeliveryDetailDTO> getDeliveryDetail(
+            @Parameter(description = "配送单ID") @PathVariable Long id) {
         
-        Delivery delivery = deliveryService.getDeliveryByDispatchGroup(dispatchGroup);
-        return Result.success(delivery);
+        DeliveryDetailDTO detail = deliveryService.getDeliveryDetail(id);
+        
+        return Result.success(detail);
     }
 
     /**
-     * 查询团长的配送单列表
+     * 重新规划路径
      */
-    @GetMapping("/leader/{leaderId}")
-    @Operation(summary = "查询团长配送单", description = "查询指定团长的所有配送单")
-    public Result<List<Delivery>> getDeliveriesByLeader(
-            @Parameter(description = "团长ID", required = true)
-            @PathVariable @NotNull Long leaderId) {
+    @PostMapping("/{id}/replan")
+    @OperationLog(value = "重新规划路径", module = "配送管理")
+    @Operation(summary = "重新规划路径", description = "重新计算配送路径，更新配送单")
+    public Result<RouteResult> replanRoute(
+            @Parameter(description = "配送单ID") @PathVariable Long id) {
         
-        List<Delivery> deliveries = deliveryService.getDeliveriesByLeaderId(leaderId);
-        return Result.success(deliveries);
+        RouteResult result = deliveryService.replanRoute(id);
+        
+        return Result.success("路径重新规划成功", result);
     }
 
     /**
-     * 查询团长指定状态的配送单
+     * 手动完成配送
      */
-    @GetMapping("/leader/{leaderId}/status/{status}")
-    @Operation(summary = "查询团长指定状态的配送单", description = "查询团长指定状态的配送单列表")
-    public Result<List<Delivery>> getDeliveriesByLeaderAndStatus(
-            @Parameter(description = "团长ID", required = true)
-            @PathVariable @NotNull Long leaderId,
-            @Parameter(description = "配送状态", required = true)
-            @PathVariable Integer status) {
+    @PostMapping("/{id}/complete")
+    @OperationLog(value = "完成配送", module = "配送管理")
+    @Operation(summary = "完成配送", description = "手动标记配送完成，更新订单状态为已送达")
+    public Result<Void> completeDelivery(
+            @Parameter(description = "配送单ID") @PathVariable Long id) {
         
-        DeliveryStatus deliveryStatus = DeliveryStatus.fromCode(status);
-        List<Delivery> deliveries = deliveryService.getDeliveriesByLeaderAndStatus(leaderId, deliveryStatus);
-        return Result.success(deliveries);
+        deliveryService.completeDelivery(id);
+        
+        return Result.success("配送完成");
     }
 
     /**
-     * 更新配送状态
+     * 取消配送
      */
-    @PutMapping("/{deliveryId}/status")
-    @Operation(summary = "更新配送状态", description = "更新配送单的状态（待分配→配送中→已完成）")
-    public Result<Delivery> updateDeliveryStatus(
-            @Parameter(description = "配送单ID", required = true)
-            @PathVariable @NotNull Long deliveryId,
-            @Parameter(description = "新状态（0-待分配；1-配送中；2-已完成）", required = true)
-            @RequestParam @NotNull Integer status) {
+    @PostMapping("/{id}/cancel")
+    @OperationLog(value = "取消配送", module = "配送管理")
+    @Operation(summary = "取消配送", description = "取消配送单，删除配送记录")
+    public Result<Void> cancelDelivery(
+            @Parameter(description = "配送单ID") @PathVariable Long id) {
         
-        DeliveryStatus newStatus = DeliveryStatus.fromCode(status);
-        Delivery delivery = deliveryService.updateDeliveryStatus(deliveryId, newStatus);
-        return Result.success("配送状态更新成功", delivery);
-    }
-
-    /**
-     * 开始配送
-     */
-    @PutMapping("/{deliveryId}/start")
-    @Operation(summary = "开始配送", description = "将配送状态从待分配更新为配送中")
-    public Result<Delivery> startDelivery(
-            @Parameter(description = "配送单ID", required = true)
-            @PathVariable @NotNull Long deliveryId) {
+        deliveryService.cancelDelivery(id);
         
-        Delivery delivery = deliveryService.startDelivery(deliveryId);
-        return Result.success("配送已开始", delivery);
-    }
-
-    /**
-     * 完成配送
-     */
-    @PutMapping("/{deliveryId}/complete")
-    @Operation(summary = "完成配送", description = "将配送状态从配送中更新为已完成")
-    public Result<Delivery> completeDelivery(
-            @Parameter(description = "配送单ID", required = true)
-            @PathVariable @NotNull Long deliveryId) {
-        
-        Delivery delivery = deliveryService.completeDelivery(deliveryId);
-        return Result.success("配送已完成", delivery);
-    }
-
-    /**
-     * 重新生成配送路径
-     */
-    @PutMapping("/{deliveryId}/regenerate-route")
-    @Operation(summary = "重新生成配送路径", description = "重新计算配送路径（仅限待分配状态）")
-    public Result<Delivery> regenerateRoute(
-            @Parameter(description = "配送单ID", required = true)
-            @PathVariable @NotNull Long deliveryId,
-            @Parameter(description = "路径策略", required = true)
-            @RequestParam String routeStrategy) {
-        
-        Delivery delivery = deliveryService.regenerateRoute(deliveryId, routeStrategy);
-        return Result.success("配送路径重新生成成功", delivery);
-    }
-
-    /**
-     * 删除配送单
-     */
-    @DeleteMapping("/{deliveryId}")
-    @Operation(summary = "删除配送单", description = "删除配送单（仅限待分配状态）")
-    public Result<Void> deleteDelivery(
-            @Parameter(description = "配送单ID", required = true)
-            @PathVariable @NotNull Long deliveryId) {
-        
-        deliveryService.deleteDelivery(deliveryId);
-        return Result.success("配送单删除成功");
-    }
-
-    /**
-     * 获取配送统计信息
-     */
-    @GetMapping("/statistics")
-    @Operation(summary = "获取配送统计信息", description = "获取指定时间范围内的配送统计数据")
-    public Result<DeliveryService.DeliveryStatistics> getDeliveryStatistics(
-            @Parameter(description = "团长ID（可选，不传则统计所有团长）")
-            @RequestParam(required = false) Long leaderId,
-            @Parameter(description = "开始日期", required = true)
-            @RequestParam String startDate,
-            @Parameter(description = "结束日期", required = true)
-            @RequestParam String endDate) {
-        
-        LocalDateTime startDateTime = LocalDateTime.parse(startDate + "T00:00:00");
-        LocalDateTime endDateTime = LocalDateTime.parse(endDate + "T23:59:59");
-        
-        DeliveryService.DeliveryStatistics statistics = 
-                deliveryService.getDeliveryStatistics(leaderId, startDateTime, endDateTime);
-        
-        return Result.success(statistics);
+        return Result.success("配送已取消");
     }
 }
+

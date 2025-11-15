@@ -1,74 +1,66 @@
 package com.bcu.edu.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 /**
- * 订单信息DTO
+ * 订单信息DTO（OrderService返回）
  * 
  * @author 耿康瑞
- * @since 2025-11-13
+ * @since 2025-11-15
  */
 @Data
 public class OrderInfoDTO {
 
+    /**
+     * 订单ID
+     */
     private Long orderId;
 
+    /**
+     * 订单编号
+     */
     private String orderSn;
 
+    /**
+     * 用户ID
+     */
     private Long userId;
 
+    /**
+     * 团长ID
+     */
     private Long leaderId;
 
-    private BigDecimal totalAmount;
-
-    private BigDecimal paymentAmount;
-
-    private Integer orderStatus;
-
-    private Integer payStatus;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime payTime;
-
+    /**
+     * 收货地址ID
+     */
     private Long receiveAddressId;
 
+    /**
+     * 订单状态
+     */
+    private Integer orderStatus;
+
+    /**
+     * 支付状态
+     */
+    private Integer payStatus;
+
+    /**
+     * 实付金额
+     */
+    private BigDecimal payAmount;
+
+    /**
+     * 分单组标识
+     */
     private String dispatchGroup;
 
+    /**
+     * 配送单ID
+     */
     private Long deliveryId;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime updateTime;
-
-    // 冗余字段（用于配送）
-    private String receiverName;
-    private String receiverPhone;
-    private String deliveryAddress;
-    
-    /**
-     * 是否待发货
-     */
-    public boolean isPendingShipment() {
-        return orderStatus != null && orderStatus == 2; // 假设2为待发货状态
-    }
-
-    /**
-     * 是否已支付
-     */
-    public boolean isPaid() {
-        return payStatus != null && payStatus == 1; // 假设1为已支付状态
-    }
-
-    /**
-     * 是否可以发货
-     */
-    public boolean canShip() {
-        return isPaid() && isPendingShipment();
-    }
 }
+

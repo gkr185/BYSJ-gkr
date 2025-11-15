@@ -165,5 +165,34 @@ public class AddressService {
 
         return AddressResponse.fromEntity(address);
     }
+
+    /**
+     * 批量获取地址信息（⭐新增方法 - 供DeliveryService调用）
+     * 
+     * @param addressIds 地址ID列表
+     * @return 地址DTO列表
+     */
+    public List<AddressDTO> batchGetAddresses(List<Long> addressIds) {
+        log.info("批量获取地址信息: addressIds={}", addressIds);
+        
+        List<UserAddress> addresses = addressRepository.findAllById(addressIds);
+        
+        return addresses.stream()
+                .map(address -> {
+                    AddressDTO dto = new AddressDTO();
+                    dto.setAddressId(address.getAddressId());
+                    dto.setUserId(address.getUserId());
+                    dto.setReceiver(address.getReceiver());
+                    dto.setPhone(address.getPhone());
+                    dto.setProvince(address.getProvince());
+                    dto.setCity(address.getCity());
+                    dto.setDistrict(address.getDistrict());
+                    dto.setDetail(address.getDetail());
+                    dto.setLongitude(address.getLongitude());
+                    dto.setLatitude(address.getLatitude());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
 }
 

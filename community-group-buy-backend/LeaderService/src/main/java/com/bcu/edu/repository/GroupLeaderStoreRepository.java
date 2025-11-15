@@ -61,5 +61,10 @@ public interface GroupLeaderStoreRepository extends JpaRepository<GroupLeaderSto
      * 根据社区ID和状态查询团点
      */
     List<GroupLeaderStore> findByCommunityIdAndStatus(Long communityId, Integer status);
+
+    /**
+     * 批量查询团长团点（⭐新增方法 - 供DeliveryService调用）
+     */
+    List<GroupLeaderStore> findByLeaderIdIn(List<Long> leaderIds);
 }
 

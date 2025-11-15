@@ -242,5 +242,24 @@ public class FeignController {
         accountService.addBalanceForCommission(userId, amount, remark);
         return Result.success("余额增加成功");
     }
+
+    /**
+     * 批量获取地址信息（⭐新增接口 - 供DeliveryService调用）
+     * ⭐ DeliveryService 调用此接口批量获取用户收货地址坐标
+     */
+    @PostMapping("/feign/address/batch")
+    @Operation(summary = "批量获取地址信息", description = "供DeliveryService调用，批量获取地址坐标")
+    public Result<List<AddressDTO>> batchGetAddresses(@RequestBody List<Long> addressIds) {
+        log.info("[Feign] DeliveryService 调用批量获取地址：addressIds={}", addressIds);
+        
+        try {
+            List<AddressDTO> addresses = addressService.batchGetAddresses(addressIds);
+            log.info("批量获取地址成功: 共{}个地址", addresses.size());
+            return Result.success(addresses);
+        } catch (Exception e) {
+            log.error("批量获取地址失败", e);
+            return Result.error("批量获取地址失败: " + e.getMessage());
+        }
+    }
 }
 
