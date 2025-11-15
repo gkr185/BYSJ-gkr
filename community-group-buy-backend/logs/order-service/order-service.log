@@ -6282,3 +6282,13 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer fou
 [2025-11-15 11:35:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T11:05:00.010547200
 [2025-11-15 11:35:00.134] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
 [2025-11-15 11:35:00.134] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 11:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-15 11:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-15 11:40:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T11:10:00.006441800
+[2025-11-15 11:40:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-15 11:40:00.010] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 11:45:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-15 11:45:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-15 11:45:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T11:15:00.001661300
+[2025-11-15 11:45:00.005] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-15 11:45:00.005] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束

@@ -6,11 +6,13 @@ import com.bcu.edu.entity.Community;
 import com.bcu.edu.entity.GroupLeaderStore;
 import com.bcu.edu.repository.CommunityRepository;
 import com.bcu.edu.repository.GroupLeaderStoreRepository;
+import com.bcu.edu.service.CommunityService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +34,7 @@ public class LeaderApplicationService {
 
     private final GroupLeaderStoreRepository leaderStoreRepository;
     private final CommunityRepository communityRepository;
+    private final CommunityService communityService;
     private final UserServiceClient userServiceClient;
 
     /**
@@ -300,6 +303,52 @@ public class LeaderApplicationService {
         
         log.info("批量获取成功: 共{}个团点", stores.size());
         return stores;
+    }
+
+    /**
+     * 根据用户地址自动匹配最近的可用团长（⭐新增方法 - 供OrderService调用）
+     * 
+     * <p>业务逻辑：
+     * <ol>
+     *   <li>根据用户地址坐标匹配最近的社区</li>
+     *   <li>查询该社区的所有团长</li>
+     *   <li>过滤出正常运营的团长（status=1）</li>
+     *   <li>返回第一个可用团长的ID</li>
+     * </ol>
+     * 
+     * @param latitude 用户地址纬度
+     * @param longitude 用户地址经度
+     * @return 团长ID（如果找不到返回null）
+     */
+    public Long matchNearestActiveLeader(BigDecimal latitude, BigDecimal longitude) {
+        log.info("开始匹配可用团长: latitude={}, longitude={}", latitude, longitude);
+        
+        // 1. 匹配最近的社区
+        Optional<Community> communityOpt = communityService.findNearestCommunity(latitude, longitude);
+        
+        if (communityOpt.isEmpty()) {
+            log.warn("未找到匹配的社区: latitude={}, longitude={}", latitude, longitude);
+            return null;
+        }
+        
+        Community community = communityOpt.get();
+        log.info("匹配到社区: communityId={}, name={}", community.getCommunityId(), community.getName());
+        
+        // 2. 查询该社区的可用团长（status=1正常运营）
+        List<GroupLeaderStore> activeLeaders = leaderStoreRepository.findByCommunityIdAndStatus(
+                community.getCommunityId(), 1);
+        
+        if (activeLeaders.isEmpty()) {
+            log.warn("社区{}暂无可用团长", community.getName());
+            return null;
+        }
+        
+        // 3. 返回第一个可用团长
+        GroupLeaderStore leader = activeLeaders.get(0);
+        log.info("匹配成功: leaderId={}, leaderName={}, storeName={}", 
+                leader.getLeaderId(), leader.getLeaderName(), leader.getStoreName());
+        
+        return leader.getLeaderId();
     }
 }
 
