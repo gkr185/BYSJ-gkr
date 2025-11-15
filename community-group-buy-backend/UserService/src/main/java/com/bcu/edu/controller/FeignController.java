@@ -249,8 +249,9 @@ public class FeignController {
     /**
      * 批量获取地址信息（⭐新增接口 - 供DeliveryService调用）
      * ⭐ DeliveryService 调用此接口批量获取用户收货地址坐标
+     * 路径：/api/user/feign/address/batch
      */
-    @PostMapping("/feign/address/batch")
+    @PostMapping("/api/user/feign/address/batch")
     @Operation(summary = "批量获取地址信息", description = "供DeliveryService调用，批量获取地址坐标")
     public Result<List<AddressDTO>> batchGetAddresses(@RequestBody List<Long> addressIds) {
         log.info("[Feign] DeliveryService 调用批量获取地址：addressIds={}", addressIds);

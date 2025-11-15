@@ -64,6 +64,12 @@ public class AddressDTO {
     private BigDecimal latitude;
 
     /**
+     * 是否默认地址（0-否，1-是）
+     * ⭐ UserService返回数据中包含此字段，必须添加以避免反序列化错误
+     */
+    private Integer isDefault;
+
+    /**
      * 完整地址（拼接）
      */
     public String getFullAddress() {

@@ -1884,3 +1884,403 @@ feign.FeignException$InternalServerError: [500] during [POST] to [http://user-se
 [2025-11-15 13:22:07.203] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [2025-11-15 13:22:07.210] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
 [2025-11-15 13:22:07.215] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.
+[2025-11-15 15:35:29.056] [INFO ] [delivery-service] [main] [com.bcu.edu.DeliveryServiceApplication:?] - Starting DeliveryServiceApplication using Java 17.0.6 with PID 38272 (E:\E\BYSJ\community-group-buy-backend\DeliveryService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-11-15 15:35:29.058] [INFO ] [delivery-service] [main] [com.bcu.edu.DeliveryServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-11-15 15:35:29.740] [INFO ] [delivery-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-11-15 15:35:29.867] [INFO ] [delivery-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 120 ms. Found 2 JPA repository interfaces.
+[2025-11-15 15:35:30.429] [WARN ] [delivery-service] [main] [org.mybatis.spring.mapper.ClassPathMapperScanner:?] - No MyBatis mapper was found in '[com.bcu.edu]' package. Please check your configuration.
+[2025-11-15 15:35:30.522] [INFO ] [delivery-service] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=0f6c6e61-cc76-3c2d-8f71-0fc4da40426d
+[2025-11-15 15:35:30.790] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-15 15:35:30.793] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.794] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.802] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.804] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.805] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$802/0x000000080117e590] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.808] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.813] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.820] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.821] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.822] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.828] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.835] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.838] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.839] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.841] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.843] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.845] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-15 15:35:30.846] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:30.847] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 15:35:31.095] [INFO ] [delivery-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8067 (http)
+[2025-11-15 15:35:31.185] [INFO ] [delivery-service] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2077 ms
+[2025-11-15 15:35:31.441] [INFO ] [delivery-service] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-11-15 15:35:31.501] [INFO ] [delivery-service] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-11-15 15:35:31.535] [INFO ] [delivery-service] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-11-15 15:35:31.762] [INFO ] [delivery-service] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-11-15 15:35:31.794] [INFO ] [delivery-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Starting...
+[2025-11-15 15:35:31.957] [INFO ] [delivery-service] [main] [com.zaxxer.hikari.pool.HikariPool:?] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2569afda
+[2025-11-15 15:35:31.960] [INFO ] [delivery-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Start completed.
+[2025-11-15 15:35:32.006] [WARN ] [delivery-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-11-15 15:35:32.007] [WARN ] [delivery-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-11-15 15:35:32.881] [INFO ] [delivery-service] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-11-15 15:35:32.919] [INFO ] [delivery-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 15:35:33.210] [INFO ] [delivery-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - JSqlParser is in classpath; If applicable, JSqlParser will be used
+[2025-11-15 15:35:33.210] [INFO ] [delivery-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-11-15 15:35:33.758] [WARN ] [delivery-service] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-11-15 15:35:34.415] [INFO ] [delivery-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'order-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-15 15:35:34.487] [INFO ] [delivery-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-15 15:35:34.500] [INFO ] [delivery-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'leader-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-15 15:35:36.256] [WARN ] [delivery-service] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-11-15 15:35:36.271] [INFO ] [delivery-service] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 2 endpoint(s) beneath base path '/actuator'
+[2025-11-15 15:35:36.357] [INFO ] [delivery-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8067 (http) with context path ''
+[2025-11-15 15:35:36.358] [INFO ] [delivery-service] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='delivery-service-192-168-245-1-8067', name='delivery-service', tags=[], address='192.168.245.1', meta={secure=false}, port=8067, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://192.168.245.1:8067/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-11-15 15:35:37.071] [INFO ] [delivery-service] [main] [com.bcu.edu.DeliveryServiceApplication:?] - Started DeliveryServiceApplication in 9.03 seconds (process running for 9.773)
+[2025-11-15 15:35:37.385] [INFO ] [delivery-service] [RMI TCP Connection(3)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-11-15 15:35:37.387] [INFO ] [delivery-service] [RMI TCP Connection(3)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 2 ms
+[2025-11-15 15:36:09.032] [INFO ] [delivery-service] [http-nio-8067-exec-6] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=2, 已完成=1, 总距离=12962.10米
+[2025-11-15 16:09:38.587] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.controller.DeliveryController:?] - 接收批量发货请求，订单数量=5
+[2025-11-15 16:09:38.588] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.service.BatchShipService:?] - 开始批量发货，订单数量=5, 发货方式=2, 仓库ID=1
+[2025-11-15 16:09:38.632] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.service.BatchShipService:?] - 订单验证通过，待发货订单数量=5
+[2025-11-15 16:09:38.637] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.service.BatchShipService:?] - 开始提取途经点，发货方式=2
+[2025-11-15 16:09:38.637] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.service.BatchShipService:?] - 用户地址模式，去重后地址数量=3
+[2025-11-15 16:09:38.705] [WARN ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=批量发货, user=1
+[2025-11-15 16:09:38.708] [ERROR] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+feign.FeignException$InternalServerError: [500] during [POST] to [http://user-service/api/user/feign/address/batch] [UserServiceClient#batchGetAddresses(List)]: [{"code":500,"message":"服务器内部错误","timestamp":"2025-11-15T16:09:38.6596254","success":false}]
+	at feign.FeignException.serverErrorStatus(FeignException.java:259)
+	at feign.FeignException.errorStatus(FeignException.java:206)
+	at feign.FeignException.errorStatus(FeignException.java:194)
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103)
+	at feign.InvocationContext.decodeError(InvocationContext.java:126)
+	at feign.InvocationContext.proceed(InvocationContext.java:72)
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63)
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114)
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70)
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99)
+	at jdk.proxy2/jdk.proxy2.$Proxy193.batchGetAddresses(Unknown Source)
+	at com.bcu.edu.service.BatchShipService.extractUserAddressWaypoints(BatchShipService.java:262)
+	at com.bcu.edu.service.BatchShipService.extractWaypoints(BatchShipService.java:189)
+	at com.bcu.edu.service.BatchShipService.batchShip(BatchShipService.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.BatchShipService$$SpringCGLIB$$0.batchShip(<generated>)
+	at com.bcu.edu.controller.DeliveryController.batchShip(DeliveryController.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.bcu.edu.common.aspect.OperationLogAspect.around(OperationLogAspect.java:57)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.bcu.edu.common.aspect.OperationLogAspect$$SpringCGLIB$$0.around(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:173)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.controller.DeliveryController$$SpringCGLIB$$0.batchShip(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-15 16:18:30.201] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.controller.DeliveryController:?] - 接收批量发货请求，订单数量=5
+[2025-11-15 16:18:30.201] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 开始批量发货，订单数量=5, 发货方式=2, 仓库ID=1
+[2025-11-15 16:18:30.224] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 订单验证通过，待发货订单数量=5
+[2025-11-15 16:18:30.227] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 开始提取途经点，发货方式=2
+[2025-11-15 16:18:30.227] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 用户地址模式，去重后地址数量=3
+[2025-11-15 16:18:30.489] [WARN ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=批量发货, user=1
+[2025-11-15 16:18:30.490] [ERROR] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+feign.codec.DecodeException: Error while extracting response for type [com.bcu.edu.common.result.Result<java.util.List<com.bcu.edu.dto.AddressDTO>>] and content type [application/json]
+	at feign.InvocationContext.decode(InvocationContext.java:118)
+	at feign.InvocationContext.proceed(InvocationContext.java:88)
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63)
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114)
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70)
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99)
+	at jdk.proxy2/jdk.proxy2.$Proxy193.batchGetAddresses(Unknown Source)
+	at com.bcu.edu.service.BatchShipService.extractUserAddressWaypoints(BatchShipService.java:262)
+	at com.bcu.edu.service.BatchShipService.extractWaypoints(BatchShipService.java:189)
+	at com.bcu.edu.service.BatchShipService.batchShip(BatchShipService.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.BatchShipService$$SpringCGLIB$$0.batchShip(<generated>)
+	at com.bcu.edu.controller.DeliveryController.batchShip(DeliveryController.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.bcu.edu.common.aspect.OperationLogAspect.around(OperationLogAspect.java:57)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.bcu.edu.common.aspect.OperationLogAspect$$SpringCGLIB$$0.around(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:173)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.controller.DeliveryController$$SpringCGLIB$$0.batchShip(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.springframework.web.client.RestClientException: Error while extracting response for type [com.bcu.edu.common.result.Result<java.util.List<com.bcu.edu.dto.AddressDTO>>] and content type [application/json]
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:118)
+	at org.springframework.cloud.openfeign.support.SpringDecoder.decode(SpringDecoder.java:70)
+	at org.springframework.cloud.openfeign.support.ResponseEntityDecoder.decode(ResponseEntityDecoder.java:61)
+	at feign.optionals.OptionalDecoder.decode(OptionalDecoder.java:36)
+	at feign.InvocationContext.decode(InvocationContext.java:114)
+	... 110 common frames omitted
+Caused by: org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized field "isDefault" (class com.bcu.edu.dto.AddressDTO), not marked as ignorable
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:406)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:354)
+	at org.springframework.web.client.HttpMessageConverterExtractor.extractData(HttpMessageConverterExtractor.java:103)
+	... 114 common frames omitted
+Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "isDefault" (class com.bcu.edu.dto.AddressDTO), not marked as ignorable (10 known properties: "province", "detail", "userId", "city", "latitude", "phone", "addressId", "receiver", "district", "longitude"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 309] (through reference chain: com.bcu.edu.common.result.Result["data"]->java.util.ArrayList[0]->com.bcu.edu.dto.AddressDTO["isDefault"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1138)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2224)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1719)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1697)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:320)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer._deserializeFromArray(CollectionDeserializer.java:359)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:244)
+	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.deserialize(CollectionDeserializer.java:28)
+	at com.fasterxml.jackson.databind.deser.impl.MethodProperty.deserializeAndSet(MethodProperty.java:129)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:314)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:323)
+	at com.fasterxml.jackson.databind.ObjectReader._bindAndClose(ObjectReader.java:2105)
+	at com.fasterxml.jackson.databind.ObjectReader.readValue(ObjectReader.java:1481)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:395)
+	... 116 common frames omitted
+[2025-11-15 16:19:42.059] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: delivery-service-192-168-245-1-8067
+[2025-11-15 16:19:42.067] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 16:19:42.068] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-15 16:19:42.070] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.
+[2025-11-15 16:19:47.589] [INFO ] [delivery-service] [main] [com.bcu.edu.DeliveryServiceApplication:?] - Starting DeliveryServiceApplication using Java 17.0.6 with PID 33224 (E:\E\BYSJ\community-group-buy-backend\DeliveryService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-11-15 16:19:47.593] [INFO ] [delivery-service] [main] [com.bcu.edu.DeliveryServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-11-15 16:19:48.271] [INFO ] [delivery-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-11-15 16:19:48.402] [INFO ] [delivery-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 125 ms. Found 2 JPA repository interfaces.
+[2025-11-15 16:19:48.950] [WARN ] [delivery-service] [main] [org.mybatis.spring.mapper.ClassPathMapperScanner:?] - No MyBatis mapper was found in '[com.bcu.edu]' package. Please check your configuration.
+[2025-11-15 16:19:49.038] [INFO ] [delivery-service] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=0f6c6e61-cc76-3c2d-8f71-0fc4da40426d
+[2025-11-15 16:19:49.317] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-15 16:19:49.319] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.321] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.329] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.331] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.332] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$802/0x00000008011a4000] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.335] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.340] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.345] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.348] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.349] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.355] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.362] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.363] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.364] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.365] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.366] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.368] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-15 16:19:49.369] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.370] [WARN ] [delivery-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 16:19:49.617] [INFO ] [delivery-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8067 (http)
+[2025-11-15 16:19:49.712] [INFO ] [delivery-service] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2072 ms
+[2025-11-15 16:19:49.992] [INFO ] [delivery-service] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-11-15 16:19:50.052] [INFO ] [delivery-service] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-11-15 16:19:50.087] [INFO ] [delivery-service] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-11-15 16:19:50.313] [INFO ] [delivery-service] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-11-15 16:19:50.343] [INFO ] [delivery-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Starting...
+[2025-11-15 16:19:50.468] [INFO ] [delivery-service] [main] [com.zaxxer.hikari.pool.HikariPool:?] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@140cfc5f
+[2025-11-15 16:19:50.469] [INFO ] [delivery-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Start completed.
+[2025-11-15 16:19:50.509] [WARN ] [delivery-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-11-15 16:19:50.509] [WARN ] [delivery-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-11-15 16:19:51.372] [INFO ] [delivery-service] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-11-15 16:19:51.414] [INFO ] [delivery-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 16:19:51.719] [INFO ] [delivery-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - JSqlParser is in classpath; If applicable, JSqlParser will be used
+[2025-11-15 16:19:51.719] [INFO ] [delivery-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-11-15 16:19:52.256] [WARN ] [delivery-service] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-11-15 16:19:52.955] [INFO ] [delivery-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'order-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-15 16:19:53.024] [INFO ] [delivery-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-15 16:19:53.039] [INFO ] [delivery-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:?] - For 'leader-service' URL not provided. Will try picking an instance via load-balancing.
+[2025-11-15 16:19:54.721] [WARN ] [delivery-service] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-11-15 16:19:54.736] [INFO ] [delivery-service] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 2 endpoint(s) beneath base path '/actuator'
+[2025-11-15 16:19:54.822] [INFO ] [delivery-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8067 (http) with context path ''
+[2025-11-15 16:19:54.823] [INFO ] [delivery-service] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='delivery-service-192-168-245-1-8067', name='delivery-service', tags=[], address='192.168.245.1', meta={secure=false}, port=8067, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='10s', ttl='null', http='http://192.168.245.1:8067/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-11-15 16:19:55.562] [INFO ] [delivery-service] [main] [com.bcu.edu.DeliveryServiceApplication:?] - Started DeliveryServiceApplication in 8.93 seconds (process running for 9.648)
+[2025-11-15 16:19:56.133] [INFO ] [delivery-service] [RMI TCP Connection(2)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-11-15 16:19:56.135] [INFO ] [delivery-service] [RMI TCP Connection(2)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 2 ms
+[2025-11-15 16:20:01.265] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.controller.DeliveryController:?] - 接收批量发货请求，订单数量=5
+[2025-11-15 16:20:01.274] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 开始批量发货，订单数量=5, 发货方式=2, 仓库ID=1
+[2025-11-15 16:20:01.386] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 订单验证通过，待发货订单数量=5
+[2025-11-15 16:20:01.445] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 开始提取途经点，发货方式=2
+[2025-11-15 16:20:01.445] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 用户地址模式，去重后地址数量=3
+[2025-11-15 16:20:01.473] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 途经点提取完成，数量=5
+[2025-11-15 16:20:01.474] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.RouteService:?] - 开始路径规划，起点=RouteRequest.Coordinate(longitude=116.397617, latitude=39.909095, relatedId=1, addressName=中心仓库), 途经点数量=5, 有终点=true
+[2025-11-15 16:20:01.475] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.algorithm.DijkstraAlgorithm:?] - 路径规划结果：总距离=115944.90米，预估时间=232分钟
+[2025-11-15 16:20:01.475] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.algorithm.DijkstraAlgorithm:?] - Dijkstra算法计算完成，途经点数量=5，耗时=1ms
+[2025-11-15 16:20:01.476] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.RouteService:?] - 路径规划完成，总距离=115944.90米，预估时间=232分钟
+[2025-11-15 16:20:01.476] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 设置配送单负责团长: leaderId=2
+[2025-11-15 16:20:01.527] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 配送单创建成功，deliveryId=11, dispatchGroup=SHIP20251115162001350
+[2025-11-15 16:20:01.527] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 开始批量更新订单状态，orderIds=[66, 65, 64, 63, 62], deliveryId=11
+[2025-11-15 16:20:01.598] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 订单状态更新成功，更新数量=5
+[2025-11-15 16:20:01.600] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.BatchShipService:?] - 批量发货成功，deliveryId=11, 订单数量=5, 总距离=115944.90米
+[2025-11-15 16:20:01.646] [WARN ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=批量发货, user=1
+[2025-11-15 16:20:24.007] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=3, 已完成=1, 总距离=12962.10米

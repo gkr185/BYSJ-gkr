@@ -162,6 +162,120 @@
               </div>
             </el-card>
 
+            <!-- 团长选择 ⭐⭐⭐ 新增团长选择卡片 -->
+            <el-card class="order-card" shadow="never">
+              <template #header>
+                <div class="card-header">
+                  <el-icon><UserFilled /></el-icon>
+                  <span>选择团长</span>
+                  <el-tag v-if="leaders.length > 0" type="success" size="small">
+                    {{ leaders.length }}位可用团长
+                  </el-tag>
+                </div>
+              </template>
+
+              <!-- 无团长提示 -->
+              <div v-if="leaders.length === 0" class="empty-leader">
+                <el-empty description="暂无可用团长">
+                  <template #image>
+                    <el-icon :size="60" color="#c0c4cc"><UserFilled /></el-icon>
+                  </template>
+                  <div class="empty-tips">
+                    <p v-if="!userStore.userInfo?.communityId" class="tip-text">
+                      您还未关联社区，请先完善收货地址并关联社区
+                    </p>
+                    <p v-else class="tip-text">
+                      您所在的社区暂无活跃团长，我们会尽快为您安排
+                    </p>
+                    <el-button type="primary" size="small" @click="handleNoCommunity">
+                      {{ !userStore.userInfo?.communityId ? '去设置地址' : '联系客服' }}
+                    </el-button>
+                  </div>
+                </el-empty>
+              </div>
+
+              <!-- 团长列表 -->
+              <div v-else class="leader-selection">
+                <el-radio-group v-model="selectedLeaderId" class="leader-list">
+                  <div
+                    v-for="leader in leaders"
+                    :key="leader.leaderId"
+                    class="leader-item"
+                    :class="{ 'selected': selectedLeaderId === leader.leaderId }"
+                  >
+                    <el-radio :label="leader.leaderId" class="leader-radio">
+                      <div class="leader-content">
+                        <div class="leader-header">
+                          <div class="leader-basic">
+                            <span class="leader-name">{{ leader.leaderName || leader.storeName }}</span>
+                            <el-tag
+                              v-if="leader.leaderId === userStore.userInfo?.userId"
+                              type="warning"
+                              size="small"
+                              effect="dark"
+                            >
+                              我的团点
+                            </el-tag>
+                          </div>
+                          <div class="leader-rating" v-if="leader.rating">
+                            <el-rate
+                              v-model="leader.rating"
+                              disabled
+                              :size="16"
+                              :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
+                            />
+                            <span class="rating-text">{{ leader.rating.toFixed(1) }}</span>
+                          </div>
+                        </div>
+                        
+                        <div class="leader-info">
+                          <div class="info-item">
+                            <el-icon><LocationFilled /></el-icon>
+                            <span>{{ leader.address || leader.storeAddress || '团点地址待完善' }}</span>
+                          </div>
+                          <div class="info-item" v-if="leader.phone">
+                            <el-icon><Phone /></el-icon>
+                            <span>{{ leader.phone }}</span>
+                          </div>
+                          <div class="info-item" v-if="leader.orderCount !== undefined">
+                            <el-icon><ShoppingBag /></el-icon>
+                            <span>已服务 {{ leader.orderCount || 0 }} 单</span>
+                          </div>
+                        </div>
+
+                        <!-- 团长标签 -->
+                        <div class="leader-tags" v-if="leader.tags">
+                          <el-tag
+                            v-for="tag in parseLeaderTags(leader.tags)"
+                            :key="tag"
+                            size="small"
+                            type="info"
+                            effect="plain"
+                          >
+                            {{ tag }}
+                          </el-tag>
+                        </div>
+                      </div>
+                    </el-radio>
+                  </div>
+                </el-radio-group>
+
+                <!-- 团长说明 -->
+                <div class="leader-tips">
+                  <el-alert type="info" :closable="false" show-icon>
+                    <template #title>
+                      <span class="tips-title">关于团长配送</span>
+                    </template>
+                    <ul class="tips-list">
+                      <li>团长将负责您的订单配送，您可以到团点自提</li>
+                      <li>建议选择距离较近的团长，配送更快捷</li>
+                      <li>如有疑问，可直接联系团长咨询</li>
+                    </ul>
+                  </el-alert>
+                </div>
+              </div>
+            </el-card>
+
             <!-- 配送信息 -->
             <el-card class="order-card" shadow="never">
               <template #header>
@@ -174,15 +288,19 @@
               <div class="delivery-info">
                 <div class="delivery-item">
                   <span class="label">配送方式：</span>
-                  <span class="value">{{ selectedDelivery?.name || '标准配送' }}</span>
+                  <span class="value">{{ selectedDelivery?.name || '团长配送（到团点自提）' }}</span>
                 </div>
                 <div class="delivery-item">
                   <span class="label">配送时间：</span>
-                  <span class="value">{{ selectedDelivery?.time || '预计2-3个工作日' }}</span>
+                  <span class="value">{{ selectedDelivery?.time || '预计1-2个工作日' }}</span>
                 </div>
                 <div class="delivery-item">
                   <span class="label">运费：</span>
-                  <span class="value freight">{{ selectedDelivery?.fee ? `¥${selectedDelivery.fee}` : '¥0.00' }}</span>
+                  <span class="value freight">{{ selectedDelivery?.fee ? `¥${selectedDelivery.fee}` : '¥0.00（团长配送免运费）' }}</span>
+                </div>
+                <div v-if="selectedLeader" class="delivery-item">
+                  <span class="label">配送团长：</span>
+                  <span class="value leader-name">{{ selectedLeader.leaderName || selectedLeader.storeName }}</span>
                 </div>
               </div>
             </el-card>
@@ -382,7 +500,10 @@ import {
   Money,
   CreditCard,
   Delete,
-  Wallet
+  Wallet,
+  UserFilled,
+  LocationFilled,
+  Phone
 } from '@element-plus/icons-vue'
 
 const route = useRoute()
@@ -515,6 +636,34 @@ const getPaymentMethodName = (method) => {
 const canUseCoupon = (coupon) => {
   // 简单判断优惠券是否可用
   return goodsTotal.value >= coupon.discount
+}
+
+// ⭐⭐⭐ 新增：解析团长标签
+const parseLeaderTags = (tags) => {
+  if (!tags) return []
+  if (typeof tags === 'string') {
+    return tags.split(',').filter(t => t.trim())
+  }
+  return tags
+}
+
+// ⭐⭐⭐ 新增：处理无社区/无团长情况
+const handleNoCommunity = () => {
+  if (!userStore.userInfo?.communityId) {
+    // 未关联社区，跳转到地址管理
+    ElMessage.info('请先添加收货地址，系统将自动为您匹配附近社区')
+    router.push('/user/address')
+  } else {
+    // 社区无团长，提示联系客服
+    ElMessageBox.alert(
+      '您所在的社区暂无活跃团长，请联系客服为您安排配送。客服电话：400-XXX-XXXX',
+      '温馨提示',
+      {
+        confirmButtonText: '我知道了',
+        type: 'warning'
+      }
+    )
+  }
 }
 
 // 加载购物车数据
@@ -1003,6 +1152,148 @@ onMounted(async () => {
   margin-top: 16px;
 }
 
+/* 团长选择 ⭐⭐⭐ 新增样式 */
+.empty-leader {
+  padding: 40px 20px;
+}
+
+.empty-tips {
+  margin-top: 16px;
+}
+
+.tip-text {
+  color: #606266;
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.leader-selection {
+  padding: 16px 0;
+}
+
+.leader-list {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.leader-item {
+  margin-bottom: 16px;
+  padding: 20px;
+  background: #fafbfc;
+  border: 2px solid #e4e7ed;
+  border-radius: 12px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.leader-item:hover {
+  border-color: #409eff;
+  background: #f0f9ff;
+  box-shadow: 0 2px 12px rgba(64, 158, 255, 0.1);
+}
+
+.leader-item.selected {
+  border-color: #409eff;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e1f3ff 100%);
+  box-shadow: 0 4px 16px rgba(64, 158, 255, 0.15);
+}
+
+.leader-radio {
+  width: 100%;
+  margin-right: 0;
+}
+
+.leader-radio :deep(.el-radio__label) {
+  width: 100%;
+  padding-left: 12px;
+}
+
+.leader-content {
+  width: 100%;
+}
+
+.leader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.leader-basic {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leader-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.leader-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #606266;
+}
+
+.leader-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #606266;
+}
+
+.info-item .el-icon {
+  color: #909399;
+  font-size: 16px;
+}
+
+.leader-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.leader-tips {
+  margin-top: 16px;
+}
+
+.tips-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.tips-list {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #606266;
+}
+
+.tips-list li {
+  margin-bottom: 4px;
+}
+
 /* 配送信息 */
 .delivery-info {
   display: flex;
@@ -1028,8 +1319,13 @@ onMounted(async () => {
   color: #606266;
 }
 
+.value.leader-name {
+  color: #409eff;
+  font-weight: 500;
+}
+
 .freight {
-  color: #f56c6c;
+  color: #67c23a;
   font-weight: 500;
 }
 
@@ -1231,6 +1527,20 @@ onMounted(async () => {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  /* 团长选择响应式 */
+  .leader-item {
+    padding: 16px;
+  }
+
+  .leader-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leader-rating {
+    width: 100%;
   }
 
   .delivery-item {

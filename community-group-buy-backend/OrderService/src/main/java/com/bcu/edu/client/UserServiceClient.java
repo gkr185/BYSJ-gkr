@@ -31,6 +31,7 @@ public interface UserServiceClient {
 
     /**
      * 获取地址详情
+     * ⭐ 返回类型需要与UserService的AddressResponse一致
      */
     @GetMapping("/api/user/feign/address/{addressId}")
     Result<AddressDTO> getAddress(@PathVariable("addressId") Long addressId);

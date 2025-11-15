@@ -179,6 +179,25 @@
             </div>
           </template>
         </el-table-column>
+        <el-table-column label="收货信息" min-width="220" show-overflow-tooltip>
+          <template #default="{ row }">
+            <div v-if="row.receiveAddress" class="address-cell">
+              <div v-if="row.receiverName || row.receiverPhone" class="receiver-info">
+                <el-tag size="small" type="success" effect="plain">
+                  {{ row.receiverName || '收货人' }}
+                </el-tag>
+                <span v-if="row.receiverPhone" class="phone-text">
+                  {{ row.receiverPhone }}
+                </span>
+              </div>
+              <div class="address-text">
+                <el-icon><LocationFilled /></el-icon>
+                {{ row.receiveAddress }}
+              </div>
+            </div>
+            <el-text v-else type="info" size="small">地址信息加载中...</el-text>
+          </template>
+        </el-table-column>
         <el-table-column prop="payAmount" label="实付金额" width="120">
           <template #default="{ row }">
             <span style="color: #F56C6C; font-weight: bold">
@@ -358,7 +377,8 @@ import {
   Download,
   Search,
   ArrowDown,
-  Printer
+  Printer,
+  LocationFilled
 } from '@element-plus/icons-vue'
 import {
   getOrderList,
@@ -709,6 +729,36 @@ const getOrderStatusType = (status) => {
 .item-info {
   font-size: 12px;
   color: #909399;
+}
+
+/* 收货信息单元格样式 */
+.address-cell {
+  line-height: 1.6;
+}
+
+.receiver-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.phone-text {
+  font-size: 12px;
+  color: #606266;
+}
+
+.address-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #303133;
+}
+
+.address-text .el-icon {
+  color: #409eff;
+  font-size: 14px;
 }
 
 :deep(.el-table) {

@@ -17816,3 +17816,199 @@
         t.create_time DESC 
     LIMIT
         ? 
+[2025-11-15 15:35:20.475] [DEBUG] [groupbuy-service] [main] [com.bcu.edu.GroupBuyServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 15:35:21.152] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
+[2025-11-15 15:35:21.153] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\LeaderServiceClient.class]
+[2025-11-15 15:35:21.154] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\OrderServiceClient.class]
+[2025-11-15 15:35:21.154] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\PaymentServiceClient.class]
+[2025-11-15 15:35:21.154] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\ProductServiceClient.class]
+[2025-11-15 15:35:21.154] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\GroupBuyService\target\classes\com\bcu\edu\client\UserServiceClient.class]
+[2025-11-15 15:35:25.069] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:35:25.950] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:35:25.969] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:35:26.021] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:35:26.040] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:35:26.087] [DEBUG] [groupbuy-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:37:18.610] [DEBUG] [groupbuy-service] [http-nio-8063-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 15:37:18.663] [DEBUG] [groupbuy-service] [http-nio-8063-exec-1] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 15:37:36.820] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 15:37:36.823] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 15:39:22.415] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 15:39:22.418] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 15:40:32.290] [DEBUG] [groupbuy-service] [http-nio-8063-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 15:40:32.295] [DEBUG] [groupbuy-service] [http-nio-8063-exec-6] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 15:55:40.351] [DEBUG] [groupbuy-service] [http-nio-8063-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 15:55:40.355] [DEBUG] [groupbuy-service] [http-nio-8063-exec-8] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 16:00:00.038] [DEBUG] [groupbuy-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        gbt1_0.team_id 
+    from
+        group_buy_team gbt1_0 
+    where
+        gbt1_0.team_status=0 
+        and gbt1_0.expire_time<?

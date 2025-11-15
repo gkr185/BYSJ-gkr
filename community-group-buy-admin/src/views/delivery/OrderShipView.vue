@@ -69,19 +69,53 @@
         <el-table-column type="selection" width="55" />
         <el-table-column prop="orderId" label="订单ID" width="80" />
         <el-table-column prop="orderSn" label="订单编号" width="180" />
-        <el-table-column label="用户信息" width="150">
+        <el-table-column label="商品信息" min-width="180">
           <template #default="{ row }">
-            <div>ID: {{ row.userId }}</div>
+            <div class="product-cell">
+              <el-image
+                v-if="row.productImg"
+                :src="row.productImg"
+                fit="cover"
+                style="width: 40px; height: 40px; border-radius: 4px; margin-right: 8px"
+              />
+              <div class="product-info">
+                <div class="product-name">{{ row.productName || '未知商品' }}</div>
+                <div class="product-quantity">x{{ row.quantity || 1 }}</div>
+              </div>
+            </div>
           </template>
         </el-table-column>
-        <el-table-column label="团长信息" width="150">
+        <el-table-column label="用户信息" width="120">
+          <template #default="{ row }">
+            <div>
+              <div>ID: {{ row.userId }}</div>
+              <div v-if="row.userName" style="color: #606266; font-size: 12px">
+                {{ row.userName }}
+              </div>
+            </div>
+          </template>
+        </el-table-column>
+        <el-table-column label="团长信息" width="100">
           <template #default="scope">
             <div>ID: {{ scope.row.leaderId }}</div>
           </template>
         </el-table-column>
-        <el-table-column label="收货地址" min-width="200" show-overflow-tooltip>
+        <el-table-column label="收货信息" min-width="250" show-overflow-tooltip>
           <template #default="{ row }">
-            {{ row.receiveAddress || '暂无地址' }}
+            <div class="address-cell">
+              <div v-if="row.receiverName || row.receiverPhone" class="receiver-info">
+                <el-tag size="small" type="success" effect="plain">
+                  {{ row.receiverName || '收货人' }}
+                </el-tag>
+                <span v-if="row.receiverPhone" class="phone-text">
+                  {{ row.receiverPhone }}
+                </span>
+              </div>
+              <div class="address-text">
+                <el-icon><LocationFilled /></el-icon>
+                {{ row.receiveAddress || '地址信息加载中...' }}
+              </div>
+            </div>
           </template>
         </el-table-column>
         <el-table-column label="订单金额" width="120">
@@ -300,7 +334,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Plus, Refresh, Search, Van, OfficeBuilding, Location } from '@element-plus/icons-vue'
+import { Plus, Refresh, Search, Van, OfficeBuilding, Location, LocationFilled } from '@element-plus/icons-vue'
 import { getPendingDeliveryOrders, batchShipOrders, getActiveWarehouses } from '@/api/delivery'
 import { useRouter } from 'vue-router'
 import DeliveryRouteMap from '@/components/DeliveryRouteMap.vue'
@@ -564,6 +598,60 @@ onMounted(() => {
 .form-help-text {
   margin-top: 8px;
   line-height: 1.6;
+}
+
+/* 商品信息单元格 */
+.product-cell {
+  display: flex;
+  align-items: center;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 14px;
+  color: #303133;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-quantity {
+  font-size: 12px;
+  color: #909399;
+}
+
+/* 收货信息单元格 */
+.address-cell {
+  line-height: 1.6;
+}
+
+.receiver-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.phone-text {
+  font-size: 12px;
+  color: #606266;
+}
+
+.address-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #303133;
+}
+
+.address-text .el-icon {
+  color: #409eff;
+  font-size: 14px;
 }
 </style>
 

@@ -463,6 +463,34 @@ public class OrderService {
         // 填充用户名（简化显示）
         vo.setUserName("用户#" + order.getUserId());
 
+        // ⭐⭐⭐ 填充收货地址信息
+        if (order.getReceiveAddressId() != null) {
+            try {
+                Result<AddressDTO> addressResult = 
+                    userServiceClient.getAddress(order.getReceiveAddressId());
+                if (addressResult != null && addressResult.getCode() == 200 && addressResult.getData() != null) {
+                    AddressDTO address = addressResult.getData();
+                    // 拼接完整地址
+                    String fullAddress = String.format("%s%s%s%s", 
+                        address.getProvince() != null ? address.getProvince() : "",
+                        address.getCity() != null ? address.getCity() : "",
+                        address.getDistrict() != null ? address.getDistrict() : "",
+                        address.getDetail() != null ? address.getDetail() : ""
+                    );
+                    vo.setReceiveAddress(fullAddress);
+                    vo.setReceiverName(address.getReceiver());
+                    vo.setReceiverPhone(address.getPhone());
+                } else {
+                    vo.setReceiveAddress("地址信息获取失败");
+                }
+            } catch (Exception e) {
+                log.warn("获取地址信息失败: addressId={}, error={}", order.getReceiveAddressId(), e.getMessage());
+                vo.setReceiveAddress("地址ID:" + order.getReceiveAddressId());
+            }
+        } else {
+            vo.setReceiveAddress("未设置地址");
+        }
+
         return vo;
     }
 

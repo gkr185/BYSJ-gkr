@@ -297,3 +297,132 @@
         wx_transaction_id=? 
     where
         pay_id=?
+[2025-11-15 15:33:02.837] [DEBUG] [payment-service] [main] [com.bcu.edu.PaymentServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 15:33:04.032] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes\com\bcu\edu\client\GroupBuyServiceClient.class]
+[2025-11-15 15:33:04.032] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes\com\bcu\edu\client\OrderServiceClient.class]
+[2025-11-15 15:33:04.032] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\PaymentService\target\classes\com\bcu\edu\client\UserServiceClient.class]
+[2025-11-15 15:33:04.034] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientsRegistrar$1:476] - Identified candidate component class: file [E:\E\BYSJ\community-group-buy-backend\common\target\classes\com\bcu\edu\common\feign\LogFeignClient.class]
+[2025-11-15 15:33:13.247] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:33:15.004] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:33:15.044] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:33:15.150] [DEBUG] [payment-service] [main] [o.s.cloud.openfeign.FeignClientFactoryBean:124] - Creating a FeignClientFactoryBean.
+[2025-11-15 15:37:44.711] [DEBUG] [payment-service] [http-nio-8066-exec-5] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:44.935] [DEBUG] [payment-service] [http-nio-8066-exec-5] [o.s.cloud.openfeign.support.SpringEncoder:214] - Writing [OperationLogDTO(logId=null, userId=5, username=44, operation=创建支付, module=支付管理, method=public com.bcu.edu.dto.response.PaymentResponse com.bcu.edu.service.PaymentService.createPayment(com.bcu.edu.dto.request.CreatePaymentRequest,java.lang.Long), params=[{"orderId":62,"payType":3,"amount":40},5], result=SUCCESS, errorMsg=null, duration=436, ip=127.0.0.1, createTime=null)] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@54eaf69d]
+[2025-11-15 15:37:44.943] [DEBUG] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=创建支付
+[2025-11-15 15:37:44.956] [DEBUG] [payment-service] [http-nio-8066-exec-5] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
+    where
+        pay_id=?
+[2025-11-15 15:39:27.659] [DEBUG] [payment-service] [http-nio-8066-exec-8] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:27.700] [DEBUG] [payment-service] [http-nio-8066-exec-8] [o.s.cloud.openfeign.support.SpringEncoder:214] - Writing [OperationLogDTO(logId=null, userId=4, username=33, operation=创建支付, module=支付管理, method=public com.bcu.edu.dto.response.PaymentResponse com.bcu.edu.service.PaymentService.createPayment(com.bcu.edu.dto.request.CreatePaymentRequest,java.lang.Long), params=[{"orderId":63,"payType":3,"amount":40.8},4], result=SUCCESS, errorMsg=null, duration=37, ip=127.0.0.1, createTime=null)] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@54eaf69d]
+[2025-11-15 15:39:27.704] [DEBUG] [payment-service] [http-nio-8066-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=创建支付
+[2025-11-15 15:39:27.705] [DEBUG] [payment-service] [http-nio-8066-exec-8] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
+    where
+        pay_id=?
+[2025-11-15 15:40:41.284] [DEBUG] [payment-service] [http-nio-8066-exec-7] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:41.325] [DEBUG] [payment-service] [http-nio-8066-exec-7] [o.s.cloud.openfeign.support.SpringEncoder:214] - Writing [OperationLogDTO(logId=null, userId=4, username=33, operation=创建支付, module=支付管理, method=public com.bcu.edu.dto.response.PaymentResponse com.bcu.edu.service.PaymentService.createPayment(com.bcu.edu.dto.request.CreatePaymentRequest,java.lang.Long), params=[{"orderId":64,"payType":3,"amount":20},4], result=SUCCESS, errorMsg=null, duration=37, ip=127.0.0.1, createTime=null)] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@54eaf69d]
+[2025-11-15 15:40:41.329] [DEBUG] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=创建支付
+[2025-11-15 15:40:41.330] [DEBUG] [payment-service] [http-nio-8066-exec-7] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
+    where
+        pay_id=?
+[2025-11-15 15:55:48.860] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:48.900] [DEBUG] [payment-service] [http-nio-8066-exec-2] [o.s.cloud.openfeign.support.SpringEncoder:214] - Writing [OperationLogDTO(logId=null, userId=4, username=33, operation=创建支付, module=支付管理, method=public com.bcu.edu.dto.response.PaymentResponse com.bcu.edu.service.PaymentService.createPayment(com.bcu.edu.dto.request.CreatePaymentRequest,java.lang.Long), params=[{"orderId":65,"payType":3,"amount":40.8},4], result=SUCCESS, errorMsg=null, duration=37, ip=127.0.0.1, createTime=null)] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@54eaf69d]
+[2025-11-15 15:55:48.907] [DEBUG] [payment-service] [http-nio-8066-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=创建支付
+[2025-11-15 15:55:48.909] [DEBUG] [payment-service] [http-nio-8066-exec-2] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
+    where
+        pay_id=?
+[2025-11-15 15:56:15.215] [DEBUG] [payment-service] [http-nio-8066-exec-10] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        payment_record
+        (amount, create_time, encrypt_sign, order_id, pay_callback_info, pay_status, pay_type, transaction_id, user_id, wx_transaction_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:15.247] [DEBUG] [payment-service] [http-nio-8066-exec-10] [o.s.cloud.openfeign.support.SpringEncoder:214] - Writing [OperationLogDTO(logId=null, userId=3, username=22, operation=创建支付, module=支付管理, method=public com.bcu.edu.dto.response.PaymentResponse com.bcu.edu.service.PaymentService.createPayment(com.bcu.edu.dto.request.CreatePaymentRequest,java.lang.Long), params=[{"orderId":66,"payType":3,"amount":50.8},3], result=SUCCESS, errorMsg=null, duration=31, ip=127.0.0.1, createTime=null)] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@54eaf69d]
+[2025-11-15 15:56:15.252] [DEBUG] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=支付管理, operation=创建支付
+[2025-11-15 15:56:15.254] [DEBUG] [payment-service] [http-nio-8066-exec-10] [org.hibernate.SQL:135] - 
+    update
+        payment_record 
+    set
+        amount=?,
+        encrypt_sign=?,
+        order_id=?,
+        pay_callback_info=?,
+        pay_status=?,
+        pay_type=?,
+        transaction_id=?,
+        user_id=?,
+        wx_transaction_id=? 
+    where
+        pay_id=?

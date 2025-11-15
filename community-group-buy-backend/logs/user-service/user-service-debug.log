@@ -42971,3 +42971,4476 @@
         (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:33:14.984] [DEBUG] [user-service] [main] [com.bcu.edu.UserServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 15:33:20.754] [DEBUG] [user-service] [main] [com.bcu.edu.config.JwtAuthenticationFilter:240] - Filter 'jwtFilter' configured for use
+[2025-11-15 15:35:56.632] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=1, username=1
+[2025-11-15 15:35:56.748] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0
+[2025-11-15 15:36:01.816] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:36:01.852] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:36:01.896] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:36:01.900] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:36:01.927] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:36:01.930] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:36:06.872] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:36:06.891] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:15.583] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.username=?
+[2025-11-15 15:37:15.821] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=认证管理, operation=用户登录
+[2025-11-15 15:37:16.247] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:16.250] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:16.273] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:16.275] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:16.297] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:16.300] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:18.086] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:18.088] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:18.349] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:18.351] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:18.538] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:18.540] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:27.445] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:27.447] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:27.448] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:27.448] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:27.750] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:27.752] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:27.766] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:27.768] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:28.095] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:28.097] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:28.760] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:28.762] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:29.075] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:29.077] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:29.088] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:29.090] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:29.413] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:29.415] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:33.594] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:33.595] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:33.917] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:33.919] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:34.238] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:34.240] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:36.178] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:36.180] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:36.503] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:36.504] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:36.832] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:36.834] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:38.594] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=44
+[2025-11-15 15:37:38.595] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:38.647] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=44
+[2025-11-15 15:37:38.647] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:38.970] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=44
+[2025-11-15 15:37:38.971] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:38.980] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:38.981] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=44
+[2025-11-15 15:37:38.982] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:38.982] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:39.246] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:39.246] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:39.248] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:39.248] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:39.569] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:39.569] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:39.570] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:39.570] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:41.567] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-11-15 15:37:41.574] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 15:37:41.631] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=创建订单, user=44
+[2025-11-15 15:37:41.632] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:41.645] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=44
+[2025-11-15 15:37:41.645] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:41.661] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=44
+[2025-11-15 15:37:41.662] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:42.068] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单详情, user=44
+[2025-11-15 15:37:42.069] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:42.247] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:42.249] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:42.309] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:42.309] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:42.311] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:42.311] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:42.355] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:42.358] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:44.820] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:37:44.829] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    update
+        user_account 
+    set
+        balance=?,
+        freeze_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        account_id=?
+[2025-11-15 15:37:44.873] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=更新支付状态, user=unknown
+[2025-11-15 15:37:44.874] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:44.942] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=支付管理, operation=创建支付, user=44
+[2025-11-15 15:37:44.943] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:46.550] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:46.552] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:46.582] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=44
+[2025-11-15 15:37:46.583] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:37:46.879] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:46.882] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:47.201] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=5, username=44
+[2025-11-15 15:37:47.202] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:37:51.399] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:37:51.400] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:16.601] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.username=?
+[2025-11-15 15:39:16.608] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=认证管理, operation=用户登录
+[2025-11-15 15:39:17.084] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:17.087] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:17.158] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=33
+[2025-11-15 15:39:17.159] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:17.176] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:17.178] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:17.226] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:17.229] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:19.303] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:19.306] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:19.594] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:19.596] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:19.625] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:19.626] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:22.085] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:22.087] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:22.361] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:22.363] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:22.699] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:22.701] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:23.599] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=33
+[2025-11-15 15:39:23.600] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:23.611] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=33
+[2025-11-15 15:39:23.612] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:24.012] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:39:24.013] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:24.024] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:39:24.025] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:24.201] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:24.204] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:24.295] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:24.295] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:24.297] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:24.297] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:39:24.623] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:24.623] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:24.625] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:24.625] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:39:25.601] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-11-15 15:39:25.606] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 15:39:25.630] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=创建订单, user=33
+[2025-11-15 15:39:25.631] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:25.640] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=33
+[2025-11-15 15:39:25.641] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:25.653] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=33
+[2025-11-15 15:39:25.654] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:26.024] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单详情, user=33
+[2025-11-15 15:39:26.025] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:26.243] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:26.245] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:26.289] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:26.291] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:39:26.321] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:26.323] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:26.334] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:26.335] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:27.666] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:39:27.668] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    update
+        user_account 
+    set
+        balance=?,
+        freeze_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        account_id=?
+[2025-11-15 15:39:27.682] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=更新支付状态, user=unknown
+[2025-11-15 15:39:27.683] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:27.703] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=支付管理, operation=创建支付, user=33
+[2025-11-15 15:39:27.704] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:29.556] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:29.558] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:29.585] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=33
+[2025-11-15 15:39:29.587] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:39:29.804] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:29.806] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:29.882] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:39:29.884] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:39:32.811] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:39:32.813] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:20.698] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:40:20.699] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:20.701] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单统计, user=1
+[2025-11-15 15:40:20.701] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:30.755] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:30.757] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:31.015] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:31.016] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:31.093] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:31.094] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:31.650] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:31.651] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:31.970] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:31.972] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:32.297] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:32.299] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:33.795] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=33
+[2025-11-15 15:40:33.796] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:33.805] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=33
+[2025-11-15 15:40:33.807] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:34.554] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:40:34.555] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:34.562] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:40:34.563] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:34.836] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:34.838] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:35.162] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:35.164] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:35.425] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:35.426] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:37.111] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:37.113] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:40:37.690] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:37.691] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:37.803] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:37.803] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:37.804] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:40:37.804] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:37.820] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:40:37.821] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:37.829] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:40:37.830] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:38.016] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:38.019] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:38.139] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:38.141] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:40:39.405] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-11-15 15:40:39.410] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 15:40:39.437] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=创建订单, user=33
+[2025-11-15 15:40:39.439] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:39.449] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=33
+[2025-11-15 15:40:39.450] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:39.461] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=33
+[2025-11-15 15:40:39.463] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:39.650] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:39.651] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:39.807] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:39.807] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:39.808] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:40:39.808] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:39.819] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单详情, user=33
+[2025-11-15 15:40:39.820] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:39.978] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:39.979] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:41.291] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:40:41.293] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    update
+        user_account 
+    set
+        balance=?,
+        freeze_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        account_id=?
+[2025-11-15 15:40:41.307] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=更新支付状态, user=unknown
+[2025-11-15 15:40:41.308] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:41.328] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=支付管理, operation=创建支付, user=33
+[2025-11-15 15:40:41.329] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:43.178] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:43.180] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:43.216] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=33
+[2025-11-15 15:40:43.217] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:40:43.442] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:43.443] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:43.503] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:40:43.504] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:40:46.345] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:40:46.346] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:45:02.664] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:02.665] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:02.891] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:02.894] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:45:02.969] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:02.970] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:02.971] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:02.971] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:45:02.983] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:02.984] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:04.189] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:04.190] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:04.502] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:04.502] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:04.503] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:04.503] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:45:04.514] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:04.515] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:13.175] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:13.183] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-11-15 15:45:13.185] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.phone=?
+[2025-11-15 15:45:13.186] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.service.UserService:163] - 更新用户所属社区: userId=4, communityId=1
+[2025-11-15 15:45:13.198] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=用户管理, operation=编辑用户
+[2025-11-15 15:45:15.002] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:15.003] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:15.327] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:15.328] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:45:15.647] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:45:15.648] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:23.666] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:47:23.666] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:47:23.666] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:47:23.669] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:47:23.669] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:23.669] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:47:23.929] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:47:23.930] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:23.990] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:47:23.991] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:29.703] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.username=?
+[2025-11-15 15:47:29.710] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=认证管理, operation=用户登录
+[2025-11-15 15:47:30.366] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:30.366] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:30.366] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:30.368] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:47:30.368] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:30.368] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:47:30.386] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:30.388] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:30.403] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:30.406] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:30.984] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:30.985] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:31.290] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:31.292] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:47:31.584] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:47:31.585] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:16.575] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:16.577] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:16.805] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:16.807] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:16.885] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:16.888] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:18.053] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=测试用户1
+[2025-11-15 15:55:18.054] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:18.065] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=测试用户1
+[2025-11-15 15:55:18.067] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:18.699] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:18.700] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:18.717] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=测试用户1
+[2025-11-15 15:55:18.718] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:18.725] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=测试用户1
+[2025-11-15 15:55:18.726] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:19.026] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:19.027] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:19.349] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:19.351] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:20.878] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:20.881] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:21.658] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:21.660] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:21.679] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=测试用户1
+[2025-11-15 15:55:21.680] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:21.688] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=测试用户1
+[2025-11-15 15:55:21.689] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:21.959] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:21.961] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:21.990] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:21.992] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:22.305] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:22.307] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:22.614] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=2, username=????1
+[2025-11-15 15:55:22.616] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:33.565] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.username=?
+[2025-11-15 15:55:33.571] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=认证管理, operation=用户登录
+[2025-11-15 15:55:34.115] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:34.117] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:34.130] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:55:34.131] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:34.140] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:55:34.141] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:34.152] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:34.152] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:34.153] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:34.153] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:34.167] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:34.169] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:34.433] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:34.435] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:38.700] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:38.701] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:39.007] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:39.010] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:39.027] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:39.028] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:39.732] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:39.733] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:40.035] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:40.037] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:40.345] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:40.347] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:41.066] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=33
+[2025-11-15 15:55:41.067] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:41.075] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=33
+[2025-11-15 15:55:41.076] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:41.434] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:41.434] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:41.435] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:41.435] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:41.450] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:55:41.450] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:41.459] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=33
+[2025-11-15 15:55:41.460] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:41.696] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:41.697] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:41.760] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:41.761] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:42.011] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:42.012] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:46.588] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-11-15 15:55:46.592] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 15:55:46.613] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=创建订单, user=33
+[2025-11-15 15:55:46.613] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:46.621] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=33
+[2025-11-15 15:55:46.622] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:46.632] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=33
+[2025-11-15 15:55:46.633] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:47.002] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单详情, user=33
+[2025-11-15 15:55:47.002] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:47.203] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:47.204] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:47.269] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:47.269] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:47.270] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:47.270] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:47.296] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:47.297] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:48.867] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:55:48.869] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    update
+        user_account 
+    set
+        balance=?,
+        freeze_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        account_id=?
+[2025-11-15 15:55:48.883] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=更新支付状态, user=unknown
+[2025-11-15 15:55:48.884] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:48.906] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=支付管理, operation=创建支付, user=33
+[2025-11-15 15:55:48.907] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:50.465] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:50.468] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:50.497] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=33
+[2025-11-15 15:55:50.498] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:55:50.786] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:50.788] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:51.113] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=4, username=33
+[2025-11-15 15:55:51.114] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:55:55.660] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:55:55.662] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:02.363] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.username=?
+[2025-11-15 15:56:02.370] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=认证管理, operation=用户登录
+[2025-11-15 15:56:02.977] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:02.980] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:02.996] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:02.998] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:03.025] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=22
+[2025-11-15 15:56:03.026] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:03.033] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:03.035] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:05.448] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:05.450] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:05.774] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:05.776] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:06.100] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:06.101] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:06.450] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=22
+[2025-11-15 15:56:06.451] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:06.460] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=添加购物车, user=22
+[2025-11-15 15:56:06.461] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:07.619] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=22
+[2025-11-15 15:56:07.620] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:07.627] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=22
+[2025-11-15 15:56:07.628] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:07.807] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:07.810] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:07.870] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:07.872] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:07.882] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:07.883] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:09.473] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:09.475] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:56:09.860] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:09.863] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:10.086] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=22
+[2025-11-15 15:56:10.088] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:10.094] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=22
+[2025-11-15 15:56:10.095] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:10.118] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:10.119] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:56:10.165] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:10.167] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:10.177] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:10.180] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:10.445] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:10.447] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:56:13.107] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.user_id=?
+[2025-11-15 15:56:13.112] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 15:56:13.130] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=创建订单, user=22
+[2025-11-15 15:56:13.131] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:13.138] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=22
+[2025-11-15 15:56:13.138] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:13.149] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=购物车结算, user=22
+[2025-11-15 15:56:13.150] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:13.513] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单详情, user=22
+[2025-11-15 15:56:13.514] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:13.735] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:13.736] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:13.781] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:13.784] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:56:13.812] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:13.814] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:13.824] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:13.825] [DEBUG] [user-service] [http-nio-8061-exec-2] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:15.220] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.account_id,
+        ua1_0.balance,
+        ua1_0.freeze_amount,
+        ua1_0.update_time,
+        ua1_0.user_id 
+    from
+        user_account ua1_0 
+    where
+        ua1_0.user_id=?
+[2025-11-15 15:56:15.222] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    update
+        user_account 
+    set
+        balance=?,
+        freeze_amount=?,
+        update_time=?,
+        user_id=? 
+    where
+        account_id=?
+[2025-11-15 15:56:15.233] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=更新支付状态, user=unknown
+[2025-11-15 15:56:15.234] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:15.251] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=支付管理, operation=创建支付, user=22
+[2025-11-15 15:56:15.252] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:17.094] [DEBUG] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:17.097] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:17.127] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询我的订单, user=22
+[2025-11-15 15:56:17.127] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:17.358] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:17.360] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:17.421] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:17.423] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:17.673] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:17.674] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:17.986] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=22
+[2025-11-15 15:56:17.987] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:17.991] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:17.993] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:17.993] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=购物车管理, operation=查询购物车, user=22
+[2025-11-15 15:56:17.994] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 15:56:18.320] [DEBUG] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 15:56:18.322] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 15:56:22.425] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 15:56:22.426] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:00:47.303] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:00:47.305] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:00:58.790] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:00:58.792] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:02:09.888] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:02:09.953] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:02:09.968] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:02:09.982] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:02:09.994] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:02:10.071] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:02:10.072] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:18:15.581] [DEBUG] [user-service] [main] [com.bcu.edu.UserServiceApplication:51] - Running with Spring Boot v3.2.3, Spring v6.1.4
+[2025-11-15 16:18:17.866] [DEBUG] [user-service] [main] [com.bcu.edu.config.JwtAuthenticationFilter:240] - Filter 'jwtFilter' configured for use
+[2025-11-15 16:18:30.435] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id in (?, ?, ?)
+[2025-11-15 16:20:01.465] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id in (?, ?, ?)
+[2025-11-15 16:20:01.815] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:20:01.846] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:21:04.398] [DEBUG] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:21:04.401] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:21:11.496] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.510] [DEBUG] [user-service] [http-nio-8061-exec-10] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.519] [DEBUG] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单统计, user=1
+[2025-11-15 16:21:11.519] [DEBUG] [user-service] [http-nio-8061-exec-1] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.520] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:21:11.530] [DEBUG] [user-service] [http-nio-8061-exec-3] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.539] [DEBUG] [user-service] [http-nio-8061-exec-4] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.549] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.558] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.568] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.578] [DEBUG] [user-service] [http-nio-8061-exec-8] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.586] [DEBUG] [user-service] [http-nio-8061-exec-9] [org.hibernate.SQL:135] - 
+    select
+        ua1_0.address_id,
+        ua1_0.city,
+        ua1_0.detail,
+        ua1_0.district,
+        ua1_0.is_default,
+        ua1_0.latitude,
+        ua1_0.longitude,
+        ua1_0.phone,
+        ua1_0.province,
+        ua1_0.receiver,
+        ua1_0.user_id 
+    from
+        user_address ua1_0 
+    where
+        ua1_0.address_id=?
+[2025-11-15 16:21:11.599] [DEBUG] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:21:11.600] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:21:18.468] [DEBUG] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单详情, user=1
+[2025-11-15 16:21:18.470] [DEBUG] [user-service] [log-async-1] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:21:25.324] [DEBUG] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.LogController:39] - 收到日志保存请求: module=订单管理, operation=查询订单列表, user=1
+[2025-11-15 16:21:25.325] [DEBUG] [user-service] [log-async-2] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        sys_operation_log
+        (create_time, duration, error_msg, ip, method, module, operation, params, result, user_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 16:21:33.002] [DEBUG] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 16:21:33.014] [DEBUG] [user-service] [http-nio-8061-exec-5] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 16:21:33.308] [DEBUG] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 16:21:33.310] [DEBUG] [user-service] [http-nio-8061-exec-6] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?
+[2025-11-15 16:21:33.324] [DEBUG] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.config.JwtAuthenticationFilter:54] - 网关请求，用户信息: userId=3, username=22
+[2025-11-15 16:21:33.326] [DEBUG] [user-service] [http-nio-8061-exec-7] [org.hibernate.SQL:135] - 
+    select
+        su1_0.user_id,
+        su1_0.avatar,
+        su1_0.community_id,
+        su1_0.create_time,
+        su1_0.password,
+        su1_0.phone,
+        su1_0.real_name,
+        su1_0.role,
+        su1_0.status,
+        su1_0.update_time,
+        su1_0.username,
+        su1_0.wx_openid 
+    from
+        sys_user su1_0 
+    where
+        su1_0.role=?

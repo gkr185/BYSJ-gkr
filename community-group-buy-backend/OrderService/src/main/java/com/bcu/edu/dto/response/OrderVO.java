@@ -102,5 +102,25 @@ public class OrderVO {
      * 0-普通订单；1-拼团订单
      */
     private Integer orderType;
+
+    /**
+     * 收货地址ID
+     */
+    private Long receiveAddressId;
+
+    /**
+     * 收货地址（完整地址字符串，用于列表展示）
+     */
+    private String receiveAddress;
+
+    /**
+     * 收货人姓名
+     */
+    private String receiverName;
+
+    /**
+     * 收货人电话
+     */
+    private String receiverPhone;
 }
 
