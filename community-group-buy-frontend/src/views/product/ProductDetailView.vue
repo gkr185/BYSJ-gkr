@@ -279,6 +279,8 @@ import ProductCard from '@/components/common/ProductCard.vue'
 import { getProductDetail, getRecommendProducts, getCategoryDetail } from '@/api/product'
 import { getProductGroupBuyActivities } from '@/api/groupbuy'
 import { addToCart as addToCartApi } from '@/api/cart'
+import { getUserAddresses } from '@/api/user'
+import { getCommunityLeaders } from '@/api/leader'
 import { getProductImageUrl } from '@/utils/image'
 import { useCartStore } from '@/stores/cart'
 import { useUserStore } from '@/stores/user'
@@ -457,16 +459,53 @@ const handleAddToCart = async () => {
   }
 }
 
-// 立即购买
-const handleDirectBuy = () => {
-  if (!userStore.isLoggedIn) {
+// 立即购买（先加入购物车，获取cartId后跳转）
+const handleDirectBuy = async () => {
+  if (!userStore.isLogin) {
     ElMessage.warning('请先登录')
     router.push('/login')
     return
   }
-  
-  // TODO: 跳转到订单确认页
-  ElMessage.info('立即购买功能开发中')
+
+  if (!product.value || product.value.stock === 0) {
+    ElMessage.warning('商品已售罄')
+    return
+  }
+
+  try {
+    // 1. 先加入购物车（获取cartId）
+    const res = await addToCartApi({
+      userId: userStore.userInfo.userId,
+      productId: product.value.productId,
+      quantity: quantity.value,
+      activityId: null // 立即购买为普通订单
+    })
+
+    console.log('✅ 加入购物车返回:', res)
+
+    // 2. 从返回数据中提取cartId
+    // res.data是购物车对象：{ cartId: 31, productId: 2, ... }
+    let cartId = res.data?.cartId
+    
+    if (!cartId) {
+      throw new Error('未获取到购物车ID，返回数据：' + JSON.stringify(res.data))
+    }
+
+    console.log('✅ 提取到cartId:', cartId)
+
+    // 3. 跳转到订单确认页面
+    router.push({
+      path: '/order/confirm/direct',
+      query: {
+        cartIds: String(cartId) // 传递购物车ID（数字转字符串）
+      }
+    })
+    
+    console.log('✅ 跳转订单确认页面, cartId:', cartId)
+  } catch (error) {
+    console.error('立即购买失败:', error)
+    ElMessage.error('操作失败：' + (error.message || '请重试'))
+  }
 }
 
 // 跳转到拼团详情页

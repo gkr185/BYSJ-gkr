@@ -6884,3 +6884,431 @@ feign.FeignException$ServiceUnavailable: [503] during [POST] to [http://user-ser
 [2025-11-15 13:00:00.001] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T12:30:00.001767200
 [2025-11-15 13:00:00.019] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
 [2025-11-15 13:00:00.019] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 13:00:16.061] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[58, 57]
+[2025-11-15 13:00:16.061] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[58, 57]
+[2025-11-15 13:00:16.070] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共2条订单
+[2025-11-15 13:00:28.004] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[58, 57]
+[2025-11-15 13:00:28.005] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[58, 57]
+[2025-11-15 13:00:28.016] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共2条订单
+[2025-11-15 13:01:23.460] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[58, 57]
+[2025-11-15 13:01:23.461] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[58, 57]
+[2025-11-15 13:01:23.471] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共2条订单
+[2025-11-15 13:01:45.916] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[58, 57]
+[2025-11-15 13:01:45.916] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[58, 57]
+[2025-11-15 13:01:45.925] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共2条订单
+[2025-11-15 13:01:54.113] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量更新订单为已送达, orderIds=[58, 57]
+[2025-11-15 13:01:54.113] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.OrderService:?] - 批量更新订单为已送达: orderIds=[58, 57]
+[2025-11-15 13:01:54.116] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.OrderService:?] - 批量更新成功: 共2条订单
+[2025-11-15 13:01:54.121] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.FeignController:?] - 批量更新成功: 共2条订单
+[2025-11-15 13:01:59.073] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单统计
+[2025-11-15 13:01:59.074] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=10, status=null, payStatus=null
+[2025-11-15 13:03:23.279] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单统计
+[2025-11-15 13:03:23.279] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=10, status=null, payStatus=null
+[2025-11-15 13:05:00.008] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-15 13:05:00.008] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-15 13:05:00.008] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T12:35:00.008404500
+[2025-11-15 13:05:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-15 13:05:00.011] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 13:05:06.087] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=1, activityId=null, quantity=1
+[2025-11-15 13:05:06.087] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=1, activityId=null, quantity=1
+[2025-11-15 13:05:06.132] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 创建新的购物车项
+[2025-11-15 13:05:06.154] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=30
+[2025-11-15 13:05:07.625] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:05:07.625] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:05:07.627] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.CartService:?] - 查询到1个购物车项
+[2025-11-15 13:05:10.960] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:05:10.960] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:05:10.963] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 查询到1个购物车项
+[2025-11-15 13:05:36.166] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.CartController:?] - 购物车结算: cartIds=[30], addressId=5, leaderId=4
+[2025-11-15 13:05:36.166] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.CartService:?] - 开始购物车结算: cartIds=[30], addressId=5, leaderId=4
+[2025-11-15 13:05:36.182] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 开始创建订单: userId=5, productId=1, quantity=1
+[2025-11-15 13:05:36.257] [ERROR] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.CartService:?] - 结算购物车项失败: cartId=30, error=团长不存在
+[2025-11-15 13:05:36.257] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.CartService:?] - 购物车结算完成: 成功创建0个订单
+[2025-11-15 13:05:36.284] [ERROR] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:803)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:669)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:419)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.CartService$$SpringCGLIB$$0.checkoutCart(<generated>)
+	at com.bcu.edu.controller.CartController.checkoutCart(CartController.java:144)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.bcu.edu.common.aspect.OperationLogAspect.around(OperationLogAspect.java:57)
+	at jdk.internal.reflect.GeneratedMethodAccessor117.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.bcu.edu.common.aspect.OperationLogAspect$$SpringCGLIB$$0.around(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor117.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:173)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.controller.CartController$$SpringCGLIB$$0.checkoutCart(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.bcu.edu.filter.UserContextFilter.doFilterInternal(UserContextFilter.java:65)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-15 13:06:25.989] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:06:25.989] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:06:25.991] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.CartService:?] - 查询到1个购物车项
+[2025-11-15 13:06:31.133] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:06:31.134] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:06:31.143] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 创建新的购物车项
+[2025-11-15 13:06:31.145] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=31
+[2025-11-15 13:06:37.627] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:06:37.627] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:06:37.640] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 更新购物车项数量: cartId=31, newQuantity=2
+[2025-11-15 13:06:37.640] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=31
+[2025-11-15 13:10:00.003] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-15 13:10:00.003] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-15 13:10:00.003] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T12:40:00.003430900
+[2025-11-15 13:10:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-15 13:10:00.006] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 13:11:41.115] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:11:41.115] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:11:41.128] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 更新购物车项数量: cartId=31, newQuantity=3
+[2025-11-15 13:11:41.128] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=31
+[2025-11-15 13:11:41.378] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:11:41.378] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:11:41.381] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:12:02.295] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:12:02.295] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:12:02.299] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:12:06.640] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:12:06.640] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:12:06.648] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 更新购物车项数量: cartId=31, newQuantity=4
+[2025-11-15 13:12:06.648] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=31
+[2025-11-15 13:12:06.730] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:12:06.730] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:12:06.733] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:14:16.557] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:14:16.558] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:14:16.568] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 更新购物车项数量: cartId=31, newQuantity=5
+[2025-11-15 13:14:16.569] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=31
+[2025-11-15 13:14:16.983] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:14:16.983] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:14:16.985] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:15:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-15 13:15:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-15 13:15:00.009] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T12:45:00.009622100
+[2025-11-15 13:15:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-15 13:15:00.012] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 13:16:03.756] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:16:03.756] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:16:03.762] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:16:07.045] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:16:07.046] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=5, productId=2, activityId=null, quantity=1
+[2025-11-15 13:16:07.054] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 更新购物车项数量: cartId=31, newQuantity=6
+[2025-11-15 13:16:07.055] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=31
+[2025-11-15 13:16:07.144] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:16:07.144] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:16:07.147] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:16:09.805] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=5
+[2025-11-15 13:16:09.806] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=5
+[2025-11-15 13:16:09.812] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=5
+[2025-11-15 13:16:10.285] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=4
+[2025-11-15 13:16:10.285] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=4
+[2025-11-15 13:16:10.292] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=4
+[2025-11-15 13:16:10.438] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=3
+[2025-11-15 13:16:10.438] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=3
+[2025-11-15 13:16:10.445] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=3
+[2025-11-15 13:16:10.549] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=2
+[2025-11-15 13:16:10.550] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=2
+[2025-11-15 13:16:10.550] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=3
+[2025-11-15 13:16:10.551] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=3
+[2025-11-15 13:16:10.560] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=3
+[2025-11-15 13:16:10.560] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=2
+[2025-11-15 13:16:10.674] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=2
+[2025-11-15 13:16:10.674] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=2
+[2025-11-15 13:16:10.682] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=2
+[2025-11-15 13:16:10.798] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.CartController:?] - 更新购物车商品数量: userId=5, cartId=31, quantity=1
+[2025-11-15 13:16:10.798] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 更新购物车数量: userId=5, cartId=31, quantity=1
+[2025-11-15 13:16:10.806] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.service.CartService:?] - 购物车数量更新成功: cartId=31, quantity=1
+[2025-11-15 13:16:13.440] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.controller.CartController:?] - 购物车结算: cartIds=[31], addressId=5, leaderId=4
+[2025-11-15 13:16:13.440] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 开始购物车结算: cartIds=[31], addressId=5, leaderId=4
+[2025-11-15 13:16:13.448] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.OrderService:?] - 开始创建订单: userId=5, productId=2, quantity=1
+[2025-11-15 13:16:13.480] [ERROR] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 结算购物车项失败: cartId=31, error=团长不存在
+[2025-11-15 13:16:13.480] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 购物车结算完成: 成功创建0个订单
+[2025-11-15 13:16:13.500] [ERROR] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:803)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:669)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:419)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.CartService$$SpringCGLIB$$0.checkoutCart(<generated>)
+	at com.bcu.edu.controller.CartController.checkoutCart(CartController.java:144)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.bcu.edu.common.aspect.OperationLogAspect.around(OperationLogAspect.java:57)
+	at jdk.internal.reflect.GeneratedMethodAccessor117.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.bcu.edu.common.aspect.OperationLogAspect$$SpringCGLIB$$0.around(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor117.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:173)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.controller.CartController$$SpringCGLIB$$0.checkoutCart(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.bcu.edu.filter.UserContextFilter.doFilterInternal(UserContextFilter.java:65)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-15 13:18:19.001] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=5
+[2025-11-15 13:18:19.001] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=5
+[2025-11-15 13:18:19.005] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.CartService:?] - 查询到2个购物车项
+[2025-11-15 13:19:24.651] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.CartController:?] - 购物车结算: cartIds=[31], addressId=5, leaderId=2
+[2025-11-15 13:19:24.651] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 开始购物车结算: cartIds=[31], addressId=5, leaderId=2
+[2025-11-15 13:19:24.662] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 开始创建订单: userId=5, productId=2, quantity=1
+[2025-11-15 13:19:24.687] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 订单主表已保存: orderId=59, orderSn=20251115131924850082
+[2025-11-15 13:19:24.688] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 订单明细已保存: itemId=57, productId=2
+[2025-11-15 13:19:24.703] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 购物车项结算完成: cartId=31, orderId=59
+[2025-11-15 13:19:24.703] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 购物车结算完成: 成功创建1个订单
+[2025-11-15 13:19:24.721] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.CartController:?] - 购物车结算完成，创建订单数量: 1
+[2025-11-15 13:19:25.006] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.OrderController:?] - 查询订单详情: orderId=59
+[2025-11-15 13:19:28.593] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - Feign调用: 更新订单支付状态, orderId=59, payStatus=1
+[2025-11-15 13:19:28.594] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 更新支付状态: orderId=59, payStatus=1
+[2025-11-15 13:19:28.596] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 支付状态已更新: orderId=59, payStatus=1
+[2025-11-15 13:19:28.605] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - 订单支付状态更新成功: orderId=59, payStatus=1
+[2025-11-15 13:19:28.610] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.FeignController:?] - Feign调用: 判断是否拼团订单, orderId=59
+[2025-11-15 13:19:28.610] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.OrderService:?] - 判断是否拼团订单: orderId=59
+[2025-11-15 13:19:28.613] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.OrderService:?] - 判断结果: orderId=59, isGroupBuy=false
+[2025-11-15 13:19:28.613] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.FeignController:?] - 判断结果: orderId=59, isGroupBuy=false
+[2025-11-15 13:19:30.301] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.OrderController:?] - 查询我的订单: userId=5, page=0, size=10
+[2025-11-15 13:19:35.811] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.OrderController:?] - 查询我的订单: userId=4, page=0, size=10
+[2025-11-15 13:19:39.260] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=4, productId=1, activityId=null, quantity=1
+[2025-11-15 13:19:39.260] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=4, productId=1, activityId=null, quantity=1
+[2025-11-15 13:19:39.268] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 创建新的购物车项
+[2025-11-15 13:19:39.269] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=32
+[2025-11-15 13:19:39.405] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=4
+[2025-11-15 13:19:39.405] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=4
+[2025-11-15 13:19:39.409] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 查询到1个购物车项
+[2025-11-15 13:19:41.429] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.CartController:?] - 购物车结算: cartIds=[32], addressId=2, leaderId=2
+[2025-11-15 13:19:41.429] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 开始购物车结算: cartIds=[32], addressId=2, leaderId=2
+[2025-11-15 13:19:41.439] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 开始创建订单: userId=4, productId=1, quantity=1
+[2025-11-15 13:19:41.457] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 订单主表已保存: orderId=60, orderSn=20251115131941987343
+[2025-11-15 13:19:41.458] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 订单明细已保存: itemId=58, productId=1
+[2025-11-15 13:19:41.467] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 购物车项结算完成: cartId=32, orderId=60
+[2025-11-15 13:19:41.467] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.CartService:?] - 购物车结算完成: 成功创建1个订单
+[2025-11-15 13:19:41.480] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.CartController:?] - 购物车结算完成，创建订单数量: 1
+[2025-11-15 13:19:41.850] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.OrderController:?] - 查询订单详情: orderId=60
+[2025-11-15 13:19:44.074] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - Feign调用: 更新订单支付状态, orderId=60, payStatus=1
+[2025-11-15 13:19:44.074] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 更新支付状态: orderId=60, payStatus=1
+[2025-11-15 13:19:44.076] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 支付状态已更新: orderId=60, payStatus=1
+[2025-11-15 13:19:44.083] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - 订单支付状态更新成功: orderId=60, payStatus=1
+[2025-11-15 13:19:44.085] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.FeignController:?] - Feign调用: 判断是否拼团订单, orderId=60
+[2025-11-15 13:19:44.085] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.OrderService:?] - 判断是否拼团订单: orderId=60
+[2025-11-15 13:19:44.087] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.service.OrderService:?] - 判断结果: orderId=60, isGroupBuy=false
+[2025-11-15 13:19:44.087] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.FeignController:?] - 判断结果: orderId=60, isGroupBuy=false
+[2025-11-15 13:19:45.942] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.controller.OrderController:?] - 查询我的订单: userId=4, page=0, size=10
+[2025-11-15 13:19:49.952] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.OrderController:?] - 查询我的订单: userId=3, page=0, size=10
+[2025-11-15 13:19:53.893] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.controller.CartController:?] - 添加商品到购物车: userId=3, productId=3, activityId=null, quantity=1
+[2025-11-15 13:19:53.893] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 添加购物车: userId=3, productId=3, activityId=null, quantity=1
+[2025-11-15 13:19:53.900] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 创建新的购物车项
+[2025-11-15 13:19:53.902] [INFO ] [order-service] [http-nio-8065-exec-5] [com.bcu.edu.service.CartService:?] - 购物车项保存成功: cartId=33
+[2025-11-15 13:19:53.997] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.controller.CartController:?] - 查询购物车列表: userId=3
+[2025-11-15 13:19:53.997] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 查询用户购物车: userId=3
+[2025-11-15 13:19:54.000] [INFO ] [order-service] [http-nio-8065-exec-4] [com.bcu.edu.service.CartService:?] - 查询到1个购物车项
+[2025-11-15 13:19:56.554] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.CartController:?] - 购物车结算: cartIds=[33], addressId=1, leaderId=3
+[2025-11-15 13:19:56.555] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.CartService:?] - 开始购物车结算: cartIds=[33], addressId=1, leaderId=3
+[2025-11-15 13:19:56.561] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 开始创建订单: userId=3, productId=3, quantity=1
+[2025-11-15 13:19:56.577] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 订单主表已保存: orderId=61, orderSn=20251115131956399823
+[2025-11-15 13:19:56.578] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 订单明细已保存: itemId=59, productId=3
+[2025-11-15 13:19:56.586] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.CartService:?] - 购物车项结算完成: cartId=33, orderId=61
+[2025-11-15 13:19:56.586] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.CartService:?] - 购物车结算完成: 成功创建1个订单
+[2025-11-15 13:19:56.595] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.CartController:?] - 购物车结算完成，创建订单数量: 1
+[2025-11-15 13:19:56.959] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.OrderController:?] - 查询订单详情: orderId=61
+[2025-11-15 13:19:58.817] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.FeignController:?] - Feign调用: 更新订单支付状态, orderId=61, payStatus=1
+[2025-11-15 13:19:58.818] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.OrderService:?] - 更新支付状态: orderId=61, payStatus=1
+[2025-11-15 13:19:58.819] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.OrderService:?] - 支付状态已更新: orderId=61, payStatus=1
+[2025-11-15 13:19:58.827] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.FeignController:?] - 订单支付状态更新成功: orderId=61, payStatus=1
+[2025-11-15 13:19:58.830] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - Feign调用: 判断是否拼团订单, orderId=61
+[2025-11-15 13:19:58.830] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 判断是否拼团订单: orderId=61
+[2025-11-15 13:19:58.832] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.service.OrderService:?] - 判断结果: orderId=61, isGroupBuy=false
+[2025-11-15 13:19:58.832] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.FeignController:?] - 判断结果: orderId=61, isGroupBuy=false
+[2025-11-15 13:20:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - ========== 开始检查超时订单 ==========
+[2025-11-15 13:20:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 超时时间设置: 30分钟
+[2025-11-15 13:20:00.015] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 过期时间点: 2025-11-15T12:50:00.015752
+[2025-11-15 13:20:00.017] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 找到0条超时订单
+[2025-11-15 13:20:00.018] [INFO ] [order-service] [scheduling-1] [com.bcu.edu.task.OrderExpireTask:?] - 没有超时订单，任务结束
+[2025-11-15 13:20:00.691] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.controller.OrderController:?] - 查询我的订单: userId=3, page=0, size=10
+[2025-11-15 13:20:07.713] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=20, status=1, payStatus=null
+[2025-11-15 13:20:34.563] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[61, 60, 59]
+[2025-11-15 13:20:34.563] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[61, 60, 59]
+[2025-11-15 13:20:34.571] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共3条订单
+[2025-11-15 13:20:38.959] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[61, 60, 59]
+[2025-11-15 13:20:38.959] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[61, 60, 59]
+[2025-11-15 13:20:38.967] [INFO ] [order-service] [http-nio-8065-exec-6] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共3条订单
+[2025-11-15 13:20:38.987] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量更新订单为配送中, orderIds=[61, 60, 59], deliveryId=10, dispatchGroup=SHIP20251115132038870
+[2025-11-15 13:20:38.988] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.OrderService:?] - 批量更新订单为配送中: orderIds=[61, 60, 59], deliveryId=10, dispatchGroup=SHIP20251115132038870
+[2025-11-15 13:20:38.991] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.service.OrderService:?] - 批量更新成功: 共3条订单
+[2025-11-15 13:20:38.996] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.FeignController:?] - 批量更新成功: 共3条订单
+[2025-11-15 13:20:39.109] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=20, status=1, payStatus=null
+[2025-11-15 13:20:51.147] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.FeignController:?] - Feign调用: 批量查询订单, orderIds=[61, 60, 59]
+[2025-11-15 13:20:51.147] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.service.OrderService:?] - 批量查询订单: orderIds=[61, 60, 59]
+[2025-11-15 13:20:51.156] [INFO ] [order-service] [http-nio-8065-exec-2] [com.bcu.edu.controller.FeignController:?] - 批量查询成功: 共3条订单
+[2025-11-15 13:21:15.245] [INFO ] [order-service] [http-nio-8065-exec-7] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=20, status=1, payStatus=null
+[2025-11-15 13:21:20.188] [INFO ] [order-service] [http-nio-8065-exec-8] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=10, status=null, payStatus=null
+[2025-11-15 13:21:20.188] [INFO ] [order-service] [http-nio-8065-exec-10] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单统计
+[2025-11-15 13:21:22.741] [INFO ] [order-service] [http-nio-8065-exec-1] [com.bcu.edu.controller.OrderController:?] - 查询订单详情: orderId=61
+[2025-11-15 13:21:29.490] [INFO ] [order-service] [http-nio-8065-exec-9] [com.bcu.edu.controller.OrderController:?] - 查询订单详情: orderId=60
+[2025-11-15 13:21:38.767] [INFO ] [order-service] [http-nio-8065-exec-3] [com.bcu.edu.controller.AdminController:?] - 管理端查询订单列表: page=0, size=20, status=1, payStatus=null
+[2025-11-15 13:22:07.163] [INFO ] [order-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: order-service-8065
+[2025-11-15 13:22:07.178] [INFO ] [order-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 13:22:07.184] [INFO ] [order-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-15 13:22:07.191] [INFO ] [order-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.

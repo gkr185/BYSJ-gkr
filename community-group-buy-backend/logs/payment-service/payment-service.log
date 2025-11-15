@@ -194,3 +194,37 @@
 [2025-11-15 12:42:33.144] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.AdminPaymentController:81] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
 [2025-11-15 12:42:33.149] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:455] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
 [2025-11-15 12:42:33.325] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.AdminPaymentController:96] - 查询成功: 总记录数=56, 当前页记录数=20
+[2025-11-15 12:54:50.408] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.controller.AdminPaymentController:81] - 管理端查询支付记录: page=0, size=20, payType=null, payStatus=null, recordType=null, keyword=null, startDate=null, endDate=null
+[2025-11-15 12:54:50.408] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:455] - 管理端查询支付记录: payType=null, payStatus=null, recordType=null, keyword=null
+[2025-11-15 12:54:50.420] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.controller.AdminPaymentController:96] - 查询成功: 总记录数=56, 当前页记录数=20
+[2025-11-15 13:19:28.034] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.controller.PaymentController:68] - 用户发起支付: userId=5, orderId=59, payType=3, amount=40.8
+[2025-11-15 13:19:28.047] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:89] - 开始创建支付: userId=5, orderId=59, payType=3, amount=40.8
+[2025-11-15 13:19:28.390] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:107] - 支付记录已创建: payId=59
+[2025-11-15 13:19:28.391] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:146] - 开始余额支付: userId=5, amount=40.8
+[2025-11-15 13:19:28.563] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:159] - 余额支付成功: payId=59, userId=5, sagaId=PAY_59
+[2025-11-15 13:19:28.563] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:197] - 开始处理支付成功后逻辑: orderId=59, payId=59
+[2025-11-15 13:19:28.607] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:206] - 订单支付状态已更新: orderId=59
+[2025-11-15 13:19:28.616] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:229] - 普通订单，无需回调GroupBuyService: orderId=59
+[2025-11-15 13:19:28.616] [INFO ] [payment-service] [http-nio-8066-exec-5] [com.bcu.edu.service.PaymentService:232] - 支付成功后处理完成: orderId=59, payId=59
+[2025-11-15 13:19:44.060] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.controller.PaymentController:68] - 用户发起支付: userId=4, orderId=60, payType=3, amount=20
+[2025-11-15 13:19:44.060] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:89] - 开始创建支付: userId=4, orderId=60, payType=3, amount=20
+[2025-11-15 13:19:44.063] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:107] - 支付记录已创建: payId=60
+[2025-11-15 13:19:44.064] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:146] - 开始余额支付: userId=4, amount=20
+[2025-11-15 13:19:44.072] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:159] - 余额支付成功: payId=60, userId=4, sagaId=PAY_60
+[2025-11-15 13:19:44.072] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:197] - 开始处理支付成功后逻辑: orderId=60, payId=60
+[2025-11-15 13:19:44.084] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:206] - 订单支付状态已更新: orderId=60
+[2025-11-15 13:19:44.088] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:229] - 普通订单，无需回调GroupBuyService: orderId=60
+[2025-11-15 13:19:44.088] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.service.PaymentService:232] - 支付成功后处理完成: orderId=60, payId=60
+[2025-11-15 13:19:58.803] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.controller.PaymentController:68] - 用户发起支付: userId=3, orderId=61, payType=3, amount=50.8
+[2025-11-15 13:19:58.803] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:89] - 开始创建支付: userId=3, orderId=61, payType=3, amount=50.8
+[2025-11-15 13:19:58.806] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:107] - 支付记录已创建: payId=61
+[2025-11-15 13:19:58.806] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:146] - 开始余额支付: userId=3, amount=50.8
+[2025-11-15 13:19:58.815] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:159] - 余额支付成功: payId=61, userId=3, sagaId=PAY_61
+[2025-11-15 13:19:58.815] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:197] - 开始处理支付成功后逻辑: orderId=61, payId=61
+[2025-11-15 13:19:58.829] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:206] - 订单支付状态已更新: orderId=61
+[2025-11-15 13:19:58.833] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:229] - 普通订单，无需回调GroupBuyService: orderId=61
+[2025-11-15 13:19:58.833] [INFO ] [payment-service] [http-nio-8066-exec-10] [com.bcu.edu.service.PaymentService:232] - 支付成功后处理完成: orderId=61, payId=61
+[2025-11-15 13:22:07.169] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:89] - Deregistering service with consul: payment-service-8066
+[2025-11-15 13:22:07.189] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:650] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 13:22:07.195] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+[2025-11-15 13:22:07.199] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:352] - HikariPool-1 - Shutdown completed.

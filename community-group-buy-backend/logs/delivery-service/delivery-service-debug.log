@@ -3409,3 +3409,939 @@
         de1_0.waypoints_data 
     from
         delivery de1_0
+[2025-11-15 13:00:14.953] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        delivery de1_0
+[2025-11-15 13:00:14.953] [DEBUG] [delivery-service] [http-nio-8067-exec-9] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    order by
+        de1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 13:00:14.956] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:00:14.959] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:00:14.963] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:00:14.965] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        sum(de1_0.distance) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=2
+[2025-11-15 13:00:14.968] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0
+[2025-11-15 13:00:16.052] [DEBUG] [delivery-service] [http-nio-8067-exec-10] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:00:16.074] [DEBUG] [delivery-service] [http-nio-8067-exec-10] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:00:26.804] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        delivery de1_0
+[2025-11-15 13:00:26.804] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    order by
+        de1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 13:00:26.808] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:00:26.810] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:00:26.811] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:00:26.813] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        sum(de1_0.distance) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=2
+[2025-11-15 13:00:26.815] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0
+[2025-11-15 13:00:27.999] [DEBUG] [delivery-service] [http-nio-8067-exec-3] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:00:28.019] [DEBUG] [delivery-service] [http-nio-8067-exec-3] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:01:22.617] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        delivery de1_0
+[2025-11-15 13:01:22.618] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    order by
+        de1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 13:01:22.621] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:01:22.623] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:01:22.625] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:01:22.627] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        sum(de1_0.distance) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=2
+[2025-11-15 13:01:22.631] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0
+[2025-11-15 13:01:23.451] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:01:23.474] [DEBUG] [delivery-service] [http-nio-8067-exec-5] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:01:44.034] [DEBUG] [delivery-service] [http-nio-8067-exec-2] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:01:44.036] [DEBUG] [delivery-service] [http-nio-8067-exec-2] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:01:44.038] [DEBUG] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.algorithm.DijkstraAlgorithm:140] - 距离矩阵构建完成，矩阵大小=3x3
+[2025-11-15 13:01:44.038] [DEBUG] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.algorithm.DijkstraAlgorithm:249] - TSP求解完成，路径序列=[0, 1, 2]
+[2025-11-15 13:01:44.046] [DEBUG] [delivery-service] [http-nio-8067-exec-2] [org.hibernate.SQL:135] - 
+    update
+        delivery 
+    set
+        actual_start_time=?,
+        algorithm_used=?,
+        created_by=?,
+        delivery_mode=?,
+        dispatch_group=?,
+        distance=?,
+        end_time=?,
+        end_warehouse_id=?,
+        estimated_duration=?,
+        leader_id=?,
+        optimal_route=?,
+        order_ids=?,
+        route_display_data=?,
+        route_strategy=?,
+        start_time=?,
+        status=?,
+        update_time=?,
+        warehouse_id=?,
+        waypoint_count=?,
+        waypoints_data=? 
+    where
+        delivery_id=?
+[2025-11-15 13:01:44.054] [DEBUG] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=配送管理, operation=重新规划路径
+[2025-11-15 13:01:44.076] [DEBUG] [delivery-service] [http-nio-8067-exec-6] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    order by
+        de1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 13:01:45.912] [DEBUG] [delivery-service] [http-nio-8067-exec-9] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:01:45.927] [DEBUG] [delivery-service] [http-nio-8067-exec-9] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:01:54.108] [DEBUG] [delivery-service] [http-nio-8067-exec-10] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:01:54.124] [DEBUG] [delivery-service] [http-nio-8067-exec-10] [org.hibernate.SQL:135] - 
+    update
+        delivery 
+    set
+        actual_start_time=?,
+        algorithm_used=?,
+        created_by=?,
+        delivery_mode=?,
+        dispatch_group=?,
+        distance=?,
+        end_time=?,
+        end_warehouse_id=?,
+        estimated_duration=?,
+        leader_id=?,
+        optimal_route=?,
+        order_ids=?,
+        route_display_data=?,
+        route_strategy=?,
+        start_time=?,
+        status=?,
+        update_time=?,
+        warehouse_id=?,
+        waypoint_count=?,
+        waypoints_data=? 
+    where
+        delivery_id=?
+[2025-11-15 13:01:54.131] [DEBUG] [delivery-service] [http-nio-8067-exec-10] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=配送管理, operation=完成配送
+[2025-11-15 13:01:54.144] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        delivery de1_0
+[2025-11-15 13:01:54.146] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    order by
+        de1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 13:01:54.147] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:01:54.149] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:01:54.151] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:01:54.153] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        sum(de1_0.distance) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=2
+[2025-11-15 13:01:54.155] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0
+[2025-11-15 13:20:07.718] [DEBUG] [delivery-service] [http-nio-8067-exec-3] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.status=?
+[2025-11-15 13:20:34.575] [DEBUG] [delivery-service] [http-nio-8067-exec-9] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:20:34.627] [DEBUG] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=配送管理, operation=批量发货
+[2025-11-15 13:20:38.970] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:20:38.982] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.algorithm.DijkstraAlgorithm:140] - 距离矩阵构建完成，矩阵大小=4x4
+[2025-11-15 13:20:38.983] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.algorithm.DijkstraAlgorithm:249] - TSP求解完成，路径序列=[0, 2, 1, 3]
+[2025-11-15 13:20:38.984] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [org.hibernate.SQL:135] - 
+    insert 
+    into
+        delivery
+        (actual_start_time, algorithm_used, create_time, created_by, delivery_mode, dispatch_group, distance, end_time, end_warehouse_id, estimated_duration, leader_id, optimal_route, order_ids, route_display_data, route_strategy, start_time, status, update_time, warehouse_id, waypoint_count, waypoints_data) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+[2025-11-15 13:20:39.004] [DEBUG] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.common.aspect.OperationLogAspect:113] - 操作日志已通过Feign记录: module=配送管理, operation=批量发货
+[2025-11-15 13:20:49.179] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(*) 
+    from
+        delivery de1_0
+[2025-11-15 13:20:49.180] [DEBUG] [delivery-service] [http-nio-8067-exec-1] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    order by
+        de1_0.create_time desc 
+    limit
+        ?, ?
+[2025-11-15 13:20:49.181] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:20:49.182] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:20:49.184] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        count(de1_0.delivery_id) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=?
+[2025-11-15 13:20:49.186] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        sum(de1_0.distance) 
+    from
+        delivery de1_0 
+    where
+        de1_0.status=2
+[2025-11-15 13:20:49.188] [DEBUG] [delivery-service] [http-nio-8067-exec-8] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0
+[2025-11-15 13:20:51.143] [DEBUG] [delivery-service] [http-nio-8067-exec-3] [org.hibernate.SQL:135] - 
+    select
+        de1_0.delivery_id,
+        de1_0.actual_start_time,
+        de1_0.algorithm_used,
+        de1_0.create_time,
+        de1_0.created_by,
+        de1_0.delivery_mode,
+        de1_0.dispatch_group,
+        de1_0.distance,
+        de1_0.end_time,
+        de1_0.end_warehouse_id,
+        de1_0.estimated_duration,
+        de1_0.leader_id,
+        de1_0.optimal_route,
+        de1_0.order_ids,
+        de1_0.route_display_data,
+        de1_0.route_strategy,
+        de1_0.start_time,
+        de1_0.status,
+        de1_0.update_time,
+        de1_0.warehouse_id,
+        de1_0.waypoint_count,
+        de1_0.waypoints_data 
+    from
+        delivery de1_0 
+    where
+        de1_0.delivery_id=?
+[2025-11-15 13:20:51.158] [DEBUG] [delivery-service] [http-nio-8067-exec-3] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.id=?
+[2025-11-15 13:21:15.243] [DEBUG] [delivery-service] [http-nio-8067-exec-6] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.status=?
+[2025-11-15 13:21:38.769] [DEBUG] [delivery-service] [http-nio-8067-exec-10] [org.hibernate.SQL:135] - 
+    select
+        wc1_0.id,
+        wc1_0.address,
+        wc1_0.contact_person,
+        wc1_0.contact_phone,
+        wc1_0.create_time,
+        wc1_0.description,
+        wc1_0.is_default,
+        wc1_0.latitude,
+        wc1_0.longitude,
+        wc1_0.status,
+        wc1_0.update_time,
+        wc1_0.warehouse_name 
+    from
+        warehouse_config wc1_0 
+    where
+        wc1_0.status=?

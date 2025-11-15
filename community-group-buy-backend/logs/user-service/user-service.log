@@ -1731,3 +1731,183 @@
 [2025-11-15 12:19:56.968] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
 [2025-11-15 12:26:20.356] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
 [2025-11-15 12:41:04.523] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 12:54:17.354] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 12:54:22.273] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 12:54:22.280] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单统计, user=1, result=SUCCESS
+[2025-11-15 12:54:46.095] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单统计, user=1, result=SUCCESS
+[2025-11-15 12:54:46.103] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:01:59.138] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单统计, user=1, result=SUCCESS
+[2025-11-15 13:01:59.147] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:03:23.342] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单统计, user=1, result=SUCCESS
+[2025-11-15 13:03:23.345] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:05:06.175] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:05:06.189] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:05:07.647] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:05:07.656] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:05:10.986] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:05:11.000] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:05:36.185] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=5
+[2025-11-15 13:05:36.208] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=5
+[2025-11-15 13:05:36.257] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=44, result=FAIL
+[2025-11-15 13:05:36.270] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=44, result=SUCCESS
+[2025-11-15 13:05:36.283] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=44, result=FAIL
+[2025-11-15 13:06:26.012] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:06:26.021] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:06:31.168] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:06:31.180] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:06:37.655] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:06:37.669] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:11:41.144] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:11:41.166] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:11:41.416] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:11:41.426] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:12:02.337] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:12:02.352] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:12:06.663] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:12:06.675] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:12:06.754] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:12:06.762] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:14:16.585] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:14:16.597] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:14:17.008] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:14:17.018] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:03.797] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:03.809] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:07.068] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:07.081] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:07.172] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:07.194] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:16:09.826] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:09.837] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.306] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.319] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.464] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.479] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.574] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.574] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.588] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.588] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.697] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.710] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.820] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:10.833] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=更新购物车数量, user=44, result=SUCCESS
+[2025-11-15 13:16:13.450] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=5
+[2025-11-15 13:16:13.455] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=5
+[2025-11-15 13:16:13.481] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=44, result=FAIL
+[2025-11-15 13:16:13.491] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=44, result=SUCCESS
+[2025-11-15 13:16:13.501] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=44, result=FAIL
+[2025-11-15 13:18:19.040] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:18:19.055] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=44, result=SUCCESS
+[2025-11-15 13:19:24.664] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=5
+[2025-11-15 13:19:24.670] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=5
+[2025-11-15 13:19:24.698] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=44, result=SUCCESS
+[2025-11-15 13:19:24.712] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=44, result=SUCCESS
+[2025-11-15 13:19:24.732] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=44, result=SUCCESS
+[2025-11-15 13:19:25.027] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=44, result=SUCCESS
+[2025-11-15 13:19:28.524] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.service.AccountService:?] - [Saga-PAY_59] 余额扣减成功: userId=5, amount=40.8, newBalance=776.00
+[2025-11-15 13:19:28.602] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=更新支付状态, user=unknown, result=SUCCESS
+[2025-11-15 13:19:28.674] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=支付管理, operation=创建支付, user=44, result=SUCCESS
+[2025-11-15 13:19:30.324] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=44, result=SUCCESS
+[2025-11-15 13:19:34.958] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.service.UserService:?] - 用户登录成功: userId=4, username=33
+[2025-11-15 13:19:34.981] [WARN ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=认证管理, operation=用户登录, user=44
+[2025-11-15 13:19:35.870] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=33, result=SUCCESS
+[2025-11-15 13:19:39.284] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=33, result=SUCCESS
+[2025-11-15 13:19:39.296] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=33, result=SUCCESS
+[2025-11-15 13:19:39.427] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=33, result=SUCCESS
+[2025-11-15 13:19:39.436] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=33, result=SUCCESS
+[2025-11-15 13:19:41.440] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=4
+[2025-11-15 13:19:41.444] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 13:19:41.468] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=33, result=SUCCESS
+[2025-11-15 13:19:41.477] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=33, result=SUCCESS
+[2025-11-15 13:19:41.489] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=33, result=SUCCESS
+[2025-11-15 13:19:41.865] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=33, result=SUCCESS
+[2025-11-15 13:19:44.067] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.service.AccountService:?] - [Saga-PAY_60] 余额扣减成功: userId=4, amount=20, newBalance=690.84
+[2025-11-15 13:19:44.081] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=更新支付状态, user=unknown, result=SUCCESS
+[2025-11-15 13:19:44.098] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=支付管理, operation=创建支付, user=33, result=SUCCESS
+[2025-11-15 13:19:45.974] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=33, result=SUCCESS
+[2025-11-15 13:19:48.961] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.service.UserService:?] - 用户登录成功: userId=3, username=22
+[2025-11-15 13:19:48.967] [WARN ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=认证管理, operation=用户登录, user=33
+[2025-11-15 13:19:50.018] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=22, result=SUCCESS
+[2025-11-15 13:19:53.916] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=22, result=SUCCESS
+[2025-11-15 13:19:53.926] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=添加购物车, user=22, result=SUCCESS
+[2025-11-15 13:19:54.015] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=22, result=SUCCESS
+[2025-11-15 13:19:54.024] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=查询购物车, user=22, result=SUCCESS
+[2025-11-15 13:19:56.562] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=3
+[2025-11-15 13:19:56.567] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=1
+[2025-11-15 13:19:56.586] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=22, result=SUCCESS
+[2025-11-15 13:19:56.593] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=22, result=SUCCESS
+[2025-11-15 13:19:56.603] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=购物车管理, operation=购物车结算, user=22, result=SUCCESS
+[2025-11-15 13:19:56.973] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=22, result=SUCCESS
+[2025-11-15 13:19:58.810] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.service.AccountService:?] - [Saga-PAY_61] 余额扣减成功: userId=3, amount=50.8, newBalance=912.82
+[2025-11-15 13:19:58.824] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=更新支付状态, user=unknown, result=SUCCESS
+[2025-11-15 13:19:58.844] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=支付管理, operation=创建支付, user=22, result=SUCCESS
+[2025-11-15 13:20:00.720] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=22, result=SUCCESS
+[2025-11-15 13:20:07.734] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:20:34.609] [ERROR] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:265)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:441)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at com.bcu.edu.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:36)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-15 13:20:39.123] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:21:15.257] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:21:20.220] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单统计, user=1, result=SUCCESS
+[2025-11-15 13:21:20.223] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:21:22.755] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=1, result=SUCCESS
+[2025-11-15 13:21:29.503] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=1, result=SUCCESS
+[2025-11-15 13:21:38.779] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 13:22:07.086] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: user-service-8061
+[2025-11-15 13:22:07.111] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 13:22:07.116] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown initiated...
+[2025-11-15 13:22:07.122] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown completed.

@@ -1,0 +1,1 @@
+[2025-11-11 21:24:56.120] [ERROR] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 参数校验失败：手机号长度必须为11位

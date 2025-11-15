@@ -17073,3 +17073,746 @@
     where
         gbt1_0.team_status=0 
         and gbt1_0.expire_time<?
+[2025-11-15 13:00:00.083] [DEBUG] [groupbuy-service] [scheduling-1] [org.hibernate.SQL:135] - 
+    select
+        gbt1_0.team_id 
+    from
+        group_buy_team gbt1_0 
+    where
+        gbt1_0.team_status=0 
+        and gbt1_0.expire_time<?
+[2025-11-15 13:02:08.956] [DEBUG] [groupbuy-service] [http-nio-8063-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:02:09.015] [DEBUG] [groupbuy-service] [http-nio-8063-exec-1] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:02:13.736] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:02:13.738] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:02:18.404] [DEBUG] [groupbuy-service] [http-nio-8063-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:02:18.409] [DEBUG] [groupbuy-service] [http-nio-8063-exec-3] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:02:31.674] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:02:31.679] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:03:58.030] [DEBUG] [groupbuy-service] [http-nio-8063-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:03:58.035] [DEBUG] [groupbuy-service] [http-nio-8063-exec-6] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:05:02.520] [DEBUG] [groupbuy-service] [http-nio-8063-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:05:02.524] [DEBUG] [groupbuy-service] [http-nio-8063-exec-8] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:06:29.844] [DEBUG] [groupbuy-service] [http-nio-8063-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:06:29.847] [DEBUG] [groupbuy-service] [http-nio-8063-exec-10] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:06:31.935] [DEBUG] [groupbuy-service] [http-nio-8063-exec-1] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:06:31.939] [DEBUG] [groupbuy-service] [http-nio-8063-exec-1] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:06:38.379] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:06:38.381] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:06:58.359] [DEBUG] [groupbuy-service] [http-nio-8063-exec-3] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:06:58.361] [DEBUG] [groupbuy-service] [http-nio-8063-exec-3] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:07:32.405] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:07:32.409] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:07:35.553] [DEBUG] [groupbuy-service] [http-nio-8063-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:07:35.556] [DEBUG] [groupbuy-service] [http-nio-8063-exec-5] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:07:37.185] [DEBUG] [groupbuy-service] [http-nio-8063-exec-6] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:07:37.188] [DEBUG] [groupbuy-service] [http-nio-8063-exec-6] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:08:39.045] [DEBUG] [groupbuy-service] [http-nio-8063-exec-8] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:08:39.047] [DEBUG] [groupbuy-service] [http-nio-8063-exec-8] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:10:02.665] [DEBUG] [groupbuy-service] [http-nio-8063-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:10:02.668] [DEBUG] [groupbuy-service] [http-nio-8063-exec-10] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:12:05.392] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:12:05.395] [DEBUG] [groupbuy-service] [http-nio-8063-exec-2] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:14:13.866] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:14:13.869] [DEBUG] [groupbuy-service] [http-nio-8063-exec-4] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:14:15.711] [DEBUG] [groupbuy-service] [http-nio-8063-exec-5] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:14:15.715] [DEBUG] [groupbuy-service] [http-nio-8063-exec-5] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:16:06.197] [DEBUG] [groupbuy-service] [http-nio-8063-exec-7] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:16:06.201] [DEBUG] [groupbuy-service] [http-nio-8063-exec-7] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:19:38.511] [DEBUG] [groupbuy-service] [http-nio-8063-exec-9] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:19:38.514] [DEBUG] [groupbuy-service] [http-nio-8063-exec-9] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 
+[2025-11-15 13:19:52.518] [DEBUG] [groupbuy-service] [http-nio-8063-exec-10] [org.hibernate.SQL:135] - 
+    select
+        gb1_0.activity_id,
+        gb1_0.create_time,
+        gb1_0.end_time,
+        gb1_0.group_price,
+        gb1_0.link,
+        gb1_0.max_num,
+        gb1_0.product_id,
+        gb1_0.qrcode_url,
+        gb1_0.required_num,
+        gb1_0.start_time,
+        gb1_0.status 
+    from
+        group_buy gb1_0 
+    where
+        gb1_0.product_id=?
+[2025-11-15 13:19:52.521] [DEBUG] [groupbuy-service] [http-nio-8063-exec-10] [org.hibernate.SQL:135] - 
+    SELECT
+        * 
+    FROM
+        group_buy_team t 
+    WHERE
+        t.activity_id = ?   
+        AND t.team_status = 0   
+        AND t.expire_time > NOW() 
+    ORDER BY
+        CASE 
+            WHEN t.community_id = ? 
+                THEN 0 
+            ELSE 1 
+        END ASC,
+        t.create_time DESC 
+    LIMIT
+        ? 

@@ -1221,3 +1221,39 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 [2025-11-15 12:41:04.269] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.service.LeaderApplicationService:?] - 批量获取团长团点: leaderIds=[3, 2]
 [2025-11-15 12:41:04.274] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.service.LeaderApplicationService:?] - 批量获取成功: 共2个团点
 [2025-11-15 12:41:04.274] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.FeignController:?] - 批量获取团长团点成功: 共2个团点
+[2025-11-15 13:05:10.553] [INFO ] [leader-service] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:05:11.595] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:05:36.234] [INFO ] [leader-service] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 验证团长是否存在且可用：leaderId=4
+[2025-11-15 13:05:36.241] [WARN ] [leader-service] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长已停用或待审核：leaderId=4, status=2
+[2025-11-15 13:05:36.241] [INFO ] [leader-service] [http-nio-8068-exec-7] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长4验证结果：false, status=2
+[2025-11-15 13:06:31.756] [INFO ] [leader-service] [http-nio-8068-exec-3] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:06:38.377] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:07:32.363] [INFO ] [leader-service] [http-nio-8068-exec-10] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:07:37.148] [INFO ] [leader-service] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:08:38.995] [INFO ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:11:41.876] [INFO ] [leader-service] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:12:02.322] [INFO ] [leader-service] [http-nio-8068-exec-4] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:12:07.359] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:14:17.613] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:16:03.783] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:16:07.784] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:16:13.466] [INFO ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 验证团长是否存在且可用：leaderId=4
+[2025-11-15 13:16:13.469] [WARN ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长已停用或待审核：leaderId=4, status=2
+[2025-11-15 13:16:13.469] [INFO ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长4验证结果：false, status=2
+[2025-11-15 13:18:19.307] [INFO ] [leader-service] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:19:24.678] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 验证团长是否存在且可用：leaderId=2
+[2025-11-15 13:19:24.681] [INFO ] [leader-service] [http-nio-8068-exec-6] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长2验证结果：true, status=1
+[2025-11-15 13:19:40.039] [INFO ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.LeaderController:?] - 查询社区1的团长列表
+[2025-11-15 13:19:41.450] [INFO ] [leader-service] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 验证团长是否存在且可用：leaderId=2
+[2025-11-15 13:19:41.453] [INFO ] [leader-service] [http-nio-8068-exec-9] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长2验证结果：true, status=1
+[2025-11-15 13:19:54.628] [INFO ] [leader-service] [http-nio-8068-exec-1] [com.bcu.edu.controller.LeaderController:?] - 查询社区5的团长列表
+[2025-11-15 13:19:56.572] [INFO ] [leader-service] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 验证团长是否存在且可用：leaderId=3
+[2025-11-15 13:19:56.574] [INFO ] [leader-service] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderFeignController:?] - [Feign-OrderService] 团长3验证结果：true, status=1
+[2025-11-15 13:20:38.977] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] DeliveryService调用: 批量获取团长团点信息，leaderIds=[2, 3]
+[2025-11-15 13:20:38.977] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.service.LeaderApplicationService:?] - 批量获取团长团点: leaderIds=[2, 3]
+[2025-11-15 13:20:38.980] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.service.LeaderApplicationService:?] - 批量获取成功: 共2个团点
+[2025-11-15 13:20:38.980] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.FeignController:?] - 批量获取团长团点成功: 共2个团点
+[2025-11-15 13:22:07.223] [INFO ] [leader-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: leader-service-8068
+[2025-11-15 13:22:07.239] [INFO ] [leader-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 13:22:07.245] [INFO ] [leader-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
+[2025-11-15 13:22:07.249] [INFO ] [leader-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.

@@ -567,14 +567,36 @@ const loadAddressAndLeaderData = async () => {
     if (communityId) {
       const leadersRes = await getCommunityLeaders(communityId)
       if (leadersRes.code === 200) {
-        leaders.value = leadersRes.data || []
+        // ⭐⭐⭐ 关键修复：只选择正常运营的团长（status=1）
+        const allLeaders = leadersRes.data || []
+        leaders.value = allLeaders.filter(leader => leader.status === 1)
+        
+        console.log('团长列表加载:', {
+          全部团长: allLeaders.length,
+          可用团长: leaders.value.length,
+          团长状态: allLeaders.map(l => ({ id: l.leaderId, name: l.leaderName, status: l.status }))
+        })
+        
         // 设置默认选中的团长
         if (leaderId.value) {
-          selectedLeaderId.value = leaderId.value
+          // 验证传入的leaderId是否是可用团长
+          const validLeader = leaders.value.find(l => l.leaderId === leaderId.value)
+          if (validLeader) {
+            selectedLeaderId.value = leaderId.value
+          } else {
+            console.warn('传入的团长不可用，自动选择其他团长')
+            if (leaders.value.length > 0) {
+              selectedLeaderId.value = leaders.value[0].leaderId
+            }
+          }
         } else if (leaders.value.length > 0) {
           selectedLeaderId.value = leaders.value[0].leaderId
         }
+        
+        console.log('✅ 选中团长ID:', selectedLeaderId.value)
       }
+    } else {
+      console.warn('用户未关联社区，无法加载团长列表')
     }
 
     // 加载用户余额

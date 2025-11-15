@@ -131,3 +131,7 @@
 [2025-11-15 11:21:03.947] [INFO ] [product-service] [main] [com.bcu.edu.ProductServiceApplication:56] - Started ProductServiceApplication in 11.762 seconds (process running for 12.591)
 [2025-11-15 11:21:04.375] [INFO ] [product-service] [RMI TCP Connection(5)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:532] - Initializing Servlet 'dispatcherServlet'
 [2025-11-15 11:21:04.381] [INFO ] [product-service] [RMI TCP Connection(5)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:554] - Completed initialization in 4 ms
+[2025-11-15 13:22:07.186] [INFO ] [product-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:89] - Deregistering service with consul: product-service-8062
+[2025-11-15 13:22:07.202] [INFO ] [product-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:650] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 13:22:07.205] [INFO ] [product-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+[2025-11-15 13:22:07.219] [INFO ] [product-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:352] - HikariPool-1 - Shutdown completed.

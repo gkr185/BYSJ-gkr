@@ -1726,3 +1726,161 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Column 'leader_id'
 [2025-11-15 12:59:25.736] [INFO ] [delivery-service] [http-nio-8067-exec-6] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=0, 总距离=0米
 [2025-11-15 12:59:28.005] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=0, 总距离=0米
 [2025-11-15 13:00:00.463] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=0, 总距离=0米
+[2025-11-15 13:00:14.972] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=0, 总距离=0米
+[2025-11-15 13:00:26.817] [INFO ] [delivery-service] [http-nio-8067-exec-5] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=0, 总距离=0米
+[2025-11-15 13:01:22.633] [INFO ] [delivery-service] [http-nio-8067-exec-8] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=0, 总距离=0米
+[2025-11-15 13:01:44.034] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.DeliveryService:?] - 开始重新规划路径，deliveryId=9
+[2025-11-15 13:01:44.038] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.RouteService:?] - 开始路径规划，起点=RouteRequest.Coordinate(longitude=116.397617, latitude=39.909095, relatedId=1, addressName=中心仓库), 途经点数量=2, 有终点=false
+[2025-11-15 13:01:44.038] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.algorithm.DijkstraAlgorithm:?] - 路径规划结果：总距离=12962.10米，预估时间=26分钟
+[2025-11-15 13:01:44.038] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.algorithm.DijkstraAlgorithm:?] - Dijkstra算法计算完成，途经点数量=2，耗时=0ms
+[2025-11-15 13:01:44.038] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.RouteService:?] - 路径规划完成，总距离=12962.10米，预估时间=26分钟
+[2025-11-15 13:01:44.041] [INFO ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.service.DeliveryService:?] - 路径重新规划完成，deliveryId=9, 新距离=12962.10米
+[2025-11-15 13:01:44.054] [WARN ] [delivery-service] [http-nio-8067-exec-2] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=重新规划路径, user=1
+[2025-11-15 13:01:54.108] [INFO ] [delivery-service] [http-nio-8067-exec-10] [com.bcu.edu.service.DeliveryService:?] - 开始手动完成配送，deliveryId=9
+[2025-11-15 13:01:54.123] [INFO ] [delivery-service] [http-nio-8067-exec-10] [com.bcu.edu.service.DeliveryService:?] - 配送完成，deliveryId=9, 订单数量=2
+[2025-11-15 13:01:54.131] [WARN ] [delivery-service] [http-nio-8067-exec-10] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=完成配送, user=1
+[2025-11-15 13:01:54.156] [INFO ] [delivery-service] [http-nio-8067-exec-1] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=1, 已完成=1, 总距离=12962.10米
+[2025-11-15 13:20:34.557] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.controller.DeliveryController:?] - 接收批量发货请求，订单数量=3
+[2025-11-15 13:20:34.558] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 开始批量发货，订单数量=3, 发货方式=2, 仓库ID=1
+[2025-11-15 13:20:34.574] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 订单验证通过，待发货订单数量=3
+[2025-11-15 13:20:34.576] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 开始提取途经点，发货方式=2
+[2025-11-15 13:20:34.576] [INFO ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.service.BatchShipService:?] - 用户地址模式，去重后地址数量=3
+[2025-11-15 13:20:34.626] [WARN ] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=批量发货, user=1
+[2025-11-15 13:20:34.630] [ERROR] [delivery-service] [http-nio-8067-exec-9] [com.bcu.edu.common.handler.GlobalExceptionHandler:?] - 系统异常
+feign.FeignException$InternalServerError: [500] during [POST] to [http://user-service/api/user/feign/address/batch] [UserServiceClient#batchGetAddresses(List)]: [{"code":500,"message":"服务器内部错误","timestamp":"2025-11-15T13:20:34.6117121","success":false}]
+	at feign.FeignException.serverErrorStatus(FeignException.java:259)
+	at feign.FeignException.errorStatus(FeignException.java:206)
+	at feign.FeignException.errorStatus(FeignException.java:194)
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103)
+	at feign.InvocationContext.decodeError(InvocationContext.java:126)
+	at feign.InvocationContext.proceed(InvocationContext.java:72)
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63)
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114)
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70)
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99)
+	at jdk.proxy2/jdk.proxy2.$Proxy193.batchGetAddresses(Unknown Source)
+	at com.bcu.edu.service.BatchShipService.extractUserAddressWaypoints(BatchShipService.java:262)
+	at com.bcu.edu.service.BatchShipService.extractWaypoints(BatchShipService.java:189)
+	at com.bcu.edu.service.BatchShipService.batchShip(BatchShipService.java:80)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.service.BatchShipService$$SpringCGLIB$$0.batchShip(<generated>)
+	at com.bcu.edu.controller.DeliveryController.batchShip(DeliveryController.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.bcu.edu.common.aspect.OperationLogAspect.around(OperationLogAspect.java:57)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.bcu.edu.common.aspect.OperationLogAspect$$SpringCGLIB$$0.around(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:173)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717)
+	at com.bcu.edu.controller.DeliveryController$$SpringCGLIB$$0.batchShip(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2025-11-15 13:20:38.956] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.controller.DeliveryController:?] - 接收批量发货请求，订单数量=3
+[2025-11-15 13:20:38.956] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 开始批量发货，订单数量=3, 发货方式=1, 仓库ID=1
+[2025-11-15 13:20:38.968] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 订单验证通过，待发货订单数量=3
+[2025-11-15 13:20:38.971] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 开始提取途经点，发货方式=1
+[2025-11-15 13:20:38.971] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 团长团点模式，去重后团长数量=2
+[2025-11-15 13:20:38.982] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 途经点提取完成，数量=2
+[2025-11-15 13:20:38.982] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.RouteService:?] - 开始路径规划，起点=RouteRequest.Coordinate(longitude=116.397617, latitude=39.909095, relatedId=1, addressName=中心仓库), 途经点数量=2, 有终点=true
+[2025-11-15 13:20:38.983] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.algorithm.DijkstraAlgorithm:?] - 路径规划结果：总距离=23961.75米，预估时间=48分钟
+[2025-11-15 13:20:38.983] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.algorithm.DijkstraAlgorithm:?] - Dijkstra算法计算完成，途经点数量=2，耗时=1ms
+[2025-11-15 13:20:38.983] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.RouteService:?] - 路径规划完成，总距离=23961.75米，预估时间=48分钟
+[2025-11-15 13:20:38.983] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 设置配送单负责团长: leaderId=2
+[2025-11-15 13:20:38.986] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 配送单创建成功，deliveryId=10, dispatchGroup=SHIP20251115132038870
+[2025-11-15 13:20:38.986] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 开始批量更新订单状态，orderIds=[61, 60, 59], deliveryId=10
+[2025-11-15 13:20:38.997] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 订单状态更新成功，更新数量=3
+[2025-11-15 13:20:38.997] [INFO ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.service.BatchShipService:?] - 批量发货成功，deliveryId=10, 订单数量=3, 总距离=23961.75米
+[2025-11-15 13:20:39.004] [WARN ] [delivery-service] [http-nio-8067-exec-7] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=配送管理, operation=批量发货, user=1
+[2025-11-15 13:20:49.192] [INFO ] [delivery-service] [http-nio-8067-exec-8] [com.bcu.edu.service.StatisticsService:?] - 配送总览统计完成，总配送单=2, 已完成=1, 总距离=12962.10米
+[2025-11-15 13:22:07.172] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: delivery-service-192-168-245-1-8067
+[2025-11-15 13:22:07.203] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 13:22:07.210] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
+[2025-11-15 13:22:07.215] [INFO ] [delivery-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.
