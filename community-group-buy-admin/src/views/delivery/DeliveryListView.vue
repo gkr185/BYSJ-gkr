@@ -122,7 +122,7 @@
             {{ formatDate(row.createTime) }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="300" fixed="right">
+        <el-table-column label="操作" width="600" fixed="right">
           <template #default="{ row }">
             <el-button size="small" @click="showDetailDialog(row)">
               详情

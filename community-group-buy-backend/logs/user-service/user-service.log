@@ -2202,3 +2202,313 @@ org.springframework.web.HttpRequestMethodNotSupportedException: Request method '
 [2025-11-15 16:21:11.602] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
 [2025-11-15 16:21:18.472] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=1, result=SUCCESS
 [2025-11-15 16:21:25.326] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 16:22:06.128] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.service.LogService:?] - 查询操作日志完成: total=1719, page=1, size=10
+[2025-11-15 16:22:10.954] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.service.LogService:?] - 查询操作日志完成: total=1719, page=1, size=100
+[2025-11-15 16:24:05.360] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: user-service-8061
+[2025-11-15 16:24:05.371] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 16:24:05.374] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown initiated...
+[2025-11-15 16:24:05.381] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown completed.
+[2025-11-15 18:31:39.187] [INFO ] [user-service] [main] [com.bcu.edu.UserServiceApplication:?] - Starting UserServiceApplication using Java 17.0.6 with PID 42248 (E:\E\BYSJ\community-group-buy-backend\UserService\target\classes started by Gkr07 in E:\E\BYSJ\community-group-buy-backend)
+[2025-11-15 18:31:39.191] [INFO ] [user-service] [main] [com.bcu.edu.UserServiceApplication:?] - No active profile set, falling back to 1 default profile: "default"
+[2025-11-15 18:31:40.045] [INFO ] [user-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-11-15 18:31:40.240] [INFO ] [user-service] [main] [o.s.d.r.config.RepositoryConfigurationDelegate:?] - Finished Spring Data repository scanning in 185 ms. Found 5 JPA repository interfaces.
+[2025-11-15 18:31:40.906] [WARN ] [user-service] [main] [org.mybatis.spring.mapper.ClassPathMapperScanner:?] - No MyBatis mapper was found in '[com.bcu.edu]' package. Please check your configuration.
+[2025-11-15 18:31:41.019] [INFO ] [user-service] [main] [o.springframework.cloud.context.scope.GenericScope:?] - BeanFactory id=88e6ee63-de8b-3030-b99c-7c5df15baa42
+[2025-11-15 18:31:41.373] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2025-11-15 18:31:41.376] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.379] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.391] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.393] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.394] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda$802/0x0000000801165c58] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.398] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.403] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.409] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.411] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.413] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.419] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.427] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.429] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.430] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.433] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.434] [WARN ] [user-service] [main] [o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:?] - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2025-11-15 18:31:41.734] [INFO ] [user-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat initialized with port 8061 (http)
+[2025-11-15 18:31:41.836] [INFO ] [user-service] [main] [o.s.b.w.s.c.ServletWebServerApplicationContext:?] - Root WebApplicationContext: initialization completed in 2580 ms
+[2025-11-15 18:31:42.174] [INFO ] [user-service] [main] [org.hibernate.jpa.internal.util.LogHelper:?] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-11-15 18:31:42.239] [INFO ] [user-service] [main] [org.hibernate.Version:?] - HHH000412: Hibernate ORM core version 6.4.4.Final
+[2025-11-15 18:31:42.282] [INFO ] [user-service] [main] [o.hibernate.cache.internal.RegionFactoryInitiator:?] - HHH000026: Second-level cache disabled
+[2025-11-15 18:31:42.536] [INFO ] [user-service] [main] [o.s.o.j.persistenceunit.SpringPersistenceUnitInfo:?] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-11-15 18:31:42.569] [INFO ] [user-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Starting...
+[2025-11-15 18:31:42.718] [INFO ] [user-service] [main] [com.zaxxer.hikari.pool.HikariPool:?] - HikariPoolCP - Added connection com.mysql.cj.jdbc.ConnectionImpl@79ae3fb1
+[2025-11-15 18:31:42.720] [INFO ] [user-service] [main] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Start completed.
+[2025-11-15 18:31:42.769] [WARN ] [user-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-11-15 18:31:42.771] [WARN ] [user-service] [main] [org.hibernate.orm.deprecation:?] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2025-11-15 18:31:43.844] [INFO ] [user-service] [main] [o.h.e.t.jta.platform.internal.JtaPlatformInitiator:?] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-11-15 18:31:43.904] [INFO ] [user-service] [main] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 18:31:44.264] [INFO ] [user-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - JSqlParser is in classpath; If applicable, JSqlParser will be used
+[2025-11-15 18:31:44.264] [INFO ] [user-service] [main] [o.s.data.jpa.repository.query.QueryEnhancerFactory:?] - Hibernate is in classpath; If applicable, HQL parser will be used.
+[2025-11-15 18:31:45.949] [INFO ] [user-service] [main] [o.s.b.actuate.endpoint.web.EndpointLinksResolver:?] - Exposing 17 endpoint(s) beneath base path '/actuator'
+[2025-11-15 18:31:46.005] [WARN ] [user-service] [main] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration:?] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2025-11-15 18:31:46.131] [INFO ] [user-service] [main] [com.bcu.edu.config.StaticResourceConfig:?] - 静态资源映射配置完成: /uploads/user/** -> file:E:/E/BYSJ/community-group-buy-backend/uploads/user/
+[2025-11-15 18:31:47.116] [WARN ] [user-service] [main] [o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:?] - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+[2025-11-15 18:31:47.225] [INFO ] [user-service] [main] [o.s.boot.web.embedded.tomcat.TomcatWebServer:?] - Tomcat started on port 8061 (http) with context path ''
+[2025-11-15 18:31:47.226] [INFO ] [user-service] [main] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Registering service with consul: NewService{id='user-service-8061', name='user-service', tags=[], address='192.168.245.1', meta={secure=false}, port=8061, enableTagOverride=null, check=Check{script='null', dockerContainerID='null', shell='null', interval='15s', ttl='null', http='http://192.168.245.1:8061/actuator/health', method='null', header={}, tcp='null', timeout='null', deregisterCriticalServiceAfter='null', tlsSkipVerify=null, status='null', grpc='null', grpcUseTLS=null}, checks=null}
+[2025-11-15 18:31:47.674] [INFO ] [user-service] [main] [com.bcu.edu.UserServiceApplication:?] - Started UserServiceApplication in 9.883 seconds (process running for 10.788)
+[2025-11-15 18:31:48.022] [INFO ] [user-service] [RMI TCP Connection(2)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Initializing Servlet 'dispatcherServlet'
+[2025-11-15 18:31:48.027] [INFO ] [user-service] [RMI TCP Connection(2)-26.52.41.123] [org.springframework.web.servlet.DispatcherServlet:?] - Completed initialization in 4 ms
+[2025-11-15 18:33:01.029] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 18:35:40.587] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 18:35:44.172] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 18:49:18.300] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 18:58:43.068] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=1
+[2025-11-15 18:58:43.098] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 18:58:43.107] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 18:58:43.109] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单统计, user=1, result=SUCCESS
+[2025-11-15 18:58:43.119] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 18:58:43.132] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=5
+[2025-11-15 18:58:43.144] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=1
+[2025-11-15 18:58:43.155] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 18:58:43.166] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=5
+[2025-11-15 18:58:43.178] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=5
+[2025-11-15 18:58:43.189] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=1
+[2025-11-15 18:58:43.212] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 18:58:54.352] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 18:59:10.563] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.service.LogService:?] - 查询操作日志完成: total=1726, page=1, size=10
+[2025-11-15 18:59:43.414] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=22, result=SUCCESS
+[2025-11-15 18:59:51.821] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:51.952] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:51.961] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:51.979] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.009] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.017] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.031] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.056] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.063] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.079] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.106] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.111] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.122] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.149] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.155] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.164] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.190] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.197] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.214] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.239] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.245] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.256] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.286] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.295] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.319] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.328] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 18:59:52.339] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.365] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 18:59:52.372] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:00:19.068] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.service.UserService:?] - 用户登录成功: userId=4, username=33
+[2025-11-15 19:00:19.096] [WARN ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=认证管理, operation=用户登录, user=22
+[2025-11-15 19:01:39.556] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.service.UserService:?] - 用户登录成功: userId=3, username=22
+[2025-11-15 19:01:39.560] [WARN ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=认证管理, operation=用户登录, user=33
+[2025-11-15 19:01:51.149] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.166] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.171] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.188] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.202] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.208] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.222] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.242] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.257] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.265] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.279] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.296] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.302] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.323] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.344] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.350] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.365] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.380] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.384] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.400] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.421] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.428] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.443] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.458] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=6
+[2025-11-15 19:01:51.468] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.481] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.502] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.515] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.526] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.544] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.556] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.576] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.597] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.613] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.619] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.631] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.643] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.647] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.659] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.673] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:01:51.684] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.702] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:01:51.720] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:24.766] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=活动管理, operation=创建拼团活动, user=22, result=SUCCESS
+[2025-11-15 19:02:27.507] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.520] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.524] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.538] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.551] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.556] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.567] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.584] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.599] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.605] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.614] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.626] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.630] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.642] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.654] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.663] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.676] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.689] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.694] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.707] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.720] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.728] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.743] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.757] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=6
+[2025-11-15 19:02:27.761] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.772] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.792] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.807] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.818] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.831] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.842] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.865] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.887] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.900] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.904] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.917] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.933] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.940] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.954] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:27.972] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:02:27.984] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:28.011] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:02:28.030] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:05.778] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:05.829] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=3
+[2025-11-15 19:03:05.835] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=1
+[2025-11-15 19:03:05.927] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=unknown, result=SUCCESS
+[2025-11-15 19:03:06.399] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.service.AccountService:?] - [Saga-PAY_67] 余额扣减成功: userId=3, amount=9.90, newBalance=852.12
+[2025-11-15 19:03:06.458] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=更新支付状态, user=unknown, result=SUCCESS
+[2025-11-15 19:03:06.552] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=支付管理, operation=创建支付, user=unknown, result=SUCCESS
+[2025-11-15 19:03:06.593] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=拼团管理, operation=发起拼团, user=22, result=SUCCESS
+[2025-11-15 19:03:07.677] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:07.692] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:07.980] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:07.996] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.012] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.025] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.029] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.041] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.052] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.057] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.072] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.091] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.103] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.108] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.118] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.132] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.138] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.152] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.165] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.170] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.181] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.194] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.200] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.213] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.229] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.234] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.244] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.257] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=6
+[2025-11-15 19:03:08.263] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.279] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.298] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.309] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.319] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.338] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.350] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.367] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.383] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.394] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.400] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.411] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.424] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.428] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.439] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.451] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:08.464] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.486] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:08.508] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:14.900] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.service.UserService:?] - 用户登录成功: userId=4, username=33
+[2025-11-15 19:03:14.906] [WARN ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=认证管理, operation=用户登录, user=22
+[2025-11-15 19:03:18.486] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:22.378] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:28.189] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:42.623] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用验证用户：userId=4
+[2025-11-15 19:03:42.627] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 19:03:42.645] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=创建订单, user=unknown, result=SUCCESS
+[2025-11-15 19:03:42.666] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=拼团管理, operation=参与拼团, user=33, result=SUCCESS
+[2025-11-15 19:03:43.089] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单详情, user=33, result=SUCCESS
+[2025-11-15 19:03:48.979] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.service.AccountService:?] - [Saga-PAY_68] 余额扣减成功: userId=4, amount=9.9, newBalance=579.34
+[2025-11-15 19:03:48.995] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=更新支付状态, user=unknown, result=SUCCESS
+[2025-11-15 19:03:49.046] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=批量更新订单状态, user=unknown, result=SUCCESS
+[2025-11-15 19:03:49.104] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=支付管理, operation=创建支付, user=33, result=SUCCESS
+[2025-11-15 19:03:50.685] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.704] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.707] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.716] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.737] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.741] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.749] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.768] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.771] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.779] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.798] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.804] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.812] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.830] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.834] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.841] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.858] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.862] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.872] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.891] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.895] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.902] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.918] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=6
+[2025-11-15 19:03:50.922] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.934] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.955] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.960] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.968] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:50.987] [INFO ] [user-service] [http-nio-8061-exec-9] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:50.995] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:51.018] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:51.024] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:51.032] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:51.054] [INFO ] [user-service] [http-nio-8061-exec-3] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:51.060] [INFO ] [user-service] [http-nio-8061-exec-4] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:51.074] [INFO ] [user-service] [http-nio-8061-exec-2] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:51.096] [INFO ] [user-service] [http-nio-8061-exec-5] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:03:56.110] [INFO ] [user-service] [http-nio-8061-exec-8] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:56.121] [INFO ] [user-service] [http-nio-8061-exec-10] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=3
+[2025-11-15 19:03:56.124] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] GroupBuyService 调用获取用户信息：userId=4
+[2025-11-15 19:04:04.331] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询我的订单, user=33, result=SUCCESS
+[2025-11-15 19:04:20.717] [INFO ] [user-service] [http-nio-8061-exec-7] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=2
+[2025-11-15 19:04:20.730] [INFO ] [user-service] [http-nio-8061-exec-1] [com.bcu.edu.controller.FeignController:?] - [Feign] OrderService 调用获取地址：addressId=1
+[2025-11-15 19:04:20.746] [INFO ] [user-service] [log-async-1] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 19:05:14.690] [INFO ] [user-service] [log-async-2] [com.bcu.edu.service.LogService:?] - 操作日志已保存: module=订单管理, operation=查询订单列表, user=1, result=SUCCESS
+[2025-11-15 19:20:28.555] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: user-service-8061
+[2025-11-15 19:20:28.564] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-11-15 19:20:28.567] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown initiated...
+[2025-11-15 19:20:28.570] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown completed.
