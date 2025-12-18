@@ -744,8 +744,15 @@ public class OrderService {
         
         List<OrderMain> orders = orderMainRepository.findAllById(orderIds);
         
+        // ⭐ 修复：保存旧状态，用于判断是否需要生成佣金
         for (OrderMain order : orders) {
+            Integer oldStatus = order.getOrderStatus(); // 保存旧状态
             order.setOrderStatus(OrderStatus.DELIVERED.getCode()); // 3-已送达
+            
+            // ⭐ 修复：如果状态从非"已送达"变为"已送达"，生成佣金记录
+            if (!oldStatus.equals(OrderStatus.DELIVERED.getCode())) {
+                generateCommissionForOrder(order);
+            }
         }
         
         orderMainRepository.saveAll(orders);

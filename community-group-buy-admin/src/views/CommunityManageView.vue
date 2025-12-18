@@ -63,9 +63,10 @@
             {{ formatDate(row.createdAt) }}
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="220" fixed="right">
+        <el-table-column label="操作" width="280" fixed="right">
           <template #default="{ row }">
             <el-button size="small" @click="showDetailDialog(row)">
+              <el-icon><Location /></el-icon>
               详情
             </el-button>
             <el-button size="small" type="primary" @click="showEditDialog(row)">
@@ -159,6 +160,16 @@
           </el-col>
         </el-row>
         
+        <el-form-item label="地图选点">
+          <el-button type="primary" @click="showMapDialog">
+            <el-icon><Location /></el-icon>
+            打开地图选择位置
+          </el-button>
+          <el-text type="info" size="small" style="margin-left: 10px">
+            点击地图可精确选择社区位置
+          </el-text>
+        </el-form-item>
+        
         <el-form-item label="服务半径" prop="serviceRadius">
           <el-input-number 
             v-model="communityForm.serviceRadius" 
@@ -189,55 +200,100 @@
       </template>
     </el-dialog>
     
+    <!-- 地图选点组件 -->
+    <MapLocationPicker
+      v-model="mapDialogVisible"
+      :longitude="communityForm.longitude"
+      :latitude="communityForm.latitude"
+      :address="communityForm.address"
+      :radius="communityForm.serviceRadius"
+      @confirm="handleMapConfirm"
+    />
+    
     <!-- 社区详情对话框 -->
     <el-dialog
       v-model="detailDialogVisible"
       title="社区详情"
-      width="700px"
+      width="900px"
+      @opened="initDetailMap"
+      @closed="destroyDetailMap"
     >
-      <el-descriptions :column="2" border v-if="currentCommunity">
-        <el-descriptions-item label="社区ID">
-          {{ currentCommunity.communityId }}
-        </el-descriptions-item>
-        <el-descriptions-item label="社区名称">
-          {{ currentCommunity.name }}
-        </el-descriptions-item>
-        <el-descriptions-item label="省份">
-          {{ currentCommunity.province || '未填写' }}
-        </el-descriptions-item>
-        <el-descriptions-item label="城市">
-          {{ currentCommunity.city || '未填写' }}
-        </el-descriptions-item>
-        <el-descriptions-item label="区/县">
-          {{ currentCommunity.district || '未填写' }}
-        </el-descriptions-item>
-        <el-descriptions-item label="详细地址" :span="2">
-          {{ currentCommunity.address }}
-        </el-descriptions-item>
-        <el-descriptions-item label="经度">
-          {{ currentCommunity.longitude }}
-        </el-descriptions-item>
-        <el-descriptions-item label="纬度">
-          {{ currentCommunity.latitude }}
-        </el-descriptions-item>
-        <el-descriptions-item label="服务半径">
-          {{ currentCommunity.serviceRadius }}米
-        </el-descriptions-item>
-        <el-descriptions-item label="状态">
-          <el-tag :type="currentCommunity.status === 1 ? 'success' : 'danger'">
-            {{ currentCommunity.status === 1 ? '正常运营' : '已关闭' }}
-          </el-tag>
-        </el-descriptions-item>
-        <el-descriptions-item label="社区简介" :span="2">
-          {{ currentCommunity.description || '暂无' }}
-        </el-descriptions-item>
-        <el-descriptions-item label="创建时间">
-          {{ formatDate(currentCommunity.createdAt) }}
-        </el-descriptions-item>
-        <el-descriptions-item label="更新时间">
-          {{ formatDate(currentCommunity.updatedAt) }}
-        </el-descriptions-item>
-      </el-descriptions>
+      <div v-if="currentCommunity">
+        <!-- 基本信息 -->
+        <el-descriptions :column="2" border style="margin-bottom: 20px">
+          <el-descriptions-item label="社区ID">
+            {{ currentCommunity.communityId }}
+          </el-descriptions-item>
+          <el-descriptions-item label="社区名称">
+            <el-text type="primary" style="font-weight: bold; font-size: 16px">
+              {{ currentCommunity.name }}
+            </el-text>
+          </el-descriptions-item>
+          <el-descriptions-item label="省份">
+            {{ currentCommunity.province || '未填写' }}
+          </el-descriptions-item>
+          <el-descriptions-item label="城市">
+            {{ currentCommunity.city || '未填写' }}
+          </el-descriptions-item>
+          <el-descriptions-item label="区/县">
+            {{ currentCommunity.district || '未填写' }}
+          </el-descriptions-item>
+          <el-descriptions-item label="状态">
+            <el-tag :type="currentCommunity.status === 1 ? 'success' : 'danger'">
+              {{ currentCommunity.status === 1 ? '正常运营' : '已关闭' }}
+            </el-tag>
+          </el-descriptions-item>
+          <el-descriptions-item label="详细地址" :span="2">
+            {{ currentCommunity.address }}
+          </el-descriptions-item>
+          <el-descriptions-item label="经度">
+            {{ currentCommunity.longitude }}
+          </el-descriptions-item>
+          <el-descriptions-item label="纬度">
+            {{ currentCommunity.latitude }}
+          </el-descriptions-item>
+          <el-descriptions-item label="服务半径">
+            <el-text type="danger" style="font-weight: bold">
+              {{ currentCommunity.serviceRadius }}米
+            </el-text>
+          </el-descriptions-item>
+          <el-descriptions-item label="覆盖面积">
+            <el-text type="success" style="font-weight: bold">
+              {{ (Math.PI * Math.pow(currentCommunity.serviceRadius / 1000, 2)).toFixed(2) }} 平方公里
+            </el-text>
+          </el-descriptions-item>
+          <el-descriptions-item label="社区简介" :span="2">
+            {{ currentCommunity.description || '暂无' }}
+          </el-descriptions-item>
+          <el-descriptions-item label="创建时间">
+            {{ formatDate(currentCommunity.createdAt) }}
+          </el-descriptions-item>
+          <el-descriptions-item label="更新时间">
+            {{ formatDate(currentCommunity.updatedAt) }}
+          </el-descriptions-item>
+        </el-descriptions>
+        
+        <!-- 地图可视化 -->
+        <el-divider content-position="left">
+          <el-icon><Location /></el-icon>
+          <span style="margin-left: 5px">位置与服务范围</span>
+        </el-divider>
+        
+        <el-alert 
+          title="地图说明" 
+          type="info" 
+          :closable="false"
+          style="margin-bottom: 15px"
+        >
+          <p>• 红色标记：社区中心位置</p>
+          <p>• 蓝色圆圈：服务覆盖范围（半径 {{ currentCommunity.serviceRadius }}米）</p>
+        </el-alert>
+        
+        <div 
+          id="community-detail-map" 
+          style="width: 100%; height: 450px; border: 1px solid #dcdfe6; border-radius: 4px;"
+        ></div>
+      </div>
     </el-dialog>
   </div>
 </template>
@@ -245,7 +301,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { Plus } from '@element-plus/icons-vue'
+import { Plus, Location } from '@element-plus/icons-vue'
 import {
   getCommunityList,
   getCommunitiesByStatus,
@@ -253,6 +309,7 @@ import {
   updateCommunity,
   deleteCommunity
 } from '../api/leader'
+import MapLocationPicker from '../components/MapLocationPicker.vue'
 
 // 数据
 const communityList = ref([])
@@ -265,6 +322,12 @@ const dialogMode = ref('create') // 'create' | 'edit'
 const detailDialogVisible = ref(false)
 const currentCommunity = ref(null)
 const submitting = ref(false)
+
+// 地图相关
+const mapDialogVisible = ref(false)
+let detailMapInstance = null
+let detailMapMarker = null
+let detailMapCircle = null
 
 // 表单
 const communityFormRef = ref(null)
@@ -456,6 +519,114 @@ const formatDate = (dateStr) => {
     minute: '2-digit',
     second: '2-digit'
   })
+}
+
+// 地图相关方法
+const showMapDialog = () => {
+  mapDialogVisible.value = true
+}
+
+const handleMapConfirm = (location) => {
+  // 将地图选择的经纬度和地址信息填入表单
+  communityForm.value.longitude = location.longitude
+  communityForm.value.latitude = location.latitude
+  
+  // 如果返回了服务半径，也更新到表单
+  if (location.serviceRadius) {
+    communityForm.value.serviceRadius = location.serviceRadius
+  }
+  
+  // 自动填充省市区信息（仅在字段为空时）
+  if (!communityForm.value.province && location.province) {
+    communityForm.value.province = location.province
+  }
+  if (!communityForm.value.city && location.city) {
+    communityForm.value.city = location.city
+  }
+  if (!communityForm.value.district && location.district) {
+    communityForm.value.district = location.district
+  }
+  
+  // 如果表单地址为空，填入地图获取的地址
+  if (!communityForm.value.address && location.address) {
+    communityForm.value.address = location.address
+  }
+  
+  ElMessage.success('位置已选择')
+}
+
+// 初始化详情地图
+const initDetailMap = () => {
+  if (!window.AMap || !currentCommunity.value) {
+    return
+  }
+  
+  // 延迟初始化，确保DOM已渲染
+  setTimeout(() => {
+    const community = currentCommunity.value
+    
+    // 创建地图实例
+    detailMapInstance = new window.AMap.Map('community-detail-map', {
+      resizeEnable: true,
+      center: [community.longitude, community.latitude],
+      zoom: 15
+    })
+    
+    // 创建标记（红色）
+    detailMapMarker = new window.AMap.Marker({
+      position: [community.longitude, community.latitude],
+      icon: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_r.png',
+      anchor: 'bottom-center',
+      title: community.name
+    })
+    detailMapInstance.add(detailMapMarker)
+    
+    // 创建服务范围圆圈
+    detailMapCircle = new window.AMap.Circle({
+      center: [community.longitude, community.latitude],
+      radius: community.serviceRadius,
+      strokeColor: '#1890ff',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#1890ff',
+      fillOpacity: 0.2
+    })
+    detailMapInstance.add(detailMapCircle)
+    
+    // 自动调整视野以完整显示圆圈
+    detailMapInstance.setFitView([detailMapCircle, detailMapMarker])
+    
+    // 添加信息窗体
+    const infoWindow = new window.AMap.InfoWindow({
+      content: `
+        <div style="padding: 10px;">
+          <h4 style="margin: 0 0 10px 0; color: #1890ff;">${community.name}</h4>
+          <p style="margin: 5px 0;"><strong>地址：</strong>${community.address}</p>
+          <p style="margin: 5px 0;"><strong>服务半径：</strong>${community.serviceRadius}米</p>
+          <p style="margin: 5px 0;"><strong>覆盖面积：</strong>${(Math.PI * Math.pow(community.serviceRadius / 1000, 2)).toFixed(2)}平方公里</p>
+        </div>
+      `,
+      offset: new window.AMap.Pixel(0, -30)
+    })
+    
+    // 点击标记显示信息窗体
+    detailMapMarker.on('click', () => {
+      infoWindow.open(detailMapInstance, detailMapMarker.getPosition())
+    })
+    
+    // 默认打开信息窗体
+    infoWindow.open(detailMapInstance, detailMapMarker.getPosition())
+  }, 100)
+}
+
+// 销毁详情地图
+const destroyDetailMap = () => {
+  if (detailMapInstance) {
+    detailMapInstance.destroy()
+    detailMapInstance = null
+  }
+  detailMapMarker = null
+  detailMapCircle = null
 }
 
 // 生命周期

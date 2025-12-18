@@ -1,9 +1,0 @@
-[2025-11-05 00:00:07.285] [INFO ] [leader-service] [http-nio-8068-exec-2] [com.bcu.edu.controller.LeaderController:?] - 管理员查询待审核团长申请
-[2025-11-05 00:00:07.843] [INFO ] [leader-service] [http-nio-8068-exec-3] [c.b.edu.controller.CommunityApplicationController:?] - 管理员查询待审核申请
-[2025-11-05 00:00:08.854] [INFO ] [leader-service] [http-nio-8068-exec-4] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
-[2025-11-05 00:00:09.151] [INFO ] [leader-service] [http-nio-8068-exec-5] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
-[2025-11-05 00:00:27.549] [INFO ] [leader-service] [http-nio-8068-exec-8] [com.bcu.edu.controller.CommunityController:?] - 查询所有正常运营的社区
-[2025-11-05 00:01:34.139] [INFO ] [leader-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: leader-service-8068
-[2025-11-05 00:01:34.150] [INFO ] [leader-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
-[2025-11-05 00:01:34.153] [INFO ] [leader-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown initiated...
-[2025-11-05 00:01:34.156] [INFO ] [leader-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - LeaderServiceHikariCP - Shutdown completed.

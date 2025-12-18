@@ -248,5 +248,12 @@ public class CommissionService {
     public List<CommissionRecord> getCommissionsBySettlementBatch(String settlementBatch) {
         return commissionRecordRepository.findBySettlementBatchOrderByCreatedAtDesc(settlementBatch);
     }
+
+    /**
+     * 查询所有已结算的佣金记录
+     */
+    public List<CommissionRecord> getAllSettledCommissions() {
+        return commissionRecordRepository.findByStatusOrderByCreatedAtDesc(1);
+    }
 }
 

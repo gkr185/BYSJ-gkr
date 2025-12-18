@@ -254,7 +254,7 @@
             <el-option 
               v-for="community in communityList" 
               :key="community.communityId" 
-              :label="community.communityName" 
+              :label="community.name || community.communityName" 
               :value="community.communityId" 
             />
           </el-select>
@@ -334,7 +334,7 @@
             <el-option 
               v-for="community in communityList" 
               :key="community.communityId" 
-              :label="community.communityName" 
+              :label="community.name || community.communityName" 
               :value="community.communityId" 
             />
           </el-select>
@@ -551,8 +551,10 @@ const getRoleType = (role) => {
 
 // 获取社区名称
 const getCommunityName = (communityId) => {
+  if (!communityId) return '未分配'
   const community = communityList.value.find(c => c.communityId === communityId)
-  return community ? community.communityName : '未知社区'
+  // 后端返回的字段名是 name（对应数据库的 community_name）
+  return community ? (community.name || community.communityName || '未知社区') : '未知社区'
 }
 
 // 查看用户详情
@@ -726,9 +728,15 @@ const handleEdit = async () => {
 const fetchCommunityList = async () => {
   try {
     const res = await getCommunityList()
-    communityList.value = res.data || []
+    // 后端返回的字段：communityId, name（对应数据库的 community_name）
+    // 为了统一使用，添加 communityName 别名
+    communityList.value = (res.data || []).map(community => ({
+      ...community,
+      communityName: community.name  // name 是后端返回的社区名称字段
+    }))
   } catch (error) {
     console.error('获取社区列表失败:', error)
+    communityList.value = []
   }
 }
 

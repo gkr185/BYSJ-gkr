@@ -260,6 +260,16 @@ export const getPendingCommissions = () => {
 }
 
 /**
+ * 【管理员】查询所有已结算佣金
+ */
+export const getSettledCommissions = () => {
+  return request({
+    url: '/api/commission/settled',
+    method: 'GET'
+  })
+}
+
+/**
  * 【管理员】根据结算批次号查询佣金记录
  */
 export const getCommissionsByBatch = (settlementBatch) => {

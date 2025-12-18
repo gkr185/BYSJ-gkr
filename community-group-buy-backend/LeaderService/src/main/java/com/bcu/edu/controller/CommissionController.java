@@ -103,6 +103,19 @@ public class CommissionController {
     }
 
     /**
+     * 【管理员】查询所有已结算佣金记录
+     * 
+     * GET /api/commission/settled
+     */
+    @GetMapping("/settled")
+    @Operation(summary = "查询已结算佣金", description = "管理员查询所有已结算的佣金记录")
+    public Result<List<CommissionRecord>> getAllSettledCommissions() {
+        log.info("管理员查询已结算佣金");
+        List<CommissionRecord> records = commissionService.getAllSettledCommissions();
+        return Result.success(records);
+    }
+
+    /**
      * 【管理员】手动触发佣金结算
      * 
      * POST /api/commission/settle

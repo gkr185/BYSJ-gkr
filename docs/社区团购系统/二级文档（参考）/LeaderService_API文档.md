@@ -241,11 +241,37 @@
 
 - **接口**：`GET /api/commission/pending`
 
-### 4. 【管理员】查询结算批次
+### 4. 【管理员】查询已结算佣金
+
+- **接口**：`GET /api/commission/settled`
+- **响应示例**：
+  ```json
+  {
+    "code": 200,
+    "message": "success",
+    "data": [
+      {
+        "recordId": 1,
+        "leaderId": 1,
+        "leaderName": "李四",
+        "orderId": 100,
+        "orderAmount": 100.00,
+        "commissionRate": 10.00,
+        "commissionAmount": 10.00,
+        "status": 1,
+        "settledAt": "2025-11-01T02:00:00",
+        "settlementBatch": "20251101",
+        "createdAt": "2025-10-30T12:00:00"
+      }
+    ]
+  }
+  ```
+
+### 5. 【管理员】查询结算批次
 
 - **接口**：`GET /api/commission/batch/{settlementBatch}`
 
-### 5. 【管理员】手动结算佣金
+### 6. 【管理员】手动结算佣金
 
 - **接口**：`POST /api/commission/settle`
 

@@ -1,6 +1,0 @@
-[2025-11-05 00:00:02.783] [INFO ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.service.UserService:?] - 用户信息更新成功: userId=3
-[2025-11-05 00:00:02.789] [WARN ] [user-service] [http-nio-8061-exec-6] [com.bcu.edu.common.feign.LogFeignClientFallback:?] - 日志服务不可用，本地记录: module=用户管理, operation=编辑用户, user=22
-[2025-11-05 00:01:34.124] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: user-service-8061
-[2025-11-05 00:01:34.137] [INFO ] [user-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
-[2025-11-05 00:01:34.141] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown initiated...
-[2025-11-05 00:01:34.144] [INFO ] [user-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPoolCP - Shutdown completed.

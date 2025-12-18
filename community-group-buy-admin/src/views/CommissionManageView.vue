@@ -9,7 +9,7 @@
               <el-icon><Money /></el-icon>
               手动结算佣金
             </el-button>
-            <el-button @click="fetchCommissions">刷新</el-button>
+            <el-button @click="fetchAllCommissions">刷新</el-button>
           </div>
         </div>
       </template>
@@ -37,7 +37,7 @@
       </el-row>
       
       <!-- 状态Tabs -->
-      <el-tabs v-model="activeTab" @tab-click="handleTabClick">
+      <el-tabs v-model="activeTab" @tab-change="handleTabChange">
         <el-tab-pane label="待结算" name="pending">
           <el-badge :value="pendingCount" :hidden="pendingCount === 0" class="tab-badge" />
         </el-tab-pane>
@@ -136,9 +136,11 @@
 import { ref, computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Money } from '@element-plus/icons-vue'
-import { getPendingCommissions, settleCommissions, getCommissionsByBatch } from '../api/leader'
+import { getPendingCommissions, getSettledCommissions, settleCommissions, getCommissionsByBatch } from '../api/leader'
 
 const commissionList = ref([])
+const pendingList = ref([])  // 存储待结算列表
+const settledList = ref([])  // 存储已结算列表
 const loading = ref(false)
 const activeTab = ref('pending')
 const settleDialogVisible = ref(false)
@@ -147,31 +149,49 @@ const settling = ref(false)
 const batchDetails = ref(null)
 const currentBatch = ref('')
 
-const pendingCount = computed(() => activeTab.value === 'pending' ? commissionList.value.length : 0)
+const pendingCount = computed(() => pendingList.value.length)
+
 const pendingTotal = computed(() => {
-  if (activeTab.value !== 'pending') return 0
-  return commissionList.value.reduce((sum, item) => sum + parseFloat(item.commissionAmount || 0), 0).toFixed(2)
+  return pendingList.value.reduce((sum, item) => sum + parseFloat(item.commissionAmount || 0), 0).toFixed(2)
 })
+
 const settledMonthTotal = computed(() => {
-  if (activeTab.value !== 'settled') return 0
   const thisMonth = new Date().getMonth()
-  return commissionList.value.filter(item => new Date(item.settledAt).getMonth() === thisMonth)
+  return settledList.value.filter(item => new Date(item.settledAt).getMonth() === thisMonth)
     .reduce((sum, item) => sum + parseFloat(item.commissionAmount || 0), 0).toFixed(2)
 })
+
 const batchTotal = computed(() => {
   if (!batchDetails.value) return 0
   return batchDetails.value.reduce((sum, item) => sum + parseFloat(item.commissionAmount || 0), 0).toFixed(2)
 })
 
-const fetchCommissions = async () => {
+// 加载所有佣金数据（待结算+已结算）
+const fetchAllCommissions = async () => {
   loading.value = true
   try {
-    const res = await getPendingCommissions()
-    if (res.code === 200) {
-      commissionList.value = res.data || []
+    // 并行获取待结算和已结算数据
+    const [pendingRes, settledRes] = await Promise.all([
+      getPendingCommissions(),
+      getSettledCommissions()
+    ])
+    
+    // 处理待结算数据
+    if (pendingRes.code === 200) {
+      pendingList.value = pendingRes.data || []
     } else {
-      ElMessage.error(res.message || '获取佣金列表失败')
+      ElMessage.error(pendingRes.message || '获取待结算佣金失败')
     }
+    
+    // 处理已结算数据
+    if (settledRes.code === 200) {
+      settledList.value = settledRes.data || []
+    } else {
+      ElMessage.error(settledRes.message || '获取已结算佣金失败')
+    }
+    
+    // 根据当前标签设置显示列表
+    commissionList.value = activeTab.value === 'pending' ? pendingList.value : settledList.value
   } catch (error) {
     console.error('获取佣金列表失败:', error)
     ElMessage.error('获取佣金列表失败')
@@ -180,7 +200,13 @@ const fetchCommissions = async () => {
   }
 }
 
-const handleTabClick = () => fetchCommissions()
+// 切换标签时只更新显示列表，不重新请求数据
+// 使用 @tab-change 事件，参数是新的标签名称
+const handleTabChange = (tabName) => {
+  // 使用事件参数而不是 activeTab.value，避免延迟问题
+  commissionList.value = tabName === 'pending' ? pendingList.value : settledList.value
+}
+
 const showSettleDialog = () => { settleDialogVisible.value = true }
 
 const handleSettle = async () => {
@@ -190,7 +216,8 @@ const handleSettle = async () => {
     if (res.code === 200) {
       ElMessage.success({ message: `佣金结算成功！结算批次：${res.data.settlementBatch}，共结算 ${res.data.settledCount} 笔`, duration: 5000 })
       settleDialogVisible.value = false
-      fetchCommissions()
+      // 结算后重新加载所有数据
+      fetchAllCommissions()
     } else {
       ElMessage.error(res.message || '结算失败')
     }
@@ -219,8 +246,7 @@ const viewBatch = async (batchNo) => {
 }
 
 const viewLeader = (leaderId) => {
-  // TODO: 跳转到团长详情
-  console.log('查看团长:', leaderId)
+  // TODO: 跳转到团长详情页面
 }
 
 const getStatusType = (status) => ({ 0: 'warning', 1: 'success', 2: 'danger' }[status] || 'info')
@@ -230,7 +256,7 @@ const formatDate = (dateStr) => {
   return new Date(dateStr).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' })
 }
 
-onMounted(() => fetchCommissions())
+onMounted(() => fetchAllCommissions())
 </script>
 
 <style scoped>
@@ -238,4 +264,3 @@ onMounted(() => fetchCommissions())
 .card-header { display: flex; justify-content: space-between; align-items: center; }
 .tab-badge { margin-left: 8px; }
 </style>
-

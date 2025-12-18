@@ -1,5 +1,0 @@
-[2025-11-05 00:00:53.665] [INFO ] [payment-service] [http-nio-8066-exec-7] [com.bcu.edu.controller.PaymentController:?] - 查询用户支付记录: userId=3
-[2025-11-05 00:01:34.179] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.c.consul.serviceregistry.ConsulServiceRegistry:?] - Deregistering service with consul: payment-service-8066
-[2025-11-05 00:01:34.188] [INFO ] [payment-service] [SpringApplicationShutdownHook] [o.s.orm.jpa.LocalContainerEntityManagerFactoryBean:?] - Closing JPA EntityManagerFactory for persistence unit 'default'
-[2025-11-05 00:01:34.192] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown initiated...
-[2025-11-05 00:01:34.195] [INFO ] [payment-service] [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource:?] - HikariPool-1 - Shutdown completed.
